@@ -1600,10 +1600,15 @@ const Header = (function () {
             const $nextSubItem = $controller.closest(".mega-menu__sub-item").nextAll(".mega-menu__sub-item").find(".mega-menu__sub-link").first();
             if ($nextSubItem.length) return $nextSubItem;
         } else if ($controller.hasClass("mega-menu__link")) {
-            const $nextItem = $controller.closest(".mega-menu__item").nextAll(".mega-menu__item").find(".mega-menu__link").first();
-            if ($nextItem.length) return $nextItem;
+            const $currentSection = $controller.closest(".mega-menu__section");
+            const $allSectionLinks = $currentSection.find(".mega-menu__link");
+            const currentIndex = $allSectionLinks.index($controller);
 
-            let $nextSection = $controller.closest(".mega-menu__section").nextAll(".mega-menu__section").first();
+            if (currentIndex !== -1 && currentIndex + 1 < $allSectionLinks.length) {
+                return $allSectionLinks.eq(currentIndex + 1);
+            }
+
+            let $nextSection = $currentSection.nextAll(".mega-menu__section").first();
             while ($nextSection.length) {
                 let $link = $nextSection.find(".mega-menu__link").first();
                 if ($link.length) return $link;
