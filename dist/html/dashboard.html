@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 개발시 삭제: robots -->
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="../static/dashboard/sshpre.css" />
+    <!--
+  Vue.js: Vue의 문법으로 Dashboard 구성
+  lodash.min.js: Array / Object 관련
+  sshpre.umd.min.js: Vue 용 Syntax Highlighter
+  -->
+    <script src="../static/dashboard/moment-with-locales.min.js"></script>
+    <script src="../static/dashboard/vue.js"></script>
+    <script src="../static/dashboard/lodash.min.js"></script>
+    <script src="../static/dashboard/sshpre.umd.min.js"></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link href="../static/css/global.css" rel="stylesheet"> -->
+
+    <style>
+      /*
+  * Dashboard 의 기본 설정(css 변수)
+  */
+      body {
+        --color: #00bfc2;
+        --blue: #00bfc2;
+        --action: all 0.3s ease;
+        --header: 50px;
+        --menu: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="wrapper">
+        <div class="title">페이지 목록</div>
+        <template v-for="(list, i) in getPage">
+          <div class="page-title">{{ list.category }}</div>
+          <div class="pages header">
+            <!-- <div class="step page-id">화면명</div> -->
+            <div class="step step-level">Depth</div>
+            <div class="step date">최종수정일</div>
+            <div class="step status">상태</div>
+            <div class="step status">
+              {{ list.category === 'Interaction' ? '적용대상': '수정내역'}}
+            </div>
+            <div class="step link">Link</div>
+            <div class="step memo">Memo</div>
+          </div>
+          <div
+            v-for="(page, p) in list.pages"
+            v-show="page.isVisible"
+            :key="p"
+            :class="{'parent-depth': page.isTitle, 'is-pot': page.pot}"
+            class="pages"
+          >
+            <template v-if="page.isTitle">
+              {{ page.L1 }} (전체: {{ page.count }} / 완료: {{ page.complete }}
+              / 검수필요: {{ page.ing }})
+            </template>
+            <template v-else>
+              <div class="step step-level">
+                <span>
+                  <template v-if="page.pot"
+                    ><strong>{{ page.complete}}</strong> -</template
+                  >
+                  <template v-if="page.L1">{{ page.L1 }}</template>
+                  <template v-if="page.L2">> {{ page.L2 }}</template>
+                  <template v-if="page.L3">> {{ page.L3 }}</template>
+                </span>
+              </div>
+              <div class="step date">{{ setDate(page.date) }}</div>
+              <div class="step status">
+                <button
+                  class="status"
+                  @click="showStatus(page.status)"
+                  :class="[
+          { 'wait': page.status === 0},
+          { 'comp': page.status === 1},
+          { 'modify': page.status === 2 },
+          { 'modify': page.status === 4 }
+        ]"
+                >
+                  {{ page.status === 0 && '대기' || page.status === 1 && '완료'
+                  || page.status === 2 && '수정' || page.status === 4 && '수정'
+                  }}
+                </button>
+              </div>
+              <div class="step status">
+                <button
+                  type="button"
+                  class="modify-button"
+                  v-if="page.status === 4 || list.category === 'Interaction'"
+                  @click="setReversion(page.pageId)"
+                >
+                  {{ list.category === 'Interaction' ? '적용대상': '수정내역' }}
+                </button>
+              </div>
+              <div class="step link">
+                <template v-if="page.pageType != 'A'">
+                  <a :href="makeURL(page.folder, page.pageId)" target="_blank"
+                    >{{ page.pageId }}</a
+                  >
+                </template>
+                <template v-else> API </template>
+              </div>
+              <div class="step memo" :title="page.memo">{{ page.memo }}</div>
+            </template>
+          </div>
+        </template>
+        <div class="change-layer" v-show="showReversion">
+          <div class="change-layer__inner">
+            <button
+              type="button"
+              class="change-layer__close"
+              @click="showReversion = false"
+            ></button>
+            <div class="change-layer__header">
+              {{ changeLog.pageId }} {{ changeLog.pageId.split('_')[0] !==
+              'animate' ? '수정내역' : '적용대상'}}
+            </div>
+            <div class="change-layer__list">
+              <div class="change-layer__list-header">
+                <div
+                  class="date"
+                  v-if="changeLog.pageId.split('_')[0] !== 'animate'"
+                >
+                  주석
+                </div>
+                <div class="desc">
+                  {{ changeLog.pageId.split('_')[0] === 'animate' ? '적용대상' :
+                  '수정내역' }}
+                </div>
+              </div>
+              <div
+                class="change-layer__list-item"
+                v-for="(list, i) in changeLog.modifyList"
+                :key="i"
+              >
+                <div
+                  class="date"
+                  v-if="changeLog.pageId.split('_')[0] !== 'animate'"
+                >
+                  {{ list.date }}
+                </div>
+                <div class="desc">{{ list.desc }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="application/json" id="pageList">
+      [
+        {
+          "category": "pages",
+          "pages": [
+            {
+              "pageId": "layout",
+              "folder": "guide",
+              "L1": "layout",
+              "L2": "",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": "lnb-드롭다운"
+            },
+            {
+              "pageId": "layout_lnb02",
+              "folder": "guide",
+              "L1": "layout",
+              "L2": "",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": "lnb 나열"
+            },
+            {
+              "pageId": "index",
+              "folder": "main",
+              "L1": "index",
+              "L2": "",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": "확정"
+            },
+            {
+              "pageId": "index_type02",
+              "folder": "main",
+              "L1": "index",
+              "L2": "type02",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "index",
+              "folder": "contact",
+              "L1": "contact",
+              "L2": "index",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "form",
+              "folder": "contact",
+              "L1": "contact",
+              "L2": "form",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "it-service-form",
+              "folder": "contact",
+              "L1": "contact",
+              "L2": "it-service-form",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "complete",
+              "folder": "contact",
+              "L1": "contact",
+              "L2": "complete",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "report",
+              "folder": "insight",
+              "L1": "insight",
+              "L2": "report",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "report-detail",
+              "folder": "insight",
+              "L1": "insight",
+              "L2": "report-detail",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "report-detail_legacy",
+              "folder": "insight",
+              "L1": "insight",
+              "L2": "report-detail_legacy",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "base",
+              "folder": "offering",
+              "L1": "오퍼링",
+              "L2": "전체 모듈",
+              "L3": "",
+              "L4": "",
+              "date": "",
+              "status": 2,
+              "memo": ""
+            },
+            {
+              "pageId": "brity_works",
+              "folder": "offering",
+              "L1": "오퍼링",
+              "L2": "브리티웍스",
+              "L3": "",
+              "L4": "",
+              "date": "2026-08-12",
+              "status": 1,
+              "memo": ""
+            },
+            {
+              "pageId": "brity_works_gov",
+              "folder": "offering",
+              "L1": "오퍼링",
+              "L2": "브리티웍스(공공)",
+              "L3": "",
+              "L4": "",
+              "date": "2026-08-12",
+              "status": 1,
+              "memo": ""
+            },
+            {
+              "pageId": "fabrix",
+              "folder": "offering",
+              "L1": "오퍼링",
+              "L2": "패브릭스",
+              "L3": "",
+              "L4": "",
+              "date": "2026-08-12",
+              "status": 1,
+              "memo": ""
+            },
+            {
+              "pageId": "scp",
+              "folder": "offering",
+              "L1": "오퍼링",
+              "L2": "삼성클라우드플랫폼",
+              "L3": "",
+              "L4": "",
+              "date": "2026-08-12",
+              "status": 1,
+              "memo": ""
+            },
+            {
+              "pageId": "brity_automation",
+              "folder": "offering",
+              "L1": "오퍼링",
+              "L2": "브리티오토메이션",
+              "L3": "",
+              "L4": "",
+              "date": "2026-08-12",
+              "status": 1,
+              "memo": ""
+            },
+            {
+              "pageId": "ai_fullstack",
+              "folder": "offering",
+              "L1": "오퍼링",
+              "L2": "AI 풀스텍",
+              "L3": "",
+              "L4": "",
+              "date": "2026-08-12",
+              "status": 1,
+              "memo": ""
+            }
+          ]
+        }
+      ]
+    </script>
+    <script type="application/json" id="changeLog">
+      [
+        {
+          "pageId": "layout",
+          "modifyList": [{ "date": "2026-07-27", "desc": "LNB 드롭다운" }]
+        }
+      ]
+    </script>
+    <script>
+      const pageList = document.querySelector("#pageList");
+      const pageData = eval(pageList.textContent);
+      const modifyList = document.querySelector("#changeLog");
+      const modifyData = eval(modifyList.textContent);
+
+      new Vue({
+        el: "#app",
+        data: () => {
+          return {
+            activeIndex: 0, // 페이지 목록의 탭 활성화
+            activeMenu: "common", // 메뉴 설정
+            activeNav: false, // 메뉴 활성화
+            isModify: false, // 수정된 목록 노출여부
+            showAll: false, // 페이지 목록 ? 탭형태: 전체 목록
+            currentComponent: "paragraph",
+            showReversion: false,
+            fontSize: 10,
+            currentStatus: 9,
+            logList: [],
+            logCurrent: false,
+            orderBy: "none",
+            origin: [],
+            reversionLog: {
+              pageId: "layout",
+              modifyList: [
+                {
+                  date: "2024-03-27",
+                  desc: "수정수정함",
+                },
+              ],
+            },
+          };
+        },
+        components: {
+          sshpre,
+        },
+        computed: {
+          // 모바일 구분
+          isMobile() {
+            if (
+              /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent,
+              )
+            ) {
+              return true;
+            } else {
+              return false;
+            }
+          },
+          selectedStatus() {
+            const _ = this;
+            return _.currentStatus;
+          },
+          getPage() {
+            // revision log 가 있는 화면 ID 를 찾아서 수정일 자동 기입
+            const page = pageData;
+            const log = this.revisionLog;
+            const result = this.getList(log, pageData);
+
+            result.forEach((mainArray) => {
+              let countResult = 0;
+              const count = _.forEach(mainArray.pages, (o) => {
+                if (o.isTitle) {
+                  countResult += o.count;
+                }
+                // return !o.isTitle;
+              });
+              const complete = _.filter(mainArray.pages, (o) => {
+                return o.complete;
+              });
+              const ing = _.filter(mainArray.pages, (o) => {
+                if (o.status === 2) {
+                  return o;
+                }
+              });
+
+              mainArray.count = countResult;
+
+              // console.log(mainArray.pages.length, count)
+              mainArray.ing = ing.length;
+              mainArray.complete = complete.length;
+            });
+
+            return result;
+          },
+          changeLog() {
+            return this.reversionLog;
+          },
+        },
+        created() {
+          // 페이지 로드되었을때 localStorage 에서 활성화된 메뉴들을 가져옴(없으면 초기화)
+          const current = localStorage.getItem("current");
+          const menu = localStorage.getItem("active");
+          const compo = localStorage.getItem("component");
+          if (!!current) {
+            // current 는 string 형태이므로 number 로 변환
+            this.activeIndex = current * 1;
+          } else {
+            this.activeIndex = 0;
+          }
+          if (!!menu) {
+            this.activeMenu = menu;
+          } else {
+            this.activeMenu = "common";
+          }
+          if (!!compo) {
+            this.currentComponent = compo;
+          } else {
+            this.currentComponent = "paragraph";
+          }
+        },
+        methods: {
+          orderList(list, target, order) {
+            const item = _.orderBy(list, target, order);
+            return item;
+          },
+          // 페이지 목록 정렬
+          getList(log, page) {
+            const result = _.cloneDeep(page);
+            let asdf = 0;
+
+            // console.log(result)
+            result.forEach((category, i) => {
+              const pages = category.pages;
+
+              pages.forEach((page) => {
+                if (page.isTitle) {
+                  const textObj = _.groupBy(pages, "L1");
+
+                  const ing = _.filter(textObj[page.L1], (el) => {
+                    return el.status === 2;
+                  });
+
+                  const count =
+                    textObj[page.L1].length === 1
+                      ? 1
+                      : textObj[page.L1].length - 1;
+                  // console.log(count)
+                  const complete = _.compact(
+                    _.map(textObj[page.L1], "complete"),
+                  );
+
+                  page.count = count;
+                  page.complete = complete.length;
+                  page.ing = ing.length;
+                  asdf += count;
+                }
+                if (this.selectedStatus === 9) {
+                  page.isVisible = true;
+                } else {
+                  if (page.status === this.selectedStatus || page.isTitle) {
+                    page.isVisible = true;
+                  } else {
+                    page.isVisible = false;
+                  }
+                }
+
+                if (page.status === 4) {
+                  modifyData.forEach((m) => {
+                    if (m.pageId === page.pageId) {
+                      page.date = m.modifyList[m.modifyList.length - 1].date;
+                    }
+                  });
+                }
+              });
+            });
+            return result;
+          },
+          // 활성화 탭 걸졍(localStorage 에 저장)
+          activeTab(idx) {
+            this.activeIndex = idx;
+            localStorage.setItem("current", idx);
+          },
+          // 활성화 메뉴 걸졍(localStorage 에 저장)
+          activeItem(menu) {
+            this.activeMenu = menu;
+            this.activeNav = false;
+            localStorage.setItem("active", menu);
+          },
+          changeComponent(item) {
+            this.currentComponent = item;
+            localStorage.setItem("component", item);
+          },
+          sortBy(i) {
+            if (this.orderBy === "ascending") {
+              this.orderBy = "descending";
+            } else if (this.orderBy === "descending") {
+              this.orderBy = "none";
+            } else {
+              this.orderBy = "ascending";
+            }
+          },
+          // 수정이력 보기
+          viewLog(pid) {
+            const pageId = pid;
+            const list = this.revisionLog;
+            let msg = [];
+
+            _.forEach(list, (k, v) => {
+              if (k.pageId === pageId) {
+                msg = k.list;
+              }
+            });
+
+            this.logCurrent = pid;
+          },
+          makeURL(folder, page) {
+            const fullURL = `./${folder}/${page}.html`;
+
+            return fullURL;
+          },
+          showStatus(status) {
+            if (this.currentStatus === status) {
+              this.currentStatus = 9;
+            } else {
+              this.currentStatus = status;
+            }
+          },
+          setDate(date) {
+            const defaultDate =
+              date.split("/").length > 1
+                ? moment(`2025/${date}`, "YYYY-MM-DD").format("YYYY-MM-DD")
+                : date;
+
+            // console.log(defaultDate)
+            return defaultDate;
+          },
+          async setReversion(pageId) {
+            const revList = modifyData;
+
+            await revList.forEach((list) => {
+              if (list.pageId === pageId) {
+                this.reversionLog = list;
+              }
+            });
+
+            this.showReversion = true;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

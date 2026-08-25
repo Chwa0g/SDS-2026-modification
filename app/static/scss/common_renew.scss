@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+//fn, mxgul
+@import "./sub/function";
+@import "./sub/mixin";
+@import "./sub/webfont";
+@import "./sub/swiper";
+
+//page
+@import "./page/base"; //공통 + default
+@import "./page/layout"; //기본 header, container, footer
+@import "./page/component"; //공통 + default
+@import "./page/main"; //기본 header, container, footer
+@import "./page/insight";
+@import "./page/contact";

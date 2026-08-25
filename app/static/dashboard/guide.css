@@ -1,0 +1,103 @@
+pre, body, button, input, textarea{
+  /* font-family: 'pretendard', sans-serif; */
+  font-family: "Pretendard", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+.component-title{
+  width: 100%;
+  background: #00C3C8;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+.component-sub{
+  padding: 0 10px;
+  border: 1px solid #1a1a2e;
+}
+.component-description{
+  position: relative;
+  margin-top: 30px;
+  padding: 5px 0;
+  line-height: 1.4;
+  font-size: 14px;
+  font-weight: 700;
+}
+.component-tag{
+  width: 360px;
+  padding: 15px 0 10px;
+  white-space: normal;
+}
+.component-code{
+  padding: 10px 0;
+  border-top: 1px solid #1a1a2e;
+}
+.component-note{
+  padding: 10px 0 20px;
+  font-size: 14px;
+}
+.component-note li{
+  position: relative;
+  padding-left: 10px;
+  margin: 5px 0;
+}
+.component-note li:before{
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background: #1a1a2e;
+}
+.component-etc{
+  padding: 5px 0 10px;
+}
+.component-etc strong{
+  font-size: 15px;
+  font-weight: 700;
+}
+.component-etc li li{
+  font-size: 14px;
+  padding: 5px 0 5px 10px;
+}
+.toggle-expend{
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #666;
+  border-bottom: 0;
+  font-size: 14px;
+}
+.toggle-expend:after{
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 8px;
+  height: 8px;
+  margin: -5px 0 0 5px;
+  border: 1px solid #000;
+  border-color: transparent #000 #000 transparent;
+  transform: rotate(45deg);
+}
+.expend .toggle-expend:after{
+  margin-top: 3px;
+  transform: rotate(225deg);
+}
+.component-code.expend pre{
+  border-bottom: 1px solid #666;
+  height: auto;
+}
+.component-code{
+  border-top: 0;
+}
+.component-code pre{
+  border-top: 1px solid #666;
+  height: 0;
+  overflow: hidden;
+}
+.hljs{
+  font-family: 'Wanted Sans';
+}

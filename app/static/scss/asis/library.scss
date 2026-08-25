@@ -1,0 +1,185 @@
+@charset "utf-8";
+
+/* Samsung SDS 2.0 Blog Default - start */
+#container .keyVisualWrap + .thumbList { margin-top: 100px; }
+#container .sideStickyWrap .inWrap::after { content: ""; clear: both; display: table; }
+#container .sideStickyWrap .inWrap .is_reverse > div:first-child { margin-top: 0; padding-top: 18px; }
+#container .sideStickyWrap .is_flow { float: left; width: calc(100% - 346px); }
+#container .sideStickyWrap .is_reverse { float: right; width: 346px; padding-bottom: 42px; }
+#container #sticky-sidebar { position: static; }
+#container .thumbListGroup { margin-top: 70px; }
+#container .subEmail { margin-top: 100px; }
+#container .bloggerCardList { margin-top: 100px; }
+#container .bloggerCardList.is_gray { padding-top: 85px; }
+#container .tabControlBox { margin-top: 100px; }
+#container .newsRoomGroup { margin-top: 60px; }
+#container .featuredNews { margin-top: 70px; }
+#container .thumbListGroup .thumbList.is_side .subscribeSendBox { margin-top: 60px; }
+#container .letsTalkWrap { padding-top: 100px; }
+@media screen and (min-width:1300px) {
+    #container .sideStickyWrap .inWrap .is_reverse > .is_newsTitle:first-child { padding-top: 0; }
+    #container .thumbListGroup .thumbList.is_side .thumb.is_hoverShadow_p + .subscribeSendBox { margin-top: 30px; }
+}
+@media screen and (max-width:1299px) {
+    #container .sideStickyWrap .is_flow, #container .sideStickyWrap.newsRoomGroup .is_flow, #container .sideStickyWrap .is_reverse, #container .sideStickyWrap.newsRoomGroup .is_reverse { float: none; width: 100%; }
+    #container .sideStickyWrap.newsRoomGroup .is_flow, #container .sideStickyWrap.newsRoomGroup .is_reverse { padding: 0; }
+    #container .thumbListGroup .is_reverse { padding: 63.5px 24px 0; }
+    #container .sideStickyWrap.newsRoomGroup .inWrap .is_reverse > div:first-child { padding-top: 0; }
+    #container .newsRoomGroup { margin-top: 0; }
+    #container .tabControlBox { margin-top: 55px; }
+}
+@media screen and (max-width:767px) {
+    #container .letsTalkWrap { padding-top: 0; }
+    #container .thumbListGroup .sub_title { padding-top: 0px; }
+    #container .thumbListGroup .is_reverse .sub_title { margin-bottom: 0; padding-top: 39px; border-top: 1px solid #b2b2b2; }
+    #container .thumbListGroup  .thumbList.is_side .thumb { margin-top: 50px; }
+    #container .thumbListGroup  .thumbList.is_side .subscribeSendBox { margin-top: 50px; }
+    #container .subEmail { margin-top: 0; padding-top: 50px; }
+    #container .thumbListGroup { margin-top: 50px; }
+    #container .sideStickyWrap + .subEmail.is_gray { margin-top: 33px; }
+    #container .bloggerCardList { margin-top: 50px; }
+    #container .bloggerCardList.is_gray { padding-top: 50px; }
+    #container .newsRoomGroup .is_flow, #container .newsRoomGroup .is_reverse { padding: 0; }
+    #container .tabControlBox { margin-top: 50px; }
+    #container .featuredNews { margin-top: 40px; }
+
+    .side_banner a img { width: 100%; }
+}
+
+/* Samsung SDS 2.0 Blog Default - end */
+#container .postGroup { padding-top: 84px; padding-bottom: 50px; }
+#container .sideStickyWrap.postGroup { padding-top: 140px; padding-bottom: 50px; }
+#container .postGroup .post.is_flow { margin-top: -14px; }
+#container .postGroup .btn_commentMore { margin-top: 100px; }
+#container .postGroup .postComment { position: relative; margin-top: 24px; border: 1px solid #ccc; }
+#container .postGroup .postComment:after { content: ""; display: block; clear: both; }
+#container .post.is_reverse .articles { padding: 0; }
+#container .post.is_reverse .articles + .thumbList.is_side { margin-top: 90px; }
+#container .post.is_reverse .articles + .thumbList.is_side.is_in_box { margin-top: 78px; }
+#container .post.is_reverse .thumbList.is_side + .thumbList.is_side { margin-top: 100px; }
+#container .post.is_reverse .followSns { margin-top: 80px; }
+#container .post.is_reverse .thumbList + .subscribeSendBox { margin-top: 90px; }
+@media all and (max-width:1299px) {
+    #container .postGroup { padding-top: 64px; padding-bottom: 0; }
+    #container .sideStickyWrap.postGroup { padding-top: 64px; }
+    #container .postGroup .post.is_flow { padding-top: 43px; }
+    #container .post.is_reverse { position: relative; width: 100%; }
+    #container .sideStickyWrap .inWrap .is_reverse > div:first-child { padding-top: 78px; }
+    #container .post.is_reverse .articles { padding: 0; }
+    #container .post.is_reverse .thumbList.is_side { padding: 0; }
+	#container .post.is_reverse .thumbList.is_side.side_banner { display: none;  }
+    #container .post.is_reverse .thumbList { font-size: 0; }
+    #container .post.is_reverse .thumbList .thumb { display: block; }
+    #container .post.is_reverse .thumbList .thumb:first-of-type { margin-top: 0; }
+    #container .post.is_reverse .thumbList .sub_title { margin-bottom: 35px; }
+    #container .post.is_reverse .thumbList .button { margin-top: 75px; }
+    #container .post.is_reverse .followSns { text-align: center; }
+    #container .postGroup .btn_commentMore { margin: 80px 0 20px 0; }
+    #container .postGroup + .subEmail { margin-top: 10px; }
+}
+@media all and (max-width:767px) {
+    #container .postGroup { padding-top: 0; }
+    #container .sideStickyWrap.postGroup { padding-top: 50px; }
+    #container .postGroup .post.is_flow { padding-top: 14px; }
+    #container .postGroup .postComment { margin-top: 12px; }
+    #container .post.is_reverse .articles + .thumbList.is_side { margin-top: 44px; }
+    #container .post.is_reverse .articles + .thumbList.is_side.is_in_box { margin-top: 50px; }
+    #container .post.is_reverse .thumbList.is_side + .thumbList.is_side { margin-top: 45px; }
+    #container .sideStickyWrap .inWrap .is_reverse > div:first-child { padding-top: 33px; }
+    #container .post.is_reverse .thumbList .thumb:first-of-type { margin-top: 0; }
+    #container .post.is_reverse .thumbList.is_side .thumb_description { display: block; margin-top: 12px; }
+    #container .post.is_reverse .thumbList.is_side .thumb_imgBox { float: none; width: 100%; height: inherit; }
+    #container .post.is_reverse .thumbList .thumb_textBox { float: none; width: 100%; margin-top: 14px; }
+    #container .post.is_reverse .followSns { margin-top: 42px; }
+    #container .postGroup .btn_commentMore { margin: 20px 0 0; }
+    #container .postGroup .subEmail { margin-top: 50px; }
+    #container .post.is_reverse .thumbList + .subscribeSendBox { margin-top: 40px; }
+}
+#container .allArticleList { background: #fff; }
+#container .allArticleList .sub_title { margin-top: 95px; text-align: center; font-size: 5rem; }
+#container .allArticleList .thumbList { margin-top: 100px; }
+@media all and (max-width:767px) {
+    #container .allArticleList .sub_title { margin-top: 53px; font-size: 2.5rem; }
+    #container .allArticleList .thumbList { margin-top: 31px; }
+    #container .allArticleList .subEmail { margin-top: 0; padding: 45px 0 0 0; }
+}
+#container .blogger_wrap .wideCardList { padding: 0 30px; }
+#container .blogger_wrap .wideCardList_title { margin: 97px 0 150px 0; }
+#container .scrollCategoryBox_outWrap { padding: 72px 0 65px 0; }
+#container .mediumCardList_wrap { padding-bottom: 30px; }
+@media all and (max-width:1024px) {
+    #container .scrollCategoryBox_outWrap { border-bottom: 0; }
+    #container .scrollCategoryBoxWrap { z-index: 1 !important; }
+}
+@media all and (max-width:767px) {
+    #container .blogger_wrap .wideCardList_title { margin: 50px 0 31px 0; }
+    #container .scrollCategoryBox_outWrap { padding: 72px 0 37px 0; }
+    #container .mediumCardList_wrap { padding: 0 14px 0; }
+}
+#container .bloggerIntroWrap .bestThumb { margin-top: 61px; padding: 60px 0; }
+#container .bloggerIntroWrap .bestThumb_inWrap { max-width: 1380px; width: 100%; margin: 0 auto; padding: 0 20px; }
+#container .bloggerIntroWrap .bestThumb_inWrap:after { content: ''; display: block; clear: both; }
+#container .bloggerIntroWrap .bestThumb.is_gray { background-color: #f3f3f3; }
+#container .bloggerIntroWrap .thumbList { margin-top: 100px; }
+#container .bloggerIntroWrap .thumb_description { padding-right: 30px; }
+@media all and (max-width:1024px) {
+    #container .bloggerIntroWrap .bestThumb { padding: 60px 0 58px; }
+}
+@media all and (max-width:767px) {
+    #container .bloggerIntroWrap .bestThumb { margin-top: 37px; padding: 0; }
+    #container .bloggerIntroWrap .bestThumb_inWrap { padding: 40px 0 55px 0; min-height: 360px; }
+    #container .bloggerIntroWrap .thumbList { margin-top: 38px; padding-bottom: 0; }
+    #container .blogger_wrap .mediumCardList { padding: 0 14px; }
+}
+
+/* newsLetterWrap */
+.box.type1_2.newsLetterWrap { padding-top: 100px; }
+.box.type1_2.newsLetterWrap .newsLetter_items { max-width: 900px; margin: 0 auto; padding: 58px 0 0; }
+.box.type1_2.newsLetterWrap .newsLetter_sub_title { font-size: 1.8rem; font-weight: 400; }
+.box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheckWrap { overflow: hidden; margin-top: 15px; padding: 31px 30px 28px; }
+.box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheck_list { width: 50%; }
+.box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheck_list.is_flow { float: left; }
+.box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheck_list.is_reverse { float: right; padding-left: 22px; }
+.box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheck_list li { margin-top: 21px; }
+.box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheck_list li:first-child { margin-top: 0; }
+.box.type1_2.newsLetterWrap .txt_cookie_info { margin-top: 13px; font-size: 1.2rem; color: #999; }
+.box.type1_2.newsLetterWrap .form .btn_btm { margin-top: 67px; }
+@media all and (max-width:767px) {
+    .box.type1_2.newsLetterWrap { padding-top: 100px; }
+    .box.type1_2.newsLetterWrap .newsLetter_items { padding: 42px 0 0; }
+    .box.type1_2.newsLetterWrap .newsLetter_sub_title { font-size: 1.5rem; }
+    .box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheckWrap { padding: 18px 15px 21px; }
+    .box.type1_2.newsLetterWrap .txt_cookie_info { font-size: 1.2rem; color: #999; }
+    .box.type1_2.newsLetterWrap .form .btn_btm { margin-top: 52px; }
+}
+@media all and (max-width:479px) {
+    .box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheck_list { width: 100%; }
+    .box.type1_2.newsLetterWrap .newsLetter_items .newsLetterCheck_list.is_reverse { padding-top: 18px; padding-left: 0; }
+}
+
+/* SDS 1.0 Style */
+.LV_validation_message { margin: 0; }
+.LV_valid { color: #00CC00; display: none; }
+.LV_invalid { font-size: 1.6rem; color: #ff0000; line-height: 32px; }
+.LV_valid_field, input.LV_valid_field:hover, input.LV_valid_field:active, textarea.LV_valid_field:hover, textarea.LV_valid_field:active { margin-bottom: 28px !important; outline: 1px solid #00CC00; }
+.LV_invalid_field, input.LV_invalid_field:hover, input.LV_invalid_field:active, textarea.LV_invalid_field:hover, textarea.LV_invalid_field:active { margin-bottom: 0px !important; outline: 1px solid #CC0000; }
+
+/* layers */
+.layer_wrap.is_box { background-color: #fff; }
+.layer_wrap.is_box .layer_inner .pop_close { right: 28px; }
+.subscriptionWrap { max-width: 400px; width: 100%; margin: 0 auto; padding: 182px 0 90px; text-align: center; background: url(https://image.samsungsds.com/resource/kr/images/icon/ico_subscription_check.png?queryString=20240412012718) no-repeat 50% 90px; }
+.subscriptionWrap .subscription_title { display: block; font-size: 6rem; }
+.subscriptionWrap .subscription_text { display: block; margin-top: 22px; font-size: 1.8rem; line-height: 31px; }
+.subscriptionWrap .button { margin-top: 45px; }
+@media all and (max-width:767px) {
+    .subscriptionWrap { padding: 123px 0 45px; background-position: 50% 45px; }
+    .subscriptionWrap .subscription_title { font-size: 2.7rem; }
+    .subscriptionWrap .subscription_text { font-size: 1.5rem; line-height: 23px; }
+    .subscriptionWrap .button { margin-top: 28px; }
+}
+@media screen and (max-width:767px) {
+    #container .keyVisualWrap + .navigationSlide { padding: 0 14px; }
+}
+@media screen and (max-width:767px) {
+    .LV_invalid { font-size: 1.4rem; }
+}

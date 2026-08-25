@@ -1,0 +1,35 @@
+@use "sass:math";
+
+/**********************************
+***************************/
+/******* fn *******/
+
+$base-font-size : 10;
+
+// rem 단축 함수
+@function rem($px, $base:$base-font-size) {
+    @return math.div($px, $base) * 1rem;
+}
+
+@function vw($px, $base: 1920) {
+    $vw-value: math.div($px, $base) * 100;
+    @return min(rem($px), #{$vw-value}vw);
+}
+
+@function f-clamp($mobile, $desktop, $base: 1920) {
+    $lower: math.min($mobile, $desktop);
+    $upper: math.max($mobile, $desktop);
+
+    @return clamp(rem($lower),
+        math.div($desktop, $base) * 100vw,
+        rem($upper));
+}
+
+/**********************************
+***************************/
+/******* animation *******/
+@keyframes grow {
+    to {
+        height: 100%;
+    }
+}

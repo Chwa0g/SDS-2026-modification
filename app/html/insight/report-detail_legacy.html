@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <!--#include file="/inc/meta.inc" -->
+        <title>SAMSUNG SDS</title>
+        <!--#include file="/inc/css.inc" -->
+        <link rel="stylesheet" type="text/css" href="/static/css/insight.css" />
+        <!--#include file="/inc/script.inc" -->
+    </head>
+
+    <body>
+        <div id="wrap" class="wrap">
+            <!-- header -->
+            <a href="#mainContent" class="skip-nav">본문 바로가기</a>
+            <header class="header header--transparent">
+                <!--#include file="/inc/header.inc" -->
+            </header>
+
+            <main class="insight-report-detail postGroup" id="mainContent">
+                <section class="insight-report-detail__hero">
+                    <!-- s:260724 -->
+                    <nav class="breadcrumb breadcrumb--absolute" aria-label="현재 위치">
+                        <ol class="breadcrumb__list">
+                            <li class="breadcrumb__item">
+                                <a href="/" class="breadcrumb__link">Home</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">인사이트</a>
+                            </li>
+                            <li class="breadcrumb__item" aria-current="page">
+                                <span class="breadcrumb__current">목록</span>
+                            </li>
+                        </ol>
+                    </nav>
+                    <!-- //e:260724 -->
+                    <div class="insight-report-detail__hero-bg">
+                        <img src="/static/images/insight/report_detail_bg.jpg" alt="" class="is-pc" />
+                        <img src="/static/images/insight/report_detail_bg_mo.jpg" alt="" class="is-mo" />
+                    </div>
+                    <div class="section__inner">
+                        <div class="insight-report-detail__hero-content">
+                            <div class="insight-report-detail__category">AX · 유통</div>
+
+                            <h2 class="insight-report-detail__title">
+                                ChatGPT vs Claude, 같은 질문에도 비용이 다른 이유 : <br class="is-pc" />
+                                ‘토큰 산출 격차’의 비밀
+                            </h2>
+
+                            <div class="insight-report-detail__author">송성욱 · 팀드샘</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="insight-report-detail__body">
+                    <!-- 왼쪽 nav -->
+                    <nav class="insight-report-detail__side-nav" aria-label="인사이트 리포트 목차">
+                        <div class="insight-report-detail__side-nav-inner">
+                            <strong class="insight-report-detail__side-title">인사이트 리포트</strong>
+
+                            <ul class="insight-report-detail__side-list">
+                                <li class="insight-report-detail__side-item is-active">
+                                    <a href="#nav01" class="insight-report-detail__side-link" aria-current="location">Executive Summary</a>
+                                </li>
+
+                                <li class="insight-report-detail__side-item">
+                                    <a href="#nav02" class="insight-report-detail__side-link">
+                                        코드 자동완성에서 자율형<br />
+                                        에이전트로
+                                    </a>
+                                </li>
+
+                                <li class="insight-report-detail__side-item">
+                                    <a href="#nav03" class="insight-report-detail__side-link">
+                                        소프트웨어 개발의 전제<br />
+                                        자체가 무너지고 있다
+                                    </a>
+                                </li>
+
+                                <li class="insight-report-detail__side-item">
+                                    <a href="#nav04" class="insight-report-detail__side-link"> 저자 </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- //왼쪽 nav -->
+
+                    <!-- 오른쪽 컨텐츠 -->
+                    <div class="section__inner">
+                        <div class="insight-report-detail__util">
+                            <div class="insight-report-detail__meta">
+                                <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                            </div>
+
+                            <div class="insight-report-detail__share">
+                                <button type="button" class="insight-report-detail__share-button insight-report-detail__share-button--share">
+                                    <span class="blind">공유하기</span>
+                                </button>
+                                <button type="button" class="insight-report-detail__share-button insight-report-detail__share-button--print">
+                                    <span class="blind">인쇄하기</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="insight-report-detail__layout">
+                            <!-- 상세 내용 -->
+                            <article class="insight-report-detail__article">
+                                <div class="insight-report-detail__content">
+                                    <p class="insight-report-detail__lead">
+                                        코드(Coder)에서 AI 에이전트를 지휘하는 오케스트레이터로 재편되는<br />
+                                        개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.
+                                    </p>
+
+                                    <div class="post">
+                                        <div class="txt_wrap">
+                                            <style>
+                                                /* 이미지 사이즈 줄여달라는 요청 시 추가 css*/
+                                                .post .txt_wrap .im img {
+                                                    max-width: 600px;
+                                                }
+                                            </style>
+
+                                            <article class="story_box in_summary">
+                                                <div class="summary_box">
+                                                    <p class="icon_tag">Executive Summary</p>
+                                                    <ul class="bullet_list">
+                                                        <li data-bullet="•">
+                                                            <b>AI 경쟁, '모델 성능'에서 '운영 능력'으로 전환</b>: 단순 모델 성능 경쟁을 넘어, 실제 업무 환경에서 AI 에이전트를 얼마나 효율적으로
+                                                            운영하고 확장하는지가 기업의 성공을 좌우하는 핵심 요소로 떠오르고 있습니다.
+                                                        </li>
+                                                        <li data-bullet="•">
+                                                            <b>Microsoft, Google, NVIDIA, Apple의 차별화된 로드맵 제시</b>: 각 기업의 최신 키노트 발표를 토대로 에이전틱 AI를 위한 운영 모델, 기술 전략,
+                                                            시장 접근 방식의 차이점을 분석했습니다.
+                                                        </li>
+                                                        <li data-bullet="•">
+                                                            <b>AI 도입, 단순 기능 추가 넘어 업무 시스템 전환으로</b>: 에이전틱 AI 시대에 기업이 성공적으로 디지털 전환을 이루기 위해 데이터 관리, 보안,
+                                                            비용 최적화, 사용자 경험 재설계 등 전반적인 IT 전략을 어떻게 변화시켜야 하는지 제시합니다.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+
+                                            <p>
+                                                리서치 기업이 IT 트렌드의 전략적 방향성을 제시한다면, 빅테크 기업은 그 트렌드가 실제 비즈니스와 업무 현장에서 어떻게 구현될 수 있는지를 보여줍니다.
+                                                그래서 빅테크의 키노트는 단순한 신제품 발표나 기술 소개를 넘어, 앞으로 일하는 방식과 디지털 비즈니스의 구조가 어떻게 바뀔지를 가늠하게 하는 중요한
+                                                단서가 됩니다. <br /><br />
+
+                                                2024년의 빅테크 키노트는 AI가 글로벌 IT 트렌드의 중심으로 부상했음을 보여주었습니다. 당시의 핵심은 생성형 AI, 클라우드, 엣지 컴퓨팅, 보안, 메타버스 등
+                                                주요 기술이 산업 전반에 어떤 변화를 가져올 것인가에 있었습니다.<br /><br />
+
+                                                2025년의 키노트는 한 단계 더 나아갔습니다. AI는 단순한 PoC나 보조 기능을 넘어, 실제 업무 프로세스 안에서 특정 작업을 수행하는 에이전틱 AI로 진화하기
+                                                시작했습니다. 검색은 대화형 정보 시스템으로 바뀌었고, 개발 도구는 코딩 파트너로 발전했으며, 기업 업무는 에이전트 기반 프로세스로 재설계되기
+                                                시작했습니다.<br /><br />
+
+                                                그렇다면 2026년의 변화는 무엇일까요?<br /><br />
+
+                                                2026년 Microsoft Build, Google I/O, NVIDIA GTC, Apple WWDC를 종합해 보면, 빅테크의 AI 전략은 이제 새로운 단계로 진입하고 있습니다. 경쟁의 중심은 “누가
+                                                더 강력한 AI 모델을 만들었는가”에서, “<b>에이전틱 AI를 실제 업무와 서비스 환경에서 얼마나 안정적으로 운영할 수 있는가</b>”로 이동하고 있습니다.<br /><br />
+
+                                                여기서 말하는
+                                                <b
+                                                    >에이전틱 AI 운영 모델이란, AI 에이전트가 기업 업무나 사용자 경험 안에서 실제 역할을 수행하는 데 필요한 업무 설계, 데이터 접근, 권한 관리, 보안,
+                                                    비용, 런타임, 거버넌스를 통합한 운영 체계</b
+                                                >를 의미합니다.<br /><br />
+
+                                                AI는 단순히 앱에 추가되는 기능이 아닙니다. 사용자의 의도를 이해하고, 필요한 정보를 찾고, 여러 도구를 호출하며, 업무를 수행하고, 결과를 검증하는 업무
+                                                파트너로 진화하고 있습니다. 이러한 변화는 기업 IT 전략에도 중요한 시사점을 줍니다. AI를 도입하는 것만으로는 충분하지 않습니다. 이제는 AI가 어떤 업무를
+                                                맡고, 어떤 데이터에 접근하며, 어떤 권한으로 작동하고, 어떤 비용으로 운영되며, 어떻게 통제되고 감사되는지를 설계해야 합니다.<br /><br />
+
+                                                이번 아티클에서는 Microsoft, Google, NVIDIA, Apple의 2026년 주요 키노트를 중심으로, 에이전틱 AI가 실제 업무와 서비스 환경에 안착하는 데 필요한 조건이
+                                                무엇인지 살펴보고자 합니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">2026년 키노트를 읽는 기준: 모델 성능과 기능을 넘어 운영 역량으로</h2>
+
+                                            <p>
+                                                최근 몇 년간 빅테크 키노트의 중심에는 항상 AI가 있었습니다. 하지만 같은 AI라도 해마다 강조점이 달랐습니다. <br /><br />
+
+                                                2024년에는 AI가 글로벌 IT 트렌드의 중심으로 부상했습니다. 생성형 AI, 클라우드 AI, 엣지 AI, AI 반도체, AI 기반 보안 등 AI가 다양한 기술 영역에 영향을
+                                                미치기 시작했습니다.<br /><br />
+
+                                                2025년에는 에이전틱 AI가 핵심 키워드로 떠올랐습니다. AI는 단순한 자동화 도구를 넘어, 사용자의 목적을 이해하고 업무 흐름 안에서 특정 작업을 수행하는 업무
+                                                파트너로 설명되기 시작했습니다.<br /><br />
+
+                                                2026년에는 그 흐름이 한 단계 더 구체화하고 있습니다. 이제 빅테크가 강조하는 것은 단순한 AI 기능이나 개별 에이전트가 아닙니다. 에이전트가 실제 업무와
+                                                서비스 환경에서 지속적으로 작동할 수 있도록 만드는 운영 역량입니다. 즉, 어떤 업무를 맡길 것인지, 어떤 데이터와 시스템에 연결할 것인지, 어떤 권한을
+                                                부여할 것인지, 어떤 인프라에서 운영할 것인지, 어떻게 보안과 거버넌스를 적용할 것인지가 핵심이 되고 있습니다.<br /><br />
+
+                                                따라서 2026년 키노트는 다음 질문으로 읽어야 합니다. <br /><br />
+                                            </p>
+
+                                            <ul class="bullet_list">
+                                                <li data-bullet="•">AI는 사용자의 의도를 어디에서 포착하는가?</li>
+                                                <li data-bullet="•">AI는 어떤 업무나 작업을 수행하는가?</li>
+                                                <li data-bullet="•">AI는 어떤 데이터와 컨텍스트에 접근하는가?</li>
+                                                <li data-bullet="•">AI는 어떤 운영 환경에서 작동하고, 어떤 비용 구조를 갖는가?</li>
+                                                <li data-bullet="•">AI의 권한, 보안, 거버넌스는 누가 통제하는가?</li>
+                                            </ul>
+
+                                            <p>
+                                                이 기준으로 보면 네 회사는 모두 AI를 말하지만, 실제로 강화하려는 운영 역량은 다릅니다.
+                                                <b>
+                                                    Microsoft는 기업 업무와 개발 워크플로우를 중심으로 한 에이전틱 AI 운영 역량을, Google은 검색과 웹에서 사용자의 의도를 업무와 서비스로 연결하는
+                                                    에이전틱 AI 서비스 역량을, NVIDIA는 대규모 추론과 Physical AI를 뒷받침하는 인프라 운영 역량을, Apple은 개인 기기와 프라이버시를 중심으로 한 개인 AI
+                                                    경험 운영 역량을 강화하고 있습니다.</b
+                                                >
+                                                <br /><br />
+
+                                                즉, 2026년 키노트를 읽는 핵심 기준은 AI의 성능이나 개별 기능만이 아닙니다. 에이전틱 AI를 실제 환경에서 얼마나 안정적으로 운영하고, 통제하고, 확장할 수
+                                                있는가입니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">Microsoft Build 2026: 기업 업무 에이전트 운영 모델</h2>
+
+                                            <p>
+                                                Microsoft의 CEO Satya Nadella는 오랫동안 Microsoft를 생산성, 클라우드, 개발자 플랫폼 기업으로 재정의해 왔습니다. Microsoft 365, Azure, Windows, GitHub,
+                                                Teams는 모두 기업 업무와 개발 환경의 중심 접점입니다. 2023년 이후 Microsoft의 AI 전략은 Copilot을 중심으로 전개되었습니다. Copilot은 문서를 요약하고,
+                                                이메일을 작성하고, 회의 내용을 정리하고, 코드를 제안하는 생산성 보조 도구로 자리 잡았습니다.
+                                            </p>
+
+                                            <div class="im sr_only">
+                                                <img src="https://image.samsungsds.com/kr/insights/260708_01.jpg?queryString=20260709040327" alt="" />
+                                                <span class="im_info">Microsoft Build 2026 (출처: Microsoft)</span>
+                                                <div class="blind">마이크로소프트 빌드 2026 이미지</div>
+                                            </div>
+
+                                            <p>
+                                                하지만 Build 2026에서 Microsoft가 보여준 변화는 Copilot 기능의 단순한 확장이 아닙니다. Microsoft는 AI 에이전트가 기업 내부에서 실제 업무를 수행하기 위한
+                                                전체 운영 체계를 제시했습니다. Foundry, IQ 계층, Autopilots, 에이전트 거버넌스, 개발 도구, 보안 체계는 모두 기업이 AI 에이전트를 만들고, 배포하고,
+                                                관찰하고, 통제하기 위한 기반으로 연결됩니다. <br /><br />
+
+                                                특히 Build 2026에서 주목할 변화는 Copilot에서 Autopilots로 이어지는 방향성입니다. 기존 Copilot이 사용자의 요청에 응답하는 생산성 보조 도구였다면,
+                                                Autopilots은 업무 맥락을 지속적으로 파악하고 장기적인 작업을 이어가는 에이전트 경험을 지향합니다. Microsoft가 첫 번째 Autopilot 에이전트로 소개한
+                                                Scout은 Teams, Outlook, OneDrive, SharePoint 등 Microsoft 365 앱 전반에 통합되어 사용자의 채팅, 이메일, 일정, 문서와 같은 업무 데이터를 바탕으로
+                                                동작합니다.<br /><br />
+
+                                                이 변화는 Microsoft AI 전략의 무게중심이 “더 똑똑한 Copilot”에서 “업무 흐름 안에서 지속적으로 작동하는 에이전트”로 이동하고 있음을 보여줍니다. 사용자가
+                                                명령할 때마다 단발성으로 도움을 받는 방식에서, 에이전트가 업무 맥락을 이해하고 필요한 정보를 추적하며 다음 작업을 이어가는 방식으로 확장되는
+                                                것입니다.<br /><br />
+
+                                                기업에서 AI 에이전트가 실제로 일하려면, 단순히 좋은 모델을 연결하는 것만으로는 충분하지 않습니다. 에이전트가 어떤 데이터에 접근할 수 있는지, 어떤
+                                                시스템과 연동되는지, 어떤 권한으로 업무를 수행하는지, 그 결과를 누가 검토하고 승인하는지, 문제가 발생했을 때 어떻게 추적하고 복구할지까지 설계해야
+                                                합니다.<br /><br />
+
+                                                Microsoft는 이 문제를 자사의 강점인 엔터프라이즈 플랫폼으로 풀고 있습니다. Microsoft 365는 업무 컨텍스트를 제공하고, Azure와 Foundry는 에이전트 개발과
+                                                운영 환경을 제공합니다. IQ 계층은 기업 데이터와 업무 맥락을 에이전트에 연결하고, Entra ID와 보안 체계는 신원과 권한을 관리합니다. GitHub은 개발 업무의
+                                                에이전트화를 담당하고, Windows는 로컬 및 클라우드 기반 업무 환경과 연결됩니다.<br /><br />
+
+                                                따라서 Build 2026의 핵심은 “Copilot이 더 똑똑해졌다”가 아닙니다. 핵심은 Copilot에서 Autopilots으로, 일회성 보조에서 지속적 업무 수행으로, 단일 기능에서
+                                                기업 전반의 에이전트 운영 모델로 Microsoft의 AI 전략이 확장되고 있다는 점입니다.<br /><br />
+
+                                                Microsoft의 전략적 방향은 다음과 같이 정리할 수 있습니다.<br /><br />
+
+                                                <b>첫째, Copilot을 생산성 보조 도구에서 기업 업무 에이전트로 확장하고 있습니다.</b> <br />
+                                                <b>둘째, Autopilots과 Scout을 통해 일회성 응답을 넘어, 업무 맥락을 지속적으로 파악하고 장기 작업을 이어가는 에이전트 경험을 제시하고 있습니다.</b>
+                                                <br />
+                                                <b>셋째, Foundry와 IQ 계층을 통해 기업 데이터와 업무 맥락을 에이전트 운영 모델에 연결하고 있습니다.</b> <br />
+                                                <b>넷째, 에이전트의 권한, 보안, 감사, 거버넌스를 기업 IT 운영의 핵심 과제로 전면화하고 있습니다.</b> <br />
+                                                <b>다섯째, GitHub과 Windows를 통해 개발자와 사용자 접점 모두에서 에이전트 운영 환경을 확장하고 있습니다.</b> <br /><br />
+
+                                                Microsoft Build 2026은 기업 AI의 다음 단계가 단순한 Copilot 도입이 아니라, 에이전틱 AI를 운영 가능한 업무 시스템으로 전환하는 것임을 보여줍니다. 특히
+                                                Autopilots은 Microsoft가 지향하는 기업 업무 에이전트 운영 모델의 대표 사례로, AI가 사용자의 요청에 응답하는 수준을 넘어 업무 흐름 안에서 지속적으로
+                                                작동하는 방향으로 진화하고 있음을 보여줍니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">Google I/O 2026: 검색에서 에이전틱 서비스 플랫폼으로</h2>
+
+                                            <p>
+                                                Google의 CEO Sundar Pichai는 Google을 AI-first company로 설명해 왔습니다. Google의 AI 전략은 Search, Gmail, Photos, Maps, Workspace, Android 등 사용자의
+                                                일상적 접점에 AI를 통합하는 방향으로 발전해 왔습니다. 2024년과 2025년에는 Gemini를 중심으로 멀티모달 AI와 대화형 검색 경험이 강조되었습니다.
+                                            </p>
+
+                                            <div class="im sr_only">
+                                                <img src="https://image.samsungsds.com/kr/insights/260708_02.jpg?queryString=20260709040327" alt="" />
+                                                <span class="im_info">Google I/O 2026 (출처: Google)</span>
+                                                <div class="blind">구글 I/O 2026 이미지</div>
+                                            </div>
+
+                                            <p>
+                                                2026년 Google I/O의 핵심 표현은 “agentic Gemini era”입니다. Google은 Gemini를 단순한 모델이나 제품 기능이 아니라, 사용자가 더 많은 일을 해낼 수 있도록
+                                                돕는 에이전틱 AI 플랫폼으로 확장하고 있습니다. 특히 Gemini 3.5는 “frontier intelligence with action”을 내세우며, 복잡한 장기 작업과 코딩, 에이전트 수행
+                                                능력을 강조했습니다. 이는 Google의 AI 전략이 답변 생성에서 작업 수행으로 이동하고 있음을 보여줍니다. <br /><br />
+
+                                                가장 중요한 변화는 Search의 역할입니다. Google Search는 오랫동안 사용자가 정보를 찾는 출발점이었습니다. 사용자는 검색어를 입력하고, 링크를 클릭하고,
+                                                여러 정보를 비교하며 스스로 판단했습니다. 그러나 Gemini 기반 검색 환경은 검색을 단순한 정보 조회가 아니라 사용자의 의도를 업무와 서비스로 연결하는
+                                                인터페이스로 바꾸고 있습니다.<br /><br />
+
+                                                사용자는 더 복잡한 질문을 자연어로 던질 수 있고, Google은 단순한 링크 목록이 아니라 요약, 비교, 시각 정보, 추천, 다음 행동을 제공합니다. 나아가 AI는
+                                                사용자가 원하는 목표를 이해하고, 필요한 정보를 지속적으로 추적하며, 상황에 맞는 결과물을 생성하는 방향으로 발전하고 있습니다. 이는 검색의 본질적
+                                                변화입니다. 검색은 더 이상 정보를 찾는 행위에 머물지 않습니다. 검색은 사용자의 의도를 파악하고, 이를 행동 가능한 결과로 바꾸는 에이전틱 AI 접점이 되고
+                                                있습니다.<br /><br />
+
+                                                또 하나의 축은 Gemini App과 Gemini Spark입니다. Google은 Gemini App을 단순한 대화형 AI가 아니라, 사용자의 요청을 이해하고 작업을 이어서 수행하는 개인 AI
+                                                에이전트로 발전시키고 있습니다. Gemini Spark는 사용자가 맡긴 작업을 백그라운드에서 처리하고, 필요한 시점에 결과를 알려주는 “24/7 personal AI agent”로
+                                                소개되었습니다. 이는 사용자가 직접 검색어를 입력하거나 질문할 때만 AI가 작동하는 방식에서, AI가 사용자의 목표를 바탕으로 필요한 작업을 계속 이어가는
+                                                방식으로 확장되고 있음을 의미합니다.<br /><br />
+
+                                                개발자 생태계에서도 같은 변화가 나타납니다. Antigravity, Gemini API, AI Studio 등은 개발자가 에이전트 기반 애플리케이션을 만들 수 있도록 지원합니다.
+                                                특히 Google은 Antigravity를 “agent-first development platform”으로 소개하며, 에이전트가 editor, terminal, browser 전반에서 계획하고 실행하고 검증하는
+                                                개발 환경을 제시했습니다. Managed Agents in the Gemini API 역시 개발자가 인프라 부담을 줄이고 에이전트 애플리케이션을 만들 수 있도록 지원하는
+                                                흐름입니다.<br /><br />
+
+                                                Google의 전략적 방향은 다음과 같이 정리할 수 있습니다.<br /><br />
+
+                                                <b>첫째, Gemini를 Google 제품 전반에 통합된 에이전틱 AI 플랫폼으로 확장하고 있습니다.</b> <br />
+                                                <b>둘째, Search를 정보 검색 서비스에서 의도 기반 서비스 접점으로 전환하고 있습니다.</b> <br />
+                                                <b>셋째, Gemini App과 Gemini Spark를 통해 사용자의 목표를 중심으로 지속적으로 도움을 제공하는 개인 에이전트 경험을 강화하고 있습니다.</b> <br />
+                                                <b>넷째, Antigravity, Gemini API, AI Studio를 통해 에이전트 애플리케이션 개발 생태계를 확대하고 있습니다.</b> <br />
+                                                <b>다섯째, 멀티모달 AI를 검색, 창작, 업무, 쇼핑, 모바일 경험 전반으로 확장하고 있습니다.</b> <br /><br />
+
+                                                Google I/O 2026은 Google이 검색 기업에서 에이전틱 AI 서비스 플랫폼 기업으로 이동하고 있음을 보여줍니다. 사용자가 정보를 찾는 방식은 점차 “검색어를
+                                                입력하는 방식”에서 “AI에게 목표를 설명하고 결과를 위임하는 방식”으로 바뀌고 있습니다. Google의 에이전틱 AI 운영 모델은 검색, 앱, 개발 도구, 클라우드를
+                                                연결해 사용자의 의도를 서비스와 작업으로 전환하는 데 초점을 맞추고 있습니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">NVIDIA GTC 2026: AI Factory와 Physical AI 인프라 운영 모델</h2>
+
+                                            <p>
+                                                NVIDIA의 CEO Jensen Huang은 Accelerated Computing의 중요성을 강조해 왔습니다. GPU는 그래픽 처리를 넘어 병렬 컴퓨팅의 핵심이 되었고, 딥러닝 시대에는 AI
+                                                학습의 필수 인프라가 되었습니다. 생성형 AI 시대에 NVIDIA는 GPU뿐 아니라 네트워킹, 소프트웨어, 시뮬레이션, 클라우드 서비스를 포함한 AI 풀스택 기업으로
+                                                진화했습니다.
+                                            </p>
+
+                                            <div class="im sr_only">
+                                                <img src="https://image.samsungsds.com/kr/insights/260708_03.jpeg?queryString=20260709040327" alt="" />
+                                                <span class="im_info">NVIDIA GTC 2026 (출처: NVIDIA)</span>
+                                                <div class="blind">엔비디아 GTC 2026 이미지</div>
+                                            </div>
+
+                                            <p>
+                                                GTC 2026에서 NVIDIA가 강조한 변화는 더욱 분명합니다. NVIDIA는 AI를 단순한 소프트웨어나 모델이 아니라, 산업 규모로 운영되는 인프라로 정의하고 있습니다.
+                                                이 전략을 대표하는 개념이 AI Factory입니다. <br /><br />
+
+                                                AI Factory는 단순한 데이터센터가 아닙니다. 기존 데이터센터가 데이터를 저장하고 처리하는 공간이었다면, AI Factory는 지능을 생산하고 서비스로 제공하는
+                                                산업 인프라에 가깝습니다. 모델을 학습하고, 추론을 처리하고, 에이전트를 운영하고, 시뮬레이션을 수행하고, 로봇을 훈련하는 기반입니다.<br /><br />
+
+                                                2026년 NVIDIA 키노트에서 특히 중요한 것은 추론 운영입니다. 초기 AI 경쟁에서는 대규모 모델을 얼마나 빠르게 학습시키는지가 핵심이었습니다. 그러나 에이전틱
+                                                AI가 확산할수록 추론은 더 큰 운영 과제가 됩니다. 수많은 AI 에이전트가 사용자 요청을 처리하고, 도구를 호출하고, 장기 작업을 수행하려면 추론 비용, 전력
+                                                효율, 지연시간, 메모리 관리가 곧 경쟁력이 됩니다.<br /><br />
+
+                                                이 지점에서 NVIDIA의 전략은 에이전틱 AI 운영 모델의 인프라 측면을 보여줍니다. Microsoft와 Google이 에이전트를 업무와 서비스 접점에 배치하려 한다면,
+                                                NVIDIA는 그 에이전트들이 대규모로 안정적으로 작동하는 데 필요한 컴퓨트 리소스, 네트워크, 런타임, 추론 최적화, 시뮬레이션 기반을 제공하려 합니다.<br /><br />
+
+                                                NVIDIA는 이 문제를 하드웨어만으로 해결하려 하지 않습니다. GPU, CPU, 네트워킹, 소프트웨어, 런타임, 모델, 시뮬레이션 플랫폼을 하나의 스택으로 묶고
+                                                있습니다. 즉, NVIDIA의 전략은 칩 판매를 넘어 에이전틱 AI가 대규모로 운영되는 산업 인프라의 표준을 주도하는 것입니다.<br /><br />
+
+                                                또 하나의 핵심은 Physical AI입니다. AI가 문서와 코드, 이미지 생성을 넘어 실제 산업 현장과 물리 세계로 확장되기 위해서는 로봇, 자율 시스템, 디지털 트윈,
+                                                시뮬레이션, 물리 기반 학습 환경이 필요합니다. NVIDIA는 Omniverse, Isaac, Cosmos, GR00T 등으로 이 영역의 기반을 구축하고 있습니다.<br /><br />
+
+                                                Physical AI는 에이전틱 AI 운영 모델의 적용 범위를 디지털 업무 환경에서 물리 세계로 넓히는 개념입니다. 사무 업무에서 AI 에이전트가 문서와 시스템을
+                                                다룬다면, 산업 현장에서는 AI가 로봇, 설비, 물류, 생산 공정과 연결됩니다. 이때 필요한 것은 단순한 모델 성능이 아니라, 현실 세계를 시뮬레이션하고,
+                                                안전하게 학습시키고, 검증한 뒤 실제 환경에 배포할 수 있는 운영 인프라입니다.<br /><br />
+
+                                                NVIDIA의 전략적 방향은 다음과 같이 정리할 수 있습니다.<br /><br />
+
+                                                <b>첫째, GPU 중심 기업에서 AI Factory 인프라 기업으로 확장하고 있습니다.</b> <br />
+                                                <b>둘째, AI 경쟁의 중심을 모델 학습에서 대규모 추론 운영으로 이동시키고 있습니다.</b> <br />
+                                                <b>셋째, 하드웨어, 네트워크, 런타임, 모델, 시뮬레이션을 통합한 풀스택 전략을 강화하고 있습니다.</b> <br />
+                                                <b>넷째, Physical AI를 통해 AI의 적용 범위를 제조, 물류, 로봇, 산업 현장으로 확장하고 있습니다.</b> <br />
+                                                <b>다섯째, 에이전틱 AI가 대규모로 작동하기 위한 인프라 운영 역량을 핵심 경쟁력으로 제시하고 있습니다.</b> <br /><br />
+
+                                                NVIDIA GTC 2026은 AI가 연구실이나 소프트웨어 애플리케이션에 머무르지 않고, 산업 인프라 자체로 전환되고 있음을 보여줍니다. NVIDIA의 키워드는 에이전틱 AI
+                                                운영 모델 중에서도 특히 인프라 운영 모델에 가깝습니다. AI 에이전트가 실제 업무와 산업 현장에서 지속적으로 작동하기 위해서는 모델뿐 아니라, 이를
+                                                뒷받침하는 추론 인프라, 전력 효율, 시뮬레이션, 로봇 운영 기반이 필요하기 때문입니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">Apple WWDC 2026: 개인 AI 경험과 프라이버시 중심 운영 모델</h2>
+
+                                            <p>
+                                                Apple의 CEO Tim Cook은 다른 빅테크 CEO들과 다른 방식으로 AI를 설명해 왔습니다. Apple은 기술 자체보다 사용자 경험, 하드웨어와 소프트웨어의 통합,
+                                                프라이버시, 생태계 완성도를 강조합니다. Apple Intelligence도 처음부터 별도 챗봇이 아니라 iPhone, iPad, Mac 안에 내재화되는 Personal Intelligence
+                                                System으로 소개되었습니다.
+                                            </p>
+
+                                            <div class="im sr_only">
+                                                <img src="https://image.samsungsds.com/kr/insights/260708_04.jpg?queryString=20260709040327" alt="" />
+                                                <span class="im_info">Apple WWDC 2026 (출처: Apple)</span>
+                                                <div class="blind">WWDC 2026 텍스트</div>
+                                            </div>
+
+                                            <p>
+                                                WWDC 2026에서 Apple은 Siri AI와 차세대 Apple Intelligence를 전면에 내세웠습니다. 가장 중요한 변화는 Siri의 위치입니다. 기존 Siri는 음성 명령을 처리하는
+                                                보조자에 가까웠습니다. 날씨를 묻고, 알람을 설정하고, 메시지를 보내는 수준의 인터페이스였습니다. 하지만 Siri AI는 사용자의 개인 맥락, 화면, 앱 액션을
+                                                이해하는 방향으로 진화하고 있습니다. <br /><br />
+
+                                                이 변화는 Apple에 매우 중요합니다. AI가 사용자의 메시지, 이메일, 사진, 화면, 앱 사용 맥락을 이해한다면, 이는 가장 민감한 개인 데이터 영역으로 들어가는
+                                                것입니다. 따라서 Apple의 차별점은 단순한 모델 성능이 아니라, 그 AI가 어떤 방식으로 개인 데이터를 다루고 어떤 권한 체계 안에서 작동하는가에 있습니다.<br /><br />
+
+                                                Apple은 이 문제를 온디바이스 처리, Private Cloud Compute, 앱 권한, 생태계 통합이라는 방식으로 풀어 왔습니다. WWDC 2026의 Siri AI는 이러한 Apple식 AI
+                                                전략이 본격적으로 사용자 인터페이스 전면에 등장한 사례로 볼 수 있습니다. 즉, Apple의 에이전틱 AI 운영 모델은 기업 관제형이 아니라, 개인 기기 안에서 AI가
+                                                얼마나 안전하게 맥락을 이해하고 앱을 조작할 수 있는가에 초점을 둡니다.<br /><br />
+
+                                                개발자 관점에서는 App Intents가 중요합니다. 앱의 기능과 콘텐츠를 AI가 이해하고 호출할 수 있도록 만들기 위해서는, 개발자가 앱의 action을 명확하게
+                                                정의하고 시스템에 연결해야 합니다. 이는 Apple 생태계에서 앱이 더 이상 화면과 버튼으로만 제공되는 것이 아니라, Siri AI가 이해하고 호출할 수 있는 기능
+                                                단위로 재구성되어야 함을 의미합니다.<br /><br />
+
+                                                이 지점에서 Apple의 전략은 Microsoft나 Google과 다릅니다. Microsoft가 기업 업무 에이전트를 관리하는 운영 체계를, Google이 검색과 웹 기반 에이전틱 서비스
+                                                플랫폼을, NVIDIA가 AI 인프라 운영 모델을 제시했다면, Apple은 개인 기기와 앱 생태계를 중심으로 한 AI 운영 모델을 제시하고 있습니다. 사용자의 개인 맥락을
+                                                이해하는 AI일수록 신뢰, 권한, 프라이버시가 핵심 경쟁력이 되기 때문입니다.<br /><br />
+
+                                                Apple의 전략적 방향은 다음과 같이 정리할 수 있습니다.<br /><br />
+
+                                                <b>첫째, Apple Intelligence를 OS 깊숙이 내재화해 사용자가 자연스럽게 AI를 경험하도록 만들고 있습니다.</b> <br />
+                                                <b>둘째, Siri AI를 개인 맥락과 앱 액션을 이해하는 AI 인터페이스로 확장하고 있습니다.</b> <br />
+                                                <b>셋째, 온디바이스 처리와 Private Cloud Compute를 통해 프라이버시 중심 AI 구조를 강화하고 있습니다.</b> <br />
+                                                <b>넷째, App Intents를 통해 앱의 기능과 콘텐츠를 AI가 이해하고 호출할 수 있는 형태로 연결하고 있습니다.</b> <br />
+                                                <b>다섯째, iPhone, iPad, Mac, Vision Pro 등 기기 생태계 전반에서 일관된 개인 AI 경험을 구축하고 있습니다.</b> <br /><br />
+
+                                                Apple WWDC 2026은 AI가 개인 기기의 새로운 인터페이스로 들어오고 있음을 보여줍니다. Apple에게 AI는 별도 서비스가 아니라, 사용자가 기기와 앱을 사용하는
+                                                방식을 바꾸는 OS 레벨 경험입니다. 특히 Apple의 에이전틱 AI 운영 모델은 개인 데이터와 앱 액션을 다루는 AI가 어떻게 신뢰 가능한 방식으로 작동해야 하는지를
+                                                보여주는 사례입니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">에이전틱 AI 운영 모델 시대의 기업 IT 전략</h2>
+
+                                            <p>
+                                                네 개의 키노트를 종합하면, 2026년 빅테크 AI 전략의 핵심 시사점은 명확합니다. AI 경쟁의 초점은 더 뛰어난 모델과 기능을 내세우는 단계에서,
+                                                <b>에이전틱 AI를 실제 환경에서 안정적으로 운영하고 통제하며 확장하는 역량으로 이동</b>하고 있습니다. <br /><br />
+
+                                                AI가 사용자의 질문에 답하는 수준에서는 모델 성능이 가장 중요했습니다. 그러나 AI가 업무를 수행하고, 검색 과정을 대신하고, 앱을 조작하고, 로봇을 움직이고,
+                                                기업 시스템과 연동되기 시작하면 이야기가 달라집니다. 이제 중요한 것은 AI가 무엇을 할 수 있는가뿐만 아니라, 무엇을 해도 되는가, 어떤 데이터에 접근할 수
+                                                있는가, 어디에서 작동하는가, 누가 통제하고 감사하는가입니다.<br /><br />
+
+                                                Microsoft는 기업 업무 에이전트 운영 모델을 강화하고 있습니다. Google은 검색, 앱, 개발 도구를 연결한 에이전틱 서비스 플랫폼으로 확장하고 있습니다.
+                                                NVIDIA는 AI Factory를 중심으로 대규모 추론과 Physical AI를 위한 인프라 운영 모델을 제시하고 있습니다. Apple은 개인 AI 경험과 프라이버시를 중심으로 한
+                                                운영 모델을 구축하고 있습니다.<br /><br />
+
+                                                이 네 가지 운영 모델은 서로 분리되어 있으면서도 연결되어 있습니다. 기업의 AI 에이전트는 Microsoft의 업무 플랫폼 위에서 작동할 수 있고, Google의 검색과
+                                                서비스 접점을 활용할 수 있으며, NVIDIA의 인프라에서 추론될 수 있고, Apple의 기기에서 사용자와 만날 수 있습니다. 따라서 2026년 AI 경쟁은 단일 제품 경쟁을
+                                                넘어, 여러 에이전틱 AI 운영 모델이 맞물리는 플랫폼 경쟁의 성격을 띠고 있습니다.<br /><br />
+
+                                                이 변화는 기업 IT 전략에도 중요한 전환을 요구합니다. 이제 생성형 AI를 단순한 기능 도입이나 챗봇 구축으로 이해해서는 안 됩니다. 에이전틱 AI를 운영 가능한
+                                                업무 시스템으로 전환해야 합니다.<br /><br />
+
+                                                첫째, <b>기업은 에이전트에게 맡길 업무를 재정의해야 합니다.</b> 모든 업무를 자동화하는 것이 목적은 아닙니다. 반복적이지만 판단이 필요한 업무, 여러
+                                                시스템을 오가며 처리해야 하는 업무, 문서와 데이터 해석이 많은 업무, 사람의 승인 아래 일부 작업을 맡길 수 있는 업무부터 재설계해야 합니다.<br /><br />
+
+                                                둘째, <b>데이터와 컨텍스트 계층을 정비해야 합니다.</b> AI가 업무를 잘 수행하려면 정확한 기업 지식, 최신 데이터, 권한 정보, 업무 프로세스, 메타데이터가
+                                                필요합니다. 모델을 도입하기 전에 기업의 데이터와 지식이 AI가 이해할 수 있는 형태로 정리되어야 합니다.<br /><br />
+
+                                                셋째, <b>에이전트 거버넌스를 설계해야 합니다.</b> 에이전트의 신원, 권한, 접근 범위, 로그, 승인 절차, 예외 처리, 감사 체계가 필요합니다. AI가 단순히 답을
+                                                생성하는 수준을 넘어 시스템과 연동되면, 기존 IT 보안과는 다른 운영 기준이 필요합니다.<br /><br />
+
+                                                넷째, <b>AI FinOps가 중요해집니다.</b> 에이전트가 많아질수록 추론 비용은 빠르게 증가합니다. 어떤 업무에 고성능 모델을 쓸지, 어떤 업무는 경량 모델이나
+                                                로컬 모델로 처리할지, 캐시와 라우팅을 어떻게 설계할지, GPU와 클라우드 비용을 어떻게 최적화할지가 경쟁력이 됩니다.<br /><br />
+
+                                                다섯째, <b>사용자 경험을 다시 설계해야 합니다.</b> AI가 업무를 대신 수행하더라도 사람은 여전히 목표를 설정하고, 결과를 검토하고, 책임을 집니다. 중요한
+                                                것은 완전 자동화가 아니라, 사람과 AI가 어떤 지점에서 협업하고 어떤 지점에서 승인과 통제를 나눌 것인지입니다.<br /><br />
+
+                                                이러한 관점에서 기업의 AI 전략은 기능 도입 중심에서 운영 모델 설계 중심으로 전환되어야 합니다. 개별 업무에 AI 기능을 추가하는 수준을 넘어, 에이전트가
+                                                맡을 업무 범위, 접근 가능한 데이터, 사용 권한, 작동 환경, 비용 구조, 보안과 감사 체계를 함께 설계해야 합니다. 또한 PoC 단계에서 확인한 가능성을 실제
+                                                업무 시스템으로 전환하기 위해서는 에이전트의 역할과 책임, 사람의 승인 지점, 예외 처리 기준을 명확히 정의해야 합니다. 결국 에이전틱 AI 시대의 기업
+                                                경쟁력은 개별 AI 기능의 도입 속도가 아니라, AI 에이전트를 업무 시스템 안에서 안정적으로 운영하고 통제하며 확장할 수 있는 역량에서 결정될 것입니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">결론</h2>
+
+                                            <p>
+                                                2024년 빅테크 키노트는 AI가 글로벌 IT 트렌드를 주도하는 핵심 동력으로 자리매김했음을 명확히 보여주었습니다. 2025년에는 에이전틱 AI가 실제 업무 프로세스
+                                                안에서 특정 작업을 수행하는 단계로 발전했습니다. 그리고 2026년 키노트는 그다음 질문을 던집니다. <br /><br />
+
+                                                에이전틱 AI를 실제 업무와 서비스 환경에서 어떻게 안정적으로 운영할 것인가?<br /><br />
+
+                                                <b
+                                                    >Microsoft는 기업 업무와 개발 환경에서, Google은 검색과 서비스 접점에서, NVIDIA는 AI 인프라와 물리 세계에서, Apple은 개인 기기와 프라이버시 기반
+                                                    경험에서 각각 해법을 제시하고 있습니다.</b
+                                                >
+                                                네 회사의 전략은 서로 다르지만, 공통적으로 AI를 단일 기능이 아니라, 지속적으로 운영되어야 하는 체계로 바라보고 있다는 점에서 연결됩니다.<br /><br />
+
+                                                2026년의 AI 경쟁은 더 이상 모델 성능만의 경쟁이 아닙니다. 모델은 여전히 중요하지만, 그것만으로는 충분하지 않습니다. AI가 현실 세계에서 유용하게
+                                                작동하려면 데이터, 컨텍스트, 도구, 권한, 보안, 비용, 사용자 경험이 하나의 운영 모델 안에서 함께 설계되어야 합니다.<br /><br />
+
+                                                따라서 기업이 준비해야 할 것은 단순한 AI 도입이 아닙니다. <b>에이전틱 AI를 운영 가능한 업무 시스템으로 전환</b>하는 것입니다. 앞으로 기업의 경쟁력은
+                                                어떤 모델을 선택했는가보다, AI 에이전트가 어떤 업무를 맡고, 어떤 데이터에 접근하며, 어떤 권한으로 작동하고, 어떤 비용으로 운영되며, 어떻게 통제되고
+                                                감사되는지를 설계하는 능력에서 나올 것입니다.<br /><br />
+
+                                                결국 AI는 더 이상 특정 애플리케이션에 추가되는 기능으로만 이해하기 어렵습니다. AI는 기업과 사용자의 업무 방식을 바꾸는 새로운 운영 모델로 진화하고
+                                                있습니다. 2026년 빅테크 키노트는 이 에이전틱 AI 운영 모델을 둘러싼 경쟁이 본격화하고 있음을 보여줍니다.
+                                            </p>
+
+                                            <h2 class="h2_tit">References <br /><br /></h2>
+                                            <ul class="bullet_list references">
+                                                <li data-bullet="[1]">
+                                                    <div>
+                                                        Microsoft Build 2026 | Satya Nadella Opening Keynote,
+                                                        <a href="https://www.youtube.com/watch?v=FFMm454fxNA" target="_blank" class="t_point" title="새창열림"
+                                                            >https://www.youtube.com/watch?v=FFMm454fxNA</a
+                                                        >
+                                                    </div>
+                                                </li>
+                                                <li data-bullet="[2]">
+                                                    <div>
+                                                        Microsoft Build 2026,
+                                                        <a href="https://news.microsoft.com/build-2026/" target="_blank" class="t_point" title="새창열림">https://news.microsoft.com/build-2026/</a>
+                                                    </div>
+                                                </li>
+                                                <li data-bullet="[3]">
+                                                    <div>Google I/O 2026, <a href="https://io.google/2026/" target="_blank" class="t_point" title="새창열림">https://io.google/2026/</a></div>
+                                                </li>
+                                                <li data-bullet="[4]">
+                                                    <div>
+                                                        Google I/O '26 Keynote,
+                                                        <a href="https://www.youtube.com/watch?v=wYSncx9zLIU" target="_blank" class="t_point" title="새창열림"
+                                                            >https://www.youtube.com/watch?v=wYSncx9zLIU</a
+                                                        >
+                                                    </div>
+                                                </li>
+                                                <li data-bullet="[5]">
+                                                    <div>NVIDIA GTC 2026, <a href="https://www.nvidia.com/gtc/" target="_blank" class="t_point" title="새창열림">https://www.nvidia.com/gtc/</a></div>
+                                                </li>
+                                                <li data-bullet="[6]">
+                                                    <div>
+                                                        NVIDIA GTC Keynote 2026,
+                                                        <a href="https://www.youtube.com/watch?v=jw_o0xr8MWU" target="_blank" class="t_point" title="새창열림"
+                                                            >https://www.youtube.com/watch?v=jw_o0xr8MWU</a
+                                                        >
+                                                    </div>
+                                                </li>
+                                                <li data-bullet="[7]">
+                                                    <div>Apple WWDC 2026, <a href="https://developer.apple.com/" target="_blank" class="t_point" title="새창열림">https://developer.apple.com/</a></div>
+                                                </li>
+                                                <li data-bullet="[8]">
+                                                    <div>
+                                                        Apple WWDC 2026 June 8: Introducing Siri AI and more,
+                                                        <a href="https://www.youtube.com/watch?v=hF8swzNR1-o" target="_blank" class="t_point" title="새창열림"
+                                                            >https://www.youtube.com/watch?v=hF8swzNR1-o</a
+                                                        >
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                            <h2 class="h2_tit">FAQ</h2>
+
+                                            <div class="faq_box">
+                                                <ul class="faq_list">
+                                                    <li>
+                                                        <h2 class="q_text">에이전틱 AI가 기존 AI와 어떤 점이 다른가요?</h2>
+                                                        <div class="a_text">
+                                                            <p>
+                                                                기존 AI는 특정 작업을 수행하도록 설계되었지만, 에이전틱 AI는 스스로 목표를 설정하고, 계획을 수립하며, 다양한 도구를 활용하여 자율적으로
+                                                                문제를 해결할 수 있습니다. 즉, 단순 자동화를 넘어 인간과 유사한 방식으로 사고하고 행동하는 AI입니다.
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <h2 class="q_text">2026년 IT 트렌드에서 에이전틱 AI가 왜 중요하게 다루어지고 있나요?</h2>
+                                                        <div class="a_text">
+                                                            <p>
+                                                                AI 경쟁이 단순히 모델 성능 향상에서 벗어나, 실제 업무 환경에서 AI를 얼마나 효과적으로 운영하고 확장할 수 있는지에 초점을 맞추면서
+                                                                에이전틱 AI의 중요성이 부각되고 있습니다. 기업들은 에이전틱 AI를 통해 생산성 향상, 비용 절감, 새로운 비즈니스 기회 창출을 기대하고
+                                                                있습니다.
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <h2 class="q_text">에이전틱 AI가 기업의 IT 전략에 어떤 영향을 미치나요?</h2>
+                                                        <div class="a_text">
+                                                            <p>
+                                                                단순 기능 추가를 넘어 데이터 관리 방식, 보안 시스템, 비용 구조, 사용자 인터페이스 등 IT 전략의 모든 측면을 재검토하고 혁신해야 합니다.
+                                                                AI 도입은 더 이상 선택이 아닌 필수적인 변화입니다.
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <h2 class="q_text">Microsoft, Google, NVIDIA, Apple의 에이전틱 AI 전략은 어떻게 다른가요?</h2>
+                                                        <div class="a_text">
+                                                            <p>
+                                                                각 기업은 에이전틱 AI를 자신들의 강점과 사업 영역에 맞춰 전략적으로 접근하고 있습니다. Microsoft는 업무 생산성 향상에, Google은 검색 및
+                                                                정보 접근성 개선에, NVIDIA는 AI 인프라 및 개발 플랫폼 제공에, Apple은 사용자 경험 혁신에 집중하고 있습니다.
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <p>
+                                                ▶&nbsp;&nbsp; 해당 콘텐츠는 저작권법에 의하여 보호받는 저작물로 기고자에게 저작권이 있습니다.<br />
+                                                ▶&nbsp;&nbsp; 해당 콘텐츠는 사전 동의 없이 2차 가공 및 영리적인 이용을 금하고 있습니다.<br /><br /><br />
+                                            </p>
+
+                                            <!-- //seriesArea -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <section class="insight-report-detail__series">
+                                    <div class="insight-report-detail__series-head">
+                                        <span class="insight-report-detail__series-badge">시리즈</span>
+                                        <h3 class="insight-report-detail__series-title">범정부 AI·클라우드 기반 공공AX 추진 전략 보고서·2026</h3>
+                                    </div>
+
+                                    <ul class="insight-report-detail__series-list">
+                                        <li class="insight-report-detail__series-item">
+                                            <a href="#" class="insight-report-detail__series-link">
+                                                <div class="insight-report-detail__series-image">
+                                                    <img src="/static/images/insight/detail_series_01.jpg" alt="" />
+                                                </div>
+
+                                                <div class="insight-report-detail__series-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <strong class="insight-report-detail__series-subject">공공AX 추진 방향 및 우선 과제</strong>
+
+                                                    <p class="insight-report-detail__series-desc">
+                                                        본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="insight-report-detail__series-item">
+                                            <a href="#" class="insight-report-detail__series-link">
+                                                <div class="insight-report-detail__series-image">
+                                                    <img src="/static/images/insight/detail_series_01.jpg" alt="" />
+                                                </div>
+
+                                                <div class="insight-report-detail__series-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <strong class="insight-report-detail__series-subject">지능형 전자정부 구현을 위한 공공AI·클라우드 전환 전략</strong>
+
+                                                    <p class="insight-report-detail__series-desc">
+                                                        본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="insight-report-detail__series-item">
+                                            <a href="#" class="insight-report-detail__series-link">
+                                                <div class="insight-report-detail__series-image">
+                                                    <img src="/static/images/insight/detail_series_01.jpg" alt="" />
+                                                </div>
+
+                                                <div class="insight-report-detail__series-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <strong class="insight-report-detail__series-subject">신뢰 기반 공공AX 업무 체계 고도화 전략</strong>
+
+                                                    <p class="insight-report-detail__series-desc">내용</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </section>
+
+                                <section class="insight-report-detail__writer" id="nav04">
+                                    <h3 class="insight-report-detail__section-title">저자</h3>
+
+                                    <div class="insight-report-detail__writer-list">
+                                        <div class="insight-report-detail__writer-card">
+                                            <div class="insight-report-detail__writer-head">
+                                                <div class="insight-report-detail__writer-image">
+                                                    <img src="/static/images/insight/writer_01.jpg" alt="송덕삼" />
+                                                </div>
+
+                                                <!-- s:260727 -->
+                                                <a href="#" class="insight-report-detail__writer-profile">
+                                                    <strong class="insight-report-detail__writer-name">송덕삼</strong>
+                                                    <span class="insight-report-detail__writer-role">OOO Contributing Writer</span>
+                                                </a>
+                                                <!-- e:260727 -->
+                                            </div>
+                                            <p class="insight-report-detail__writer-desc">
+                                                With her deep industry knowledge and passion to create a culture of trust and collaboration, Michelle brings innovative and effective solutions that
+                                                deliver sustained outcomes for her clients.
+                                            </p>
+
+                                            <div class="insight-report-detail__writer-sns">
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--linkedin" aria-label="LinkedIn"></a>
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--mail" aria-label="mail"></a>
+                                                <a href="#" class="insight-report-detail__writer-more">이 저자의 다른 콘텐츠 보기</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="insight-report-detail__writer-card">
+                                            <div class="insight-report-detail__writer-head">
+                                                <div class="insight-report-detail__writer-image">
+                                                    <img src="/static/images/insight/writer_01.jpg" alt="송덕삼" />
+                                                </div>
+                                                <!-- s:260727 -->
+                                                <a href="#" class="insight-report-detail__writer-profile">
+                                                    <strong class="insight-report-detail__writer-name">송덕삼</strong>
+                                                    <span class="insight-report-detail__writer-role">OOO Contributing Writer</span>
+                                                </a>
+                                                <!-- e:260727 -->
+                                            </div>
+                                            <div class="insight-report-detail__writer-sns">
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--linkedin" aria-label="LinkedIn"></a>
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--mail" aria-label="mail"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </article>
+                            <!-- //상세 내용 -->
+
+                            <!-- 관련 콘텐츠 -->
+                            <div class="insight-report-detail__related">
+                                <h3 class="insight-report-detail__section-title">관련 콘텐츠</h3>
+
+                                <div class="insight-report-detail__related-swiper swiper">
+                                    <div class="insight-report-detail__related-list swiper-wrapper">
+                                        <!-- <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"><span class="blind">전체 글 보기</span></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">클라우드</span>
+                                                </div>
+
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <div class="insight-report-detail__related-title">AI 시대, 잘못된 지표가 만드는 잘못된 결정</div>
+                                                    <p class="insight-report-detail__related-desc">내용</p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article> -->
+
+                                        <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"><span class="blind">전체 글 보기</span></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">AX</span>
+                                                </div>
+
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <div class="insight-report-detail__related-title">심리적 안전감과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성</div>
+                                                    <p class="insight-report-detail__related-desc">내용</p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                        <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"><span class="blind">전체 글 보기</span></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">업무 혁신</span>
+                                                </div>
+
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <div class="insight-report-detail__related-title">AI에게 일을 맡겨도 될까?</div>
+                                                    <p class="insight-report-detail__related-desc">내용</p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <div class="swiper-pagination"></div>
+                                        <div class="swiper-control__buttons">
+                                            <button aria-label="이전 슬라이드" class="swiper-control__button swiper-control__button--prev" type="button"></button>
+                                            <button aria-label="다음 슬라이드" class="swiper-control__button swiper-control__button--next" type="button"></button>
+                                            <button aria-label="슬라이드 정지" class="swiper-control__button swiper-control__button--play" type="button"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /./관련 콘텐츠 -->
+
+                            <!-- aside -->
+                            <div class="insight-report-detail__aside-wrap">
+                                <aside class="insight-report-detail__aside">
+                                    <section class="insight-report-detail__aside-box">
+                                        <!-- s:260627 : 타이틀 수정-->
+                                        <h3 class="insight-report-detail__aside-title">관련 솔루션 · 서비스</h3>
+                                        <!--// e:260627 -->
+
+                                        <ul class="insight-report-detail__solution-list">
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Brightics Machine Learning</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Brightics Data Hub</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Nexplant SCM Responsive</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Samsung Cloud Platform</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Nexplant MES</a>
+                                            </li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="insight-report-detail__aside-box">
+                                        <h3 class="insight-report-detail__aside-title">관련 이벤트</h3>
+
+                                        <div class="insight-report-detail__event-swiper swiper">
+                                            <div class="insight-report-detail__event-list swiper-wrapper">
+                                                <div class="insight-report-detail__event-item swiper-slide">
+                                                    <a href="#" class="insight-report-detail__event-link">
+                                                        <div class="insight-report-detail__event-image">
+                                                            <img src="/static/images/insight/detail_event_01.jpg" alt="" />
+                                                        </div>
+                                                        <strong class="insight-report-detail__event-title">삼성SDS Techtonic 세미나 </strong>
+                                                    </a>
+                                                </div>
+                                                <!-- 
+                                                <div class="insight-report-detail__event-item swiper-slide">
+                                                    <a href="#" class="insight-report-detail__event-link">
+                                                        <div class="insight-report-detail__event-image">
+                                                            <img src="/static/images/insight/detail_event_01.jpg" alt="" />
+                                                        </div>
+                                                        <strong class="insight-report-detail__event-title"> AX를 위한 클라우드 전략 </strong>
+                                                    </a>
+                                                </div>
+
+                                                <div class="insight-report-detail__event-item swiper-slide">
+                                                    <a href="#" class="insight-report-detail__event-link">
+                                                        <div class="insight-report-detail__event-image">
+                                                            <img src="/static/images/insight/detail_event_01.jpg" alt="" />
+                                                        </div>
+                                                        <strong class="insight-report-detail__event-title"> AI Native Summit </strong>
+                                                    </a>
+                                                </div> -->
+                                            </div>
+                                            <div class="swiper-control">
+                                                <div class="swiper-pagination"></div>
+                                                <div class="swiper-control__buttons">
+                                                    <button aria-label="이전 슬라이드" class="swiper-control__button swiper-control__button--prev" type="button"></button>
+                                                    <button aria-label="다음 슬라이드" class="swiper-control__button swiper-control__button--next" type="button"></button>
+                                                    <button aria-label="슬라이드 정지" class="swiper-control__button swiper-control__button--play" type="button"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </aside>
+                            </div>
+                            <!-- //aside -->
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contact-banner section">
+                    <div class="section__inner contact-banner__inner">
+                        <div class="section__head">
+                            <div class="section__heading">
+                                <div class="contact-banner__eyebrow">CONTACT US</div>
+                                <h2 class="contact-banner__title">무엇이든 물어보세요.</h2>
+                                <p class="contact-banner__description">AI 도입부터 최적화까지, 맞춤형 솔루션을 제안해 드립니다.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="button--more">문의하기</a>
+                    </div>
+                </section>
+            </main>
+
+            <!-- footer -->
+            <!--#include file="/inc/footer.inc" -->
+        </div>
+
+        <script src="/static/js/ui.js"></script>
+
+        <!-- 페이지 스크립트 -->
+        <script>
+            $(function () {
+                let navFlag = false;
+
+                // nav
+                $(".insight-report-detail__side-link").on("click", function (e) {
+                    e.preventDefault();
+
+                    const targetId = $(this).attr("href");
+                    const $target = $(targetId);
+
+                    if (!$target.length) return;
+
+                    if (navFlag) return;
+                    navFlag = true;
+
+                    const lenis = ScrollUtil.getLenis();
+                    const offset = 80;
+
+                    $(".insight-report-detail__side-item").removeClass("is-active");
+                    $(".insight-report-detail__side-link").removeAttr("aria-current");
+
+                    $(this).attr("aria-current", "location").closest(".insight-report-detail__side-item").addClass("is-active");
+
+                    if (lenis && typeof lenis.scrollTo === "function") {
+                        lenis.scrollTo($target[0], {
+                            offset: -offset,
+                            duration: 0.4,
+                        });
+                    } else {
+                        $("html, body")
+                            .stop()
+                            .animate(
+                                {
+                                    scrollTop: $target.offset().top - offset,
+                                },
+                                400,
+                            );
+                    }
+
+                    setTimeout(() => {
+                        navFlag = false;
+                    }, 430);
+                });
+
+                // nav active
+                function updateInsightSideNav() {
+                    if (navFlag) return;
+
+                    const scrollTop = ScrollUtil.getScrollTop();
+                    const triggerPoint = scrollTop + $(window).height() * 0.8;
+                    let activeId = "";
+
+                    $(".insight-report-detail__side-link").each(function () {
+                        const targetId = $(this).attr("href");
+                        const $target = $(targetId);
+
+                        if (!$target.length) return;
+
+                        if ($target.offset().top <= triggerPoint) {
+                            activeId = targetId;
+                        }
+                    });
+
+                    if (!activeId) return;
+
+                    $(".insight-report-detail__side-item").removeClass("is-active");
+                    $(".insight-report-detail__side-link").removeAttr("aria-current");
+
+                    $(`.insight-report-detail__side-link[href="${activeId}"]`).attr("aria-current", "location").closest(".insight-report-detail__side-item").addClass("is-active");
+                }
+
+                $(window).on("scroll.insightSideNav", updateInsightSideNav);
+                updateInsightSideNav();
+
+                function bindActiveSlideFocus(swiper, selector) {
+                    if (!swiper) return null;
+
+                    const $swiper = $(selector);
+                    const FOCUSABLE_SELECTOR = [
+                        "a[href]",
+                        "button:not([disabled])",
+                        "input:not([disabled])",
+                        "select:not([disabled])",
+                        "textarea:not([disabled])",
+                        "[tabindex]",
+                        ".main-promotion__item-list",
+                    ].join(", ");
+
+                    const MANAGED_ATTR = "data-swiper-focus-managed";
+                    const TABINDEX_ATTR = "data-swiper-original-tabindex";
+                    const NO_TABINDEX = "__none__";
+
+                    function saveOriginalTabindex($focusable) {
+                        if ($focusable.attr(MANAGED_ATTR) === "true") return;
+
+                        const tabindex = $focusable.attr("tabindex");
+
+                        $focusable.attr({
+                            [MANAGED_ATTR]: "true",
+                            [TABINDEX_ATTR]: tabindex == null ? NO_TABINDEX : tabindex,
+                        });
+                    }
+
+                    function restoreOriginalTabindex($focusable) {
+                        const originalTabindex = $focusable.attr(TABINDEX_ATTR);
+
+                        if (originalTabindex === NO_TABINDEX || originalTabindex == null) {
+                            $focusable.removeAttr("tabindex");
+                        } else {
+                            $focusable.attr("tabindex", originalTabindex);
+                        }
+                    }
+
+                    function update() {
+                        const $slides = $swiper.find(".swiper-slide");
+
+                        $slides.each(function () {
+                            const $slide = $(this);
+                            const isActive = $slide.hasClass("swiper-slide-active");
+                            const $focusables = $slide.find(FOCUSABLE_SELECTOR);
+
+                            if (isActive) {
+                                $slide.removeAttr("aria-hidden");
+
+                                $focusables.each(function () {
+                                    const $focusable = $(this);
+
+                                    saveOriginalTabindex($focusable);
+                                    restoreOriginalTabindex($focusable);
+                                });
+
+                                return;
+                            }
+
+                            $slide.attr("aria-hidden", "true");
+
+                            $focusables.each(function () {
+                                const $focusable = $(this);
+
+                                saveOriginalTabindex($focusable);
+                                $focusable.attr("tabindex", "-1");
+                            });
+                        });
+                    }
+
+                    function destroy() {
+                        swiper.off("slideChange transitionEnd loopFix update resize breakpoint", update);
+
+                        $swiper.find(`[${MANAGED_ATTR}="true"]`).each(function () {
+                            const $focusable = $(this);
+
+                            restoreOriginalTabindex($focusable);
+                            $focusable.removeAttr(MANAGED_ATTR).removeAttr(TABINDEX_ATTR);
+                        });
+
+                        $swiper.find(".swiper-slide").removeAttr("aria-hidden");
+                    }
+
+                    update();
+                    swiper.on("slideChange transitionEnd loopFix update resize breakpoint", update);
+
+                    return { update, destroy };
+                }
+                /* =========================================================
+                 * 관련 콘텐츠 Swiper
+                 * ======================================================= */
+                const insightRelatedSelector = ".insight-report-detail__related-swiper";
+                const relatedSlideCount = $(".insight-report-detail__related-item").length;
+
+                let insightRelatedSwiper = null;
+                let insightRelatedMode = null;
+
+                function getInsightRelatedMode() {
+                    return window.innerWidth <= 1023 ? "mo" : "pc";
+                }
+
+                function initInsightRelatedSwiper() {
+                    const nextMode = getInsightRelatedMode();
+
+                    // 같은 구간이면 재생성하지 않음
+                    if (insightRelatedMode === nextMode) return;
+
+                    insightRelatedMode = nextMode;
+
+                    createInsightRelatedSwiper(nextMode);
+                }
+
+                function createInsightRelatedSwiper(mode) {
+                    const isMobile = mode === "mo";
+                    const slidesPerView = isMobile ? 1 : 3;
+                    const canLoop = relatedSlideCount > slidesPerView;
+
+                    if (insightRelatedSwiper && !insightRelatedSwiper.destroyed) {
+                        insightRelatedSwiper.destroy(true, true);
+                        insightRelatedSwiper = null;
+                    }
+                    $(".insight-report-detail__related-swiper").toggleClass("is-swiper-lock", !canLoop);
+
+                    insightRelatedSwiper = new Swiper(insightRelatedSelector, {
+                        slidesPerView,
+                        spaceBetween: isMobile ? 24 : 10,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+
+                        loop: canLoop,
+                        loopedSlides: canLoop ? 6 : undefined,
+                        loopAdditionalSlides: canLoop ? 6 : 0,
+
+                        pagination: {
+                            el: ".insight-report-detail__related .swiper-pagination",
+                            clickable: true,
+
+                            renderBullet(index, className) {
+                                return `
+                    <button
+                        type="button"
+                        class="${className}"
+                        aria-label="${index + 1}번째 슬라이드로 이동"
+                    >
+                        <span class="swiper-pagination-bullet__number">
+                            ${String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        <span class="swiper-pagination-bullet__bar"></span>
+                    </button>
+                `;
+                            },
+                        },
+
+                        navigation: {
+                            prevEl: ".insight-report-detail__related .swiper-control__button--prev",
+                            nextEl: ".insight-report-detail__related .swiper-control__button--next",
+                        },
+
+                        on: {
+                            init() {
+                                const swiper = this;
+                                bindActiveSlideFocus(swiper, insightRelatedSelector);
+                                requestAnimationFrame(function () {
+                                    if (swiper.autoplay.running) {
+                                        swiper.autoplay.stop();
+                                        $(".insight-report-detail__related .swiper-control__button--play").addClass("is-paused").attr("aria-label", "슬라이드 재생");
+                                    }
+                                });
+                            },
+                        },
+                    });
+                }
+
+                initInsightRelatedSwiper();
+                const insightResizeEvent = Device.isMobile() ? "orientationchange.insightSwiper" : "resize.insightSwiper";
+
+                $(window)
+                    .off(".insightSwiper")
+                    .on(insightResizeEvent, function () {
+                        initInsightRelatedSwiper();
+                    });
+
+                /* =========================================================
+                 * 관련 이벤트 Swiper
+                 * ======================================================= */
+                const insightEventSelector = ".insight-report-detail__event-swiper";
+                const insightEvSlideCount = $(".insight-report-detail__event-item").length;
+
+                let insightEventFocusManager = null;
+
+                const insightEventSwiper = createResponsiveSwiper(
+                    [
+                        {
+                            key: "event",
+                            selector: insightEventSelector,
+
+                            options: {
+                                slidesPerView: 1,
+                                slidesPerGroup: 1,
+                                initialSlide: 0,
+
+                                loop: insightEvSlideCount > 1,
+
+                                autoplay:
+                                    insightEvSlideCount > 1
+                                        ? {
+                                              delay: 3000,
+                                              disableOnInteraction: false,
+                                          }
+                                        : false,
+
+                                watchSlidesProgress: true,
+                                watchOverflow: true,
+
+                                pagination: {
+                                    el: `${insightEventSelector} .swiper-pagination`,
+                                    clickable: true,
+
+                                    renderBullet(index, className) {
+                                        return `
+                            <button
+                                type="button"
+                                class="${className}"
+                                aria-label="${index + 1}번째 슬라이드로 이동"
+                            >
+                                <span class="swiper-pagination-bullet__number">
+                                    ${String(index + 1).padStart(2, "0")}
+                                </span>
+
+                                <span class="swiper-pagination-bullet__bar"></span>
+                            </button>
+                        `;
+                                    },
+                                },
+
+                                navigation: {
+                                    prevEl: `${insightEventSelector} .swiper-control__button--prev`,
+                                    nextEl: `${insightEventSelector} .swiper-control__button--next`,
+                                },
+                            },
+
+                            onActive(swiper, $el) {
+                                if (insightEventFocusManager) {
+                                    insightEventFocusManager.destroy();
+                                }
+
+                                insightEventFocusManager = bindActiveSlideFocus(swiper, insightEventSelector);
+
+                                $el.toggleClass("is-swiper-lock", insightEvSlideCount <= 1);
+                            },
+
+                            onInactive(swiper, $el) {
+                                if (insightEventFocusManager) {
+                                    insightEventFocusManager.destroy();
+                                    insightEventFocusManager = null;
+                                }
+
+                                $el.toggleClass("is-swiper-lock", insightEvSlideCount <= 1);
+                            },
+                        },
+                    ],
+                    {
+                        namespace: ".insightEventSwiper",
+                    },
+                );
+
+                insightEventSwiper.init();
+
+                $(insightEventSelector).toggleClass("is-swiper-lock", insightEvSlideCount <= 1);
+
+                // 자동재생
+                bindSwiperAutoplayToggle();
+            });
+        </script>
+    </body>
+</html>

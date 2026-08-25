@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <!--#include file="/inc/meta.inc" -->
+        <title>SAMSUNG SDS</title>
+        <!--#include file="/inc/css.inc" -->
+        <link rel="stylesheet" type="text/css" href="/static/css/insight.css" />
+        <!--#include file="/inc/script.inc" -->
+    </head>
+
+    <body>
+        <div id="wrap" class="wrap">
+            <!-- header -->
+            <a href="#mainContent" class="skip-nav">본문 바로가기</a>
+            <header class="header header--transparent">
+                <!--#include file="/inc/header.inc" -->
+            </header>
+
+            <main class="page-insight" id="mainContent">
+                <!-- s:260724 -->
+                <nav class="breadcrumb" aria-label="현재 위치">
+                    <ol class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a href="/" class="breadcrumb__link">Home</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">인사이트</a>
+                        </li>
+                        <li class="breadcrumb__item" aria-current="page">
+                            <span class="breadcrumb__current">목록</span>
+                        </li>
+                    </ol>
+                </nav>
+                <!-- e:260724 -->
+                <section class="insight-report">
+                    <div class="section__inner insight-report__inner">
+                        <div class="insight-report__head">
+                            <div class="insight-report__title-area">
+                                <h2 class="insight-report__title">인사이트 리포트</h2>
+                                <p class="insight-report__description">시장과 기술에 변화를 읽고, 미래 전략을 준비하세요.</p>
+                            </div>
+
+                            <!-- sns링크 -->
+                            <ul class="insight-report__sns-list" aria-label="SNS 링크">
+                                <li class="insight-report__sns-item">
+                                    <a href="#" class="insight-report__sns-link insight-report__sns-link--linkedin" aria-label="LinkedIn"></a>
+                                </li>
+                                <li class="insight-report__sns-item">
+                                    <a href="#" class="insight-report__sns-link insight-report__sns-link--facebook" aria-label="Facebook"></a>
+                                </li>
+                                <li class="insight-report__sns-item">
+                                    <a href="#" class="insight-report__sns-link insight-report__sns-link--twitter" aria-label="Twitter"></a>
+                                </li>
+                                <li class="insight-report__sns-item">
+                                    <a href="#" class="insight-report__sns-link insight-report__sns-link--instagram" aria-label="Instagram"></a>
+                                </li>
+                                <li class="insight-report__sns-item">
+                                    <a href="#" class="insight-report__sns-link insight-report__sns-link--youtube" aria-label="Youtube"></a>
+                                </li>
+                                <li class="insight-report__sns-item">
+                                    <a href="#" class="insight-report__sns-link insight-report__sns-link--naver" aria-label="Naver"></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="insight-report__toolbar">
+                            <a href="#" class="insight-report__subscribe-link">
+                                <span class="insight-report__subscribe-text">뉴스레터 구독하기</span>
+                            </a>
+
+                            <!-- 필터 -->
+                            <form class="insight-report__filter" action="#" method="get">
+                                <div class="insight-report__selectbox-group">
+                                    <div class="custom-selectbox js-show-selected" data-multiple="true" data-update-title="false">
+                                        <button type="button" class="custom-selectbox__selected">
+                                            <span class="custom-selectbox__selected-text">주제</span>
+                                        </button>
+                                        <div class="custom-selectbox__box">
+                                            <div class="custom-selectbox__box-inner">
+                                                <div class="custom-selectbox__list">
+                                                    <div class="custom-selectbox__title">주제 입력</div>
+                                                    <div class="custom-selectbox__options">
+                                                        <label class="custom-selectbox__option custom-selectbox__option--all">
+                                                            <input type="checkbox" class="custom-selectbox__checkbox" />
+                                                            <div class="custom-selectbox__label">
+                                                                <span class="custom-selectbox__text">전체선택</span>
+                                                            </div>
+                                                        </label>
+                                                        <label class="custom-selectbox__option">
+                                                            <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_01" />
+                                                            <div class="custom-selectbox__label">
+                                                                <span class="custom-selectbox__text">AX</span>
+                                                            </div>
+                                                        </label>
+                                                        <label class="custom-selectbox__option">
+                                                            <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_02" />
+                                                            <div class="custom-selectbox__label">
+                                                                <span class="custom-selectbox__text">클라 우드</span>
+                                                            </div>
+                                                        </label>
+                                                        <label class="custom-selectbox__option">
+                                                            <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_03" />
+                                                            <div class="custom-selectbox__label">
+                                                                <span class="custom-selectbox__text">라벨</span>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-selectbox__footer">
+                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" class="custom-selectbox__input" name="chk01" value="" />
+                                    </div>
+
+                                    <div class="custom-selectbox js-show-selected" data-multiple="true" data-update-title="false">
+                                        <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">산업</span></button>
+                                        <div class="custom-selectbox__box">
+                                            <div class="custom-selectbox__box-inner">
+                                                <div class="custom-selectbox__list">
+                                                    <div class="custom-selectbox__title">산업 입력</div>
+                                                    <div class="custom-selectbox__options">
+                                                        <label class="custom-selectbox__option custom-selectbox__option--all">
+                                                            <input type="checkbox" class="custom-selectbox__checkbox" />
+                                                            <div class="custom-selectbox__label">
+                                                                <span class="custom-selectbox__text">전체선택</span>
+                                                            </div>
+                                                        </label>
+                                                        <label class="custom-selectbox__option">
+                                                            <input type="checkbox" class="custom-selectbox__checkbox" value="chk02_01" />
+                                                            <div class="custom-selectbox__label">
+                                                                <span class="custom-selectbox__text">공공</span>
+                                                            </div>
+                                                        </label>
+                                                        <label class="custom-selectbox__option">
+                                                            <input type="checkbox" class="custom-selectbox__checkbox" value="chk02_02" />
+                                                            <div class="custom-selectbox__label">
+                                                                <span class="custom-selectbox__text">DX</span>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                    <div class="custom-selectbox__footer">
+                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <input type="hidden" class="custom-selectbox__input" name="chk02" value="" />
+                                    </div>
+
+                                    <div class="custom-selectbox js-order" data-update-title="true">
+                                        <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">정렬</span></button>
+                                        <div class="custom-selectbox__box">
+                                            <div class="custom-selectbox__box-inner">
+                                                <div class="custom-selectbox__list">
+                                                    <!-- s:260727 -->
+                                                    <div class="custom-selectbox__options">
+                                                        <button type="button" class="custom-selectbox__option" data-value="01">최신순</button>
+                                                        <button type="button" class="custom-selectbox__option" data-value="02">오래된 순</button>
+                                                    </div>
+                                                    <!-- // e:260727 -->
+                                                    <div class="custom-selectbox__footer">
+                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <input type="hidden" class="custom-selectbox__input" name="chk03" value="" />
+                                    </div>
+                                </div>
+                                <!-- 검색 -->
+                                <div class="insight-report__search search-form">
+                                    <div class="search-form__inner">
+                                        <div class="search-form__box">
+                                            <input
+                                                id="insightKeyword"
+                                                class="insight-report__search-field search-form__input"
+                                                type="search"
+                                                name="keyword"
+                                                placeholder="인사이트 검색"
+                                                autocomplete="off"
+                                                aria-autocomplete="list"
+                                                aria-expanded="false"
+                                                aria-controls="insightSearchSuggest"
+                                            />
+                                            <button type="button" class="search-form__button search-form__button--clear" aria-label="검색어 초기화" hidden></button>
+                                            <button type="button" class="insight-report__search-button search-form__button search-form__button--search" aria-label="검색하기"></button>
+                                        </div>
+
+                                        <!-- 자동완성 -->
+                                        <div id="insightSearchSuggest" class="search-form__suggest" aria-hidden="true">
+                                            <div class="search-form__suggest-inner" data-lenis-prevent>
+                                                <div class="search-form__suggest-section" role="listbox" aria-label="자동완성 검색어">
+                                                    <ul class="search-form__suggest-list"></ul>
+                                                </div>
+
+                                                <div class="search-form__suggest-bottom">
+                                                    <button type="button" class="search-form__suggest-close">닫기</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //자동완성 -->
+
+                                        <div class="search-form__recommend">
+                                            <strong class="search-form__recommend-title">추천 검색어</strong>
+
+                                            <div class="search-form__keyword-list">
+                                                <button type="button" class="search-form__keyword-button">AX</button>
+                                                <button type="button" class="search-form__keyword-button">클라우드</button>
+                                                <button type="button" class="search-form__keyword-button">업무 혁신</button>
+                                                <button type="button" class="search-form__keyword-button">보안</button>
+                                                <button type="button" class="search-form__keyword-button">DX</button>
+                                                <button type="button" class="search-form__keyword-button">테크 트렌드</button>
+                                                <button type="button" class="search-form__keyword-button">공공</button>
+                                                <button type="button" class="search-form__keyword-button">금융</button>
+                                                <button type="button" class="search-form__keyword-button">제조</button>
+                                                <button type="button" class="search-form__keyword-button">유통</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- //검색 -->
+                            </form>
+                            <!-- //필터 -->
+                        </div>
+
+                        <!-- 선택한 필터 -->
+                        <div class="insight-report__selected-area">
+                            <div class="insight-report__selected-list" id="selectedArea"></div>
+                            <button type="button" class="insight-report__reset-button reset-button">초기화</button>
+                        </div>
+                        <!-- //선택한 필터 -->
+
+                        <!-- 최신 인사이트 -->
+                        <div class="insight-report__top">
+                            <div class="insight-report__featured">
+                                <h3 class="insight-report__top-title">Featured</h3>
+                                <article class="insight-card">
+                                    <div class="insight-card__thumbnail">
+                                        <img src="/static/images/insight/img_insight_featured01.jpg" alt="" class="insight-card__image" />
+                                        <span class="insight-card__badge">테크 트렌드</span>
+                                    </div>
+
+                                    <div class="insight-card__content">
+                                        <div class="insight-card__meta">
+                                            <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                            <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                        </div>
+
+                                        <div class="insight-card__text">
+                                            <h3 class="insight-card__title">
+                                                <!-- s:260730 타이틀 링크 추가 -->
+                                                <a href="#" class="insight-card__title-link" aria-label="전체 글 보기">
+                                                    안전망과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성안전망과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성안전망과 AI 거버넌스 : AX 성공을 위한 조직
+                                                    DNA 재구성안전망과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성안전망과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성
+                                                </a>
+                                                <!-- //e:260730 -->
+                                            </h3>
+
+                                            <p class="insight-card__description">
+                                                코더(Coder)에서 AI 에이전트를 지휘하는 오케스트레이터로 재편되는 개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.코더(Coder)에서 AI
+                                                에이전트를 지휘하는 오케스트레이터로 재편되는 개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.코더(Coder)에서 AI 에이전트를 지휘하는
+                                                오케스트레이터로 재편되는 개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.코더(Coder)에서 AI 에이전트를 지휘하는 오케스트레이터로
+                                                재편되는코더(Coder)에서 AI 에이전트를 지휘하는 오케스트레이터로 재편되는 개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.코더(Coder)에서 AI
+                                                에이전트를 지휘하는 오케스트레이터로 재편되는 개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.코더(Coder)에서 AI 에이전트를 지휘하는
+                                                오케스트레이터로 재편되는 개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.코더(Coder)에서 AI 에이전트를 지휘하는 오케스트레이터로 재편되는
+                                                개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다. 개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.
+                                            </p>
+                                        </div>
+                                        <!-- s:260730 버튼 삭제 -->
+                                        <!-- <button type="button" class="insight-card__more">
+                                            <span class="insight-card__more-text">전체 글 보기</span>
+                                        </button> -->
+                                        <!-- //e:260730 -->
+                                    </div>
+                                    <!-- <a href="http://www.naver.com" class="insight-card__link"><span class="blind">전체 글 보기</span></a> -->
+                                </article>
+                            </div>
+
+                            <!-- 추천 인사이트 -->
+                            <aside class="insight-report__recommend">
+                                <!-- 20260710 -->
+                                <h3 class="insight-report__top-title">Weekly Top 5</h3>
+                                <!-- //20260710 -->
+                                <ol class="insight-report__recommend-list">
+                                    <li class="insight-report__recommend-item">
+                                        <a href="#" class="insight-report__recommend-link">
+                                            <span class="insight-report__recommend-num">1</span>
+                                            <span class="insight-report__recommend-text"> ChatGPT vs Claude, 같은 질문에도 비용이 다른 이유: 토큰 산출 격차의 비밀 </span>
+                                        </a>
+                                    </li>
+                                    <li class="insight-report__recommend-item">
+                                        <a href="#" class="insight-report__recommend-link">
+                                            <span class="insight-report__recommend-num">2</span>
+                                            <span class="insight-report__recommend-text"> ChatGPT vs Claude, 같은 질문에도 비용이 다른 이유: 토큰 산출 격차의 비밀 </span>
+                                        </a>
+                                    </li>
+                                    <li class="insight-report__recommend-item">
+                                        <a href="#" class="insight-report__recommend-link">
+                                            <span class="insight-report__recommend-num">3</span>
+                                            <span class="insight-report__recommend-text"> ChatGPT vs Claude, 같은 질문에도 비용이 다른 이유: 토큰 산출 격차의 비밀 </span>
+                                        </a>
+                                    </li>
+                                    <li class="insight-report__recommend-item">
+                                        <a href="#" class="insight-report__recommend-link">
+                                            <span class="insight-report__recommend-num">4</span>
+                                            <span class="insight-report__recommend-text"> ChatGPT vs Claude, 같은 질문에도 비용이 다른 이유: 토큰 산출 격차의 비밀 </span>
+                                        </a>
+                                    </li>
+                                    <li class="insight-report__recommend-item">
+                                        <a href="#" class="insight-report__recommend-link">
+                                            <span class="insight-report__recommend-num">5</span>
+                                            <span class="insight-report__recommend-text"> ChatGPT vs Claude, 같은 질문에도 비용이 다른 이유: 토큰 산출 격차의 비밀 </span>
+                                        </a>
+                                    </li>
+                                </ol>
+                            </aside>
+                        </div>
+
+                        <!-- 리스트 정렬 -->
+                        <div class="insight-report__content-head">
+                            <div class="insight-report__sort">
+                                <button type="button" class="insight-report__sort-button is-active">최신순</button>
+                                <button type="button" class="insight-report__sort-button">오래된 순</button>
+                                <button type="button" class="insight-report__sort-button">정확도 순</button>
+                            </div>
+
+                            <div class="insight-report__view view-buttons" data-view-target="#insightReportList">
+                                <button type="button" class="view-button view-button--grid is-active" aria-label="그리드 보기"></button>
+                                <button type="button" class="view-button view-button--list" aria-label="리스트 보기"></button>
+                            </div>
+                        </div>
+                        <!-- //리스트 정렬 -->
+
+                        <!-- 리포트 리스트 -->
+                        <div class="insight-report__list type-grid" id="insightReportList">
+                            <!-- 검색 결과 없을 시 -->
+                            <div class="no-data">
+                                <i class="no-data__icon" aria-hidden="true"></i>
+                                <h2 class="no-data__title">
+                                    <strong class="no-data__keyword">‘kk’</strong>
+                                    검색 결과가 없습니다.
+                                </h2>
+
+                                <ul class="no-data__guide">
+                                    <li class="no-data__guide-item">검색어의 철자가 정확한지 확인해 주세요.</li>
+                                    <li class="no-data__guide-item">한글을 영어로 혹은 영어를 한글로 입력했는지 확인해 주세요.</li>
+                                    <li class="no-data__guide-item">검색어의 단어 수를 줄이거나, 보다 일반적인 단어로 검색해 주세요.</li>
+                                    <li class="no-data__guide-item">두 단어 이상의 검색어인 경우, 띄어쓰기를 확인해 주세요.</li>
+                                </ul>
+                            </div>
+                            <!-- //검색 결과 없을 시 -->
+                            <article class="insight-card">
+                                <a href="#" class="insight-card__link"><span class="blind">전체 글 보기</span></a>
+                                <div class="insight-card__inner">
+                                    <div class="insight-card__thumbnail">
+                                        <img src="/static/images/insight/img_insight01.jpg" alt="" class="insight-card__image" />
+                                        <span class="insight-card__badge">공공</span>
+                                    </div>
+                                    <div class="insight-card__content">
+                                        <div class="insight-card__meta">
+                                            <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                            <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                        </div>
+
+                                        <div class="insight-card__text">
+                                            <h3 class="insight-card__title">
+                                                AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는
+                                                잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된
+                                                지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI
+                                                시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정AI 시대, 잘못된 지표가 만드는 잘못된 결정
+                                            </h3>
+
+                                            <p class="insight-card__description">
+                                                본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을
+                                                분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는
+                                                방법을 제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정
+                                                실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에
+                                                맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은
+                                                AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존
+                                                지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을
+                                                제시합니다.본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.본 아이클은 AI 시대의 측정 실패
+                                                패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.
+                                            </p>
+                                        </div>
+
+                                        <button type="button" class="insight-card__more">
+                                            <span class="insight-card__more-text">전체 글 보기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="insight-card">
+                                <a href="#" class="insight-card__link"><span class="blind">전체 글 보기</span></a>
+                                <div class="insight-card__inner">
+                                    <div class="insight-card__thumbnail">
+                                        <img src="/static/images/insight/img_insight01.jpg" alt="" class="insight-card__image" />
+                                        <span class="insight-card__badge">공공</span>
+                                    </div>
+                                    <div class="insight-card__content">
+                                        <div class="insight-card__meta">
+                                            <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                            <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                        </div>
+
+                                        <div class="insight-card__text">
+                                            <h3 class="insight-card__title">AI 시대, 잘못된 지표가 만드는 잘못된 결정</h3>
+
+                                            <p class="insight-card__description">본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.</p>
+                                        </div>
+
+                                        <button type="button" class="insight-card__more">
+                                            <span class="insight-card__more-text">전체 글 보기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="insight-card">
+                                <a href="#" class="insight-card__link"><span class="blind">전체 글 보기</span></a>
+                                <div class="insight-card__inner">
+                                    <div class="insight-card__thumbnail">
+                                        <img src="/static/images/insight/img_insight01.jpg" alt="" class="insight-card__image" />
+                                        <span class="insight-card__badge">공공</span>
+                                    </div>
+                                    <div class="insight-card__content">
+                                        <div class="insight-card__meta">
+                                            <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                            <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                        </div>
+
+                                        <div class="insight-card__text">
+                                            <h3 class="insight-card__title">AI 시대, 잘못된 지표가 만드는 잘못된 결정</h3>
+
+                                            <p class="insight-card__description">본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.</p>
+                                        </div>
+
+                                        <button type="button" class="insight-card__more">
+                                            <span class="insight-card__more-text">전체 글 보기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="insight-card">
+                                <a href="#" class="insight-card__link"><span class="blind">전체 글 보기</span></a>
+                                <div class="insight-card__inner">
+                                    <div class="insight-card__thumbnail">
+                                        <img src="/static/images/insight/img_insight01.jpg" alt="" class="insight-card__image" />
+                                        <span class="insight-card__badge">공공</span>
+                                    </div>
+                                    <div class="insight-card__content">
+                                        <div class="insight-card__meta">
+                                            <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                            <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                        </div>
+
+                                        <div class="insight-card__text">
+                                            <h3 class="insight-card__title">AI 시대, 잘못된 지표가 만드는 잘못된 결정</h3>
+
+                                            <p class="insight-card__description">본 아이클은 AI 시대의 측정 실패 패턴을 분석하고, 기존 지표를 AI 맥락에 맞게 재해석하는 방법을 제시합니다.</p>
+                                        </div>
+
+                                        <button type="button" class="insight-card__more">
+                                            <span class="insight-card__more-text">전체 글 보기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- //리포트 리스트 -->
+                    </div>
+                </section>
+            </main>
+
+            <!-- footer -->
+            <!--#include file="/inc/footer.inc" -->
+        </div>
+
+        <script src="/static/js/ui.js"></script>
+
+        <!-- 페이지 스크릷트 -->
+        <script>
+            const pageLayoutHandler = createBreakpointHandler({
+                //260730: 포인트 수정
+                breakpoint: 1023,
+                onReset: function () {},
+
+                onUnder: function () {
+                    // 1024 이하
+                },
+
+                onOver: function () {
+                    // 1024 초과
+                    if ($(".insight-report__search.is-focus").length > 0) {
+                        NonScroll.disable();
+                    }
+                },
+
+                onChange: function () {
+                    // breakpoint 변경 시 필요한 작업 있으면 추가
+                },
+            });
+
+            // 인사이트 검색폼
+            // 260804: 검색폼 관련 기능 수정
+            // updateKeywordState() 새로 추가, closeSuggest() 수정, updateSearchState() 수정
+
+            /**
+             * 
+             *  키워드 있음 + 포커스 아웃
+                → is-focus 제거
+                → is-suggest-open 유지
+                → 자동완성 영역은 숨김
+
+                키워드 length 0
+                → is-suggest-open 제거
+                → 추천 검색어 영역 노출
+
+                다시 포커스
+                → 키워드 있으면 자동완성
+             * **/
+            function initInsightSearch() {
+                const $search = $(".insight-report__search");
+
+                if (!$search.length) return;
+
+                const $input = $search.find("#insightKeyword");
+                const $resetButton = $search.find(".search-form__button--clear");
+                const $searchButton = $search.find(".insight-report__search-button");
+                const $suggest = $search.find(".search-form__suggest");
+                const $suggestList = $search.find(".search-form__suggest-list");
+                const $suggestCloseButton = $search.find(".search-form__suggest-close");
+                const $recommend = $search.find(".search-form__recommend");
+
+                // 키워드 예시
+                const keywords = [
+                    "ESG",
+                    "ESG 경영",
+                    "ESG 데이터",
+                    "디지털 전환",
+                    "디지털 물류",
+                    "AX",
+                    "AX 전략",
+                    "AI",
+                    "AI 에이전트",
+                    "클라우드",
+                    "클라우드 보안",
+                    "업무 혁신",
+                    "보안",
+                    "테크 트렌드",
+                    "공공",
+                    "금융",
+                    "제조",
+                    "유통",
+                    "국립환경과학원",
+                ];
+
+                let activeIndex = -1;
+                let isTabKey = false;
+
+                function escapeHtml(value) {
+                    return $("<div>").text(value).html();
+                }
+
+                function escapeRegExp(value) {
+                    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                }
+
+                function highlightKeyword(text, keyword) {
+                    const escapedText = escapeHtml(text);
+                    const pattern = new RegExp(`(${escapeRegExp(keyword)})`, "gi");
+
+                    return escapedText.replace(pattern, "<mark>$1</mark>");
+                }
+
+                function enableNonScroll() {
+                    if ($("html").hasClass("layout-mo")) {
+                        NonScroll.enable();
+                    }
+                }
+
+                function disableNonScroll() {
+                    if ($("html").hasClass("layout-mo")) {
+                        NonScroll.disable();
+                    }
+                }
+
+                function openSearchForm() {
+                    if ($search.hasClass("is-focus")) return;
+
+                    $search.addClass("is-focus");
+                    enableNonScroll();
+                }
+
+                function openRecommend() {
+                    closeSuggest();
+
+                    $search.addClass("is-recommend-open");
+                    $recommend.attr("aria-hidden", "false");
+                }
+
+                function closeRecommend() {
+                    $search.removeClass("is-recommend-open");
+
+                    if ($("html").hasClass("device-mo")) return;
+
+                    $recommend.attr("aria-hidden", "true");
+                }
+
+                function openSuggest() {
+                    closeRecommend();
+
+                    $search.addClass("is-suggest-open");
+                    $suggest.attr("aria-hidden", "false");
+                    $input.attr("aria-expanded", "true");
+                }
+
+                function closeSuggest() {
+                    /*
+                     * is-suggest-open은 키워드 존재 여부를 나타내므로
+                     * 여기서는 제거하지 않고 suggest 영역만 닫음
+                     */
+                    $suggest.attr("aria-hidden", "true");
+
+                    $input.attr("aria-expanded", "false").removeAttr("aria-activedescendant");
+
+                    activeIndex = -1;
+                }
+
+                function updateKeywordState() {
+                    const keyword = String($input.val() ?? "").trim();
+                    const hasKeyword = keyword.length > 0;
+
+                    $search.toggleClass("is-suggest-open", hasKeyword);
+
+                    return hasKeyword;
+                }
+
+                function closeSearchForm() {
+                    if (!$search.hasClass("is-focus")) return;
+
+                    $search.removeClass("is-focus");
+
+                    closeRecommend();
+                    closeSuggest();
+                    disableNonScroll();
+
+                    /*
+                     * 포커스가 빠져도 키워드가 있으면
+                     * is-suggest-open 클래스는 유지
+                     */
+                    updateKeywordState();
+                }
+
+                function renderAutocomplete(value) {
+                    const keyword = value.trim();
+                    const normalizedKeyword = keyword.toLowerCase();
+
+                    $suggestList.empty();
+                    activeIndex = -1;
+
+                    if (!keyword) {
+                        closeSuggest();
+                        openRecommend();
+                        return;
+                    }
+
+                    const filteredKeywords = keywords.filter(function (item) {
+                        return item.toLowerCase().includes(normalizedKeyword);
+                    });
+
+                    if (!filteredKeywords.length) {
+                        $suggestList.html(`
+                <li class="search-form__suggest-empty">
+                    자동완성 검색어가 없습니다.
+                </li>
+            `);
+
+                        openSuggest();
+                        return;
+                    }
+
+                    const html = filteredKeywords
+                        .map(function (item, index) {
+                            const escapedItem = escapeHtml(item);
+                            const highlightedItem = highlightKeyword(item, keyword);
+
+                            return `
+                    <li
+                        class="search-form__suggest-item"
+                        id="insightSearchOption${index}"
+                        role="option"
+                        aria-selected="false"
+                    >
+                        <button
+                            type="button"
+                            class="search-form__suggest-button"
+                            data-keyword="${escapedItem}"
+                        >
+                            ${highlightedItem}
+                        </button>
+                    </li>
+                `;
+                        })
+                        .join("");
+
+                    $suggestList.html(html);
+                    openSuggest();
+                }
+
+                function updateSearchState() {
+                    const value = String($input.val() ?? "");
+                    const hasValue = value.length > 0;
+                    const hasKeyword = updateKeywordState();
+
+                    $resetButton.prop("hidden", !hasValue);
+
+                    if (hasKeyword) {
+                        renderAutocomplete(value);
+                        return;
+                    }
+
+                    closeSuggest();
+                    openRecommend();
+                }
+
+                function handleSearchInput() {
+                    openSearchForm();
+                    updateSearchState();
+                }
+
+                function selectKeyword(keyword) {
+                    $input.val(keyword);
+                    updateSearchState();
+                    $input.focus();
+                }
+
+                function updateActiveOption(index) {
+                    const $items = $suggestList.find(".search-form__suggest-item");
+
+                    const $buttons = $items.find(".search-form__suggest-button");
+
+                    if (!$items.length) return;
+
+                    if (index < 0) {
+                        index = $items.length - 1;
+                    }
+
+                    if (index >= $items.length) {
+                        index = 0;
+                    }
+
+                    activeIndex = index;
+
+                    $items.attr("aria-selected", "false");
+                    $buttons.removeClass("is-active");
+
+                    const $activeItem = $items.eq(activeIndex);
+                    const $activeButton = $buttons.eq(activeIndex);
+
+                    $activeItem.attr("aria-selected", "true");
+                    $activeButton.addClass("is-active");
+
+                    $input.attr("aria-activedescendant", $activeItem.attr("id"));
+
+                    $activeButton[0]?.scrollIntoView({
+                        block: "nearest",
+                    });
+                }
+
+                function submitSearch() {
+                    const keyword = String($input.val() ?? "").trim();
+
+                    console.log("검색:", keyword);
+
+                    closeSearchForm();
+
+                    // 실제 검색 기능 연결
+                    // $search.closest("form").trigger("submit");
+
+                    //260819: 검색 후 이동
+                    $("html, body").animate({ scrollTop: $(".insight-report__list").offset().top }, 500);
+                }
+
+                $input
+                    .off(".insightSearch")
+                    .on("focus.insightSearch input.insightSearch", handleSearchInput)
+                    .on("keydown.insightSearch", function (e) {
+                        const $items = $suggestList.find(".search-form__suggest-item");
+
+                        if (e.key === "ArrowDown") {
+                            if (!$search.hasClass("is-suggest-open") || !$items.length) {
+                                return;
+                            }
+
+                            e.preventDefault();
+                            updateActiveOption(activeIndex + 1);
+                            return;
+                        }
+
+                        if (e.key === "ArrowUp") {
+                            if (!$search.hasClass("is-suggest-open") || !$items.length) {
+                                return;
+                            }
+
+                            e.preventDefault();
+                            updateActiveOption(activeIndex - 1);
+                            return;
+                        }
+
+                        if (e.key === "Enter") {
+                            const $activeButton = $suggestList.find(".search-form__suggest-button").eq(activeIndex);
+
+                            e.preventDefault();
+
+                            if ($activeButton.length && activeIndex >= 0) {
+                                selectKeyword($activeButton.data("keyword"));
+                                return;
+                            }
+
+                            submitSearch();
+                            return;
+                        }
+
+                        if (e.key === "Escape") {
+                            closeSearchForm();
+                            $input.blur();
+                        }
+                    });
+
+                // 자동완성 검색어 클릭
+                $search.off("click.insightSearch", ".search-form__suggest-button").on("click.insightSearch", ".search-form__suggest-button", function () {
+                    selectKeyword($(this).data("keyword"));
+                });
+
+                // 추천 검색어 클릭
+                $search
+                    .off("click.insightRecommend", ".search-form__keyword-button, .insight-report__search__keyword-button")
+                    .on("click.insightRecommend", ".search-form__keyword-button, .insight-report__search__keyword-button", function (e) {
+                        e.preventDefault();
+
+                        const keyword = String($(this).text() ?? "").trim();
+
+                        selectKeyword(keyword);
+                    });
+
+                // 검색어 초기화
+                $resetButton.off(".insightSearch").on("click.insightSearch", function () {
+                    $input.val("");
+                    updateSearchState();
+                    $input.focus();
+                });
+
+                // 검색 버튼
+                $searchButton.off(".insightSearch").on("click.insightSearch", function (e) {
+                    e.preventDefault();
+                    submitSearch();
+                });
+
+                // 자동완성 하단 닫기 버튼
+                $suggestCloseButton.off(".insightSearch").on("click.insightSearch", function () {
+                    closeSearchForm();
+                    $input.blur();
+                });
+
+                // 검색폼 외부 클릭 및 Tab 이동
+                $(document)
+                    .off("keydown.searchForm pointerdown.searchForm click.searchForm")
+                    .on("keydown.searchForm", function (e) {
+                        isTabKey = e.key === "Tab";
+                    })
+                    .on("pointerdown.searchForm", function () {
+                        isTabKey = false;
+                    })
+                    .on("click.searchForm", function (e) {
+                        if ($(e.target).closest(".insight-report__search").length) {
+                            return;
+                        }
+
+                        closeSearchForm();
+                    });
+
+                $search.off("focusout.insightSearch").on("focusout.insightSearch", function (e) {
+                    if (!isTabKey) return;
+
+                    const nextFocus = e.relatedTarget;
+
+                    if (nextFocus && $(this).has(nextFocus).length) {
+                        return;
+                    }
+
+                    closeSearchForm();
+                });
+
+                // 셀렉된 아이템들 리셋
+                $(".insight-report__reset-button")
+                    .off(".insightSearch")
+                    .on("click.insightSearch", function (e) {
+                        e.preventDefault();
+
+                        $input.val("");
+                        $resetButton.prop("hidden", true);
+
+                        $(".custom-selectbox").each(function () {
+                            CustomSelectbox.reset($(this));
+                        });
+
+                        $("#selectedArea").empty();
+
+                        closeSearchForm();
+                        updateKeywordState();
+                    });
+
+                // 초기 상태
+                $resetButton.prop("hidden", !String($input.val() ?? "").length);
+
+                updateKeywordState();
+                closeRecommend();
+                closeSuggest();
+            }
+
+            // 셀렉트 아이템 추가
+            function renderSelectedArea() {
+                const $selectedAreaParent = $(".insight-report__selected-area");
+                const $selectedArea = $("#selectedArea");
+
+                $selectedArea.empty();
+
+                $(".js-show-selected").each(function () {
+                    const $select = $(this);
+                    const selectName = $select.find(".custom-selectbox__input").attr("name");
+
+                    $select
+                        .find(".custom-selectbox__option[aria-selected='true']")
+                        .not(".custom-selectbox__option--all")
+                        .each(function () {
+                            const $option = $(this);
+                            const value = $option.find(".custom-selectbox__checkbox").val();
+                            const text = String($option.find(".custom-selectbox__text").text() ?? "").trim();
+                            $selectedArea.append(`
+                                <div class="selected-area__item" data-select-name="${selectName}" data-value="${value}">
+                                    <span class="selected-area__text">${text}</span>
+                                    <button type="button" class="selected-area__delete" aria-label="${text} 삭제"></button>
+                                </div>
+                            `);
+                        });
+                });
+
+                if ($(".selected-area__item").length > 0) $selectedAreaParent.addClass("has-items");
+                else $selectedAreaParent.removeClass("has-items");
+            }
+
+            $(function () {
+                CustomSelectbox.init();
+                pageLayoutHandler.init();
+
+                $(".custom-selectbox").on("change.customSelect", function () {
+                    renderSelectedArea();
+                });
+
+                // 정렬 selectbox
+                $(".js-order").on("change.customSelect", function (e, v, txt) {
+                    console.log(v, txt);
+                });
+
+                // 삭제
+                $(document).on("click", ".selected-area__delete", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const $item = $(this).closest(".selected-area__item");
+                    const selectName = $item.attr("data-select-name");
+                    const value = $item.attr("data-value");
+
+                    const $select = $(".custom-selectbox").filter(function () {
+                        return $(this).find(".custom-selectbox__input").attr("name") === selectName;
+                    });
+
+                    CustomSelectbox.unselect($select, value);
+                });
+
+                // 인사이트 검색폼
+                initInsightSearch();
+
+                //260819 : 포커스 이슈
+                (function () {
+                    const media = window.matchMedia("(max-width: 1023px)");
+
+                    const $insightFilter = $(".insight-report__filter");
+
+                    const $insightFilterGroup = $(".insight-report__selectbox-group");
+                    const $insightSearchForm = $(".insight-report__search");
+
+                    function updateOrder(e) {
+                        if (e.matches) {
+                            // MO 시각 순서 = 포커스 순서
+                            $insightFilter.append($insightSearchForm, $insightFilterGroup);
+                        } else {
+                            // PC 원래 포커스 순서
+                            $insightFilter.append($insightFilterGroup, $insightSearchForm);
+                        }
+                    }
+
+                    updateOrder(media);
+                    media.addEventListener("change", updateOrder);
+                })();
+            });
+        </script>
+    </body>
+</html>

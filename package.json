@@ -1,0 +1,33 @@
+{
+  "name": "nh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.mjs",
+  "type": "module",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "connect-ssi": "^1.1.1",
+    "del": "^7.1.0",
+    "gulp": "^5.0.1",
+    "gulp-changed": "^5.0.4",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sharp-optimize-images": "^4.0.3",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-ssi": "^0.1.5",
+    "gulp.spritesmith": "^6.13.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.72.0"
+  }
+}

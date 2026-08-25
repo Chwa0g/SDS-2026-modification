@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <!--#include file="/inc/meta.inc" -->
+        <title>SAMSUNG SDS</title>
+        <link rel="stylesheet" href="/static/css/asis/reset.css" />
+        <link rel="stylesheet" href="/static/css/asis/common.css" />
+        <link rel="stylesheet" href="/static/css/asis/common_module.css" />
+        <!--#include file="/inc/css.inc" -->
+        <link rel="stylesheet" type="text/css" href="/static/css/contact.css" />
+        <!--#include file="/inc/script.inc" -->
+    </head>
+
+    <body>
+        <div id="wrap" class="wrap">
+            <!-- header -->
+            <a href="#mainContent" class="skip-nav">본문 바로가기</a>
+            <header class="header header--transparent">
+                <!--#include file="/inc/header.inc" -->
+            </header>
+
+            <main id="content" class="contact-us">
+                <nav class="breadcrumb" aria-label="현재 위치">
+                    <ol class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a href="/" class="breadcrumb__link">Home</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">문의하기</a>
+                        </li>
+                        <li class="breadcrumb__item" aria-current="page">
+                            <span class="breadcrumb__current">사업 문의</span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- 문의하기 -->
+                <div class="contact-us-form">
+                    <section class="contact-us-form__section section">
+                        <div class="section__inner contact-us-form__inner">
+                            <div class="section__main-head">
+                                <h2 class="section__main-title">IT서비스 사업 문의하기</h2>
+                                <p class="section__main-description">궁금하신 내용을 남겨주시면, <br class="is-mo" />담당자가 빠른 시간 안에 답변 드리겠습니다.</p>
+                            </div>
+
+                            <!-- <div class="contact-us-form__tab">
+                                <a href="#" class="contact-us-form__tab-button is-active" aria-current="page">사업 문의</a>
+                                <a href="#" class="contact-us-form__tab-button">일반 문의</a>
+                            </div> -->
+
+                            <form action="" method="post" class="contact-us-form__form">
+                                <div class="contact-us-form__block">
+                                    <div class="contact-us-form__block-head">
+                                        <h3 class="contact-us-form__block-title">궁금한 내용을 입력해 주세요.</h3>
+
+                                        <p class="contact-us-form__required-guide">
+                                            <span aria-hidden="true">*</span>
+                                            필수 사항입니다.
+                                        </p>
+                                    </div>
+
+                                    <div class="contact-us-form__fields">
+                                        <div class="contact-us-form__row">
+                                            <div class="contact-us-form__field">
+                                                <label for="inquiryInterest" class="contact-us-form__label contact-us-form__label--required">관심분야</label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="custom-selectbox">
+                                                        <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">관심분야를 선택해 주세요.</span></button>
+                                                        <div class="custom-selectbox__box">
+                                                            <div class="custom-selectbox__box-inner">
+                                                                <div class="custom-selectbox__list">
+                                                                    <div class="custom-selectbox__options">
+                                                                        <button type="button" class="custom-selectbox__option" data-value="01">단일1</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="02">단일2</button>
+                                                                    </div>
+                                                                    <div class="custom-selectbox__footer">
+                                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <input type="hidden" class="custom-selectbox__input" name="chk01" value="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="contact-us-form__field">
+                                                <label for="inquiryDetail" class="contact-us-form__label contact-us-form__label--required">오퍼링</label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="custom-selectbox">
+                                                        <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">상세 오퍼링을 선택하세요.</span></button>
+                                                        <div class="custom-selectbox__box">
+                                                            <div class="custom-selectbox__box-inner">
+                                                                <div class="custom-selectbox__list">
+                                                                    <div class="custom-selectbox__options">
+                                                                        <button type="button" class="custom-selectbox__option" data-value="01">단일1</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="02">단일2</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="03">단일3</button>
+                                                                    </div>
+                                                                    <div class="custom-selectbox__footer">
+                                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" class="custom-selectbox__input" name="chk02" value="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-us-form__field contact-us-form__field--textarea">
+                                            <label for="inquiryContent" class="contact-us-form__label contact-us-form__label--required">문의내용</label>
+                                            <div class="contact-us-form__control">
+                                                <textarea
+                                                    name="inquiryContent"
+                                                    id="inquiryContent"
+                                                    class="contact-us-form__textarea"
+                                                    placeholder="문의사항에 대해 자세한 내용을 남기시면 신속하게 담당자와 연결해 드리겠습니다."
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-us-form__block">
+                                    <div class="contact-us-form__block-head">
+                                        <h2 class="contact-us-form__block-title">회사 정보를 입력해 주세요.</h2>
+                                    </div>
+
+                                    <div class="contact-us-form__fields">
+                                        <div class="contact-us-form__field contact-us-form__field--full">
+                                            <label for="companyName" class="contact-us-form__label contact-us-form__label--required">회사</label>
+                                            <div class="contact-us-form__control">
+                                                <input
+                                                    type="text"
+                                                    name="companyName"
+                                                    id="companyName"
+                                                    class="contact-us-form__input"
+                                                    placeholder="최소 2글자 입력 후 자동완성 목록에서 회사명을 선택해 주세요."
+                                                    autocomplete="organization"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-us-form__row">
+                                            <div class="contact-us-form__field is-error">
+                                                <label for="industryType" class="contact-us-form__label contact-us-form__label--required">업종</label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="custom-selectbox">
+                                                        <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">업종을 선택해 주세요.</span></button>
+                                                        <div class="custom-selectbox__box">
+                                                            <div class="custom-selectbox__box-inner">
+                                                                <div class="custom-selectbox__list">
+                                                                    <div class="custom-selectbox__options">
+                                                                        <button type="button" class="custom-selectbox__option" data-value="01">단일1</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="02">단일2</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="03">단일3</button>
+                                                                    </div>
+                                                                    <div class="custom-selectbox__footer">
+                                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" class="custom-selectbox__input" name="chk03" value="" />
+                                                        </div>
+                                                    </div>
+
+                                                    <p class="contact-us-form__error" id="industryTypeError">업종을 선택해 주세요.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="contact-us-form__field">
+                                                <label for="companySize" class="contact-us-form__label contact-us-form__label--required">회사규모</label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="custom-selectbox">
+                                                        <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">회사규모를 선택해 주세요.</span></button>
+                                                        <div class="custom-selectbox__box">
+                                                            <div class="custom-selectbox__box-inner">
+                                                                <div class="custom-selectbox__list">
+                                                                    <div class="custom-selectbox__options">
+                                                                        <button type="button" class="custom-selectbox__option" data-value="01">단일1</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="02">단일2</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="03">단일3</button>
+                                                                    </div>
+                                                                    <div class="custom-selectbox__footer">
+                                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" class="custom-selectbox__input" name="chk04" value="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-us-form__block">
+                                    <div class="contact-us-form__block-head">
+                                        <h2 class="contact-us-form__block-title">담당자 정보를 입력해 주세요.</h2>
+                                    </div>
+
+                                    <div class="contact-us-form__fields">
+                                        <div class="contact-us-form__row">
+                                            <div class="contact-us-form__field is-error">
+                                                <label for="managerName" class="contact-us-form__label contact-us-form__label--required">담당자</label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="contact-us-form__input-wrap">
+                                                        <input
+                                                            type="text"
+                                                            name="managerName"
+                                                            id="managerName"
+                                                            class="contact-us-form__input"
+                                                            placeholder="이름"
+                                                            autocomplete="name"
+                                                            aria-describedby="managerNameError"
+                                                        />
+
+                                                        <button type="button" class="contact-us-form__input-clear" aria-label="담당자 이름 삭제"></button>
+                                                    </div>
+
+                                                    <p class="contact-us-form__error" id="managerNameError">이름을 입력해 주세요.</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="contact-us-form__field">
+                                                <label for="position" class="contact-us-form__label contact-us-form__label--required">직급</label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="custom-selectbox">
+                                                        <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">직급을 선택해 주세요.</span></button>
+                                                        <div class="custom-selectbox__box">
+                                                            <div class="custom-selectbox__box-inner">
+                                                                <div class="custom-selectbox__list">
+                                                                    <div class="custom-selectbox__options">
+                                                                        <button type="button" class="custom-selectbox__option" data-value="01">단일1</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="02">단일2</button>
+                                                                        <button type="button" class="custom-selectbox__option" data-value="03">단일3</button>
+                                                                    </div>
+                                                                    <div class="custom-selectbox__footer">
+                                                                        <button type="button" class="custom-selectbox__close">확인</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" class="custom-selectbox__input" name="chk05" value="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="contact-us-form__row">
+                                            <div class="contact-us-form__field">
+                                                <label for="managerEmail" class="contact-us-form__label contact-us-form__label--required"> 이메일 </label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="contact-us-form__input-wrap">
+                                                        <input
+                                                            type="email"
+                                                            name="managerEmail"
+                                                            id="managerEmail"
+                                                            class="contact-us-form__input"
+                                                            placeholder="회사 이메일을 입력해 주세요."
+                                                            autocomplete="email"
+                                                        />
+
+                                                        <button type="button" class="contact-us-form__input-clear" aria-label="이메일 삭제"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="contact-us-form__field">
+                                                <label for="managerTel" class="contact-us-form__label contact-us-form__label--required"> 연락처 </label>
+
+                                                <div class="contact-us-form__control">
+                                                    <div class="contact-us-form__input-wrap">
+                                                        <input
+                                                            type="tel"
+                                                            name="managerTel"
+                                                            id="managerTel"
+                                                            class="contact-us-form__input"
+                                                            value=""
+                                                            placeholder="숫자만 입력해 주세요."
+                                                            inputmode="numeric"
+                                                            autocomplete="tel"
+                                                        />
+
+                                                        <button type="button" class="contact-us-form__input-clear" aria-label="연락처 삭제"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-us-form__agreement">
+                                    <div class="contact-us-form__agreement-box">
+                                        <!-- 전체 동의 -->
+                                        <div class="checkbox">
+                                            <input type="checkbox" name="agreeAll" id="agreeAll" class="checkbox__input" />
+
+                                            <label for="agreeAll" class="checkbox__label" aria-label="모두 동의"></label>
+                                            <b class="checkbox__label-text">모두 동의합니다.</b>
+                                        </div>
+
+                                        <div class="contact-us-form__agreement-list">
+                                            <!-- 만 14세 이상 -->
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="agreeAge" id="agreeAge" class="checkbox__input" />
+
+                                                <label for="agreeAge" class="checkbox__label" aria-label="만 14세 이상 동의"></label>
+
+                                                <span class="checkbox__label-text">
+                                                    <span class="contact-us-form__agreement-type">(필수)</span>
+                                                    만 14세 이상입니다.
+                                                </span>
+                                            </div>
+
+                                            <!-- 개인정보 수집 및 이용 -->
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="agreePrivacy" id="agreePrivacy" class="checkbox__input" />
+
+                                                <label for="agreePrivacy" class="checkbox__label" aria-label="개인정보 수집 및 이용 동의"></label>
+
+                                                <span class="checkbox__label-text">
+                                                    <span class="contact-us-form__agreement-type">(필수)</span>
+
+                                                    <a href="#" target="_blank" title="새 창 열림"> 개인정보 수집 및 이용 </a>
+
+                                                    에 동의합니다.
+                                                </span>
+                                            </div>
+
+                                            <!-- 국외 이전 동의 -->
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="agreeTransfer" id="agreeTransfer" class="checkbox__input" />
+
+                                                <label for="agreeTransfer" class="checkbox__label" aria-label="국외 이전 동의"></label>
+
+                                                <span class="checkbox__label-text">
+                                                    <span class="contact-us-form__agreement-type">(필수)</span>
+                                                    만 14세 이상임을 확인하고 동의합니다.
+                                                </span>
+                                            </div>
+
+                                            <!-- 마케팅 활용 -->
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="agreeOutsource" id="agreeOutsource" class="checkbox__input" />
+
+                                                <label for="agreeOutsource" class="checkbox__label" aria-label="마케팅 활용 동의"></label>
+
+                                                <span class="checkbox__label-text">
+                                                    <span class="contact-us-form__agreement-type">(선택)</span>
+                                                    <a href="#" target="_blank" title="새 창 열림">마케팅 활용</a>
+                                                    에 동의합니다.
+                                                </span>
+                                            </div>
+
+                                            <!-- 마케팅 정보 수신 -->
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="agreeMarketing" id="agreeMarketing" class="checkbox__input" />
+
+                                                <label for="agreeMarketing" class="checkbox__label" aria-label="마케팅 정보 수신 동의"></label>
+
+                                                <span class="checkbox__label-text">
+                                                    <span class="contact-us-form__agreement-type">(선택)</span>
+                                                    마케팅 정보 수신에 동의합니다.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="contact-us-form__notice">본 사이트는 이용자 편의를 위해 쿠키정보를 활용하고 있습니다.</p>
+                                </div>
+
+                                <div class="contact-us-form__submit">
+                                    <button type="submit" class="contact-us-form__submit-button button">제출</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 자주 묻는 질문 -->
+                <section class="contact-us-faq section">
+                    <div class="section__inner contact-us-faq__inner">
+                        <div class="section__head">
+                            <h3 class="section__title">자주 묻는 질문</h3>
+                        </div>
+
+                        <div class="contact-us-faq__list">
+                            <!-- 활성화 상태 -->
+                            <div class="contact-us-faq__item is-active">
+                                <h4 class="contact-us-faq__question">
+                                    <button type="button" class="contact-us-faq__button" aria-expanded="true" aria-controls="contact-usFaqPanel01" id="contact-usFaqButton01">
+                                        <span class="contact-us-faq__question-mark" aria-hidden="true">Q.</span>
+
+                                        <span class="contact-us-faq__question-text"> 삼성물산 평택(고덕) 사업장 EMM 삭제 관련 문의는 어떻게 해야 하나요? </span>
+                                    </button>
+                                </h4>
+
+                                <div class="contact-us-faq__answer" id="contact-usFaqPanel01" role="region" aria-labelledby="contact-usFaqButton01">
+                                    <div class="contact-us-faq__answer-inner">
+                                        <span class="contact-us-faq__answer-mark" aria-hidden="true">A</span>
+
+                                        <div class="contact-us-faq__answer-content">
+                                            삼성물산 평택(고덕) 사업장 EMM 삭제 관련 문의 안내입니다.<br />
+                                            EMM 삭제 문의는 평택 사업장 보안실에 방문 요청 또는 고객센터로 전화 접수 후 처리 가능합니다. 감사합니다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-us-faq__item">
+                                <h4 class="contact-us-faq__question">
+                                    <button type="button" class="contact-us-faq__button" aria-expanded="false" aria-controls="contact-usFaqPanel02" id="contact-usFaqButton02">
+                                        <span class="contact-us-faq__question-mark" aria-hidden="true">Q.</span>
+
+                                        <span class="contact-us-faq__question-text"> SDS가 보유한 솔루션, 적용사례 등을 한눈에 볼 수 있는 공간이 있나요? </span>
+                                    </button>
+                                </h4>
+
+                                <div class="contact-us-faq__answer" id="contact-usFaqPanel02" role="region" aria-labelledby="contact-usFaqButton02" hidden>
+                                    <div class="contact-us-faq__answer-inner">
+                                        <span class="contact-us-faq__answer-mark" aria-hidden="true">A</span>
+
+                                        <div class="contact-us-faq__answer-content">
+                                            <p>답변 내용이 들어갑니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-us-faq__item">
+                                <h4 class="contact-us-faq__question">
+                                    <button type="button" class="contact-us-faq__button" aria-expanded="false" aria-controls="contact-usFaqPanel03" id="contact-usFaqButton03">
+                                        <span class="contact-us-faq__question-mark" aria-hidden="true">Q.</span>
+
+                                        <span class="contact-us-faq__question-text"> 중고등/대학생 혹은 일반인 대상 기업 탐방 프로그램이나 외국인을 위한 프로그램이 있나요? </span>
+                                    </button>
+                                </h4>
+
+                                <div class="contact-us-faq__answer" id="contact-usFaqPanel03" role="region" aria-labelledby="contact-usFaqButton03" hidden>
+                                    <div class="contact-us-faq__answer-inner">
+                                        <span class="contact-us-faq__answer-mark" aria-hidden="true">A</span>
+
+                                        <div class="contact-us-faq__answer-content">
+                                            <p>답변 내용이 들어갑니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-us-faq__item">
+                                <h4 class="contact-us-faq__question">
+                                    <button type="button" class="contact-us-faq__button" aria-expanded="false" aria-controls="contact-usFaqPanel04" id="contact-usFaqButton04">
+                                        <span class="contact-us-faq__question-mark" aria-hidden="true">Q.</span>
+
+                                        <span class="contact-us-faq__question-text"> 이전에 삼성SDS에서 근무를 했습니다. 경력증명서를 발급 받으려면 어떻게 해야 하나요? </span>
+                                    </button>
+                                </h4>
+
+                                <div class="contact-us-faq__answer" id="contact-usFaqPanel04" role="region" aria-labelledby="contact-usFaqButton04" hidden>
+                                    <div class="contact-us-faq__answer-inner">
+                                        <span class="contact-us-faq__answer-mark" aria-hidden="true">A</span>
+
+                                        <div class="contact-us-faq__answer-content">
+                                            <p>답변 내용이 들어갑니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-us-faq__item">
+                                <h4 class="contact-us-faq__question">
+                                    <button type="button" class="contact-us-faq__button" aria-expanded="false" aria-controls="contact-usFaqPanel05" id="contact-usFaqButton05">
+                                        <span class="contact-us-faq__question-mark" aria-hidden="true">Q.</span>
+
+                                        <span class="contact-us-faq__question-text"> SDS와 파트너사로 협업을 하고 싶습니다. 지원 방법을 알고 싶습니다. </span>
+                                    </button>
+                                </h4>
+
+                                <div class="contact-us-faq__answer" id="contact-usFaqPanel05" role="region" aria-labelledby="contact-usFaqButton05" hidden>
+                                    <div class="contact-us-faq__answer-inner">
+                                        <span class="contact-us-faq__answer-mark" aria-hidden="true">A</span>
+
+                                        <div class="contact-us-faq__answer-content">
+                                            <p>답변 내용이 들어갑니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- footer -->
+            <!--#include file="/inc/footer.inc" -->
+        </div>
+
+        <script src="/static/js/ui.js"></script>
+
+        <!-- 페이지 스크릷트 -->
+        <script>
+            $(function () {
+                CustomSelectbox.init();
+
+                // faq
+                $(".contact-us-faq__button").on("click", function () {
+                    const $button = $(this);
+                    const $item = $button.closest(".contact-us-faq__item");
+                    const $panel = $("#" + $button.attr("aria-controls"));
+                    const isOpen = $button.attr("aria-expanded") === "true";
+
+                    $(".contact-us-faq__item").removeClass("is-active");
+                    $(".contact-us-faq__button").attr("aria-expanded", "false");
+                    $(".contact-us-faq__answer").prop("hidden", true);
+
+                    if (isOpen) return;
+
+                    $item.addClass("is-active");
+                    $button.attr("aria-expanded", "true");
+                    $panel.prop("hidden", false);
+                });
+
+                const $inputs = $('input[type="text"], input[type="email"], input[type="tel"], textarea');
+
+                // 입력값에 따른 초기화 버튼
+                $inputs.on("input", function () {
+                    const $input = $(this);
+                    const hasValue = $input.val().trim().length > 0;
+
+                    $input.closest(".contact-us-form__input-wrap").find(".contact-us-form__input-clear").toggleClass("is-active", hasValue);
+                });
+
+                // 포커스가 빠졌을 때 상태 클래스
+                $inputs.on("blur", function () {
+                    const $input = $(this);
+                    const hasValue = $input.val().trim().length > 0;
+
+                    $input.toggleClass("is-filled", hasValue);
+                });
+
+                // 다시 포커스되면 클래스 제거하고 싶을 때
+                $inputs.on("focus", function () {
+                    $(this).removeClass("is-filled");
+                });
+
+                // 초기화
+                $(".contact-us-form__input-clear").on("click", function () {
+                    $(this).prev("input").val("").trigger("input").trigger("focus");
+                });
+            });
+        </script>
+    </body>
+</html>

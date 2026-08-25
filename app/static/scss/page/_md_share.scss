@@ -1,0 +1,289 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   md_share - 공유하기 팝업 모듈 (Samsung SDS Share Modal)
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes mdShareFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mdShareFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
+/* Base Container State: Default HIDDEN! */
+.md_share_area,
+#md_share_area {
+    display: none;
+    position: absolute;
+    z-index: 999;
+
+    &.on {
+        display: block;
+    }
+}
+
+/* Share Area Container (ver2 전용) */
+#md_share_area {
+    &.on .md_share_box.ver2 {
+        display: block;
+        animation: mdShareFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    &.off .md_share_box.ver2 {
+        animation: mdShareFadeOut 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @media (max-width: 1024px) {
+        /* 닫힌 상태에서는 무조건 숨김 */
+        &:not(.on) {
+            display: none !important;
+        }
+
+        /* 열린 상태(.on)일 때만 fixed 모바일 중앙 모달 적용 */
+        &.on:has(.md_share_box.ver2) {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            pointer-events: auto;
+            z-index: 999;
+
+            /* 딤 백드롭 (열림 상태에서만 노출) */
+            .md_share_dimd {
+                display: block;
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.45);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                z-index: 1;
+            }
+        }
+    }
+}
+
+/* ver2 전용 모달 박스 스타일 */
+.md_share_box.ver2 {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 22px 20px 24px 20px;
+    width: 320px;
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 2;
+
+    .tit {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    .title_wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0;
+            color: #111111;
+            letter-spacing: -0.02em;
+        }
+    }
+
+    .ico_share_box {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px 8px;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+
+        .li_s {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8f9;
+            border-radius: 50%;
+            border: 1px solid #ebebeb;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+
+            i {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                    object-fit: contain;
+                    display: block;
+
+                    &.df_size {
+                        width: 26px;
+                        height: 26px;
+                    }
+                }
+            }
+
+            &:hover,
+            &:focus-visible {
+                transform: translateY(-3px);
+                background-color: #eef5ff;
+                border-color: #cce0ff;
+                box-shadow: 0 4px 12px rgba(33, 137, 255, 0.18);
+                outline: none;
+            }
+        }
+    }
+
+    .md_btn_share_close {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border-radius: 50%;
+        background: #f2f2f2;
+        border: none;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+
+        span {
+            position: relative;
+            display: block;
+            width: 14px;
+            height: 14px;
+            font-size: 0;
+            text-indent: -9999px;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background-color: #555555;
+                transition: background-color 0.2s ease;
+            }
+
+            &:before {
+                width: 14px;
+                height: 2px;
+                margin: -1px 0 0 -7px;
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                width: 14px;
+                height: 2px;
+                margin: -1px 0 0 -7px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &:hover,
+        &:focus-visible {
+            background-color: #e5e5e5;
+            outline: none;
+
+            span:before,
+            span:after {
+                background-color: #111111;
+            }
+        }
+    }
+}
+
+/* Mobile Responsiveness for ver2 (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .md_share_box.ver2 {
+        width: 320px;
+        max-width: calc(100vw - 32px);
+        padding: 22px 18px 24px 18px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+        .ico_share_box {
+            gap: 14px 6px;
+
+            .li_s {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+}
+
+/* Ultra Small Screens for ver2 (max-width: 360px) */
+@media (max-width: 360px) {
+    .md_share_box.ver2 {
+        width: 100%;
+        max-width: calc(100vw - 24px);
+        padding: 18px 12px 20px 12px;
+
+        .ico_share_box {
+            gap: 12px 4px;
+
+            .li_s {
+                width: 44px;
+                height: 44px;
+
+                i img {
+                    width: 20px;
+                    height: 20px;
+
+                    &.df_size {
+                        width: 22px;
+                        height: 22px;
+                    }
+                }
+            }
+        }
+    }
+}

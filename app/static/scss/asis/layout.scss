@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/* ***** layout ***** */
+
+/* 본문바로가기 */
+#skip_navi a,
+#skip_navi button {display:block; overflow:hidden; position:absolute; top:0; left:0; margin-top:-1px; width:100%; height:1px; background:#000; font-size:1.6rem; color:#fff; line-height:1; text-align:center; z-index:9999;}
+#skip_navi a:focus,
+#skip_navi a:active,
+#skip_navi button:focus,
+#skip_navi button:active{height:auto; margin-top:0; padding:10px 0px; line-height:1.5;}
+
+/* common */
+/* 메인 리뉴얼 wrap부분 */
+/* #wrap{ position: relative; width:100%; min-width:320px; max-width: 1920px; height:100%; margin: 0 auto; padding:0;} */
+#wrap{ position: relative; width:100%; min-width:320px; max-width: 1920px; margin: 0 auto; padding:0;}
+
+#wrap.fixed{position:fixed;}
+#wrap #header{position:initial;}
+.inner{max-width:1380px; width:100%; margin:0 auto; padding:0 20px;}
+.inner.content{max-width:1100px;}
+
+/* container */
+#container{  overflow:hidden; width:100%; max-width:1920px; min-width:320px; margin:0 auto; background:#fff;}
+
+
+@media all and (min-width:1px) and (max-width:767px) {
+	/* common */
+	.inner{padding:0 14px;}
+	.inner.content{padding: 0px;}
+	.inner.bd_full{padding:0px;}
+}
+
+
+@media all and ( orientation: landscape ) {
+
+
+}

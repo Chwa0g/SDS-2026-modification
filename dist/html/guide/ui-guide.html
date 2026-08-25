@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="" />
+<!-- favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!-- <link rel="icon" href="/favicon.ico" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/static/images/favicon/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/static/images/favicon/android-chrome-512x512.png" />
+<meta name="theme-color" content="#ffffff" /> -->
+        <title>SAMSUNG SDS</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/common.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/guide.css" />
+        <script src="/static/js/jquery-4.0.0.min.js"></script>
+    <script src="/static/js/swiper-bundle.min.js"></script>
+    <script src="/static/js/lenis.min.js"></script>
+    <script src="/static/js/md_share.js"></script>
+        <script src="/static/js/ui.js"></script>
+    </head>
+    <style>
+        .design-guide-panel {
+            display: none;
+        }
+    </style>
+    <body>
+        <div id="wrapper" class="design-guide">
+            <div class="layout">
+                <!-- <div class="design-guide-tab tab-wrap">
+                    <ul class="tab-a">
+                        <li class="tab-item tab-button"><a href="?button">Button</a></li>
+                        <li class="tab-item tab-form"><a href="?form">Form</a></li>
+                    </ul>
+                </div> -->
+                <aside class="sidebar">
+                    <div class="sidebar-logo">
+                        <div class="name">UI 컴포넌트 가이드</div>
+                    </div>
+
+                    <div class="sidebar-section">폼 요소</div>
+                    <!-- <a class="sidebar-link sidebar-link-button" href="?button"><span class="dot"></span>button</a> -->
+                    <a class="sidebar-link sidebar-link-select" href="?select"><span class="dot"></span>Select</a>
+                    <!-- <a class="sidebar-link" onclick="nav('checkbox', this)"><span class="dot"></span>Checkbox</a> -->
+
+                    <!-- <div class="sidebar-section">UI 요소</div>
+                    <a class="sidebar-link active" onclick="nav('table', this)"><span class="dot"></span>Table</a>
+                    <a class="sidebar-link" onclick="nav('list', this)"><span class="dot"></span>List</a>
+                    <a class="sidebar-link" onclick="nav('modal', this)"><span class="dot"></span>Modal</a>
+                    <a class="sidebar-link" onclick="nav('pagination', this)"><span class="dot"></span>Pagination</a>
+                    <a class="sidebar-link" onclick="nav('toast', this)"><span class="dot"></span>Toast</a> -->
+                </aside>
+                <main class="design-guide-wrap">
+                    <!-- button -->
+                    <!-- <div class="design-guide-panel panel-button">
+                        <h2>Button</h2>
+                    </div> -->
+                    <!-- // button -->
+                    <!-- select -->
+                    <div class="design-guide-panel panel-select">
+                        <div class="page-header">
+                            <h2>Select</h2>
+                            <p>
+                                실행 스크립트:
+                                <code style="font-size: 14px; background: var(--tag-bg); padding: 1px 6px; border-radius: 3px">CustomSelectbox.init();</code><br /><br />
+                                <span style="color: #666; font-size: 15px; font-weight: 400">
+                                    option에 <b style="color: #111">aria-selected=true</b> 추가하거나 <br />
+                                    input에 <b style="color: #111">checked</b>추가하면 미리 선택
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="tabs">
+                            <button class="tab-btn active">단일</button>
+                            <button class="tab-btn">멀티</button>
+                            <button class="tab-btn">이벤트</button>
+                        </div>
+
+                        <div class="tab-panels">
+                            <div class="tab-panel active">
+                                <table class="table-a">
+                                    <caption>
+                                        셀렉트
+                                    </caption>
+                                    <colgroup>
+                                        <col style="width: 200px" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" colspan="2">구분</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>업데이트X</th>
+                                            <td>
+                                                <div class="code-box">
+                                                    <code>
+                                                        data-multiple="false" or 속성 없음 <br />
+                                                        data-update-title="false"<br />
+                                                        멀티와 같이 label가능.</code
+                                                    ><br /><br />
+                                                    <div class="code-view">
+                                                        <div class="custom-selectbox" data-update-title="false" style="width: 30rem">
+                                                            <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">단일 제목</span></button>
+                                                            <div class="custom-selectbox__box">
+                                                                <div class="custom-selectbox__box-inner">
+                                                                    <div class="custom-selectbox__list">
+                                                                        <div class="custom-selectbox__options">
+                                                                            <button type="button" class="custom-selectbox__option" data-value="01">단일1</button>
+                                                                            <button type="button" class="custom-selectbox__option" data-value="02">단일2</button>
+                                                                        </div>
+                                                                        <div class="custom-selectbox__footer">
+                                                                            <button type="button" class="custom-selectbox__close">확인</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>업데이트O</th>
+                                            <td>
+                                                <div class="code-box">
+                                                    <code>
+                                                        data-multiple="false" or 속성 없음 <br />
+                                                        data-update-title="true" </code
+                                                    ><br /><br />
+                                                    <div class="code-view">
+                                                        <div class="custom-selectbox" data-update-title="true" style="width: 30rem">
+                                                            <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text">단일</span></button>
+                                                            <div class="custom-selectbox__box">
+                                                                <div class="custom-selectbox__box-inner">
+                                                                    <div class="custom-selectbox__list">
+                                                                        <div class="custom-selectbox__options">
+                                                                            <button type="button" class="custom-selectbox__option" data-value="01" aria-selected="true">선택1</button>
+                                                                            <button type="button" class="custom-selectbox__option" data-value="02">선택2</button>
+                                                                        </div>
+                                                                        <div class="custom-selectbox__footer">
+                                                                            <button type="button" class="custom-selectbox__close">확인</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                업데이트O,<br />
+                                                다시 해제 가능(토글)
+                                            </th>
+                                            <td>
+                                                <div class="code-box">
+                                                    <code>
+                                                        data-multiple="false" or 속성 없음 <br />
+                                                        data-update-title="true"<br />
+                                                        data-placeholder="선택해 주세요."
+                                                    </code>
+                                                    <div class="code-view">
+                                                        <div class="custom-selectbox" data-update-title="true" data-placeholder="선택해 주세요." style="width: 30rem">
+                                                            <button type="button" class="custom-selectbox__selected"><span class="custom-selectbox__selected-text"></span></button>
+                                                            <div class="custom-selectbox__box">
+                                                                <div class="custom-selectbox__box-inner">
+                                                                    <div class="custom-selectbox__list">
+                                                                        <div class="custom-selectbox__options">
+                                                                            <button type="button" class="custom-selectbox__option" data-value="01">선택1</button>
+                                                                            <button type="button" class="custom-selectbox__option" data-value="02">선택2</button>
+                                                                            <button type="button" class="custom-selectbox__option" data-value="03">선택3</button>
+                                                                        </div>
+                                                                        <div class="custom-selectbox__footer">
+                                                                            <button type="button" class="custom-selectbox__close">확인</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="tab-panel">
+                                <table class="table-a">
+                                    <caption>
+                                        셀렉트
+                                    </caption>
+                                    <colgroup>
+                                        <col style="width: 200px" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" colspan="2">구분</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>업데이트X</th>
+                                            <td>
+                                                <div class="code-box">
+                                                    <code>
+                                                        data-multiple="true" <br />
+                                                        data-update-title="false"<br />
+                                                    </code>
+                                                    <br /><br />
+                                                    <div class="code-view">
+                                                        <div class="custom-selectbox" data-multiple="true" data-update-title="false" style="max-width: 30rem">
+                                                            <button type="button" class="custom-selectbox__selected">셀렉트박스 제목</button>
+                                                            <div class="custom-selectbox__box">
+                                                                <div class="custom-selectbox__box-inner">
+                                                                    <div class="custom-selectbox__list">
+                                                                        <div class="custom-selectbox__title">제목 입력</div>
+                                                                        <div class="custom-selectbox__options">
+                                                                            <label class="custom-selectbox__option custom-selectbox__option--all">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">전체선택</span>
+                                                                                </div>
+                                                                            </label>
+                                                                            <label class="custom-selectbox__option">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_01" checked />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">선택1</span>
+                                                                                </div>
+                                                                            </label>
+                                                                            <label class="custom-selectbox__option">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_02" />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">선택2</span>
+                                                                                </div>
+                                                                            </label>
+                                                                            <label class="custom-selectbox__option">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_03" />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">선택3</span>
+                                                                                </div>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="custom-selectbox__footer">
+                                                                            <button type="button" class="custom-selectbox__close">확인</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" class="custom-selectbox__input" name="chk01" value="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>업데이트O</th>
+                                            <td>
+                                                <div class="code-box">
+                                                    <code>
+                                                        data-multiple="true" <br />
+                                                        data-update-title="true"<br /> </code
+                                                    ><br /><br />
+                                                    <div class="code-view">
+                                                        <div class="custom-selectbox" data-multiple="true" data-update-title="true" style="max-width: 30rem">
+                                                            <button type="button" class="custom-selectbox__selected">셀렉트박스 제목</button>
+                                                            <div class="custom-selectbox__box">
+                                                                <div class="custom-selectbox__box-inner">
+                                                                    <div class="custom-selectbox__list">
+                                                                        <div class="custom-selectbox__title">제목 입력</div>
+                                                                        <div class="custom-selectbox__options">
+                                                                            <label class="custom-selectbox__option custom-selectbox__option--all">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">전체선택</span>
+                                                                                </div>
+                                                                            </label>
+                                                                            <label class="custom-selectbox__option">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" value="chk02_01" />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">선택1</span>
+                                                                                </div>
+                                                                            </label>
+                                                                            <label class="custom-selectbox__option">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" value="chk02_02" checked />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">선택2</span>
+                                                                                </div>
+                                                                            </label>
+                                                                            <label class="custom-selectbox__option">
+                                                                                <input type="checkbox" class="custom-selectbox__checkbox" value="chk02_03" checked />
+                                                                                <div class="custom-selectbox__label">
+                                                                                    <span class="custom-selectbox__text">선택3</span>
+                                                                                </div>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="custom-selectbox__footer">
+                                                                            <button type="button" class="custom-selectbox__close">확인</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" class="custom-selectbox__input" name="chk01" value="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-panel">
+                                <div class="guide-section">
+                                    <h3 class="guide-title">이벤트</h3>
+
+                                    <div class="guide-desc">
+                                        <p style="margin-top: 20px">
+                                            커스텀 셀렉트박스는 옵션 선택 시 <code>change.customSelect</code> 이벤트를 발생시킵니다. 이벤트 콜백에서는 선택된 값인 <code>value</code>와 화면에 표시되는
+                                            텍스트인 <code>text</code>를 전달받아 사용할 수 있습니다.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <!-- 코드 예시 영역 -->
+                                        <script>
+                                            $(function () {
+                                                $("#testSelect").on("change.customSelect", function (e, value, text) {
+                                                    const str = value.length > 0 ? value.join(", ") : "-";
+                                                    $("#selectedVal").html(str);
+                                                });
+                                                console.log($("#testSelect01").val());
+                                            });
+                                        </script>
+                                        <code class="guide-code">$("선택자").on("change.customSelect", function (e, value, text) { $("#selectedVal").html(value.join(", ")); }); </code>
+                                        <br /><br />
+                                        <p style="font-size: 16px">
+                                            <b>선택한 값:</b>
+                                            <span id="selectedVal" style="margin-left: 10px; color: #d6730c">-</span>
+                                        </p>
+                                        <div style="margin-top: 30px">
+                                            <div class="custom-selectbox" id="testSelect" data-multiple="true" data-update-title="false" style="max-width: 30rem">
+                                                <button type="button" class="custom-selectbox__selected">이벤트 확인</button>
+                                                <div class="custom-selectbox__box">
+                                                    <div class="custom-selectbox__box-inner">
+                                                        <div class="custom-selectbox__list">
+                                                            <div class="custom-selectbox__title">제목 입력</div>
+                                                            <div class="custom-selectbox__options">
+                                                                <label class="custom-selectbox__option custom-selectbox__option--all">
+                                                                    <input type="checkbox" class="custom-selectbox__checkbox" />
+                                                                    <div class="custom-selectbox__label">
+                                                                        <span class="custom-selectbox__text">전체선택</span>
+                                                                    </div>
+                                                                </label>
+                                                                <label class="custom-selectbox__option">
+                                                                    <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_01" />
+                                                                    <div class="custom-selectbox__label">
+                                                                        <span class="custom-selectbox__text">선택1</span>
+                                                                    </div>
+                                                                </label>
+                                                                <label class="custom-selectbox__option">
+                                                                    <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_02" />
+                                                                    <div class="custom-selectbox__label">
+                                                                        <span class="custom-selectbox__text">선택2</span>
+                                                                    </div>
+                                                                </label>
+                                                                <label class="custom-selectbox__option">
+                                                                    <input type="checkbox" class="custom-selectbox__checkbox" value="chk01_03" />
+                                                                    <div class="custom-selectbox__label">
+                                                                        <span class="custom-selectbox__text">선택3</span>
+                                                                    </div>
+                                                                </label>
+                                                            </div>
+                                                            <div class="custom-selectbox__footer">
+                                                                <button type="button" class="custom-selectbox__close">확인</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" class="custom-selectbox__input" name="testSelect01" id="testSelect01" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // select -->
+                </main>
+            </div>
+        </div>
+    </body>
+    <!-- 페이지 관련 스크립트 -->
+    <script>
+        $(function () {
+            if (!location.href.split("?")[1]) location.href = "?select";
+
+            $(".sidebar-link-" + location.href.split("?")[1]).addClass("active");
+            $(".panel-" + location.href.split("?")[1]).addClass("active");
+
+            $(".design-guide-panel").each(function () {
+                const $wrap = $(this);
+                const $tabs = $wrap.find(".tab-btn");
+                const $panels = $wrap.find(".tab-panel");
+
+                $tabs.on("click", function () {
+                    const $tab = $(this);
+                    const index = $tab.index();
+
+                    $tabs.removeClass("active");
+                    $tab.addClass("active");
+
+                    $panels.removeClass("active");
+                    $panels.eq(index).addClass("active");
+                });
+            });
+        });
+
+        //코드
+        $(function () {
+            $(".code-box").each(function () {
+                const $box = $(this);
+                const $codeView = $box.find("> .code-view");
+
+                // 코드보기 영역 만들기 전에 원본 코드 먼저 저장
+                const code = cleanCodeIndent($codeView.html());
+
+                $box.append(`
+                <div class="code-wrap">
+                    <div class="code-label"><span>HTML</span><button class="copy-btn" onclick="copyCode(this)">복사</button></div>
+                    <div class="code-text-wrap">
+                        <pre class="code-text"><code></code></pre>
+                    </div>
+                </div>
+        `);
+
+                // 여기 꼭 .html()로 넣어야 span이 색상 태그로 적용됨
+                $box.find(".code-text code").html(highlightHtml(code));
+
+                // $box.find(".code-toggle").on("click", function () {
+                //     $box.find(".code-text-wrap").toggleClass("on");
+                // });
+            });
+
+            CustomSelectbox.init();
+        });
+
+        function cleanCodeIndent(str) {
+            const lines = String(str || "")
+                .replace(/^\n+|\n+$/g, "")
+                .split("\n");
+
+            const minIndent = lines
+                .filter((line) => line.trim())
+                .reduce((min, line) => {
+                    const indent = line.match(/^\s*/)[0].length;
+                    return Math.min(min, indent);
+                }, Infinity);
+
+            if (minIndent === Infinity) {
+                return "";
+            }
+
+            return lines.map((line) => line.slice(minIndent)).join("\n");
+        }
+
+        function escapeHtml(str) {
+            return String(str || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function highlightHtml(str) {
+            const html = escapeHtml(str);
+
+            return html.replace(/(&lt;!--[\s\S]*?--&gt;)|(&lt;\/?)([a-zA-Z][a-zA-Z0-9-]*)([\s\S]*?)(&gt;)/g, function (match, comment, tagOpen, tagName, attrs, tagClose) {
+                // HTML 주석
+                if (comment) {
+                    return `<span class="cm">${comment}</span>`;
+                }
+
+                // 속성만 따로 하이라이트
+                const highlightedAttrs = attrs.replace(/(\s+)([a-zA-Z_:][-a-zA-Z0-9_:.]*)(=(&quot;.*?&quot;|'.*?'|[^\s]+))?/g, function (attrMatch, space, attrName, equalPart, attrValue) {
+                    if (equalPart) {
+                        return `${space}<span class="at">${attrName}</span>=<span class="vl">${attrValue}</span>`;
+                    }
+
+                    return `${space}<span class="at">${attrName}</span>`;
+                });
+
+                return `${tagOpen}<span class="tc">${tagName}</span>${highlightedAttrs}${tagClose}`;
+            });
+        }
+
+        function copyCode(btn) {
+            const text = btn.closest(".code-wrap").querySelector("pre").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = "복사됨 ✓";
+                btn.classList.add("copied");
+                setTimeout(() => {
+                    btn.textContent = "복사";
+                    btn.classList.remove("copied");
+                }, 1800);
+            });
+        }
+    </script>
+    <!--//페이지 관련 스크립트 -->
+</html>

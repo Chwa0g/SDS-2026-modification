@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <!--#include file="/inc/meta.inc" -->
+        <title>SAMSUNG SDS</title>
+        <!--#include file="/inc/css.inc" -->
+        <link rel="stylesheet" type="text/css" href="/static/css/insight.css" />
+        <!--#include file="/inc/script.inc" -->
+    </head>
+
+    <body>
+        <div id="wrap" class="wrap">
+            <!-- header -->
+            <a href="#mainContent" class="skip-nav">본문 바로가기</a>
+            <header class="header header--transparent">
+                <!--#include file="/inc/header.inc" -->
+            </header>
+
+            <main class="insight-report-detail postGroup" id="mainContent">
+                <section class="insight-report-detail__hero">
+                    <!-- s:260724 -->
+                    <nav class="breadcrumb breadcrumb--absolute" aria-label="현재 위치">
+                        <ol class="breadcrumb__list">
+                            <li class="breadcrumb__item">
+                                <a href="/" class="breadcrumb__link">Home</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">인사이트</a>
+                            </li>
+                            <li class="breadcrumb__item" aria-current="page">
+                                <span class="breadcrumb__current">목록</span>
+                            </li>
+                        </ol>
+                    </nav>
+                    <!-- //e:260724 -->
+                    <div class="insight-report-detail__hero-bg">
+                        <img src="/static/images/insight/report_detail_bg.jpg" alt="" class="is-pc" />
+                        <img src="/static/images/insight/report_detail_bg_mo.jpg" alt="" class="is-mo" />
+                    </div>
+                    <div class="section__inner">
+                        <div class="insight-report-detail__hero-content">
+                            <div class="insight-report-detail__category">AX · 유통</div>
+
+                            <h2 class="insight-report-detail__title">
+                                ChatGPT vs Claude, 같은 질문에도 비용이 다른 이유 : <br class="is-pc" />
+                                ‘토큰 산출 격차’의 비밀
+                            </h2>
+
+                            <div class="insight-report-detail__author">송성욱 · 팀드샘</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="insight-report-detail__body">
+                    <!-- 왼쪽 nav -->
+                    <nav class="insight-report-detail__side-nav" aria-label="인사이트 리포트 목차">
+                        <div class="insight-report-detail__side-nav-inner">
+                            <strong class="insight-report-detail__side-title">인사이트 리포트</strong>
+
+                            <ul class="insight-report-detail__side-list">
+                                <li class="insight-report-detail__side-item is-active">
+                                    <a href="#nav01" class="insight-report-detail__side-link" aria-current="location">Executive Summary</a>
+                                </li>
+
+                                <li class="insight-report-detail__side-item">
+                                    <a href="#nav02" class="insight-report-detail__side-link">
+                                        코드 자동완성에서 자율형<br />
+                                        에이전트로
+                                    </a>
+                                </li>
+
+                                <li class="insight-report-detail__side-item">
+                                    <a href="#nav03" class="insight-report-detail__side-link">
+                                        소프트웨어 개발의 전제<br />
+                                        자체가 무너지고 있다
+                                    </a>
+                                </li>
+
+                                <li class="insight-report-detail__side-item">
+                                    <a href="#nav04" class="insight-report-detail__side-link"> 저자 </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- //왼쪽 nav -->
+
+                    <!-- 오른쪽 컨텐츠 -->
+                    <div class="section__inner">
+                        <div class="insight-report-detail__util">
+                            <div class="insight-report-detail__meta">
+                                <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                            </div>
+
+                            <div class="insight-report-detail__share">
+                                <button type="button" class="insight-report-detail__share-button insight-report-detail__share-button--share" onclick="return md_pop_share(this);">
+                                    <span class="blind">공유하기</span>
+                                </button>
+                                <button type="button" class="insight-report-detail__share-button insight-report-detail__share-button--print" onclick="return printPost();">
+                                    <span class="blind">인쇄하기</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="insight-report-detail__layout">
+                            <!-- 상세 내용 -->
+                            <article class="insight-report-detail__article">
+                                <div class="insight-report-detail__content">
+                                    <p class="insight-report-detail__lead">
+                                        코드(Coder)에서 AI 에이전트를 지휘하는 오케스트레이터로 재편되는<br />
+                                        개발자 역할의 패러다임 전환과 조직의 생존 전략을 분석합니다.
+                                    </p>
+
+                                    <div class="post">
+                                        <div class="txt_wrap">
+                                            <!-- 새로운 ui -->
+                                            <div class="insight-editor">
+                                                <div class="insight-editor__summary" id="nav01">
+                                                    <strong class="insight-editor__summary-title">Executive Summary</strong>
+
+                                                    <ol class="insight-editor__summary-list">
+                                                        <li class="insight-editor__summary-item">
+                                                            전통적인 소프트웨어 엔지니어링이 키스트로크 중심이었다면, 에이전틱 AI(Agentic AI) 시대의 개발은 고수준의 자연어 지시를 통해 자율형
+                                                            에이전트를 감독하는 오케스트레이션 중심으로 재편되고 있습니다.
+                                                        </li>
+                                                        <li class="insight-editor__summary-item">
+                                                            소프트웨어 수명 주기(SDLC)의 전 단계가 AI의 자율 루프 속에서 일시에 처리되는 구조로 변화함에 따라, 코드 리뷰나 문서화 등 인간 개입
+                                                            프로세스에서 발생하는 병목을 제거하지 못하는 IT 조직은 심각한 생산성 정체를 겪게 됩니다.
+                                                        </li>
+                                                        <li class="insight-editor__summary-item">
+                                                            빅테크 기업들은 기존 클라우드 및 인프라에 AI 에이전트를 내장하는 유통 편의성을 강조하는 반면, 워크플로우 특화 도구는 독보적인 맥락 파악력과
+                                                            모델 유연성으로 개발자 생태계를 장악하며 시장을 양분하고 있습니다.
+                                                        </li>
+                                                    </ol>
+                                                </div>
+
+                                                <p class="text">
+                                                    몇 년 전까지만 해도 소프트웨어 개발 환경에서 인공지능(AI)의 역할은 통합개발환경(IDE) 내부에서 개발자가 입력할 다음 변수명을 간간이 유추하거나,
+                                                    기본적인 문법 오류를 잡아주는 단순 '자동완성(Autocomplete) 엔진' 수준에 머물러 있었습니다. 이러한 초기 모델들은 개발자의 타이핑 타이밍을 조금
+                                                    줄여주고 단순 반복 작업의 피로도를 일부 덜어주는 데 기여했을 뿐, 소프트웨어를 구상하고 아키텍처를 설계하며 논리적 버그를 해결하는 엔지니어링의
+                                                    본질적인 업무 프로세스를 바꾸지는 못했습니다.
+                                                    <br /><br />
+                                                    그러나 현재 우리가 목격하고 있는 기술적 변곡점은 차원이 다릅니다. 오늘날의 AI는 더 이상 IDE 한구석에 숨겨진 신기한 기능이 아닙니다. 이제 AI는
+                                                    소프트웨어가 실제로 빌드되고, 테스트되며, 배포되는 전체 개발 수명 주기(SDLC, Software Development Life Cycle)의 모필이자 강력한 연결 조직으로 자리
+                                                    잡았습니다.
+                                                    <br /><br />
+                                                    현재 고도화된 AI는 엔지니어의 바로 옆자리에서 한순간도 지치지 않고, 문맥 전환(Context Switching)에 따른 집중력 저하도 없으며, 인류 역사상 존재했던
+                                                    그 어떤 인간 개발자보다 더 많은 코드를 읽고 학습한 '상시 대기형 동료 엔지니어'에 가까운 형태로 진화했습니다. 만약 조직이 기술적 오케스트레이션에
+                                                    역량을 갖추고 있다면, 단순한 조력자 한 명을 넘어 고도로 숙련된 독립 엔지니어링 팀 전체를 AI를 통해 가상으로 구축하고 구동하는 것까지 가능한 시대가
+                                                    되었습니다.
+                                                    <br /><br />
+                                                    이러한 변화의 속도는 예측보다 훨씬 빠르게 가속화되고 있으며, 모든 엔지니어링 팀은 이 새로운 개발 플레이북을 받아들이지 않을 경우 시장에서 회복
+                                                    불가능할 정도로 뒤처질 위험에 직면해 있습니다.
+                                                </p>
+
+                                                <h3 class="title" id="nav02">코드 자동완성에서 자율형 에이전트로</h3>
+
+                                                <p class="text">
+                                                    과거의 개발 도구들이 개발자의 손가락을 대신해 키스트로크를 아껴주는 기술이었다면, 이제 전면에 등장한 '에이전틱 AI(Agentic AI)' 시스템은 개발자의
+                                                    '생각의 흐름'을 구체적인 결과물로 변환하는 자율적 실행력을 보유하고 있습니다.
+                                                    <br /><br />
+                                                    이제 개발자는 "결제 폼에 입력값 검증(Validation) 로직을 추가하고 이에 대한 단위 테스트 코드를 작성해 줘"라는 고수준의 자연어 명령어 하나만 내리면
+                                                    됩니다. 에이전틱 AI는 이 단일 지시를 분석하여 스스로 아키텍처를 파악하고, 수많은 프로젝트 파일 전체를 종횡무진하며 코드를 수정합니다. 여기서 그치지
+                                                    않고 자체적으로 테스트 수트를 구동하고, 발생한 실패 요인을 추적하여, 버그를 스스로 수정한 뒤 최종 검증까지 완료하는 자율적 루프를 수행합니다.
+                                                    <br /><br />
+                                                    이러한 변화는 점진적으로 진행됐지만 최근 들어 급격히 가속화되고 있습니다. 그리고 이제 개발 조직은 AI를 도입할지 여부를 고민하는 단계를 넘어, 얼마나
+                                                    빠르게 적응할 것인가를 고민해야 하는 상황에 놓이고 있습니다. 이제 개발자의 본질적인 정체성은 코드를 한 줄 한 줄 타이핑하는 '코더(Coder)'에서, AI
+                                                    에이전트의 결과물을 검토하고 방향성을 조율하는 '엔지니어링 리드' 혹은 '제품 관리자(PM)'의 영역으로 급격하게 이동하고 있습니다. 인간 개발자가 직접
+                                                    손으로 코드를 작성하는 것은 AI 에이전트가 도저히 해결하지 못할 때 선택하는 최후의 수단(Fallback)으로 전락한 것입니다.
+                                                    <br /><br />
+                                                    물론 이러한 전환은 쉬운 일은 아닙니다. 조직 내부에서도 AI 활용 숙련도 차이가 존재하며, 에이전트 오케스트레이션 역량 역시 개인마다 편차가 큽니다.
+                                                    그러나 AI를 적극적으로 활용하는 개발자 그룹은 생산성과 영향력 측면에서 매우 큰 향상을 보인다는 평가가 나오고 있습니다.
+                                                </p>
+
+                                                <h3 class="title" id="nav03">소프트웨어 개발의 전제 자체가 무너지고 있다</h3>
+
+                                                <p class="text">
+                                                    우리는 지금 지난 수십 년 동안 소프트웨어 공학을 지탱해 온 가장 근본적인 가정들을 완전히 해체하고 재배치하는 패러다임의 파괴적 종말을 목격하고
+                                                    있습니다. "소프트웨어를 구축하기 위해서는 수많은 거대한 전문 개발자 팀이 필요하며, 이들이 수개월 동안 타임라인에 맞춰 톱니바퀴처럼 일해야만 결과물이
+                                                    나온다"는 오랜 상식은 급격하게 무력화되고 있습니다. 고도화된 자율형 에이전트 오케스트레이션 인프라를 완벽하게 장악한 단 한 명의 엔지니어가, 과거
+                                                    소규모 스쿼드나 팀 전체가 매달려야 했던 업무량을 더 높은 퀄리티로 훨씬 더 빠르게 뿜어내는 시대가 열렸으며, 이러한 생산성의 격차는 시간이 갈수록
+                                                    기하급수적으로 벌어질 것입니다.
+                                                    <br /><br />
+                                                    이것은 현업의 수많은 엔지니어들과 전통적인 IT 조직의 관리자들에게 결코 편안함을 주는 현실이 아닙니다. 이 거대한 전환은 조직의 구조를 어떻게 재편해야
+                                                    하는지, 주니어와 시니어의 경계를 어떻게 다시 정의해야 하는지, 그리고 뛰어난 AI 오케스트레이션 기술을 무기로 베테랑 개발자보다 훨씬 뛰어난 비즈니스
+                                                    임팩트를 만들어내는 주니어 개발자를 어떻게 가하고 보상해야 하는지에 대한 매우 민감하고 파괴적인 질문들을 수면 위로 끌어올리고 있습니다. 이미
+                                                    선도적인 테크 기업들의 최전선에서는 변화를 기꺼이 포용한 엔지니어들이 단순한 코드 작성을 넘어 시스템 전체를 조망하는 완전히 다른 차원의 고도에서
+                                                    비즈니스 가치를 창출해 내고 있습니다.
+                                                    <br /><br />
+                                                    결국 가장 큰 위험은 AI가 개발자를 대체하는 것이 아닙니다. 산업이 두 계층으로 분리되는 것입니다. 즉, AI 에이전트를 자신의 사고 체계와 업무 프로세스의
+                                                    완벽한 핵심부로 완전히 내재화하여 폭발적인 임팩트를 내는 '오케스트레이터 계층'과, AI를 단순한 보조 도구나 유행쯤으로 치부하며 "시간 날 때 한 번
+                                                    배워보지 뭐"라며 미루고 있는 '전통적 타이퍼 계층'의 분리가 그것입니다. 그리고 안타깝게도 두 번째 그룹에게 허락된 적응의 시간은 생각보다 훨씬 빠르게
+                                                    줄어들고 있습니다.
+                                                </p>
+
+                                                <div class="insight-report-detail__faq">
+                                                    <h3 class="insight-report-detail__section-title">FAQ</h3>
+
+                                                    <div class="insight-report-detail__faq-list">
+                                                        <div class="insight-report-detail__faq-item">
+                                                            <h4 class="insight-report-detail__faq-question">
+                                                                <span class="insight-report-detail__faq-label">Q</span>
+                                                                <span class="insight-report-detail__faq-question-text"> 에이전틱 AI(Agentic AI)는 기존 코딩 보조 도구와 어떻게 다른가요? </span>
+                                                            </h4>
+
+                                                            <div class="insight-report-detail__faq-answer">
+                                                                <div class="insight-report-detail__faq-answer-inner">
+                                                                    <span class="insight-report-detail__faq-label">A</span>
+
+                                                                    <p class="insight-report-detail__faq-answer-text">
+                                                                        기존 1, 2세대 생성형 AI 코딩 도구가 개발자가 입력하는 콘텍스트를 바탕으로 다음에 올 단어나 코드 라인을 추천하는 '단순
+                                                                        자동완성(Autocomplete) 엔진'이었다면, 3세대 에이전틱 AI(Agentic AI)는 자율적 실행력을 가진 독립된 에이전트 시스템입니다.
+                                                                        개발자가 자연어로 고수준의 기능 구현을 지시하면, 에이전트가 스스로 프로젝트 구조를 파악해 다중 파일을 동시에 수정하고, 테스트
+                                                                        수트를 구동하여 실패 요인을 추적하며, 발견된 버그를 스스로 수정(Self-healing) 하는 전 과정의 자율 루프를 독립적으로 수행한다는
+                                                                        점에서 근본적인 차이가 있습니다.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="insight-report-detail__faq-item">
+                                                            <h4 class="insight-report-detail__faq-question">
+                                                                <span class="insight-report-detail__faq-label">Q</span>
+                                                                <span class="insight-report-detail__faq-question-text"> AI가 다루는 코드를 자동으로 생성하면 코드 리뷰는 생략해도 되나요? </span>
+                                                            </h4>
+
+                                                            <div class="insight-report-detail__faq-answer">
+                                                                <div class="insight-report-detail__faq-answer-inner">
+                                                                    <span class="insight-report-detail__faq-label">A</span>
+
+                                                                    <p class="insight-report-detail__faq-answer-text">답변</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="insight-report-detail__faq-item">
+                                                            <h4 class="insight-report-detail__faq-question">
+                                                                <span class="insight-report-detail__faq-label">Q</span>
+                                                                <span class="insight-report-detail__faq-question-text"> 구글, 마이크로소프트 같은 빅테크의 AI 도구와 차이는 무엇인가요? </span>
+                                                            </h4>
+
+                                                            <div class="insight-report-detail__faq-answer">
+                                                                <div class="insight-report-detail__faq-answer-inner">
+                                                                    <span class="insight-report-detail__faq-label">A</span>
+
+                                                                    <p class="insight-report-detail__faq-answer-text">답변</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="insight-report-detail__faq-item">
+                                                            <h4 class="insight-report-detail__faq-question">
+                                                                <span class="insight-report-detail__faq-label">Q</span>
+                                                                <span class="insight-report-detail__faq-question-text"> 에이전틱 AI 도입을 준비하는 IT 조직의 기업 거버넌스 기준은 무엇인가요? </span>
+                                                            </h4>
+
+                                                            <div class="insight-report-detail__faq-answer">
+                                                                <div class="insight-report-detail__faq-answer-inner">
+                                                                    <span class="insight-report-detail__faq-label">A</span>
+
+                                                                    <p class="insight-report-detail__faq-answer-text">답변</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- //새로운 ui -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <section class="insight-report-detail__series">
+                                    <div class="insight-report-detail__series-head">
+                                        <span class="insight-report-detail__series-badge">시리즈</span>
+                                        <h3 class="insight-report-detail__series-title">범정부 AI·클라우드 기반 공공AX 추진 전략 보고서·2026</h3>
+                                    </div>
+
+                                    <ul class="insight-report-detail__series-list">
+                                        <li class="insight-report-detail__series-item">
+                                            <a href="#" class="insight-report-detail__series-link">
+                                                <div class="insight-report-detail__series-image">
+                                                    <img src="/static/images/insight/detail_series_01.jpg" alt="" />
+                                                </div>
+
+                                                <div class="insight-report-detail__series-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <strong class="insight-report-detail__series-subject">공공AX 추진 방향 및 우선 과제</strong>
+
+                                                    <p class="insight-report-detail__series-desc">
+                                                        본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="insight-report-detail__series-item">
+                                            <a href="#" class="insight-report-detail__series-link">
+                                                <div class="insight-report-detail__series-image">
+                                                    <img src="/static/images/insight/detail_series_01.jpg" alt="" />
+                                                </div>
+
+                                                <div class="insight-report-detail__series-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <strong class="insight-report-detail__series-subject">지능형 전자정부 구현을 위한 공공AI·클라우드 전환 전략</strong>
+
+                                                    <p class="insight-report-detail__series-desc">
+                                                        본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="insight-report-detail__series-item">
+                                            <a href="#" class="insight-report-detail__series-link">
+                                                <div class="insight-report-detail__series-image">
+                                                    <img src="/static/images/insight/detail_series_01.jpg" alt="" />
+                                                </div>
+
+                                                <div class="insight-report-detail__series-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <strong class="insight-report-detail__series-subject">신뢰 기반 공공AX 업무 체계 고도화 전략</strong>
+
+                                                    <p class="insight-report-detail__series-desc">내용</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </section>
+
+                                <section class="insight-report-detail__writer" id="nav04">
+                                    <h3 class="insight-report-detail__section-title">저자</h3>
+
+                                    <div class="insight-report-detail__writer-list">
+                                        <div class="insight-report-detail__writer-card">
+                                            <div class="insight-report-detail__writer-head">
+                                                <div class="insight-report-detail__writer-image">
+                                                    <img src="/static/images/insight/writer_01.jpg" alt="송덕삼" />
+                                                </div>
+
+                                                <!-- s:260727 -->
+                                                <a href="#" class="insight-report-detail__writer-profile">
+                                                    <strong class="insight-report-detail__writer-name">송덕삼</strong>
+                                                    <span class="insight-report-detail__writer-role">OOO Contributing Writer</span>
+                                                </a>
+                                                <!-- e:260727 -->
+                                            </div>
+                                            <p class="insight-report-detail__writer-desc">
+                                                With her deep industry knowledge and passion to create a culture of trust and collaboration, Michelle brings innovative and effective solutions that
+                                                deliver sustained outcomes for her clients.
+                                            </p>
+
+                                            <div class="insight-report-detail__writer-sns">
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--linkedin" aria-label="LinkedIn"></a>
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--mail" aria-label="mail"></a>
+                                                <a href="#" class="insight-report-detail__writer-more">이 저자의 다른 콘텐츠 보기</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="insight-report-detail__writer-card">
+                                            <div class="insight-report-detail__writer-head">
+                                                <div class="insight-report-detail__writer-image">
+                                                    <img src="/static/images/insight/writer_01.jpg" alt="송덕삼" />
+                                                </div>
+                                                <!-- s:260727 -->
+                                                <a href="#" class="insight-report-detail__writer-profile">
+                                                    <strong class="insight-report-detail__writer-name">송덕삼</strong>
+                                                    <span class="insight-report-detail__writer-role">OOO Contributing Writer</span>
+                                                </a>
+                                                <!-- e:260727 -->
+                                            </div>
+                                            <div class="insight-report-detail__writer-sns">
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--linkedin" aria-label="LinkedIn"></a>
+                                                <a href="#" class="insight-report-detail__writer-sns-link insight-report-detail__writer-sns-link--mail" aria-label="mail"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </article>
+                            <!-- //상세 내용 -->
+
+                            <!-- 관련 콘텐츠 -->
+                            <div class="insight-report-detail__related">
+                                <h3 class="insight-report-detail__section-title">관련 콘텐츠</h3>
+
+                                <div class="insight-report-detail__related-swiper swiper">
+                                    <div class="insight-report-detail__related-list swiper-wrapper">
+                                        <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">테크 트렌드</span>
+                                                </div>
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2025.06.01</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+                                                    <div class="insight-report-detail__related-title">
+                                                        신뢰 기반 공공AX 업무 체계 고도화 전략신뢰 기반 공공AX 업무 체계 고도화 전략신뢰 기반 공공AX 업무 체계 고도화 전략신뢰 기반 공공AX 업무 체계
+                                                        고도화 전략신뢰 기반 공공AX 업무 체계 고도화 전략신뢰 기반 공공AX 업무 체계 고도화 전략신뢰 기반 공공AX 업무 체계 고도화 전략신뢰 기반 공공AX
+                                                        업무 체계 고도화 전략
+                                                    </div>
+                                                    <p class="insight-report-detail__related-desc">
+                                                        본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다. 본 보고서에서는 단순 기술
+                                                        도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무
+                                                        체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다. 본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의
+                                                        성공적인 고도화 전략을 제시합니다.본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을
+                                                        제시합니다. 본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.본 보고서에서는
+                                                        단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다. 본 보고서에서는 단순 기술 도입이 아닌,
+                                                        공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를
+                                                        재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다. 본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의
+                                                        성공적인 고도화 전략을 제시합니다.본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을
+                                                        제시합니다. 본 보고서에서는 단순 기술 도입이 아닌, 공공기관의 업무 체계를 재설계하는 공공AX의 성공적인 고도화 전략을 제시합니다.
+                                                    </p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                        <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">클라우드</span>
+                                                </div>
+
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <div class="insight-report-detail__related-title">AI 시대, 잘못된 지표가 만드는 잘못된 결정</div>
+                                                    <p class="insight-report-detail__related-desc">내용</p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                        <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">AX</span>
+                                                </div>
+
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <div class="insight-report-detail__related-title">심리적 안전감과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성</div>
+                                                    <p class="insight-report-detail__related-desc">내용</p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">AX</span>
+                                                </div>
+
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <div class="insight-report-detail__related-title">심리적 안전감과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성</div>
+                                                    <p class="insight-report-detail__related-desc">내용</p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="insight-report-detail__related-item swiper-slide">
+                                            <a href="#" class="insight-report-detail__related-link"></a>
+                                            <div class="insight-report-detail__related-inner">
+                                                <div class="insight-report-detail__related-image">
+                                                    <img src="/static/images/insight/related_01.jpg" alt="" />
+                                                    <span class="insight-report-detail__related-badge">AX</span>
+                                                </div>
+
+                                                <div class="insight-report-detail__related-info">
+                                                    <div class="insight-report-detail__meta">
+                                                        <span class="insight__meta-item insight__meta-item--date">2026.06.04</span>
+                                                        <span class="insight__meta-item insight__meta-item--time">읽는 시간 6분</span>
+                                                    </div>
+
+                                                    <div class="insight-report-detail__related-title">심리적 안전감과 AI 거버넌스 : AX 성공을 위한 조직 DNA 재구성</div>
+                                                    <p class="insight-report-detail__related-desc">내용</p>
+                                                    <a href="#" class="insight-report-detail__related-more">
+                                                        <span class="insight-report-detail__related-more-text">전체 글 보기</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <div class="swiper-control">
+                                        <div class="swiper-pagination"></div>
+                                        <!--s:260730 -->
+                                        <div class="swiper-control__buttons">
+                                            <button aria-label="이전 슬라이드" class="swiper-control__button swiper-control__button--prev" type="button"></button>
+                                            <button aria-label="다음 슬라이드" class="swiper-control__button swiper-control__button--next" type="button"></button>
+                                            <button aria-label="슬라이드 정지" class="swiper-control__button swiper-control__button--play" type="button"></button>
+                                        </div>
+                                        <!--e:260730 -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /./관련 콘텐츠 -->
+
+                            <!-- aside -->
+                            <div class="insight-report-detail__aside-wrap">
+                                <aside class="insight-report-detail__aside">
+                                    <section class="insight-report-detail__aside-box">
+                                        <!-- s:260627 : 타이틀 수정-->
+                                        <h3 class="insight-report-detail__aside-title">관련 솔루션 · 서비스</h3>
+                                        <!--// e:260627 -->
+                                        <ul class="insight-report-detail__solution-list">
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Brightics Machine Learning</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Brightics Data Hub</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Nexplant SCM Responsive</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Samsung Cloud Platform</a>
+                                            </li>
+                                            <li class="insight-report-detail__solution-item">
+                                                <a href="#" class="insight-report-detail__solution-link">Nexplant MES</a>
+                                            </li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="insight-report-detail__aside-box">
+                                        <h3 class="insight-report-detail__aside-title">관련 이벤트</h3>
+
+                                        <div class="insight-report-detail__event-swiper swiper">
+                                            <div class="insight-report-detail__event-list swiper-wrapper">
+                                                <div class="insight-report-detail__event-item swiper-slide">
+                                                    <a href="#" class="insight-report-detail__event-link">
+                                                        <div class="insight-report-detail__event-image">
+                                                            <img src="/static/images/insight/detail_event_01.jpg" alt="" />
+                                                        </div>
+                                                        <strong class="insight-report-detail__event-title">삼성SDS Techtonic 세미나 </strong>
+                                                    </a>
+                                                </div>
+
+                                                <div class="insight-report-detail__event-item swiper-slide">
+                                                    <a href="#" class="insight-report-detail__event-link">
+                                                        <div class="insight-report-detail__event-image">
+                                                            <img src="/static/images/insight/detail_event_01.jpg" alt="" />
+                                                        </div>
+                                                        <strong class="insight-report-detail__event-title"> AX를 위한 클라우드 전략 </strong>
+                                                    </a>
+                                                </div>
+
+                                                <div class="insight-report-detail__event-item swiper-slide">
+                                                    <a href="#" class="insight-report-detail__event-link">
+                                                        <div class="insight-report-detail__event-image">
+                                                            <img src="/static/images/insight/detail_event_01.jpg" alt="" />
+                                                        </div>
+                                                        <strong class="insight-report-detail__event-title"> AI Native Summit </strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-control">
+                                                <div class="swiper-pagination"></div>
+                                                <div class="swiper-control__buttons">
+                                                    <button aria-label="이전 슬라이드" class="swiper-control__button swiper-control__button--prev" type="button"></button>
+                                                    <button aria-label="다음 슬라이드" class="swiper-control__button swiper-control__button--next" type="button"></button>
+                                                    <button aria-label="슬라이드 정지" class="swiper-control__button swiper-control__button--play" type="button"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </aside>
+                            </div>
+                            <!-- //aside -->
+                        </div>
+                        <!-- s:260803 목록 버튼 추가 -->
+                        <div class="insight-report-detail__footer">
+                            <button type="button" onclick="history.back();" class="insight-report-detail__footer-button">목록보기</button>
+                        </div>
+                        <!-- //e:260803 목록 버튼 추가 -->
+                    </div>
+                </section>
+
+                <section class="contact-banner section">
+                    <div class="section__inner contact-banner__inner">
+                        <div class="section__head">
+                            <div class="section__heading">
+                                <div class="contact-banner__eyebrow">CONTACT US</div>
+                                <h2 class="contact-banner__title">무엇이든 물어보세요.</h2>
+                                <p class="contact-banner__description">AI 도입부터 최적화까지, 맞춤형 솔루션을 제안해 드립니다.</p>
+                            </div>
+                        </div>
+                        <!-- s:260730 -->
+                        <a href="#" class="more-button"> <span class="more-button__text">문의하기</span> </a>
+                        <!-- e:260730 -->
+                    </div>
+                </section>
+            </main>
+
+            <!-- footer -->
+            <!--#include file="/inc/footer.inc" -->
+        </div>
+
+        <script src="/static/js/ui.js"></script>
+
+        <!-- 260730: 관련 콘텐츠/이벤트 전부 교체...! -->
+        <script>
+            $(function () {
+                let navFlag = false;
+
+                // nav
+                $(".insight-report-detail__side-link").on("click", function (e) {
+                    e.preventDefault();
+
+                    const targetId = $(this).attr("href");
+                    const $target = $(targetId);
+
+                    if (!$target.length) return;
+
+                    if (navFlag) return;
+                    navFlag = true;
+
+                    const lenis = ScrollUtil.getLenis();
+                    const offset = 80;
+
+                    $(".insight-report-detail__side-item").removeClass("is-active");
+                    $(".insight-report-detail__side-link").removeAttr("aria-current");
+
+                    $(this).attr("aria-current", "location").closest(".insight-report-detail__side-item").addClass("is-active");
+
+                    if (lenis && typeof lenis.scrollTo === "function") {
+                        lenis.scrollTo($target[0], {
+                            offset: -offset,
+                            duration: 0.4,
+                        });
+                    } else {
+                        $("html, body")
+                            .stop()
+                            .animate(
+                                {
+                                    scrollTop: $target.offset().top - offset,
+                                },
+                                400,
+                            );
+                    }
+
+                    setTimeout(() => {
+                        navFlag = false;
+                    }, 430);
+                });
+
+                // nav active
+                function updateInsightSideNav() {
+                    if (navFlag) return;
+
+                    const scrollTop = ScrollUtil.getScrollTop();
+                    const triggerPoint = scrollTop + $(window).height() * 0.8;
+                    let activeId = "";
+
+                    $(".insight-report-detail__side-link").each(function () {
+                        const targetId = $(this).attr("href");
+                        const $target = $(targetId);
+
+                        if (!$target.length) return;
+
+                        if ($target.offset().top <= triggerPoint) {
+                            activeId = targetId;
+                        }
+                    });
+
+                    if (!activeId) return;
+
+                    $(".insight-report-detail__side-item").removeClass("is-active");
+                    $(".insight-report-detail__side-link").removeAttr("aria-current");
+
+                    $(`.insight-report-detail__side-link[href="${activeId}"]`).attr("aria-current", "location").closest(".insight-report-detail__side-item").addClass("is-active");
+                }
+
+                $(window).on("scroll.insightSideNav", updateInsightSideNav);
+                updateInsightSideNav();
+
+                function bindActiveSlideFocus(swiper, selector) {
+                    if (!swiper) return null;
+
+                    const $swiper = $(selector);
+                    const FOCUSABLE_SELECTOR = [
+                        "a[href]",
+                        "button:not([disabled])",
+                        "input:not([disabled])",
+                        "select:not([disabled])",
+                        "textarea:not([disabled])",
+                        "[tabindex]",
+                        ".main-promotion__item-list",
+                    ].join(", ");
+
+                    const MANAGED_ATTR = "data-swiper-focus-managed";
+                    const TABINDEX_ATTR = "data-swiper-original-tabindex";
+                    const NO_TABINDEX = "__none__";
+
+                    function saveOriginalTabindex($focusable) {
+                        if ($focusable.attr(MANAGED_ATTR) === "true") return;
+
+                        const tabindex = $focusable.attr("tabindex");
+
+                        $focusable.attr({
+                            [MANAGED_ATTR]: "true",
+                            [TABINDEX_ATTR]: tabindex == null ? NO_TABINDEX : tabindex,
+                        });
+                    }
+
+                    function restoreOriginalTabindex($focusable) {
+                        const originalTabindex = $focusable.attr(TABINDEX_ATTR);
+
+                        if (originalTabindex === NO_TABINDEX || originalTabindex == null) {
+                            $focusable.removeAttr("tabindex");
+                        } else {
+                            $focusable.attr("tabindex", originalTabindex);
+                        }
+                    }
+
+                    function update() {
+                        const $slides = $swiper.find(".swiper-slide");
+
+                        $slides.each(function () {
+                            const $slide = $(this);
+                            const isActive = $slide.hasClass("swiper-slide-active");
+                            const $focusables = $slide.find(FOCUSABLE_SELECTOR);
+
+                            if (isActive) {
+                                $slide.removeAttr("aria-hidden");
+
+                                $focusables.each(function () {
+                                    const $focusable = $(this);
+
+                                    saveOriginalTabindex($focusable);
+                                    restoreOriginalTabindex($focusable);
+                                });
+
+                                return;
+                            }
+
+                            $slide.attr("aria-hidden", "true");
+
+                            $focusables.each(function () {
+                                const $focusable = $(this);
+
+                                saveOriginalTabindex($focusable);
+                                $focusable.attr("tabindex", "-1");
+                            });
+                        });
+                    }
+
+                    function destroy() {
+                        swiper.off("slideChange transitionEnd loopFix update resize breakpoint", update);
+
+                        $swiper.find(`[${MANAGED_ATTR}="true"]`).each(function () {
+                            const $focusable = $(this);
+
+                            restoreOriginalTabindex($focusable);
+                            $focusable.removeAttr(MANAGED_ATTR).removeAttr(TABINDEX_ATTR);
+                        });
+
+                        $swiper.find(".swiper-slide").removeAttr("aria-hidden");
+                    }
+
+                    update();
+                    swiper.on("slideChange transitionEnd loopFix update resize breakpoint", update);
+
+                    return { update, destroy };
+                }
+                /* =========================================================
+                 * 관련 콘텐츠 Swiper
+                 * ======================================================= */
+                const insightRelatedSelector = ".insight-report-detail__related-swiper";
+                const relatedSlideCount = $(".insight-report-detail__related-item").length;
+
+                let insightRelatedSwiper = null;
+                let insightRelatedMode = null;
+
+                function getInsightRelatedMode() {
+                    return window.innerWidth <= 1023 ? "mo" : "pc";
+                }
+
+                function initInsightRelatedSwiper() {
+                    const nextMode = getInsightRelatedMode();
+
+                    // 같은 구간이면 재생성하지 않음
+                    if (insightRelatedMode === nextMode) return;
+
+                    insightRelatedMode = nextMode;
+
+                    createInsightRelatedSwiper(nextMode);
+                }
+
+                function createInsightRelatedSwiper(mode) {
+                    const isMobile = mode === "mo";
+                    const slidesPerView = isMobile ? 1 : 3;
+                    const canLoop = relatedSlideCount > slidesPerView;
+
+                    if (insightRelatedSwiper && !insightRelatedSwiper.destroyed) {
+                        insightRelatedSwiper.destroy(true, true);
+                        insightRelatedSwiper = null;
+                    }
+                    $(".insight-report-detail__related-swiper").toggleClass("is-swiper-lock", !canLoop);
+
+                    insightRelatedSwiper = new Swiper(insightRelatedSelector, {
+                        slidesPerView,
+                        spaceBetween: isMobile ? 24 : 10,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+
+                        loop: canLoop,
+                        loopedSlides: canLoop ? 6 : undefined,
+                        loopAdditionalSlides: canLoop ? 6 : 0,
+
+                        pagination: {
+                            el: ".insight-report-detail__related .swiper-pagination",
+                            clickable: true,
+
+                            renderBullet(index, className) {
+                                return `
+                    <button
+                        type="button"
+                        class="${className}"
+                        aria-label="${index + 1}번째 슬라이드로 이동"
+                    >
+                        <span class="swiper-pagination-bullet__number">
+                            ${String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        <span class="swiper-pagination-bullet__bar"></span>
+                    </button>
+                `;
+                            },
+                        },
+
+                        navigation: {
+                            prevEl: ".insight-report-detail__related .swiper-control__button--prev",
+                            nextEl: ".insight-report-detail__related .swiper-control__button--next",
+                        },
+
+                        on: {
+                            init() {
+                                const swiper = this;
+                                bindActiveSlideFocus(swiper, insightRelatedSelector);
+                                requestAnimationFrame(function () {
+                                    if (swiper.autoplay.running) {
+                                        swiper.autoplay.stop();
+                                        $(".insight-report-detail__related .swiper-control__button--play").addClass("is-paused").attr("aria-label", "슬라이드 재생");
+                                    }
+                                });
+                            },
+                            slideChange() {
+                                const swiper = this;
+                                const slides = swiper.slides;
+
+                                $(slides).removeClass("is-visible");
+
+                                const activeIndex = swiper.activeIndex;
+                                const perView = Math.ceil(swiper.params.slidesPerView);
+
+                                for (let i = 0; i < perView; i++) {
+                                    $(slides.eq(activeIndex + i)).addClass("is-visible");
+                                }
+                            },
+                        },
+                    });
+                }
+
+                initInsightRelatedSwiper();
+                const insightResizeEvent = Device.isMobile() ? "orientationchange.insightSwiper" : "resize.insightSwiper";
+
+                $(window)
+                    .off(".insightSwiper")
+                    .on(insightResizeEvent, function () {
+                        initInsightRelatedSwiper();
+                    });
+
+                /* =========================================================
+                 * 관련 이벤트 Swiper
+                 * ======================================================= */
+                const insightEventSelector = ".insight-report-detail__event-swiper";
+                const insightEvSlideCount = $(".insight-report-detail__event-item").length;
+
+                let insightEventFocusManager = null;
+
+                const insightEventSwiper = createResponsiveSwiper(
+                    [
+                        {
+                            key: "event",
+                            selector: insightEventSelector,
+
+                            options: {
+                                slidesPerView: 1,
+                                slidesPerGroup: 1,
+                                initialSlide: 0,
+
+                                loop: insightEvSlideCount > 1,
+
+                                autoplay:
+                                    insightEvSlideCount > 1
+                                        ? {
+                                              delay: 3000,
+                                              disableOnInteraction: false,
+                                          }
+                                        : false,
+
+                                watchSlidesProgress: true,
+                                watchOverflow: true,
+
+                                pagination: {
+                                    el: `${insightEventSelector} .swiper-pagination`,
+                                    clickable: true,
+
+                                    renderBullet(index, className) {
+                                        return `
+                            <button
+                                type="button"
+                                class="${className}"
+                                aria-label="${index + 1}번째 슬라이드로 이동"
+                            >
+                                <span class="swiper-pagination-bullet__number">
+                                    ${String(index + 1).padStart(2, "0")}
+                                </span>
+
+                                <span class="swiper-pagination-bullet__bar"></span>
+                            </button>
+                        `;
+                                    },
+                                },
+
+                                navigation: {
+                                    prevEl: `${insightEventSelector} .swiper-control__button--prev`,
+                                    nextEl: `${insightEventSelector} .swiper-control__button--next`,
+                                },
+                            },
+
+                            onActive(swiper, $el) {
+                                if (insightEventFocusManager) {
+                                    insightEventFocusManager.destroy();
+                                }
+
+                                insightEventFocusManager = bindActiveSlideFocus(swiper, insightEventSelector);
+
+                                $el.toggleClass("is-swiper-lock", insightEvSlideCount <= 1);
+                            },
+
+                            onInactive(swiper, $el) {
+                                if (insightEventFocusManager) {
+                                    insightEventFocusManager.destroy();
+                                    insightEventFocusManager = null;
+                                }
+
+                                $el.toggleClass("is-swiper-lock", insightEvSlideCount <= 1);
+                            },
+                        },
+                    ],
+                    {
+                        //260803: breakpoint 수정
+                        breakpoint: 767,
+                        namespace: ".insightEventSwiper",
+                    },
+                );
+
+                insightEventSwiper.init();
+
+                $(insightEventSelector).toggleClass("is-swiper-lock", insightEvSlideCount <= 1);
+
+                // 자동재생
+                bindSwiperAutoplayToggle();
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Focus Effect</title>
+  <style>
+    /* 기본 리셋 및 배경 설정 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #050614;
+      font-family: 'Pretendard', sans-serif;
+      color: #fff;
+    }
+
+    /* 전체 레이아웃 (좌우 분할) */
+    .layout-wrapper {
+      display: flex;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 좌측 고정 영역 (상단 이미지 역할) */
+    .sticky-area {
+      width: 40%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 다이어그램 (아키텍처 스택) */
+    .diagram-stack {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* 개별 다이어그램 레이어 */
+    .diagram-layer {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      opacity: 0.2; /* 기본적으로 흐리게 설정 */
+      transform: scale(0.95);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      /* 실제 적용 시 여기에 이미지를 배경으로 넣거나 img 태그를 포함하세요 */
+    }
+
+    .diagram-layer.layer-solution { background-color: rgba(33, 137, 255, 0.2); border-color: rgba(33, 137, 255, 0.5); color: #2189ff; }
+    .diagram-layer.layer-platform { background-color: rgba(135, 105, 255, 0.2); border-color: rgba(135, 105, 255, 0.5); color: #8769ff; }
+    .diagram-layer.layer-infra { background-color: rgba(0, 180, 163, 0.2); border-color: rgba(0, 180, 163, 0.5); color: #00b4a3; }
+
+    /* 포커스(활성화) 상태의 스타일 */
+    .diagram-layer.is-active {
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    }
+    .diagram-layer.layer-solution.is-active { box-shadow: 0 0 20px rgba(33, 137, 255, 0.6); border-color: #2189ff; background-color: rgba(33, 137, 255, 0.4); }
+    .diagram-layer.layer-platform.is-active { box-shadow: 0 0 20px rgba(135, 105, 255, 0.6); border-color: #8769ff; background-color: rgba(135, 105, 255, 0.4); }
+    .diagram-layer.layer-infra.is-active { box-shadow: 0 0 20px rgba(0, 180, 163, 0.6); border-color: #00b4a3; background-color: rgba(0, 180, 163, 0.4); }
+
+
+    /* 우측 스크롤 콘텐츠 영역 */
+    .scroll-area {
+      width: 60%;
+      padding: 100px 0 200px 50px;
+    }
+
+    /* 각 설명 섹션 */
+    .content-section {
+      min-height: 80vh; /* 스크롤 공간 확보 */
+      margin-bottom: 50vh; /* 섹션 간 간격 */
+      padding: 40px;
+      background: #0a0b1c;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .content-section.solution h2 { color: #2189ff; }
+    .content-section.platform h2 { color: #8769ff; }
+    .content-section.infra h2 { color: #00b4a3; }
+
+    .content-section p {
+      color: #aeb2bc;
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="layout-wrapper">
+
+    <!-- 좌측: 고정된 다이어그램 (포커스 되는 이미지 영역) -->
+    <div class="sticky-area">
+      <div class="diagram-stack">
+        <!-- data-target 값이 우측 섹션의 id와 매칭됩니다 -->
+        <div class="diagram-layer layer-solution" id="diagram-solution">AI 솔루션 영역</div>
+        <div class="diagram-layer layer-platform" id="diagram-platform">AI 플랫폼 영역</div>
+        <div class="diagram-layer layer-infra" id="diagram-infra">AI 인프라 영역</div>
+      </div>
+    </div>
+
+    <!-- 우측: 스크롤 되는 상세 콘텐츠 -->
+    <div class="scroll-area">
+      <!-- data-target 속성에 포커스할 좌측 다이어그램의 id를 입력합니다 -->
+      <section class="content-section solution" data-target="diagram-solution">
+        <h2>AI 솔루션</h2>
+        <p>AI 기반 지능형 업무 혁신을 통해 고객의 새로운 가치 창출과 핵심 역량 집중을 가능하게 합니다.<br>Brity Copilot은...</p>
+      </section>
+
+      <section class="content-section platform" data-target="diagram-platform">
+        <h2>AI 플랫폼</h2>
+        <p>AI 시스템의 개발, 배포, 관리와 데이터부터 모델 운영까지 전 과정을 통합 지원합니다.<br>FabriX는...</p>
+      </section>
+
+      <section class="content-section infra" data-target="diagram-infra">
+        <h2>AI 인프라</h2>
+        <p>AI 시스템의 복잡한 연산과 데이터 처리를 지원하기 위한 연산, 저장, 네트워크 등의 실행 기반을 제공합니다.</p>
+      </section>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. 관찰할 스크롤 섹션들과 상태를 변경할 다이어그램 레이어들을 선택합니다.
+      const sections = document.querySelectorAll('.content-section');
+      const diagramLayers = document.querySelectorAll('.diagram-layer');
+
+      // 2. Intersection Observer 설정 옵션
+      const options = {
+        root: null, // 브라우저 뷰포트를 기준으로 함
+        rootMargin: '-30% 0px -40% 0px', // 화면 중앙 부근에 왔을 때 트리거되도록 마진 설정
+        threshold: 0 // 조금이라도 조건에 맞으면 실행
+      };
+
+      // 3. Observer 콜백 함수 정의
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // 해당 섹션이 뷰포트(설정한 마진 영역) 내에 들어왔을 때
+          if (entry.isIntersecting) {
+
+            // 모든 다이어그램의 활성화(is-active) 클래스를 제거
+            diagramLayers.forEach(layer => layer.classList.remove('is-active'));
+
+            // 현재 화면에 들어온 섹션의 data-target 값을 가져옴
+            const targetId = entry.target.getAttribute('data-target');
+
+            // 매칭되는 다이어그램 레이어에 활성화 클래스 추가
+            const targetLayer = document.getElementById(targetId);
+            if (targetLayer) {
+              targetLayer.classList.add('is-active');
+            }
+          }
+        });
+      }, options);
+
+      // 4. 모든 섹션에 observer 부착
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Noto Sans';
+    // src: url(../fonts/notosans/NotoSansKR-Regular.otf),
+    //     url(../fonts/notosans/NotoSansKR-Regular.woff),
+    //     url(../fonts/notosans/NotoSansKR-Regular.woff2);
+
+    src: url(https://image.samsungsds.com/module_src/css/font/NotoSansKR-Regular.woff2?queryString=20260619035537) format('woff2'), url(https://image.samsungsds.com/module_src/css/font/NotoSansKR-Regular.woff?queryString=20260619035537) format('woff'), url(https://image.samsungsds.com/module_src/css/font/NotoSansKR-Regular.otf?queryString=20260619035537) format('opentype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url(../fonts/notosans/NotoSansKR-Medium.otf),
+        url(../fonts/notosans/NotoSansKR-Medium.woff),
+        url(../fonts/notosans/NotoSansKR-Medium.woff2);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    // src: url(../fonts/notosans/NotoSansKR-Bold.otf),
+    //     url(../fonts/notosans/NotoSansKR-Bold.woff),
+    //     url(../fonts/notosans/NotoSansKR-Bold.woff2);
+    src: url(https://image.samsungsds.com/module_src/css/font/NotoSansKR-Bold.woff2?queryString=20260619035537) format('woff2'), url(https://image.samsungsds.com/module_src/css/font/NotoSansKR-Bold.woff?queryString=20260619035537) format('woff'), url(https://image.samsungsds.com/module_src/css/font/NotoSansKR-Bold.otf?queryString=20260619035537) format('opentype');
+    font-weight: 700;
+}
+
+
+@font-face {
+    font-family: "samsung";
+    src:
+        url(../fonts/samsungsans/samsungsharpsans.woff2) format("woff2"),
+        url(../fonts/samsungsans/samsungsharpsans.woff) format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "samsung";
+    src:
+        url(../fonts/samsungsans/samsungsharpsans-medium.woff2) format("woff2"),
+        url(../fonts/samsungsans/samsungsharpsans-medium.woff) format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "samsung";
+    src:
+        url(../fonts/samsungsans/samsungsharpsans-bold.woff2) format("woff2"),
+        url(../fonts/samsungsans/samsungsharpsans-bold.woff) format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

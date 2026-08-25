@@ -1,0 +1,294 @@
+@charset "utf-8";
+
+/* ***** content : jehoon.park ***** */
+
+
+/**
+ *
+ * common styles
+ *
+ **/
+
+.visually-hidden, .sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  border: 0 !important;
+}
+
+
+/**
+ *
+ * Careers
+ *
+ **/
+
+
+/* ====================================
+    Overview
+   =================================== */
+
+/* common */
+.section-title { padding: 90px 0 70px 0; font-size: 40px; text-align: center; color: #000; line-height: 5.0rem; font-weight: normal; letter-spacing: 0.05em; font-family:'SharpSansNo1', 'Nanum Barun Gothic', '나눔 바른 고딕'; font-weight:bold;}
+
+/* Intro */
+.overview-intro { position: relative; width: 100%; height: 1200px; background-repeat:no-repeat; background-position:50% 0; -webkit-background-size: cover;background-size:cover; }
+  .intro-slogan { position: absolute;width: 100%;top: 50%;left: 50%; font-size: 65px; font-weight: bold; text-align: center; color: #fff; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%)}
+    .intro-slogan .slogan-text { line-height: 5.0rem; font-family:'SharpSansNo1', 'nanumsquare'; font-weight:bold;}
+    .intro-slogan .slogan-text2 { display: block; margin: 33px 0 0 0; font-size: 18px; font-weight: normal; }
+  .go-featured { position: absolute; bottom: 30px; left: 0; width: 100%; text-align: center; }
+    .button-arrow-down { display: inline-block; width: 64px; height: 64px; background: url(https://image.samsungsds.com/resource/kr/images/icon/ico_go_down.png?queryString=20210511121113) no-repeat; }
+
+/* Featured Job */
+.overview-featured { max-width: 1920px; background-color: #fff; }
+.overview-featured .inner-wrap { max-width: 1280px;margin: 0 auto;padding: 0 20px; }
+
+
+
+
+
+/* ====================================
+    Blog
+   =================================== */
+
+/* blog article */
+.like_sum { max-width: 760px; margin: 43px auto 0; padding: 42px 0 0 0; text-align: center; border-top: 1px solid #ccc; }
+.button-default {
+  display: inline-block;
+  overflow: visible;
+  position: relative;
+  margin: 0;
+  padding: 0 10px;
+  border: 0;
+  background: none;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  outline: none;
+ }
+.button-text { vertical-align: middle; }
+.icon-default { overflow: hidden; display: inline-block; text-indent: -9999em; vertical-align: middle; }
+
+.button-like { width: 112px; height: 44px; font-size: 14px; font-weight: 400; line-height: 43px; border: 1px solid #ccc; color: #000; }
+.button-like:hover{background:#f8f8f8;}
+.icon-heart { width: 15px; height: 13px; margin-right: 8px; background: url(https://image.samsungsds.com/resource/kr/images/img/global/icon-heart.png?queryString=20210511121113) no-repeat; }
+/*
+.button-blog-share { width: 20px; height: 19px; margin: -3px 0 0 15px; padding: 0; }
+.icon-share { width: 20px; height: 19px; background: url(https://image.samsungsds.com/resource/kr/images/img/global/icon-share.png?queryString=20210511121113) no-repeat; }
+*/
+
+
+.author-profile { position: relative; max-width: 760px; margin: 0 auto; padding: 50px 45px; background-color: #f3f3f3; }
+.inner-wrap { padding: 0 0 0 175px; }
+  .profile-pic { position: absolute; top: 50px; left: 45px; width: 132px; height: 132px; overflow: hidden;}
+  .profile-pic img { max-width: 100%; }
+  .profile-text .text { margin: 27px 0 0 0; font-size: 16px; line-height: 1.5; font-weight: 400; }
+  .profile-text .text:first-child { margin-top: 0; }
+  .author-name { margin: 0 0 15px 0; padding: 0 0 15px 0; font-size: 28px; font-weight: 700; border-bottom: 1px solid #ccc; }
+  .other-link { display: block; margin-top: 30px; font-size: 14px; font-weight: 700; text-transform: uppercase; color: #00b3e3; }
+  .other-link:hover{color:#0077c8;}
+
+.author-profile + .box.type3 { margin-top: 375px; }
+
+/* ====================================
+    Company Info
+   =================================== */
+
+.scroll-inner {position: relative}
+.comp-info-over {}
+.comp-info-over-list {overflow: hidden}
+.comp-info-over-item {position: relative;overflow: hidden; width: 100%;text-align: center}
+.comp-info-over-item.mn1 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_01.jpg?queryString=20210511121113) center center no-repeat;-webkit-background-size: cover; background-size: cover}
+.comp-info-over-item.mn2 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_02.jpg?queryString=20210511121113) center center no-repeat;-webkit-background-size: cover; background-size: cover}
+.comp-info-over-item.mn3 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_03.jpg?queryString=20210511121113) center center no-repeat;-webkit-background-size: cover; background-size: cover}
+.comp-info-over-item.mn4 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_04.jpg?queryString=20210511121113) center center no-repeat;-webkit-background-size: cover; background-size: cover}
+
+.comp-info-over-item .video-poster {position: absolute;width: 100%;height: 100%;left: 0;top: 0;right: 0;bottom: 0;background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_03.jpg?queryString=20210511121113) center center no-repeat;-webkit-background-size: cover; background-size: cover}
+.comp-info-over-item-half {float: left; position: relative;display: inline-block;width: 50%; height: 100%}
+.comp-info-over-item-half.bg5-left {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_05_left.jpg?queryString=20210511121113) center center no-repeat;-webkit-background-size: cover; background-size: cover}
+.comp-info-over-item-half.bg5-right {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_05_right.jpg?queryString=20210511121113) center center no-repeat;-webkit-background-size: cover; background-size: cover}
+.comp-text {position: absolute; width: 100%; height: auto; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%); transform: translate(-50%, -50%)}
+.comp-text-title, .i_box {display: inline-block;max-width: 730px;color: #fff;font-size: 5.5rem;font-weight: 700; word-break:keep-all; font-family:'nanumsquare';line-height: 7.6rem}
+.span-text {display: inline-block;margin-left: 130px;text-indent: -99999px}
+.span-text.span-insight-to-inspiration {width: 714px;height: 64px;background: url(https://image.samsungsds.com/resource/kr/images/img/global/span_insight_to_inspiration.png?queryString=20210511121113) 0 0 no-repeat; background-size:auto 100%;}
+.comp-text-desc {padding: 32px 0 44px;color: #fff;font-size: 1.8rem; line-height: 3.2rem; font-weight:bold; }
+.comp-text-desc.styled-desc {position: relative;padding-top: 84px;font-size: 1.8rem;font-weight:bold}
+.comp-text-desc.styled-desc:after {content: ' ';position:absolute;width: 50px;height: 1px;top: 34px;left: 50%;margin-left: -25px;background-color: #fff;}
+.comp-text-title strong {display: block; position: relative; text-align: left; word-break:keep-all; overflow: hidden; margin: auto;}
+.comp-text-title strong:after {content:""; display:block; clear:both;}
+.comp-text-title strong i {display: block; position: absolute; left: 50%;-webkit-transform: translate(-50%, 0);-moz-transform: translate(-50%, 0);-ms-transform: translate(-50%, 0);-o-transform: translate(-50%, 0);transform: translate(-50%, 0)}
+.comp-text-title strong i:after {content:""; display:block; clear:both;}
+.i_box {position: fixed; top: -9999px; left: -9999px; visibility: hidden;}
+
+.comp-text-title strong.typing-animation {margin: 0}
+
+.comp-info-over-item.align-left .comp-text-desc {max-width: 680px}
+.comp-info-over-item.align-left .comp-text-desc.text-big {max-width: 1000px;font-size: 1.8rem; line-height:1.1; font-weight: bold;}
+.comp-info-over-item-half .comp-text-desc {max-width: 550px;margin: 0 auto;padding: 32px 0 86px;font-weight: bold}
+.comp-info-over-item-half .btn_btm {position: absolute;left: 50%;bottom: 0;-webkit-transform: translate(-50%, 0); -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0)}
+.comp-info-over-item .btn_btm .btn,
+.comp-info-over-item-half .btn_btm .btn{min-width: 184px;height: 42px;padding: 0; font-size: 1.4rem; color:#fff; letter-spacing:0.15em; background: rgba(255,255,255,.1); border-radius:38px; border: 1px solid #fff;vertical-align: text-bottom;}
+.comp-info-over-item .btn_btm .btn:hover,
+.comp-info-over-item-half .btn_btm .btn:hover,
+.comp-info-over-item .btn_btm .btn:focus,
+.comp-info-over-item-half .btn_btm .btn:focus{color:#000; background:#fff;}
+
+.comp-info-over-item.align-left {text-align: left}
+.comp-info-over-item.align-left .comp-text-title {padding-left: 130px}
+.comp-info-over-item.align-left .comp-text-desc {padding-left: 130px}
+.comp-info-over-item.align-left .btn_btm {padding-left: 130px}
+
+.comp-info-over-item .comp-info-video-bg {position: absolute;}
+
+.comp-info-over-pg {right: 50px; height:100%;}
+.comp-info-over-pg.fixed {position: fixed}
+.comp-info-over-pg.non-fixed {position: absolute;bottom: 0}
+.comp-info-over-pg .pg_in{display:table; height:100%; vertical-align:middle;}
+.comp-info-over-pg .pg_in2{display:table-cell; vertical-align:middle;}
+.comp-info-over-pg .dots{display: block; width: 9px; height: 9px; margin:20px 0 0; border-radius: 7px; border: 1px solid #fff; opacity: .3; cursor: pointer; color: transparent; overflow: hidden; font-size: 1px; box-sizing: border-box; opacity: 1;}
+.comp-info-over-pg .pg_in2 > li:first-child .dots {margin: 0}
+.comp-info-over-pg .dots.on{ background: #fff;}
+.comp-info-over-item-last {height: 500px;}
+
+
+@media all and (min-width:1px) and (max-width:1024px) {
+  .line-break { display: none; }
+
+  .section-title { padding: 40px 0 20px 0; font-size: 25px; }
+
+  .overview-intro{ height: 480px; }
+  .intro-slogan { padding: 45px 14px 0 14px; font-size: 29px; }
+  .intro-slogan .slogan-text { line-height: 1.3; }
+  .intro-slogan .slogan-text2 { margin-top: 25px; font-size: 15px; }
+  .go-featured { bottom: 23px; }
+  .button-arrow-down { width: 37px; height: 37px; -webkit-background-size: 37px; background-size: 37px; }
+  .overview-featured .inner-wrap { max-width: 984px;padding: 0 20px; }
+  .section-title { padding: 50px 0 47px; font-size: 2.5rem; line-height: 3.4rem}
+
+  /* Featured Job */
+  .overview-featured { max-width: 1920px; background-color: #fff; }
+  .overview-featured .inner-wrap { max-width: 1380px;margin: 0 auto;padding: 0 20px; }
+
+  
+
+  .comp-text {display:table; position: relative; height: 100%}
+  .comp-text .comp-text-inner{display:table-cell; vertical-align:middle; height: 100%; padding-bottom:160px;}
+  .comp-text.align-top {position: relative;}
+  .mob-center .align-top .comp-text-inner {top: 250px; -webkit-transform: translate(-50%, 0); -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0)}
+  .comp-info-over-item .btn_btm {position: absolute; left: 50%;bottom: 88px;padding: 0;-webkit-transform: translate(-50%, 0); -moz-transform: translate(-50%, 0); -ms-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0)}
+  .comp-info-over-item.first-over-item .btn_btm {bottom: 88px}
+
+  .comp-text-title, .i_box {font-size: 4rem;line-height: 5rem;}
+  .mn2 .comp-text-title {max-width: 330px !important;}
+  .mn3 .comp-text-title {max-width: 220px !important;}
+  .span-text.span-insight-to-inspiration {width: 100%; height: 50px; margin: 0 auto; background: url(https://image.samsungsds.com/resource/kr/images/img/global/span_insight_to_inspiration_m.png?queryString=20210511121113) 0 0 no-repeat;background-size: auto 50px; background-position:center;}
+  .comp-text-desc {max-width: 300px;margin: 0 auto; padding: 25px 0 0px;font-size: 1.8rem;line-height: 3rem; font-weight:bold; font-family: nanumsquarexb;}
+  .comp-text-desc.styled-desc {position: relative;margin: 0 auto;padding-top: 25px;font-size: 1.8rem;font-weight:bold; font-family: nanumsquarexb;}
+  .comp-text-desc.styled-desc:after {content: ' ';display: none}
+  .comp-text-desc.styled-desc strong {padding-right: 65px}
+  .comp-info-over-list .btn_btm .btn{display: inline-block;max-width: 292px;min-width: 240px;padding: 0;color:#fff; letter-spacing:0.15em;  border-radius:38px; border: 1px solid #fff;font-size: 1.2rem}
+  .comp-info-over-list .btn_btm .btn:hover{color:#000; background:#fff}
+  .comp-info-over-pg {right: 18px; height:100%}
+  .comp-info-over-pg .dots{width: 12px; height: 12px; margin:15px 0 0}
+  .comp-info-over-pg .pg_in2 > li:first-child .dots {margin: 0}
+
+
+  .comp-info-over-item-half {display: block; width: 50%; height: 100%;text-align: center}
+  .comp-info-over-item-half .comp-text {position: absolute;width: 100%;height: auto;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%)}
+  .comp-info-over-item-half .comp-text-inner {position: relative; display:block; width: auto;top: 0;left: 0; padding-bottom:0; -webkit-transform: none;-moz-transform: none;-ms-transform: none;-o-transform: none;transform: none}
+  .comp-info-over-item-half .comp-text-title {padding: 0 14px 30px}
+  .comp-info-over-item-half .comp-text-desc {display: none}
+  .comp-info-over-item-half .btn_btm {position: relative;padding: 0;left: auto;bottom: auto;-webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none}
+
+  .comp-info-over-item.align-left {text-align: center}
+  .comp-info-over-item.align-left .comp-text-title {padding-left: 14px;}
+  .comp-info-over-item.align-left .comp-text-desc {margin: 0;padding: 25px 75px 20px 14px}
+  .comp-info-over-item.align-left .comp-text-desc.text-big {max-width: 240px;margin: 0 auto;padding: 20px 0 0;font-size: 1.8rem; line-height:24px;}
+  .comp-info-over-item.align-left .btn_btm {padding-left: 0}
+
+  .align-left.mob-center .comp-text-title {padding:0; max-width: 280px;}
+  .align-left.mob-center .comp-text-desc {margin: 0 auto;padding: 25px 40px 0px; font-weight:bold; font-family: nanumsquarexb;}
+  .align-left.mob-center .btn_btm {padding-left: 0; padding-top:20px;}
+
+
+  .comp-info-over-item-last {height: 250px}
+  .comp-info-over-item.mn1 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_01_m.jpg?queryString=20210511121113) center center no-repeat; background-size: cover;}
+  .comp-info-over-item.mn1 .comp-text-inner{padding-top:0%;}
+  .comp-info-over-item.mn2 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_02_m.jpg?queryString=20210511121113) center center no-repeat; background-size: cover;}
+  .comp-info-over-item.mn2 .comp-text-inner{padding-top:0%;}
+  .comp-info-over-item.mn3 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_03_m.jpg?queryString=20210511121113) center center no-repeat; background-size: cover;}
+  .comp-info-over-item.mn3 .comp-text-inner{padding-top:0%;}
+  .comp-info-over-item.mn4 {background: url(https://image.samsungsds.com/resource/kr/images/img/global/comp_info_bg_04_m.jpg?queryString=20210511121113) center center no-repeat; background-size: cover;}
+  .comp-info-over-item.mn4 .comp-text-inner{padding-top:0%;}
+
+  .comp-info-over-item .btn_btm .btn, .comp-info-over-item-half .btn_btm .btn{font-size:1.2rem;}
+
+  .author-profile + .box.type3 { margin-top: 170px;}
+
+}
+
+
+@media all and (min-width:1px) and (max-width:767px) {
+
+  /*
+
+
+  .overview-featured .inner-wrap { padding: 0 14px; }
+
+  .overview-benefit .inner-wrap { padding: 0 14px; }
+  .benefit-item { width: 100%; margin-left: 0 !important; }
+
+  /*
+  .button-blog-share { display: none; }
+  .icon-share { display: none; }
+  */
+    
+    
+  .comp-info-over-item.align-left .comp-text-desc.text-big,   
+  .comp-text-desc.styled-desc,
+  .comp-text-desc,
+  .comp-info-over-item.align-left .comp-text-desc.text-big
+    {font-weight: normal; font-size:1.6rem;}
+    
+  .comp-text-desc { line-height: 2.6rem}
+    
+    
+  .comp-info-over-list .btn_btm .btn{max-width: 240px;min-width: 240px;}
+  
+  .go-featured {bottom:15px;}
+  
+  .mn2 .comp-text-title {max-width: 230px !important;}
+  .mn3 .comp-text-title {max-width: 150px !important; }
+  .mn4 .comp-text-title {max-width: 200px !important; }
+  
+  .comp-info-over-pg .dots{width: 10px; height: 10px;}
+
+  .author-profile { padding-left: 14px; padding-right: 14px; }
+  .inner-wrap { padding: 0; text-align: center; }
+  .profile-pic { position: static; top: auto; left: auto; margin: 0 auto 20px; text-align: center; }
+  .author-name { margin: 0 0 17px 0; padding: 0; border: 0; text-align: center; }
+  .profile-text { text-align: left; }
+  .author-profile + .box.type3 { margin-top: 130px; }
+  .mob-center .align-top .comp-text-inner {top: 100px;}
+  .comp-text-title, .i_box {max-width: 200px; font-size: 2.9rem; line-height: 3.8rem;}
+
+  .span-text.span-insight-to-inspiration {width: 270px;height: 30px;margin: 0 auto; background: url(https://image.samsungsds.com/resource/kr/images/img/global/span_insight_to_inspiration_m.png?queryString=20210511121113) center no-repeat;background-size: auto 27px}
+  .align-left.mob-center .comp-text-title {}
+  
+  .comp-info-over-item-last {height: 480px;}
+  .comp-info-over-item .btn_btm .btn, .comp-info-over-item-half .btn_btm .btn{font-size:1.3rem; min-width:240px; height:40px;}
+  .comp-info-over-item-half{width:100%; height:50%;}
+  
+  .comp-info-over-item .btn_btm .btn, .comp-info-over-item-half .btn_btm .btn{font-size:1.3rem; font-weight:bold}
+  
+}
+
+
+
+

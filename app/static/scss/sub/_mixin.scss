@@ -1,0 +1,98 @@
+$easeInOutCubic : cubic-bezier(0.645, 0.045, 0.355, 1);
+$speed : 0.3s;
+
+@mixin font0() {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+//placeholder
+@mixin placeholder($color: #666, $base: 1.8rem) {
+    &::-webkit-input-placeholder {
+        // Chrome/Opera/Safari
+        color: $color;
+        opacity: 1;
+        font-size: $base;
+    }
+
+    &::-moz-placeholder {
+        // Firefox 19+
+        color: $color;
+        opacity: 1;
+        font-size: $base;
+    }
+
+    &:-ms-input-placeholder {
+        // IE 10+
+        color: $color;
+        opacity: 1;
+        font-size: $base;
+    }
+
+    &:-moz-placeholder {
+        // Firefox 18-
+        color: $color;
+        opacity: 1;
+        font-size: $base;
+    }
+
+    &:placeholder {
+        // Firefox 18-
+        color: $color;
+        opacity: 1;
+        font-size: $base;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+@mixin tablet{
+    @media (min-width: 767px) and (max-width: 1480px) {
+        @content;
+    }
+}
+
+$breakpoints: (
+    mo: 767px,
+    ta: 1023px,
+    pcm: 1520px,
+    pc: 1920px,
+);
+
+@mixin media-min($point) {
+    $value: if(map-has-key($breakpoints, $point), map-get($breakpoints, $point), $point);
+
+    @media (min-width: calc(#{$value} + 1px)) {
+        @content;
+    }
+}
+
+@mixin media($point) {
+    $value: if(map-has-key($breakpoints, $point), map-get($breakpoints, $point), $point);
+
+    @media (max-width: $value) {
+        @content;
+    }
+}
+
+@mixin hoverable() {
+    @media (hover: hover) and (pointer: fine) {
+        @content;
+    }
+}
+
+@mixin line-clamp($font-size, $line) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+    font-size: $font-size;
+}
