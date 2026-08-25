@@ -3266,7 +3266,7 @@ const FooterModal = (function () {
         if (restoreFocus && lastFocusedElement) {
             try {
                 lastFocusedElement.focus();
-            } catch (e) {}
+            } catch (e) { }
         }
 
         $currentModal = null;

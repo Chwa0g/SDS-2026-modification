@@ -436,7 +436,11 @@ button {
 
             .main-kv__summit {
                 order: 4;
-                min-height: rem(282);
+                min-height: rem(310);
+
+                .main-kv__swiper-bg img {
+                    object-position: right bottom;
+                }
 
                 .main-kv__link {
                     padding-bottom: rem(80);
@@ -462,6 +466,11 @@ button {
 
             .main-kv__case {
                 order: 6;
+                min-height: rem(310);
+
+                .main-kv__swiper-bg img {
+                    object-position: right center;
+                }
             }
         }
     }

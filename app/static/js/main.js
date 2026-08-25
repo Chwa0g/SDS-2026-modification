@@ -10,6 +10,8 @@ function bindActiveSlideFocus(swiper, selector) {
     const TABINDEX_ATTR = "data-swiper-original-tabindex";
     const NO_TABINDEX = "__none__";
 
+    let shouldFocusNewSlide = false;
+
     function saveOriginalTabindex($focusable) {
         if ($focusable.attr(MANAGED_ATTR) === "true") return;
 
@@ -31,12 +33,73 @@ function bindActiveSlideFocus(swiper, selector) {
         }
     }
 
+    function getActiveSlide() {
+        if (swiper && swiper.slides && typeof swiper.activeIndex === "number") {
+            const currentSlide = swiper.slides[swiper.activeIndex];
+            if (currentSlide) {
+                return $(currentSlide);
+            }
+        }
+        return $swiper.find(".swiper-slide-active");
+    }
+
+    function focusActiveSlide() {
+        const $activeSlide = getActiveSlide();
+        if (!$activeSlide || !$activeSlide.length) return;
+
+        // 1. 새로 활성화될 슬라이드의 aria-hidden 제거 및 내부 요소 포커스 속성 복원
+        $activeSlide.removeAttr("aria-hidden");
+        const $activeFocusables = $activeSlide.find(FOCUSABLE_SELECTOR);
+        $activeFocusables.each(function () {
+            const $focusable = $(this);
+            saveOriginalTabindex($focusable);
+            restoreOriginalTabindex($focusable);
+        });
+
+        // 2. 다른 비활성화 슬라이드들의 tabindex="-1" 설정 (이전 active 슬라이드 잔여 포커스 차단)
+        $swiper.find(".swiper-slide").not($activeSlide).each(function () {
+            const $inActive = $(this);
+            $inActive.attr("aria-hidden", "true");
+            $inActive.find(FOCUSABLE_SELECTOR).each(function () {
+                const $focusable = $(this);
+                saveOriginalTabindex($focusable);
+                $focusable.attr("tabindex", "-1");
+            });
+        });
+
+        // 3. 새로 활성화된 슬라이드 내부의 첫 번째 포커스 가능 요소 탐색
+        let $target = $activeSlide.find("a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])").filter(function () {
+            return $(this).is(":visible");
+        }).first();
+
+        if ($target.length) {
+            // 자식 포커스 요소(a 태그, 버튼 등)가 존재하면 슬라이드 본체의 tabindex 제거 후 자식 요소에 포커스
+            $activeSlide.removeAttr("tabindex");
+            try {
+                $target[0].focus({ preventScroll: true });
+            } catch (e) {
+                $target[0].focus();
+            }
+        } else {
+            // 자식 포커스 요소가 없을 경우에만 활성화된 슬라이드 본체 자체를 포커스
+            if (!$activeSlide.attr("tabindex")) {
+                $activeSlide.attr("tabindex", "-1");
+            }
+            try {
+                $activeSlide[0].focus({ preventScroll: true });
+            } catch (e) {
+                $activeSlide[0].focus();
+            }
+        }
+    }
+
     function update() {
         const $slides = $swiper.find(".swiper-slide");
+        const $activeSlide = getActiveSlide();
 
         $slides.each(function () {
             const $slide = $(this);
-            const isActive = $slide.hasClass("swiper-slide-active");
+            const isActive = $activeSlide.length && $slide[0] === $activeSlide[0];
             const $focusables = $slide.find(FOCUSABLE_SELECTOR);
 
             if (isActive) {
@@ -61,9 +124,39 @@ function bindActiveSlideFocus(swiper, selector) {
                 $focusable.attr("tabindex", "-1");
             });
         });
+
+        if (shouldFocusNewSlide) {
+            focusActiveSlide();
+            setTimeout(function () {
+                focusActiveSlide();
+                shouldFocusNewSlide = false;
+            }, 100);
+        }
     }
 
+    // 해당 Swiper 슬라이더 내부 요소에 포커스가 있는 상태에서 방향키(Left/Right) 조작 감지 및 이전/다음 이동
+    $swiper.off("keydown.swiperSlideNav").on("keydown.swiperSlideNav", function (e) {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.keyCode === 37 || e.keyCode === 39) {
+            const activeEl = document.activeElement;
+            if (activeEl && (activeEl.closest(".swiper-slide") || $swiper[0].contains(activeEl))) {
+                e.preventDefault();
+                shouldFocusNewSlide = true;
+
+                if (e.key === "ArrowLeft" || e.keyCode === 37) {
+                    if (typeof swiper.slidePrev === "function") {
+                        swiper.slidePrev();
+                    }
+                } else if (e.key === "ArrowRight" || e.keyCode === 39) {
+                    if (typeof swiper.slideNext === "function") {
+                        swiper.slideNext();
+                    }
+                }
+            }
+        }
+    });
+
     function destroy() {
+        $swiper.off("keydown.swiperSlideNav");
         swiper.off("slideChange transitionEnd loopFix update resize breakpoint", update);
 
         $swiper.find(`[${MANAGED_ATTR}="true"]`).each(function () {
@@ -101,9 +194,9 @@ function createMainSwiper(key, selector, isLoop, duration = 3000, autoplayState 
 
         autoplay: useLoop
             ? {
-                  delay: duration,
-                  disableOnInteraction: false,
-              }
+                delay: duration,
+                disableOnInteraction: false,
+            }
             : false,
 
         pagination: {

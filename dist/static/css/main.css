@@ -377,7 +377,10 @@ button {
     }
     .main-kv__grid .main-kv__summit {
         order: 4;
-        min-height: 28.2rem;
+        min-height: 31rem;
+    }
+    .main-kv__grid .main-kv__summit .main-kv__swiper-bg img {
+        object-position: right bottom;
     }
     .main-kv__grid .main-kv__summit .main-kv__link {
         padding-bottom: 8rem;
@@ -396,6 +399,10 @@ button {
     }
     .main-kv__grid .main-kv__case {
         order: 6;
+        min-height: 31rem;
+    }
+    .main-kv__grid .main-kv__case .main-kv__swiper-bg img {
+        object-position: right center;
     }
 }
 .main-kv__swiper, .main-kv__slides {

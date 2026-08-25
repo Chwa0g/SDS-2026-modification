@@ -475,6 +475,104 @@
     });
   }
 
+  let isArrowKeyPressed = false;
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
+      isArrowKeyPressed = true;
+    }
+  }, true);
+
+  document.addEventListener('keyup', function (e) {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
+      setTimeout(function () {
+        isArrowKeyPressed = false;
+      }, 200);
+    }
+  }, true);
+
+  /**
+   * Swiper 슬라이드 중 비활성화(화면에 보이지 않는) 슬라이드의 초점(Focus)을 차단하여
+   * Tab 키 탐색 시 비활성화 슬라이드로 접근하는 현상을 막고, 활성화된 슬라이드만 Tab으로 탐색 가능하게 합니다.
+   * 방향키로 슬라이드 이동 시 해당 슬라이드의 첫 번째 포커싱 요소로 자동 이동합니다.
+   *
+   * @function updateSlideFocusability
+   * @param {Object} swiper - Swiper 인스턴스
+   * @param {boolean} [shouldFocus=false] - 활성화된 슬라이드의 첫 번째 요소로 포커스를 강제 이동할지 여부
+   * @returns {void}
+   */
+  function updateSlideFocusability(swiper, shouldFocus) {
+    if (!swiper || !swiper.slides || swiper.slides.length === 0) return;
+
+    setTimeout(function () {
+      const slides = Array.from(swiper.slides || []);
+      let activeSlideEl = null;
+
+      slides.forEach(function (slide) {
+        // 활성화(화면에 노출된) 슬라이드 여부 판단
+        const isVisible = slide.classList.contains('swiper-slide-visible') ||
+          slide.classList.contains('swiper-slide-active');
+
+        if (slide.classList.contains('swiper-slide-active')) {
+          activeSlideEl = slide;
+        }
+
+        const focusableEls = slide.querySelectorAll('a, button, input, select, textarea, [tabindex]');
+
+        if (isVisible) {
+          slide.removeAttribute('aria-hidden');
+          slide.removeAttribute('inert');
+          focusableEls.forEach(function (el) {
+            if (el.getAttribute('data-prev-tabindex') !== null) {
+              const prevIdx = el.getAttribute('data-prev-tabindex');
+              if (prevIdx === 'none') {
+                el.removeAttribute('tabindex');
+              } else {
+                el.setAttribute('tabindex', prevIdx);
+              }
+              el.removeAttribute('data-prev-tabindex');
+            } else {
+              el.removeAttribute('tabindex');
+            }
+            el.removeAttribute('aria-hidden');
+          });
+        } else {
+          slide.setAttribute('aria-hidden', 'true');
+          slide.setAttribute('inert', '');
+          focusableEls.forEach(function (el) {
+            if (!el.hasAttribute('data-prev-tabindex')) {
+              const currentTabIdx = el.getAttribute('tabindex');
+              el.setAttribute('data-prev-tabindex', currentTabIdx !== null ? currentTabIdx : 'none');
+            }
+            el.setAttribute('tabindex', '-1');
+            el.setAttribute('aria-hidden', 'true');
+          });
+        }
+      });
+
+      // 방향키 조작 시 새로 활성화된 슬라이드의 첫 번째 포커스 가능 요소로 이동
+      const autoFocusNeeded = shouldFocus || isArrowKeyPressed;
+      if (autoFocusNeeded && activeSlideEl) {
+        const firstFocusable = activeSlideEl.querySelector('a:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), select:not([tabindex="-1"]), textarea:not([tabindex="-1"]), [tabindex="0"]');
+        if (firstFocusable) {
+          try {
+            firstFocusable.focus({ preventScroll: true });
+          } catch (e) {
+            firstFocusable.focus();
+          }
+        } else {
+          if (!activeSlideEl.hasAttribute('tabindex')) {
+            activeSlideEl.setAttribute('tabindex', '-1');
+          }
+          try {
+            activeSlideEl.focus({ preventScroll: true });
+          } catch (e) {
+            activeSlideEl.focus();
+          }
+        }
+      }
+    }, 0);
+  }
+
   /**
    * Swiper 슬라이더 플러그인 초기화 및 웹 접근성 설정 함수
    * 페이지에 위치한 Swiper 슬라이더들을 전역 Swiper 생성자를 이용하여 커스텀 네비게이션 옵션으로 활성화합니다.
@@ -498,6 +596,7 @@
       const swiperOptions = {
         loop: false,
         keyboard: true,
+        watchSlidesProgress: true,
         navigation: {
           nextEl: swiperEl.querySelector('.offering-swiper-button-next'),
           prevEl: swiperEl.querySelector('.offering-swiper-button-prev'),
@@ -524,18 +623,25 @@
         on: {
           init: function () {
             const swiper = this;
+            updateSlideFocusability(swiper);
             const slides = Array.from(swiper.slides || []);
             const activeSlide = slides[swiper.activeIndex];
             if (activeSlide) {
               const activeVideo = activeSlide.querySelector('video');
               if (activeVideo) {
                 activeVideo.currentTime = 0;
-                activeVideo.play().catch(function() {});
+                activeVideo.play().catch(function () { });
               }
+            }
+          },
+          keyPress: function (swiper, keyCode) {
+            if (keyCode === 37 || keyCode === 39) {
+              updateSlideFocusability(swiper, true);
             }
           },
           slideChange: function () {
             const swiper = this;
+            updateSlideFocusability(swiper, isArrowKeyPressed);
             const slides = Array.from(swiper.slides || []);
             const activeSlide = slides[swiper.activeIndex];
             if (!activeSlide) return;
@@ -544,7 +650,7 @@
             const activeVideo = activeSlide.querySelector('video');
             if (activeVideo) {
               activeVideo.currentTime = 0;
-              activeVideo.play().catch(function(e) {
+              activeVideo.play().catch(function (e) {
                 console.warn('Video play interrupted:', e);
               });
 
@@ -583,6 +689,12 @@
                 }
               }
             });
+          },
+          slideChangeTransitionEnd: function () {
+            updateSlideFocusability(this, isArrowKeyPressed);
+          },
+          resize: function () {
+            updateSlideFocusability(this);
           }
         },
       };
@@ -632,6 +744,9 @@
 
       try {
         swiperInstance = new window.Swiper(swiperEl, swiperOptions);
+        if (swiperInstance) {
+          updateSlideFocusability(swiperInstance);
+        }
       } catch (e) {
         console.error('Swiper 초기화 에러:', swiperEl, e);
       }
