@@ -11,18 +11,48 @@ $base-font-size : 10;
     @return math.div($px, $base) * 1rem;
 }
 
+// 소수점 반올림 함수 (기본 2자리)
+@function round-dec($number, $decimals: 2) {
+    $power: math.pow(10, $decimals);
+    @return math.div(math.round($number * $power), $power);
+}
+
 @function vw($px, $base: 1920) {
-    $vw-value: math.div($px, $base) * 100;
+    $vw-value: round-dec(math.div($px, $base) * 100);
     @return min(rem($px), #{$vw-value}vw);
 }
 
-@function f-clamp($mobile, $desktop, $base: 1920) {
+// 반응형 f-clamp 함수
+// 1) 기본: f-clamp($mobile, $desktop) -> 기존 구조 유지 + 소수점 4자리 반올림 (clamp(min, xx.xxxxvw, max))
+// 2) 선형 보간: f-clamp($mobile, $desktop, $linear: true, $min-width: 768) -> 768px ~ 1920px 구간 비례 가변
+@function f-clamp($mobile, $desktop, $linear: false, $min-width: 768, $max-width: 1920) {
     $lower: math.min($mobile, $desktop);
     $upper: math.max($mobile, $desktop);
 
-    @return clamp(rem($lower),
-        math.div($desktop, $base) * 100vw,
-        rem($upper));
+    @if $lower == $upper {
+        @return rem($lower);
+    }
+
+    @if $linear {
+        // 768px (모바일/태블릿 min) ~ 1920px (PC max) 선형 보간
+        $slope: math.div($desktop - $mobile, $max-width - $min-width);
+        $vw-val: round-dec($slope * 100);
+        $intercept-px: $mobile - ($slope * $min-width);
+        $rem-val: round-dec(math.div($intercept-px, $base-font-size));
+
+        @if $rem-val == 0 {
+            @return clamp(rem($lower), #{$vw-val}vw, rem($upper));
+        } @else if $rem-val > 0 {
+            @return clamp(rem($lower), calc(#{$rem-val}rem + #{$vw-val}vw), rem($upper));
+        } @else {
+            $abs-rem: math.abs($rem-val);
+            @return clamp(rem($lower), calc(#{$vw-val}vw - #{$abs-rem}rem), rem($upper));
+        }
+    } @else {
+        // 기존 1920px 비례 스케일링 (소수점 4자리 반올림)
+        $vw-val: round-dec(math.div($desktop, $max-width) * 100);
+        @return clamp(rem($lower), #{$vw-val}vw, rem($upper));
+    }
 }
 
 /**********************************

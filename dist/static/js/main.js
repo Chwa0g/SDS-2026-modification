@@ -1206,8 +1206,13 @@ $(function () {
     function initMainServiceSwiper() {
         const nextMode = getMainServiceMode();
 
-        // 같은 구간에서는 재생성하지 않음
-        if (mainServiceMode === nextMode) return;
+        // 같은 구간일 때도 모바일 가로/세로 전환 시 높이/너비 재계산
+        if (mainServiceMode === nextMode) {
+            if (mainServiceSwiper && !mainServiceSwiper.destroyed) {
+                mainServiceSwiper.update();
+            }
+            return;
+        }
 
         mainServiceMode = nextMode;
 
@@ -1231,6 +1236,8 @@ $(function () {
             slidesPerView,
             slidesPerGroup: 1,
             spaceBetween: options.spaceBetween,
+            observer: true,
+            observeParents: true,
 
             longSwipes: false,
             autoplay: {
@@ -1294,12 +1301,17 @@ $(function () {
 
     initMainServiceSwiper();
 
-    const mainServiceResizeEvent = Device.isMobile() ? "orientationchange.mainServiceSwiper" : "resize.mainServiceSwiper";
-
+    let mainServiceResizeTimer = null;
     $(window)
         .off(".mainServiceSwiper")
-        .on(mainServiceResizeEvent, function () {
-            initMainServiceSwiper();
+        .on("resize.mainServiceSwiper orientationchange.mainServiceSwiper", function () {
+            clearTimeout(mainServiceResizeTimer);
+            mainServiceResizeTimer = setTimeout(function () {
+                initMainServiceSwiper();
+                if (mainServiceSwiper && !mainServiceSwiper.destroyed) {
+                    mainServiceSwiper.update();
+                }
+            }, 150);
         });
     // e:260728
 
@@ -2105,11 +2117,12 @@ $(function () {
         MainHandler.init(true);
     }
 
-    //260819 : 포커스 이슈
+    //260819 : 포커스 이슈 (모바일/태블릿 시각 순서에 맞춘 DOM 순서 및 포커스 순차 탐색 재배치)
     (function () {
         const media = window.matchMedia("(max-width: 1023px)");
 
         const $mainKv = $(".main-kv__grid");
+        if (!$mainKv.length) return;
 
         const $insight = $(".main-kv__insight");
         const $hero = $(".main-kv__hero");
@@ -2121,15 +2134,21 @@ $(function () {
 
         function updateOrder(e) {
             if (e.matches) {
-                // MO 시각 순서 = 포커스 순서
-                $mainKv.append($hero, $insight, $resource, $summit, $news, $case, $news, $ask);
+                // MO/TA 시각 순서 = DOM 순차 탐색(포커스) 순서
+                // 1. Hero -> 2. Insight -> 3. Resource -> 4. Summit -> 5. News -> 6. Case -> 7. Ask
+                $mainKv.append($hero, $insight, $resource, $summit, $news, $case, $ask);
             } else {
-                // PC 원래 포커스 순서
+                // PC 원래 시각 및 포커스 순서
+                // 1. Insight -> 2. Hero -> 3. News -> 4. Ask -> 5. Summit -> 6. Resource -> 7. Case
                 $mainKv.append($insight, $hero, $news, $ask, $summit, $resource, $case);
             }
         }
 
         updateOrder(media);
-        media.addEventListener("change", updateOrder);
+        if (media.addEventListener) {
+            media.addEventListener("change", updateOrder);
+        } else if (media.addListener) {
+            media.addListener(updateOrder);
+        }
     })();
 });

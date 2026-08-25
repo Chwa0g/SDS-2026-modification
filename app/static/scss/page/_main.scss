@@ -1634,6 +1634,9 @@ button {
 
     &__item-inner {
         position: relative;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         padding: f-clamp(20, 32);
         display: flex;
         flex-direction: column;
@@ -1663,7 +1666,9 @@ button {
         }
 
         @include media(mo) {
-            aspect-ratio: 1/1;
+            aspect-ratio: auto;
+            min-height: rem(220);
+            height: 100%;
         }
     }
 

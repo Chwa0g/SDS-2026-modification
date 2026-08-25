@@ -736,8 +736,8 @@ button {
 }
 
 .view-button {
-    width: clamp(2.8rem, 2.3958333333vw, 4.6rem);
-    height: clamp(2.2rem, 1.875vw, 3.6rem);
+    width: clamp(2.8rem, 2.4vw, 4.6rem);
+    height: clamp(2.2rem, 1.88vw, 3.6rem);
     border: 0.1rem solid #eee;
     background: #fff;
     transition: background 0.3s;
@@ -786,15 +786,15 @@ button {
     width: 100%;
     padding: 1rem;
     background: #fff;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     text-align: left;
     cursor: pointer;
 }
 .custom-selectbox__selected::after {
     content: "";
     flex-shrink: 0;
-    width: clamp(1.6rem, 1.0416666667vw, 2rem);
-    height: clamp(1.6rem, 1.0416666667vw, 2rem);
+    width: clamp(1.6rem, 1.04vw, 2rem);
+    height: clamp(1.6rem, 1.04vw, 2rem);
     background-color: #111;
     mask-size: 100%;
     mask-image: url("../images/common/icon_down.svg");
@@ -815,7 +815,7 @@ button {
     transition-delay: 0s;
 }
 .custom-selectbox.is-active .custom-selectbox__box-inner {
-    padding: clamp(1rem, 0.8333333333vw, 1.6rem) clamp(1.3rem, 1.0416666667vw, 2rem);
+    padding: clamp(1rem, 0.83vw, 1.6rem) clamp(1.3rem, 1.04vw, 2rem);
     grid-template-rows: 1fr;
     border-width: 0.1rem;
 }
@@ -845,9 +845,9 @@ button {
     border-radius: 0.8rem;
 }
 .custom-selectbox__title {
-    margin-bottom: clamp(1rem, 0.8333333333vw, 1.6rem);
-    padding-bottom: clamp(1rem, 0.8333333333vw, 1.6rem);
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    margin-bottom: clamp(1rem, 0.83vw, 1.6rem);
+    padding-bottom: clamp(1rem, 0.83vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     color: #666;
     border-bottom: 0.1rem solid #EFEFEF;
 }
@@ -860,14 +860,14 @@ button {
 .custom-selectbox__option {
     display: flex;
     align-items: center;
-    gap: clamp(0.8rem, 0.625vw, 1.2rem);
+    gap: clamp(0.8rem, 0.63vw, 1.2rem);
     width: 100%;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     cursor: pointer;
     transition: color 0.4s;
 }
 .custom-selectbox__option + .custom-selectbox__option {
-    margin-top: clamp(1rem, 0.8333333333vw, 1.6rem);
+    margin-top: clamp(1rem, 0.83vw, 1.6rem);
 }
 @media (hover: hover) and (pointer: fine) {
     .custom-selectbox__option:hover {
@@ -894,14 +894,14 @@ button {
 }
 .custom-selectbox__label {
     display: flex;
-    gap: clamp(0.8rem, 0.625vw, 1.2rem);
+    gap: clamp(0.8rem, 0.63vw, 1.2rem);
 }
 .custom-selectbox__label::before {
     content: "";
     background: #fff url("../images/common/icon_check.svg") no-repeat 50% 50%/66.6666666667%;
     margin-top: 0.3rem;
-    width: clamp(1.5rem, 0.9375vw, 1.8rem);
-    height: clamp(1.5rem, 0.9375vw, 1.8rem);
+    width: clamp(1.5rem, 0.94vw, 1.8rem);
+    height: clamp(1.5rem, 0.94vw, 1.8rem);
     border: 0.1rem solid #ddd;
     border-radius: 0.3rem;
     transition: background 0.4s ease;
@@ -1001,7 +1001,7 @@ button {
 .search-form__inner {
     position: absolute;
     right: 0;
-    width: clamp(18.6rem, 13.5416666667vw, 26rem);
+    width: clamp(18.6rem, 13.54vw, 26rem);
     transition: width 0.3s;
 }
 .search-form__box {
@@ -1009,14 +1009,14 @@ button {
     background-color: #fff;
     height: 4rem;
     align-items: center;
-    gap: clamp(0.4rem, 0.4166666667vw, 0.8rem);
+    gap: clamp(0.4rem, 0.42vw, 0.8rem);
 }
 .search-form__input {
     flex: 1;
     width: 100%;
     color: #000;
     opacity: 1;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
 }
 .search-form__input::placeholder {
     color: #888;
@@ -1035,9 +1035,9 @@ button {
 .search-form__recommend {
     position: absolute;
     top: calc(100% + 0.8rem);
-    padding: clamp(2.4rem, 1.6666666667vw, 3.2rem);
+    padding: clamp(2.4rem, 1.67vw, 3.2rem);
     border: 1px solid #e5e5e5;
-    border-radius: clamp(0.8rem, 0.5208333333vw, 1rem);
+    border-radius: clamp(0.8rem, 0.52vw, 1rem);
     background: #fff;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     visibility: hidden;
@@ -1047,27 +1047,27 @@ button {
     display: block;
     padding-bottom: clamp(2rem, 1.25vw, 2.4rem);
     border-bottom: 1px solid #e5e5e5;
-    font-size: clamp(1.6rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.6rem, 0.94vw, 1.8rem);
     font-weight: 700;
     color: #111;
 }
 .search-form__keyword-list {
     display: flex;
     flex-wrap: wrap;
-    gap: clamp(1.2rem, 0.8333333333vw, 1.6rem) clamp(1.2rem, 0.8333333333vw, 1.6rem);
-    padding-top: clamp(2rem, 1.6666666667vw, 3.2rem);
+    gap: clamp(1.2rem, 0.83vw, 1.6rem) clamp(1.2rem, 0.83vw, 1.6rem);
+    padding-top: clamp(2rem, 1.67vw, 3.2rem);
 }
 .search-form__keyword-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: clamp(6.8rem, 4.375vw, 8.4rem);
-    height: clamp(4.2rem, 2.3958333333vw, 4.6rem);
+    min-width: clamp(6.8rem, 4.38vw, 8.4rem);
+    height: clamp(4.2rem, 2.4vw, 4.6rem);
     padding: 0 clamp(2rem, 1.25vw, 2.4rem);
     border: 0;
     border-radius: 999px;
     background: #f7f9ff;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     font-weight: 500;
     color: #1683ff;
     cursor: pointer;
@@ -1094,7 +1094,7 @@ button {
     overscroll-behavior: contain;
 }
 .search-form__suggest-section {
-    padding: clamp(1.6rem, 1.25vw, 2.4rem) clamp(2rem, 1.6666666667vw, 3.2rem);
+    padding: clamp(1.6rem, 1.25vw, 2.4rem) clamp(2rem, 1.67vw, 3.2rem);
 }
 .search-form__suggest-list {
     display: flex;
@@ -1107,9 +1107,9 @@ button {
 .search-form__suggest-button {
     display: block;
     width: 100%;
-    padding: clamp(0.9rem, 0.625vw, 1.2rem) 0;
+    padding: clamp(0.9rem, 0.63vw, 1.2rem) 0;
     color: #555;
-    font-size: clamp(1.5rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.5rem, 0.83vw, 1.6rem);
     line-height: 1.5;
     text-align: left;
     transition: color 0.2s ease;
@@ -1129,19 +1129,19 @@ button {
 .search-form__suggest-empty {
     padding: clamp(3.2rem, 2.5vw, 4.8rem) 0;
     color: #777;
-    font-size: clamp(1.5rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.5rem, 0.83vw, 1.6rem);
     line-height: 1.5;
     text-align: center;
 }
 .search-form__suggest-bottom {
     display: flex;
     justify-content: flex-end;
-    padding: clamp(1.2rem, 0.8333333333vw, 1.6rem) clamp(2rem, 1.6666666667vw, 3.2rem);
+    padding: clamp(1.2rem, 0.83vw, 1.6rem) clamp(2rem, 1.67vw, 3.2rem);
     border-top: 0.1rem solid #ddd;
 }
 .search-form__suggest-close {
     color: #111;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     line-height: 1.5;
 }
 .search-form__suggest-close:hover {
@@ -1268,7 +1268,7 @@ button {
 }
 
 .insight-report {
-    padding: clamp(4.8rem, 3.75vw, 7.2rem) 0 clamp(12rem, 9.375vw, 18rem);
+    padding: clamp(4.8rem, 3.75vw, 7.2rem) 0 clamp(12rem, 9.38vw, 18rem);
 }
 .insight-report__inner {
     max-width: 1400px;
@@ -1278,7 +1278,7 @@ button {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: clamp(2.4rem, 2.0833333333vw, 4rem);
+    gap: clamp(2.4rem, 2.08vw, 4rem);
     margin-bottom: clamp(3.6rem, 2.5vw, 4.8rem);
 }
 .insight-report__title {
@@ -1286,13 +1286,13 @@ button {
     font-weight: 700;
 }
 .insight-report__description {
-    margin-top: clamp(1rem, 0.625vw, 1.2rem);
-    font-size: clamp(1.6rem, 1.0416666667vw, 2rem);
+    margin-top: clamp(1rem, 0.63vw, 1.2rem);
+    font-size: clamp(1.6rem, 1.04vw, 2rem);
     color: #777;
 }
 .insight-report__sns-list {
     display: flex;
-    gap: clamp(0.8rem, 0.625vw, 1.2rem);
+    gap: clamp(0.8rem, 0.63vw, 1.2rem);
 }
 @media (max-width: 767px) {
     .insight-report__sns-list {
@@ -1301,8 +1301,8 @@ button {
 }
 .insight-report__sns-link {
     display: block;
-    width: clamp(2.4rem, 1.6666666667vw, 3.2rem);
-    height: clamp(2.4rem, 1.6666666667vw, 3.2rem);
+    width: clamp(2.4rem, 1.67vw, 3.2rem);
+    height: clamp(2.4rem, 1.67vw, 3.2rem);
     border-radius: 50%;
     background-color: #6B7684;
 }
@@ -1336,11 +1336,11 @@ button {
 }
 .insight-report__toolbar {
     position: relative;
-    padding-bottom: clamp(2.4rem, 2.0833333333vw, 4rem);
+    padding-bottom: clamp(2.4rem, 2.08vw, 4rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: clamp(2.4rem, 2.0833333333vw, 4rem);
+    gap: clamp(2.4rem, 2.08vw, 4rem);
     border-bottom: 0.1rem solid #eee;
 }
 @media (max-width: 1023px) {
@@ -1360,19 +1360,19 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(0.4rem, 0.4166666667vw, 0.8rem);
-    padding: 0 clamp(1.4rem, 1.40625vw, 2.7rem);
+    gap: clamp(0.4rem, 0.42vw, 0.8rem);
+    padding: 0 clamp(1.4rem, 1.41vw, 2.7rem);
     border-radius: 0.4rem;
     background: #000;
-    font-size: clamp(1.3rem, 0.7291666667vw, 1.4rem);
+    font-size: clamp(1.3rem, 0.73vw, 1.4rem);
     font-weight: 600;
     line-height: 3.4285714286;
     color: #fff;
 }
 .insight-report__subscribe-link::before {
     content: "";
-    width: clamp(1.6rem, 1.09375vw, 2.1rem);
-    height: clamp(1.6rem, 1.09375vw, 2.1rem);
+    width: clamp(1.6rem, 1.09vw, 2.1rem);
+    height: clamp(1.6rem, 1.09vw, 2.1rem);
     background-color: #fff;
     mask-size: 100%;
     mask-image: url("../images/common/icon_mail.svg");
@@ -1386,10 +1386,10 @@ button {
     position: relative;
     display: flex;
     align-items: center;
-    gap: clamp(1rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(1rem, 0.83vw, 1.6rem);
 }
 .insight-report__filter .custom-selectbox {
-    width: clamp(13rem, 9.6875vw, 18.6rem);
+    width: clamp(13rem, 9.69vw, 18.6rem);
     height: clamp(4rem, 2.5vw, 4.8rem);
 }
 .insight-report__filter .custom-selectbox__selected {
@@ -1421,7 +1421,7 @@ button {
 .insight-report__selectbox-group {
     display: flex;
     align-items: center;
-    gap: clamp(1rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(1rem, 0.83vw, 1.6rem);
 }
 @media (max-width: 1023px) {
     .insight-report__selectbox-group {
@@ -1430,11 +1430,11 @@ button {
 }
 .insight-report__search {
     align-items: center;
-    width: clamp(18.6rem, 13.5416666667vw, 26rem);
+    width: clamp(18.6rem, 13.54vw, 26rem);
     height: clamp(4rem, 2.5vw, 4.8rem);
 }
 .insight-report .search-form__box {
-    padding: 0 clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    padding: 0 clamp(1.4rem, 0.83vw, 1.6rem);
     width: 100%;
     height: clamp(4rem, 2.5vw, 4.8rem);
     border-radius: 0.8rem;
@@ -1448,13 +1448,13 @@ button {
     }
 }
 .insight-report__selected-area {
-    margin-top: clamp(2rem, 2.0833333333vw, 4rem);
+    margin-top: clamp(2rem, 2.08vw, 4rem);
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 .insight-report__selected-area.has-items {
-    margin-bottom: clamp(2rem, 2.0833333333vw, 4rem);
+    margin-bottom: clamp(2rem, 2.08vw, 4rem);
 }
 .insight-report__selected-area.has-items .reset-button {
     display: flex;
@@ -1463,16 +1463,16 @@ button {
     margin-left: auto;
     display: none;
     align-items: center;
-    gap: clamp(0.6rem, 0.5208333333vw, 1rem);
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(0.6rem, 0.52vw, 1rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     font-weight: 500;
     color: #2189FF;
     flex-shrink: 0;
 }
 .insight-report__selected-area .reset-button::after {
     content: "";
-    width: clamp(1.6rem, 1.09375vw, 2.1rem);
-    height: clamp(1.6rem, 1.09375vw, 2.1rem);
+    width: clamp(1.6rem, 1.09vw, 2.1rem);
+    height: clamp(1.6rem, 1.09vw, 2.1rem);
     background-color: #2189FF;
     mask-size: 100%;
     mask-image: url("../images/common/icon_reset.svg");
@@ -1480,15 +1480,15 @@ button {
 .insight-report__selected-list {
     display: flex;
     flex-wrap: wrap;
-    gap: clamp(0.8rem, 0.625vw, 1.2rem);
+    gap: clamp(0.8rem, 0.63vw, 1.2rem);
 }
 .insight-report__selected-list .selected-area__item {
-    padding: 0 clamp(1.3rem, 0.8333333333vw, 1.6rem) 0 clamp(1.3rem, 1.0416666667vw, 2rem);
+    padding: 0 clamp(1.3rem, 0.83vw, 1.6rem) 0 clamp(1.3rem, 1.04vw, 2rem);
     display: flex;
     align-items: center;
-    gap: clamp(0.4rem, 0.4166666667vw, 0.8rem);
+    gap: clamp(0.4rem, 0.42vw, 0.8rem);
     color: #666;
-    font-size: clamp(1.3rem, 0.7291666667vw, 1.4rem);
+    font-size: clamp(1.3rem, 0.73vw, 1.4rem);
     background-color: #F5F5F5;
     line-height: 2.8571428571;
     border-radius: 100vh;
@@ -1503,13 +1503,13 @@ button {
     background-color: #ccc;
 }
 .insight-report__top {
-    margin-bottom: clamp(5rem, 4.1666666667vw, 8rem);
+    margin-bottom: clamp(5rem, 4.17vw, 8rem);
     display: grid;
-    grid-template-columns: 1fr clamp(34rem, 22.7083333333vw, 43.6rem);
-    gap: clamp(1.5rem, 1.3541666667vw, 2.6rem);
+    grid-template-columns: 1fr clamp(34rem, 22.71vw, 43.6rem);
+    gap: clamp(1.5rem, 1.35vw, 2.6rem);
 }
 .insight-report__top > * {
-    padding: clamp(1.5rem, 1.0416666667vw, 2rem);
+    padding: clamp(1.5rem, 1.04vw, 2rem);
     box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.16);
     border-radius: 2rem;
 }
@@ -1535,13 +1535,13 @@ button {
     flex-direction: column;
 }
 .insight-report__featured .insight-report__top-title {
-    padding-bottom: clamp(1rem, 0.8333333333vw, 1.6rem);
+    padding-bottom: clamp(1rem, 0.83vw, 1.6rem);
 }
 .insight-report__featured .insight-card {
     flex: 1;
     display: flex;
     flex-direction: column;
-    border-radius: clamp(1.6rem, 1.0416666667vw, 2rem);
+    border-radius: clamp(1.6rem, 1.04vw, 2rem);
     overflow: hidden;
 }
 @media (max-width: 1023px) {
@@ -1553,11 +1553,11 @@ button {
     }
 }
 .insight-report__featured .insight-card__badge {
-    padding: 0 clamp(1.8rem, 1.40625vw, 2.7rem);
+    padding: 0 clamp(1.8rem, 1.41vw, 2.7rem);
     min-width: 12rem;
-    font-size: clamp(1.2rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.2rem, 0.94vw, 1.8rem);
     line-height: 3.3333333333;
-    border-bottom-right-radius: clamp(4rem, 3.125vw, 6rem);
+    border-bottom-right-radius: clamp(4rem, 3.13vw, 6rem);
 }
 @media (max-width: 1023px) {
     .insight-report__featured .insight-card__badge {
@@ -1580,7 +1580,7 @@ button {
 }
 .insight-report__featured .insight-card__content {
     position: absolute;
-    padding: clamp(2rem, 1.6666666667vw, 3.2rem);
+    padding: clamp(2rem, 1.67vw, 3.2rem);
     display: flex;
     flex-direction: column;
     height: 45%;
@@ -1589,7 +1589,7 @@ button {
     bottom: clamp(1.6rem, 1.25vw, 2.4rem);
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(5px);
-    border-radius: clamp(0.8rem, 0.625vw, 1.2rem);
+    border-radius: clamp(0.8rem, 0.63vw, 1.2rem);
     z-index: 3;
 }
 @media (max-width: 1023px) {
@@ -1607,10 +1607,10 @@ button {
     }
 }
 .insight-report__featured .insight-card__meta {
-    margin-bottom: clamp(1.6rem, 1.6666666667vw, 3.2rem);
+    margin-bottom: clamp(1.6rem, 1.67vw, 3.2rem);
 }
 .insight-report__featured .insight-card__title {
-    font-size: clamp(2.4rem, 1.4583333333vw, 2.8rem);
+    font-size: clamp(2.4rem, 1.46vw, 2.8rem);
     font-weight: 700;
     -webkit-line-clamp: 1;
 }
@@ -1624,14 +1624,14 @@ button {
 }
 .insight-report__featured .insight-card__more {
     margin-top: auto;
-    font-size: clamp(1.6rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.6rem, 0.94vw, 1.8rem);
     opacity: 0;
     transform: translateY(0.6rem);
     transition: opacity 0.3s ease, transform 0.3s ease, background 0.4s;
 }
 .insight-report__featured .insight-card__description {
-    margin-top: clamp(1.6rem, 1.6666666667vw, 3.2rem);
-    font-size: clamp(1.6rem, 0.9895833333vw, 1.9rem);
+    margin-top: clamp(1.6rem, 1.67vw, 3.2rem);
+    font-size: clamp(1.6rem, 0.99vw, 1.9rem);
     line-height: 1.4736842105;
     color: #333;
     display: -webkit-box;
@@ -1646,10 +1646,10 @@ button {
     }
 }
 .insight-report__recommend {
-    padding-bottom: clamp(2.4rem, 2.9166666667vw, 5.6rem);
+    padding-bottom: clamp(2.4rem, 2.92vw, 5.6rem);
 }
 .insight-report__recommend .insight-report__top-title {
-    padding-bottom: clamp(2rem, 2.0833333333vw, 4rem);
+    padding-bottom: clamp(2rem, 2.08vw, 4rem);
 }
 @media (max-width: 1023px) {
     .insight-report__recommend {
@@ -1658,15 +1658,15 @@ button {
     }
 }
 .insight-report__recommend-item + .insight-report__recommend-item {
-    margin-top: clamp(1.6rem, 1.4583333333vw, 2.8rem);
-    padding-top: clamp(1.6rem, 1.4583333333vw, 2.8rem);
+    margin-top: clamp(1.6rem, 1.46vw, 2.8rem);
+    padding-top: clamp(1.6rem, 1.46vw, 2.8rem);
     border-top: 1px solid #eee;
 }
 .insight-report__recommend-link {
     display: grid;
-    grid-template-columns: clamp(2.5rem, 2.0833333333vw, 4rem) minmax(0, 1fr);
+    grid-template-columns: clamp(2.5rem, 2.08vw, 4rem) minmax(0, 1fr);
     align-items: center;
-    gap: clamp(1rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(1rem, 0.83vw, 1.6rem);
 }
 @media (hover: hover) and (pointer: fine) {
     .insight-report__recommend-link:hover .insight-report__recommend-text {
@@ -1675,14 +1675,14 @@ button {
 }
 .insight-report__recommend-num {
     font-family: "samsung";
-    font-size: clamp(2rem, 1.4583333333vw, 2.8rem);
+    font-size: clamp(2rem, 1.46vw, 2.8rem);
     color: #000;
     font-weight: 700;
     text-align: center;
 }
 .insight-report__recommend-text {
     display: -webkit-box;
-    font-size: clamp(1.5rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.5rem, 0.83vw, 1.6rem);
     font-weight: 700;
     line-height: 1.75;
     -webkit-line-clamp: 2;
@@ -1694,26 +1694,26 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: clamp(2rem, 1.6666666667vw, 3.2rem);
+    margin-bottom: clamp(2rem, 1.67vw, 3.2rem);
 }
 .insight-report__sort {
     display: flex;
     align-items: center;
-    gap: clamp(2rem, 2.0833333333vw, 4rem);
+    gap: clamp(2rem, 2.08vw, 4rem);
 }
 .insight-report__sort-button {
     position: relative;
     display: flex;
     align-items: center;
-    gap: clamp(0.4rem, 0.4166666667vw, 0.8rem);
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(0.4rem, 0.42vw, 0.8rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     letter-spacing: -0.02em;
     color: #888;
 }
 .insight-report__sort-button::before {
     content: "";
-    width: clamp(0.4rem, 0.4166666667vw, 0.8rem);
-    height: clamp(0.4rem, 0.4166666667vw, 0.8rem);
+    width: clamp(0.4rem, 0.42vw, 0.8rem);
+    height: clamp(0.4rem, 0.42vw, 0.8rem);
     border-radius: 50%;
     background-color: #888;
 }
@@ -1732,15 +1732,15 @@ button {
 .insight__meta-item {
     display: flex;
     align-items: center;
-    gap: clamp(0.4rem, 0.4166666667vw, 0.8rem);
-    font-size: clamp(1.2rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(0.4rem, 0.42vw, 0.8rem);
+    font-size: clamp(1.2rem, 0.83vw, 1.6rem);
     letter-spacing: -0.02em;
 }
 .insight__meta-item::before {
     content: "";
     margin-top: 0.2rem;
-    width: clamp(1.6rem, 1.0416666667vw, 2rem);
-    height: clamp(1.6rem, 1.0416666667vw, 2rem);
+    width: clamp(1.6rem, 1.04vw, 2rem);
+    height: clamp(1.6rem, 1.04vw, 2rem);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: 100%;
@@ -1849,8 +1849,8 @@ button {
 .insight-report-detail__side-nav {
     flex-shrink: 0;
     position: sticky;
-    padding-top: clamp(3rem, 2.6041666667vw, 5rem);
-    top: clamp(5.6rem, 3.6458333333vw, 7rem);
+    padding-top: clamp(3rem, 2.6vw, 5rem);
+    top: clamp(5.6rem, 3.65vw, 7rem);
     max-width: 12rem;
     z-index: 100;
 }
@@ -1869,7 +1869,7 @@ button {
 .insight-report-detail__side-list {
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 0.7291666667vw, 1.4rem);
+    gap: clamp(1rem, 0.73vw, 1.4rem);
 }
 .insight-report-detail__side-item {
     position: relative;
@@ -1929,22 +1929,22 @@ button {
 }
 .insight-report-detail__category {
     margin-bottom: clamp(1.6rem, 1.25vw, 2.4rem);
-    font-size: clamp(1.4rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.4rem, 0.94vw, 1.8rem);
     font-weight: 700;
 }
 .insight-report-detail__title {
-    font-size: clamp(2.8rem, 2.0833333333vw, 4rem);
+    font-size: clamp(2.8rem, 2.08vw, 4rem);
     line-height: 1.55;
     font-weight: 700;
 }
 .insight-report-detail__author {
     margin-top: clamp(1.6rem, 1.25vw, 2.4rem);
-    font-size: clamp(1.6rem, 1.1458333333vw, 2.2rem);
+    font-size: clamp(1.6rem, 1.15vw, 2.2rem);
     font-weight: 700;
 }
 .insight-report-detail__body {
     position: relative;
-    padding: 0 0 clamp(8rem, 7.8125vw, 15rem);
+    padding: 0 0 clamp(8rem, 7.81vw, 15rem);
     display: flex;
     align-items: flex-start;
     background: #fff;
@@ -1959,7 +1959,7 @@ button {
     padding-top: clamp(4.4rem, 2.5vw, 4.8rem);
     display: grid;
     grid-template-columns: minmax(0, 1fr) 34.6rem;
-    column-gap: clamp(3rem, 6.7708333333vw, 13rem);
+    column-gap: clamp(3rem, 6.77vw, 13rem);
     align-items: stretch;
 }
 @media (max-width: 1023px) {
@@ -2013,7 +2013,7 @@ button {
     }
 }
 .insight-report-detail__util {
-    padding: clamp(1.4rem, 0.8333333333vw, 1.6rem) 0;
+    padding: clamp(1.4rem, 0.83vw, 1.6rem) 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2037,11 +2037,11 @@ button {
 .insight-report-detail__share {
     display: flex;
     align-items: center;
-    gap: clamp(0.8rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(0.8rem, 0.83vw, 1.6rem);
 }
 .insight-report-detail__share-button {
-    width: clamp(3rem, 2.2916666667vw, 4.4rem);
-    height: clamp(3rem, 2.2916666667vw, 4.4rem);
+    width: clamp(3rem, 2.29vw, 4.4rem);
+    height: clamp(3rem, 2.29vw, 4.4rem);
     border: 0;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -2064,22 +2064,22 @@ button {
     max-width: 100%;
 }
 .insight-report-detail__lead {
-    margin-bottom: clamp(2.8rem, 2.0833333333vw, 4rem);
-    font-size: clamp(2rem, 1.4583333333vw, 2.8rem);
+    margin-bottom: clamp(2.8rem, 2.08vw, 4rem);
+    font-size: clamp(2rem, 1.46vw, 2.8rem);
     line-height: 1.55;
     font-weight: 700;
     letter-spacing: -0.02em;
     color: #122949;
 }
 .insight-report-detail__section-title {
-    margin-bottom: clamp(1.4rem, 1.0416666667vw, 2rem);
+    margin-bottom: clamp(1.4rem, 1.04vw, 2rem);
     font-size: clamp(1.8rem, 1.25vw, 2.4rem);
     font-weight: 700;
     font-family: "samsung";
 }
 .insight-report-detail__aside {
     position: sticky;
-    top: clamp(5.6rem, 3.6458333333vw, 7rem);
+    top: clamp(5.6rem, 3.65vw, 7rem);
     display: flex;
     flex-direction: column;
     gap: clamp(1.6rem, 1.25vw, 2.4rem);
@@ -2093,14 +2093,14 @@ button {
     }
 }
 .insight-report-detail__aside-box {
-    padding: 2.4rem clamp(1.4rem, 1.0416666667vw, 2rem);
+    padding: 2.4rem clamp(1.4rem, 1.04vw, 2rem);
     background: #fff;
     border-radius: 1.6rem;
     box-shadow: 0 0.2rem 0.8rem 0px rgba(0, 0, 0, 0.16);
 }
 .insight-report-detail__aside-title {
-    margin-bottom: clamp(1.4rem, 1.0416666667vw, 2rem);
-    font-size: clamp(1.8rem, 1.0416666667vw, 2rem);
+    margin-bottom: clamp(1.4rem, 1.04vw, 2rem);
+    font-size: clamp(1.8rem, 1.04vw, 2rem);
     font-weight: 700;
 }
 .insight-report-detail__solution-list {
@@ -2115,7 +2115,7 @@ button {
     position: relative;
     display: flex;
     font-family: "samsung";
-    font-size: clamp(1.3rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.3rem, 0.83vw, 1.6rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     transition: color 0.4s;
@@ -2125,7 +2125,7 @@ button {
 .insight-report-detail__solution-link::before {
     content: "ㆍ";
     flex-shrink: 0;
-    padding-right: clamp(0.4rem, 0.4166666667vw, 0.8rem);
+    padding-right: clamp(0.4rem, 0.42vw, 0.8rem);
     font-weight: 700;
 }
 .insight-report-detail__solution-link::after {
@@ -2147,7 +2147,7 @@ button {
     .insight-report-detail__event-list {
         display: flex;
         flex-direction: column;
-        gap: clamp(1rem, 1.0416666667vw, 2rem);
+        gap: clamp(1rem, 1.04vw, 2rem);
     }
 }
 .insight-report-detail__event-swiper {
@@ -2172,7 +2172,7 @@ button {
 }
 .insight-report-detail__event-link {
     display: grid;
-    grid-template-columns: clamp(8rem, 5.3645833333vw, 10.3rem) minmax(0, 1fr);
+    grid-template-columns: clamp(8rem, 5.36vw, 10.3rem) minmax(0, 1fr);
     gap: 1.2rem;
     align-items: center;
 }
@@ -2202,7 +2202,7 @@ button {
     display: -webkit-box;
     overflow: hidden;
     font-family: "samsung";
-    font-size: clamp(1.3rem, 0.7291666667vw, 1.4rem);
+    font-size: clamp(1.3rem, 0.73vw, 1.4rem);
     font-weight: 700;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -2211,17 +2211,17 @@ button {
     word-break: keep-all;
 }
 .insight-report-detail__series {
-    padding: clamp(2.4rem, 1.6666666667vw, 3.2rem) clamp(1.4rem, 1.25vw, 2.4rem);
+    padding: clamp(2.4rem, 1.67vw, 3.2rem) clamp(1.4rem, 1.25vw, 2.4rem);
     border-radius: 1.6rem;
     background: #F5F5F5;
 }
 .insight-report-detail__series .insight__meta-item {
-    font-size: clamp(1.2rem, 0.7291666667vw, 1.4rem);
+    font-size: clamp(1.2rem, 0.73vw, 1.4rem);
 }
 .insight-report-detail__series-head {
     display: flex;
     align-items: flex-start;
-    gap: clamp(0.8rem, 0.625vw, 1.2rem);
+    gap: clamp(0.8rem, 0.63vw, 1.2rem);
     margin-bottom: 1.2rem;
 }
 @media (max-width: 767px) {
@@ -2232,28 +2232,28 @@ button {
 }
 .insight-report-detail__series-badge {
     position: relative;
-    padding-left: clamp(1rem, 0.6770833333vw, 1.3rem);
-    margin-right: clamp(1rem, 0.9375vw, 1.8rem);
+    padding-left: clamp(1rem, 0.68vw, 1.3rem);
+    margin-right: clamp(1rem, 0.94vw, 1.8rem);
     color: #fff;
     background-color: #3566D8;
     border-top-left-radius: 0.8rem;
     border-bottom-left-radius: 0.8rem;
-    font-size: clamp(1.2rem, 0.7291666667vw, 1.4rem);
-    line-height: clamp(2.4rem, 1.875vw, 3.6rem);
+    font-size: clamp(1.2rem, 0.73vw, 1.4rem);
+    line-height: clamp(2.4rem, 1.88vw, 3.6rem);
 }
 .insight-report-detail__series-badge::after {
     content: "";
     position: absolute;
     left: 100%;
     top: 0;
-    width: clamp(1.2rem, 0.9375vw, 1.8rem);
+    width: clamp(1.2rem, 0.94vw, 1.8rem);
     height: 100%;
     background-color: #3566D8;
     mask-size: 100%;
     mask-image: url("../images/common/icon_badge_tail.svg");
 }
 .insight-report-detail__series-title {
-    font-size: clamp(1.7rem, 1.0416666667vw, 2rem);
+    font-size: clamp(1.7rem, 1.04vw, 2rem);
     font-weight: 700;
 }
 .insight-report-detail__series-list {
@@ -2271,7 +2271,7 @@ button {
 }
 .insight-report-detail__series-link {
     display: flex;
-    gap: clamp(1.4rem, 1.0416666667vw, 2rem);
+    gap: clamp(1.4rem, 1.04vw, 2rem);
     align-items: center;
 }
 @media (max-width: 767px) {
@@ -2288,7 +2288,7 @@ button {
 .insight-report-detail__series-image {
     flex-shrink: 0;
     aspect-ratio: 310/174;
-    width: clamp(16rem, 16.1458333333vw, 31rem);
+    width: clamp(16rem, 16.15vw, 31rem);
     background: #e9e9e9;
     border-bottom-right-radius: 1.2rem;
     border-bottom-left-radius: 1.2rem;
@@ -2309,8 +2309,8 @@ button {
 }
 .insight-report-detail__series-subject {
     display: block;
-    margin-top: clamp(0.4rem, 0.4166666667vw, 0.8rem);
-    font-size: clamp(1.5rem, 0.9375vw, 1.8rem);
+    margin-top: clamp(0.4rem, 0.42vw, 0.8rem);
+    font-size: clamp(1.5rem, 0.94vw, 1.8rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     display: -webkit-box;
@@ -2321,9 +2321,9 @@ button {
 }
 .insight-report-detail__series-desc {
     display: -webkit-box;
-    margin-top: clamp(0.4rem, 0.4166666667vw, 0.8rem);
+    margin-top: clamp(0.4rem, 0.42vw, 0.8rem);
     color: #333;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     overflow: hidden;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -2332,7 +2332,7 @@ button {
 .insight-report-detail__writer-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1.3rem, 1.0416666667vw, 2rem);
+    gap: clamp(1.3rem, 1.04vw, 2rem);
 }
 @media (max-width: 1200px) {
     .insight-report-detail__writer-list {
@@ -2343,21 +2343,21 @@ button {
     padding: clamp(1.6rem, 1.25vw, 2.4rem);
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(1rem, 0.83vw, 1.6rem);
     border: 0.1rem solid #ddd;
-    border-radius: clamp(1.4rem, 1.0416666667vw, 2rem);
+    border-radius: clamp(1.4rem, 1.04vw, 2rem);
     background: #fff;
 }
 .insight-report-detail__writer-head {
     display: flex;
     align-items: center;
-    gap: clamp(1.6rem, 1.875vw, 3.6rem);
+    gap: clamp(1.6rem, 1.88vw, 3.6rem);
 }
 .insight-report-detail__writer-image {
     overflow: hidden;
     flex-shrink: 0;
-    width: clamp(5rem, 4.5833333333vw, 8.8rem);
-    height: clamp(5rem, 4.5833333333vw, 8.8rem);
+    width: clamp(5rem, 4.58vw, 8.8rem);
+    height: clamp(5rem, 4.58vw, 8.8rem);
     border-radius: 12px;
     background: #ddd;
 }
@@ -2381,20 +2381,20 @@ button {
 }
 .insight-report-detail__writer-name {
     display: block;
-    font-size: clamp(1.4rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.4rem, 0.94vw, 1.8rem);
     font-weight: 500;
 }
 .insight-report-detail__writer-role {
     display: block;
     margin-top: 0.8rem;
-    font-size: clamp(1.2rem, 0.7291666667vw, 1.4rem);
+    font-size: clamp(1.2rem, 0.73vw, 1.4rem);
     font-family: "samsung";
     font-weight: 500;
 }
 .insight-report-detail__writer-desc {
     display: -webkit-box;
     overflow: hidden;
-    font-size: clamp(1.3rem, 0.7291666667vw, 1.4rem);
+    font-size: clamp(1.3rem, 0.73vw, 1.4rem);
     font-family: "samsung";
     line-height: 1.5714285714;
     -webkit-line-clamp: 4;
@@ -2410,8 +2410,8 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(2.4rem, 1.6666666667vw, 3.2rem);
-    height: clamp(2.4rem, 1.6666666667vw, 3.2rem);
+    width: clamp(2.4rem, 1.67vw, 3.2rem);
+    height: clamp(2.4rem, 1.67vw, 3.2rem);
     border-radius: 0.6rem;
     border: 0.1rem solid #ddd;
 }
@@ -2419,7 +2419,7 @@ button {
     content: "";
     width: 100%;
     height: 100%;
-    mask-size: clamp(1.4rem, 0.9375vw, 1.8rem);
+    mask-size: clamp(1.4rem, 0.94vw, 1.8rem);
     mask-position: 50% 50%;
     mask-repeat: no-repeat;
     background-color: #808080;
@@ -2431,11 +2431,11 @@ button {
     mask-image: url("../images/common/icon_mail.svg");
 }
 .insight-report-detail__writer-more {
-    padding: 0 clamp(1rem, 0.8333333333vw, 1.6rem);
+    padding: 0 clamp(1rem, 0.83vw, 1.6rem);
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    line-height: clamp(2.4rem, 1.6666666667vw, 3.2rem);
+    line-height: clamp(2.4rem, 1.67vw, 3.2rem);
     background-color: #F5F5F5;
     border-radius: 0.6rem;
     border: 0.1rem solid #ddd;
@@ -2446,8 +2446,8 @@ button {
 }
 .insight-report-detail__writer-more::after {
     content: "";
-    width: clamp(0.9rem, 0.5729166667vw, 1.1rem);
-    height: clamp(0.9rem, 0.5729166667vw, 1.1rem);
+    width: clamp(0.9rem, 0.57vw, 1.1rem);
+    height: clamp(0.9rem, 0.57vw, 1.1rem);
     mask-image: url("../images/common/icon_right.svg");
     mask-size: 100%;
     flex-shrink: 0;
@@ -2492,13 +2492,13 @@ button {
     margin-top: auto;
     display: flex;
     align-items: center;
-    gap: clamp(0.4rem, 0.4166666667vw, 0.8rem);
+    gap: clamp(0.4rem, 0.42vw, 0.8rem);
     width: auto;
     margin-left: auto;
     padding: 0 clamp(1.6rem, 2.5vw, 4.8rem);
     background-color: #2189ff;
     text-align: center;
-    font-size: clamp(1.4rem, 0.8854166667vw, 1.7rem);
+    font-size: clamp(1.4rem, 0.89vw, 1.7rem);
     font-weight: 500;
     line-height: 3.0588235294;
     color: #fff !important;
@@ -2509,8 +2509,8 @@ button {
 }
 .insight-report-detail__related-more::after {
     content: "";
-    width: clamp(1.6rem, 1.0416666667vw, 2rem);
-    height: clamp(1.6rem, 1.0416666667vw, 2rem);
+    width: clamp(1.6rem, 1.04vw, 2rem);
+    height: clamp(1.6rem, 1.04vw, 2rem);
     mask-image: url(../images/common/icon_link_02.svg);
     mask-size: 100%;
     background-color: #fff;
@@ -2530,13 +2530,13 @@ button {
     margin-top: auto;
     display: flex;
     align-items: center;
-    gap: clamp(0.4rem, 0.4166666667vw, 0.8rem);
+    gap: clamp(0.4rem, 0.42vw, 0.8rem);
     width: auto;
     margin-left: auto;
     padding: 0 clamp(1.6rem, 2.5vw, 4.8rem);
     background-color: #2189ff;
     text-align: center;
-    font-size: clamp(1.4rem, 0.8854166667vw, 1.7rem);
+    font-size: clamp(1.4rem, 0.89vw, 1.7rem);
     font-weight: 500;
     line-height: 3.0588235294;
     color: #fff;
@@ -2545,8 +2545,8 @@ button {
 }
 .insight-report-detail__more::after {
     content: "";
-    width: clamp(1.6rem, 1.0416666667vw, 2rem);
-    height: clamp(1.6rem, 1.0416666667vw, 2rem);
+    width: clamp(1.6rem, 1.04vw, 2rem);
+    height: clamp(1.6rem, 1.04vw, 2rem);
     mask-image: url(../images/common/icon_link_02.svg);
     mask-size: 100%;
     background-color: #fff;
@@ -2643,13 +2643,13 @@ button {
     top: 0;
     left: 0;
     z-index: 1;
-    min-width: clamp(6rem, 5.8333333333vw, 11.2rem);
-    line-height: clamp(2.3rem, 2.3958333333vw, 4.6rem);
+    min-width: clamp(6rem, 5.83vw, 11.2rem);
+    line-height: clamp(2.3rem, 2.4vw, 4.6rem);
     padding: 0 1.4rem;
     border-bottom-right-radius: 4rem;
     background: #7870e1;
     color: #fff;
-    font-size: clamp(1.2rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.2rem, 0.83vw, 1.6rem);
     font-weight: 700;
     text-align: center;
 }
@@ -2664,7 +2664,7 @@ button {
 }
 .insight-report-detail__related-info {
     position: absolute;
-    padding: clamp(1.6rem, 1.25vw, 2.4rem) clamp(1.4rem, 1.0416666667vw, 2rem);
+    padding: clamp(1.6rem, 1.25vw, 2.4rem) clamp(1.4rem, 1.04vw, 2rem);
     right: 1.4rem;
     bottom: 1.4rem;
     left: 1.4rem;
@@ -2696,10 +2696,10 @@ button {
 }
 .insight-report-detail__related-title {
     flex-shrink: 0;
-    margin-top: clamp(1rem, 1.0416666667vw, 2rem);
+    margin-top: clamp(1rem, 1.04vw, 2rem);
     display: -webkit-box;
     overflow: hidden;
-    font-size: clamp(1.8rem, 1.4583333333vw, 2.8rem);
+    font-size: clamp(1.8rem, 1.46vw, 2.8rem);
     line-height: 1.4285714286;
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -2723,9 +2723,9 @@ button {
     }
 }
 .insight-report-detail__related-desc {
-    padding-top: clamp(0.8rem, 0.8333333333vw, 1.6rem);
+    padding-top: clamp(0.8rem, 0.83vw, 1.6rem);
     opacity: 0;
-    font-size: clamp(1.4rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.4rem, 0.94vw, 1.8rem);
     line-height: 1.5;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -2762,13 +2762,13 @@ button {
     margin-top: 0 !important;
 }
 .insight-report-detail__footer {
-    margin-top: clamp(4.4rem, 3.3333333333vw, 6.4rem);
+    margin-top: clamp(4.4rem, 3.33vw, 6.4rem);
 }
 .insight-report-detail__footer-button {
     display: inline-flex;
     justify-content: center;
-    padding: 0 clamp(2.4rem, 2.4479166667vw, 4.7rem);
-    font-size: clamp(1.6rem, 0.9895833333vw, 1.9rem);
+    padding: 0 clamp(2.4rem, 2.45vw, 4.7rem);
+    font-size: clamp(1.6rem, 0.99vw, 1.9rem);
     font-weight: 700;
     line-height: 2.9473684211;
     color: #333 !important;
@@ -2805,7 +2805,7 @@ button {
     margin: 0;
 }
 .post .insight-editor .text + .text {
-    margin-top: clamp(1.8rem, 1.4583333333vw, 2.8rem);
+    margin-top: clamp(1.8rem, 1.46vw, 2.8rem);
 }
 .post .insight-editor .strong {
     font-weight: 800;
@@ -2829,9 +2829,9 @@ button {
     letter-spacing: -0.02em;
 }
 .post .insight-editor .sub-title {
-    margin-top: clamp(3.2rem, 2.2916666667vw, 4.4rem);
+    margin-top: clamp(3.2rem, 2.29vw, 4.4rem);
     color: #111;
-    font-size: clamp(1.7rem, 1.0416666667vw, 2rem);
+    font-size: clamp(1.7rem, 1.04vw, 2rem);
     line-height: 1.5;
     font-weight: 800;
 }
@@ -2852,12 +2852,12 @@ button {
     margin-top: 0;
 }
 .post .insight-editor .quote {
-    margin-top: clamp(2.8rem, 2.0833333333vw, 4rem);
-    padding: clamp(2rem, 1.4583333333vw, 2.8rem);
+    margin-top: clamp(2.8rem, 2.08vw, 4rem);
+    padding: clamp(2rem, 1.46vw, 2.8rem);
     border-left: 0.4rem solid #111;
     background: #f6f7f9;
     color: #333;
-    font-size: clamp(1.6rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.6rem, 0.94vw, 1.8rem);
     line-height: 1.75;
     font-weight: 600;
 }
@@ -2865,11 +2865,11 @@ button {
     display: block;
     max-width: 100%;
     height: auto;
-    margin-top: clamp(2.8rem, 2.0833333333vw, 4rem);
-    border-radius: clamp(1.2rem, 0.8333333333vw, 1.6rem);
+    margin-top: clamp(2.8rem, 2.08vw, 4rem);
+    border-radius: clamp(1.2rem, 0.83vw, 1.6rem);
 }
 .post .insight-editor .figure {
-    margin-top: clamp(2.8rem, 2.0833333333vw, 4rem);
+    margin-top: clamp(2.8rem, 2.08vw, 4rem);
 }
 .post .insight-editor .figure .image {
     margin-top: 0;
@@ -2883,16 +2883,16 @@ button {
 }
 .post .insight-editor .table {
     width: 100%;
-    margin-top: clamp(2.8rem, 2.0833333333vw, 4rem);
+    margin-top: clamp(2.8rem, 2.08vw, 4rem);
     border-top: 0.1rem solid #111;
     border-collapse: collapse;
     table-layout: fixed;
 }
 .post .insight-editor .th,
 .post .insight-editor .td {
-    padding: clamp(1.4rem, 1.0416666667vw, 2rem);
+    padding: clamp(1.4rem, 1.04vw, 2rem);
     border-bottom: 0.1rem solid #e5e5e5;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     line-height: 1.6;
     text-align: left;
     vertical-align: top;
@@ -2918,7 +2918,7 @@ button {
 }
 .post .insight-editor .pre {
     overflow-x: auto;
-    margin-top: clamp(2.4rem, 1.6666666667vw, 3.2rem);
+    margin-top: clamp(2.4rem, 1.67vw, 3.2rem);
     padding: clamp(2rem, 1.25vw, 2.4rem);
     border-radius: 1.2rem;
     background: #111;
@@ -2933,7 +2933,7 @@ button {
 }
 .post .insight-editor__summary {
     margin-bottom: clamp(3.6rem, 2.5vw, 4.8rem);
-    padding: clamp(2.4rem, 2.0833333333vw, 4rem);
+    padding: clamp(2.4rem, 2.08vw, 4rem);
     background: #F5F5F5;
 }
 @media (max-width: 767px) {
@@ -2974,9 +2974,9 @@ button {
     position: relative;
     margin-top: 0;
     display: flex;
-    gap: clamp(1rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(1rem, 0.83vw, 1.6rem);
     color: #333;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
     font-weight: 500;
     counter-increment: summary;
 }
@@ -3001,14 +3001,14 @@ button {
 }
 .post .insight-editor .insight-report-detail__faq h3 {
     margin-top: clamp(3rem, 2.5vw, 4.8rem);
-    margin-bottom: clamp(1.6rem, 1.0416666667vw, 2rem);
+    margin-bottom: clamp(1.6rem, 1.04vw, 2rem);
 }
 .post .insight-editor .insight-report-detail__faq-list {
     padding: clamp(1.6rem, 1.25vw, 2.4rem);
     display: flex;
     flex-direction: column;
     border: 0.15rem solid #333;
-    border-radius: clamp(1rem, 0.8333333333vw, 1.6rem);
+    border-radius: clamp(1rem, 0.83vw, 1.6rem);
 }
 .post .insight-editor .insight-report-detail__faq-question {
     position: relative;
@@ -3016,9 +3016,9 @@ button {
     display: flex;
     align-items: flex-start;
     width: 100%;
-    gap: clamp(1rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(1rem, 0.83vw, 1.6rem);
     border: 0;
-    font-size: clamp(1.5rem, 0.9375vw, 1.8rem);
+    font-size: clamp(1.5rem, 0.94vw, 1.8rem);
     font-weight: 700;
     text-align: left;
 }
@@ -3026,13 +3026,13 @@ button {
     color: #1778EA;
 }
 .post .insight-editor .insight-report-detail__faq-answer-inner {
-    margin-top: clamp(1rem, 0.8333333333vw, 1.6rem);
+    margin-top: clamp(1rem, 0.83vw, 1.6rem);
     min-height: 0;
     display: flex;
-    gap: clamp(1rem, 0.8333333333vw, 1.6rem);
+    gap: clamp(1rem, 0.83vw, 1.6rem);
     color: #333;
     line-height: 1.75;
-    font-size: clamp(1.4rem, 0.8333333333vw, 1.6rem);
+    font-size: clamp(1.4rem, 0.83vw, 1.6rem);
 }
 .post .insight-editor .insight-report-detail__faq-label {
     flex-shrink: 0;
