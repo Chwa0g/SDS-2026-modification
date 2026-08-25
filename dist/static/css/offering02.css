@@ -3996,9 +3996,17 @@ body {
     transform: rotate(-90deg);
 }
 .offering-main .media-swiper-remote {
-    overflow: auto;
+    overflow-x: auto;
     overflow-y: hidden;
     margin: 32px 0 28px;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.offering-main .media-swiper-remote::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
 }
 .offering-main .media-swiper-remote__inner {
     white-space: nowrap;
