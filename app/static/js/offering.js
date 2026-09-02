@@ -475,21 +475,6 @@
     });
   }
 
-  let isArrowKeyPressed = false;
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
-      isArrowKeyPressed = true;
-    }
-  }, true);
-
-  document.addEventListener('keyup', function (e) {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
-      setTimeout(function () {
-        isArrowKeyPressed = false;
-      }, 200);
-    }
-  }, true);
-
   /**
    * Swiper 슬라이드 중 비활성화(화면에 보이지 않는) 슬라이드의 초점(Focus)을 차단하여
    * Tab 키 탐색 시 비활성화 슬라이드로 접근하는 현상을 막고, 활성화된 슬라이드만 Tab으로 탐색 가능하게 합니다.
@@ -520,7 +505,6 @@
 
         if (isVisible) {
           slide.removeAttribute('aria-hidden');
-          slide.removeAttribute('inert');
           focusableEls.forEach(function (el) {
             if (el.getAttribute('data-prev-tabindex') !== null) {
               const prevIdx = el.getAttribute('data-prev-tabindex');
@@ -537,7 +521,6 @@
           });
         } else {
           slide.setAttribute('aria-hidden', 'true');
-          slide.setAttribute('inert', '');
           focusableEls.forEach(function (el) {
             if (!el.hasAttribute('data-prev-tabindex')) {
               const currentTabIdx = el.getAttribute('tabindex');
@@ -550,7 +533,7 @@
       });
 
       // 방향키 조작 시 새로 활성화된 슬라이드의 첫 번째 포커스 가능 요소로 이동
-      const autoFocusNeeded = shouldFocus || isArrowKeyPressed;
+      const autoFocusNeeded = !!shouldFocus;
       if (autoFocusNeeded && activeSlideEl) {
         const firstFocusable = activeSlideEl.querySelector('a:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), select:not([tabindex="-1"]), textarea:not([tabindex="-1"]), [tabindex="0"]');
         if (firstFocusable) {
@@ -595,7 +578,7 @@
 
       const swiperOptions = {
         loop: false,
-        keyboard: true,
+        keyboard: false,
         watchSlidesProgress: true,
         navigation: {
           nextEl: swiperEl.querySelector('.offering-swiper-button-next'),
@@ -634,14 +617,9 @@
               }
             }
           },
-          keyPress: function (swiper, keyCode) {
-            if (keyCode === 37 || keyCode === 39) {
-              updateSlideFocusability(swiper, true);
-            }
-          },
           slideChange: function () {
             const swiper = this;
-            updateSlideFocusability(swiper, isArrowKeyPressed);
+            updateSlideFocusability(swiper, false);
             const slides = Array.from(swiper.slides || []);
             const activeSlide = slides[swiper.activeIndex];
             if (!activeSlide) return;
@@ -691,7 +669,7 @@
             });
           },
           slideChangeTransitionEnd: function () {
-            updateSlideFocusability(this, isArrowKeyPressed);
+            updateSlideFocusability(this, false);
           },
           resize: function () {
             updateSlideFocusability(this);
@@ -746,6 +724,28 @@
         swiperInstance = new window.Swiper(swiperEl, swiperOptions);
         if (swiperInstance) {
           updateSlideFocusability(swiperInstance);
+
+          // 해당 Swiper 슬라이더 내부 요소에 포커스가 있는 상태에서 방향키(Left/Right) 조작 감지 및 해당 슬라이더만 이동
+          swiperEl.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
+              const activeEl = document.activeElement;
+              if (activeEl && (activeEl.closest('.swiper-slide') || swiperEl.contains(activeEl))) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (e.key === 'ArrowLeft' || e.keyCode === 37) {
+                  if (typeof swiperInstance.slidePrev === 'function') {
+                    swiperInstance.slidePrev();
+                  }
+                } else if (e.key === 'ArrowRight' || e.keyCode === 39) {
+                  if (typeof swiperInstance.slideNext === 'function') {
+                    swiperInstance.slideNext();
+                  }
+                }
+                updateSlideFocusability(swiperInstance, true);
+              }
+            }
+          });
         }
       } catch (e) {
         console.error('Swiper 초기화 에러:', swiperEl, e);
@@ -783,6 +783,27 @@
                 swiperInstance.slideTo(index);
               }
             });
+          });
+
+          remoteWrapper.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
+              const activeEl = document.activeElement;
+              if (activeEl && remoteWrapper.contains(activeEl)) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (e.key === 'ArrowLeft' || e.keyCode === 37) {
+                  if (typeof swiperInstance.slidePrev === 'function') {
+                    swiperInstance.slidePrev();
+                  }
+                } else if (e.key === 'ArrowRight' || e.keyCode === 39) {
+                  if (typeof swiperInstance.slideNext === 'function') {
+                    swiperInstance.slideNext();
+                  }
+                }
+                updateSlideFocusability(swiperInstance, true);
+              }
+            }
           });
 
           swiperInstance.on('slideChange', function () {
