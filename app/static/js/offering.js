@@ -579,6 +579,7 @@
       const swiperOptions = {
         loop: false,
         keyboard: false,
+        a11y: false,
         watchSlidesProgress: true,
         navigation: {
           nextEl: swiperEl.querySelector('.offering-swiper-button-next'),
@@ -814,23 +815,28 @@
         }
       }
 
-      // 키보드 사용자를 위한 Swiper 컴포넌트 접근성 속성 보완 설정
-      const prev = swiperEl.querySelector('.offering-swiper-button-prev');
-      const next = swiperEl.querySelector('.offering-swiper-button-next');
-      const pagination = swiperEl.querySelector('.offering-swiper-pagination');
+      // 키보드 사용자를 위한 Swiper 컴포넌트 접근성 속성 보완 설정 (AccessibilityI18n 다국어 연동)
+      if (typeof window.AccessibilityI18n === 'object' && typeof window.AccessibilityI18n.applyToContainer === 'function') {
+        window.AccessibilityI18n.applyToContainer(swiperEl);
+      } else {
+        const prev = swiperEl.querySelector('.offering-swiper-button-prev');
+        const next = swiperEl.querySelector('.offering-swiper-button-next');
+        const pagination = swiperEl.querySelector('.offering-swiper-pagination');
 
-      if (prev && !prev.getAttribute('aria-label')) {
-        prev.setAttribute('aria-label', '이전 슬라이드');
-      }
-      if (next && !next.getAttribute('aria-label')) {
-        next.setAttribute('aria-label', '다음 슬라이드');
-      }
-      if (pagination) {
-        pagination.setAttribute('role', 'navigation');
+        if (prev && !prev.getAttribute('aria-label')) {
+          prev.setAttribute('aria-label', '이전 슬라이드');
+        }
+        if (next && !next.getAttribute('aria-label')) {
+          next.setAttribute('aria-label', '다음 슬라이드');
+        }
+        if (pagination) {
+          pagination.setAttribute('role', 'navigation');
+        }
       }
       swiperEl.setAttribute('role', 'region');
       if (!swiperEl.getAttribute('aria-label')) {
-        swiperEl.setAttribute('aria-label', '슬라이드 목록');
+        const label = typeof window.AccessibilityI18n === 'object' ? window.AccessibilityI18n.getLabel('paginationRole') : '슬라이드 목록';
+        swiperEl.setAttribute('aria-label', label);
       }
     });
   }
