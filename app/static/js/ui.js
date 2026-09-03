@@ -1063,11 +1063,14 @@ const Header = (function () {
 
         NonScroll.enable($wrap);
 
+        // 검색 레이어 진입 시 입력창 자동 포커스
         const $input = $searchPanel.find(".header-search__input").first();
 
-        // if ($input.length) {
-        //     $input.trigger("focus");
-        // }
+        if ($input.length) {
+            setTimeout(function () {
+                $input.trigger("focus");
+            }, 50);
+        }
     }
 
     function closeSearch(options = {}) {
@@ -1109,24 +1112,43 @@ const Header = (function () {
         openSearch();
     }
 
-    function bindSearchLastFocusClose() {
-        $searchPanel.off("keydown.headerSearchLastFocus").on("keydown.headerSearchLastFocus", function (e) {
-            if ($searchButton.attr("aria-expanded") !== "true") return;
-            if (e.key !== "Tab" || e.shiftKey) return;
+    function getSearchFocusableElements() {
+        const $panelClose = $searchPanel.find(".header-search__close");
+        const isPanelCloseVisible = $panelClose.length && $panelClose.is(":visible");
 
-            const $focusable = getFocusableElements($searchPanel);
+        if (isPanelCloseVisible) {
+            // PC: 패널 내부 닫기 버튼이 보임 -> $searchPanel 내부 포커스 요소만 사용
+            return getFocusableElements($searchPanel);
+        } else {
+            // MO: 패널 내부 닫기 버튼이 숨겨짐 -> 상단 헤더의 $searchButton(닫기버튼) + $searchPanel 내부 포커스 요소 합산
+            return $searchButton.filter(":visible").add(getFocusableElements($searchPanel));
+        }
+    }
+
+    function bindSearchFocusTrap() {
+        $(document).off("keydown.headerSearchTrap").on("keydown.headerSearchTrap", function (e) {
+            if ($searchButton.attr("aria-expanded") !== "true") return;
+            if (e.key !== "Tab") return;
+
+            const $focusable = getSearchFocusableElements();
+            if (!$focusable.length) return;
+
+            const $first = $focusable.first();
             const $last = $focusable.last();
 
-            if (!$last.length) return;
-            if (e.target !== $last[0]) return;
-
-            e.preventDefault();
-
-            closeSearch({
-                returnFocus: false,
-            });
-
-            focusMainContent();
+            if (e.shiftKey) {
+                // Shift + Tab : 첫 번째 포커스 요소에서 이전 탐색 시 마지막 포커스 요소로 이동
+                if (e.target === $first[0]) {
+                    e.preventDefault();
+                    $last.trigger("focus");
+                }
+            } else {
+                // Tab : 마지막 포커스 요소에서 다음 탐색 시 첫 번째 포커스 요소로 이동
+                if (e.target === $last[0]) {
+                    e.preventDefault();
+                    $first.trigger("focus");
+                }
+            }
         });
     }
 
@@ -1320,6 +1342,11 @@ const Header = (function () {
 
                 openSearchSuggest();
             })
+            .on("keydown.headerSearchSuggest", function (e) {
+                if (e.key === "Tab" && e.shiftKey) {
+                    closeSearchSuggest();
+                }
+            })
             .on("input.headerSearchSuggest", function () {
                 const value = String($(this).val() || "");
 
@@ -1394,11 +1421,10 @@ const Header = (function () {
                     return;
                 }
 
-                closeSearch({
-                    returnFocus: false,
-                });
-
-                focusMainContent();
+                const $focusable = getSearchFocusableElements();
+                if ($focusable.length) {
+                    $focusable.first().trigger("focus");
+                }
             });
 
         $(document)
@@ -1766,7 +1792,7 @@ const Header = (function () {
         bindMobileMenu();
         bindLnb();
         bindSearch();
-        bindSearchLastFocusClose();
+        bindSearchFocusTrap();
     }
 
     function initMegaMenu() {

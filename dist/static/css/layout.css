@@ -461,14 +461,8 @@ html {
     box-shadow: 0 0.2rem 0.8rem 0 rgba(0, 0, 0, 0.15);
     border-radius: clamp(1rem, 0.83vw, 1.6rem);
 }
-@media (max-width: 767px) {
-    .header .header__search-button.is-active {
-        background-color: #000;
-        mask-image: url("../images/common/icon_close.svg");
-        mask-size: 2rem;
-        mask-repeat: no-repeat;
-        mask-position: 50% 50%;
-    }
+.header .header__search-button.is-active .header__search-icon {
+    mask-image: url("../images/common/icon_close.svg");
 }
 .header .header__search-icon {
     background-color: var(--headerColor);
