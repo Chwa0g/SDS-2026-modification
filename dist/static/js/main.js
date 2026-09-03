@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const htmlEl = document.querySelector("html");
+    if (htmlEl) {
+        htmlEl.setAttribute(
+            "data-country",
+            window.location.pathname.split("/")[1]
+        );
+    }
+});
+
 function bindActiveSlideFocus(swiper, selector) {
     if (!swiper) return null;
 
@@ -93,6 +103,20 @@ function bindActiveSlideFocus(swiper, selector) {
         }
     }
 
+    function resetPaginationRovingTabindex() {
+        const $bullets = $swiper.find(".swiper-pagination .swiper-pagination-bullet");
+        if (!$bullets.length) return;
+
+        const $activeBullet = $bullets.filter(".swiper-pagination-bullet-active");
+        $bullets.attr("tabindex", "-1");
+
+        if ($activeBullet.length) {
+            $activeBullet.attr("tabindex", "0");
+        } else {
+            $bullets.eq(0).attr("tabindex", "0");
+        }
+    }
+
     function update() {
         const $slides = $swiper.find(".swiper-slide");
         const $activeSlide = getActiveSlide();
@@ -125,6 +149,14 @@ function bindActiveSlideFocus(swiper, selector) {
             });
         });
 
+        // 현재 ACTIVE 슬라이드의 불릿에만 tabindex="0" 설정 (active 슬라이드에서 Tab 진입 시 해당 불릿으로 진입)
+        resetPaginationRovingTabindex();
+
+        // data-country 기반 다국어 aria-label 적용 (Swiper 기본 a11y 덮어쓰기 방지)
+        if (typeof window.AccessibilityI18n === "object" && typeof window.AccessibilityI18n.applyToContainer === "function") {
+            window.AccessibilityI18n.applyToContainer($swiper[0] || document);
+        }
+
         if (shouldFocusNewSlide) {
             focusActiveSlide();
             setTimeout(function () {
@@ -139,6 +171,9 @@ function bindActiveSlideFocus(swiper, selector) {
         if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.keyCode === 37 || e.keyCode === 39) {
             const activeEl = document.activeElement;
             if (activeEl && (activeEl.closest(".swiper-slide") || $swiper[0].contains(activeEl))) {
+                // pagination 불릿에 포커스가 있을 때는 불릿 간 이동 처리로 수용하기 위해 제외
+                if (activeEl.classList.contains("swiper-pagination-bullet")) return;
+
                 e.preventDefault();
                 shouldFocusNewSlide = true;
 
@@ -155,8 +190,63 @@ function bindActiveSlideFocus(swiper, selector) {
         }
     });
 
+    // 1. 불릿 진입 후 불릿 간 키보드 방향키(좌/우/상/하) 탐색 (WAI-ARIA Roving Tabindex 표준)
+    $swiper.off("keydown.swiperPaginationNav").on("keydown.swiperPaginationNav", ".swiper-pagination-bullet", function (e) {
+        const key = e.key || e.keyCode;
+        const isRight = key === "ArrowRight" || key === 39 || key === "ArrowDown" || key === 40;
+        const isLeft = key === "ArrowLeft" || key === 37 || key === "ArrowUp" || key === 38;
+
+        if (!isRight && !isLeft) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const $bullets = $swiper.find(".swiper-pagination .swiper-pagination-bullet");
+        const currentIndex = $bullets.index(this);
+
+        if (currentIndex < 0) return;
+
+        let targetIndex = currentIndex;
+        if (isRight && currentIndex < $bullets.length - 1) {
+            targetIndex = currentIndex + 1;
+        } else if (isLeft && currentIndex > 0) {
+            targetIndex = currentIndex - 1;
+        }
+
+        if (targetIndex !== currentIndex) {
+            const $targetBullet = $bullets.eq(targetIndex);
+            $bullets.attr("tabindex", "-1");
+            $targetBullet.attr("tabindex", "0");
+            try {
+                $targetBullet[0].focus({ preventScroll: true });
+            } catch (err) {
+                $targetBullet[0].focus();
+            }
+        }
+    });
+
+    // 2. 불릿 선택 시 해당 슬라이드로 이동 후 내부 첫 번째 요소로 포커스 이동
+    $swiper.off("keydown.swiperPaginationSelect").on("keydown.swiperPaginationSelect", ".swiper-pagination-bullet", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.keyCode === 13 || e.keyCode === 32) {
+            e.preventDefault();
+            shouldFocusNewSlide = true;
+            this.click();
+        }
+    });
+
+    // 3. pagination 영역에서 포커스가 나갈 때(선택하지 않고 Tab / Shift+Tab으로 이탈 시)
+    // 다음에 다시 진입할 때 선택되지 않았던 불릿 대신 실제 ACTIVE 슬라이드의 불릿으로 포커스가 진입하도록 복원
+    $swiper.off("focusout.swiperPaginationReset").on("focusout.swiperPaginationReset", ".swiper-pagination", function (e) {
+        const paginationContainer = this;
+        setTimeout(function () {
+            if (!paginationContainer.contains(document.activeElement)) {
+                resetPaginationRovingTabindex();
+            }
+        }, 20);
+    });
+
     function destroy() {
-        $swiper.off("keydown.swiperSlideNav");
+        $swiper.off("keydown.swiperSlideNav click.swiperPaginationSelect keydown.swiperPaginationSelect keydown.swiperPaginationNav focusout.swiperPaginationReset");
         swiper.off("slideChange transitionEnd loopFix update resize breakpoint", update);
 
         $swiper.find(`[${MANAGED_ATTR}="true"]`).each(function () {
@@ -167,6 +257,7 @@ function bindActiveSlideFocus(swiper, selector) {
         });
 
         $swiper.find(".swiper-slide").removeAttr("aria-hidden");
+        $swiper.find(".swiper-pagination .swiper-pagination-bullet").removeAttr("tabindex");
     }
 
     update();
@@ -191,6 +282,7 @@ function createMainSwiper(key, selector, isLoop, duration = 3000, autoplayState 
         slidesPerView: 1,
         watchOverflow: true,
         loop: useLoop,
+        a11y: false,
 
         autoplay: useLoop
             ? {
@@ -210,7 +302,6 @@ function createMainSwiper(key, selector, isLoop, duration = 3000, autoplayState 
                         <button
                             type="button"
                             class="${className}"
-                            aria-label="${index + 1}번째 슬라이드로 이동"
                         >
                             <span class="swiper-pagination-bullet__number">
                                 ${String(index + 1).padStart(2, "0")}
@@ -582,7 +673,7 @@ $(function () {
         }
     })();
 
-    // 260730 : kv 아이템 오버 추가
+    // 260730 : kv 아이템 오버 추가 (하얗게 빛나는 흰색 깜박임 전면 제거 + 1프레임부터 즉시 재생)
     if (!Device.isMobile()) {
         $(".main-kv [data-gif]").each(function () {
             const $item = $(this);
@@ -591,25 +682,52 @@ $(function () {
 
             if (!gifSrc || !$bg.length) return;
 
-            // GIF 파일 미리 캐시
-            const preloadImage = new Image();
-            preloadImage.src = gifSrc;
+            // GIF 미리 캐시 (메모리 로딩)
+            const preloadImg = new Image();
+            preloadImg.src = gifSrc;
+
+            if ($bg.css("position") === "static") {
+                $bg.css("position", "relative");
+            }
 
             $item
-                .on("mouseenter", function () {
-                    if ($bg.find(".image-hover").length) return;
+                .on("mouseenter focusin", function () {
+                    // 메모리 캐시된 동일 URL로 노드를 교체하여 흰색 렌더링 버퍼 잔상(하얀 깜박임) 없이 1프레임부터 재생
+                    const $oldGif = $bg.find(".image-hover");
 
-                    const $gif = $("<img>", {
+                    const $newGif = $("<img>", {
                         src: gifSrc,
                         alt: "",
                         class: "image-hover",
                         "aria-hidden": "true",
+                        css: {
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            opacity: 1,
+                            transition: "opacity 0.15s ease",
+                            pointerEvents: "none",
+                        },
                     });
 
-                    $bg.append($gif);
+                    $bg.append($newGif);
+
+                    // 기존 이전 노드가 있다면 부드럽게 정리
+                    if ($oldGif.length) {
+                        $oldGif.remove();
+                    }
                 })
-                .on("mouseleave", function () {
-                    $bg.find(".image-hover").remove();
+                .on("mouseleave focusout", function () {
+                    const $currentGif = $bg.find(".image-hover");
+                    if ($currentGif.length) {
+                        $currentGif.css("opacity", 0);
+                        setTimeout(function () {
+                            $currentGif.remove();
+                        }, 150);
+                    }
                 });
         });
     }
@@ -659,6 +777,7 @@ $(function () {
                 slidesPerGroup: 1,
                 initialSlide: 0,
                 loop: true,
+                a11y: false,
 
                 pagination: {
                     el: `${SELECTOR} .swiper-pagination`,
@@ -698,6 +817,26 @@ $(function () {
 
             swiper.destroy(true, true);
             swiper = null;
+
+            const $swiperEl = $(`${SELECTOR} .swiper`);
+            const $listEl = $(`${SELECTOR} .main-insight__list`);
+            const $items = $(`${SELECTOR} .main-insight__item`);
+
+            $swiperEl.removeAttr("style");
+            $listEl.removeAttr("style");
+            $items.each(function () {
+                const $item = $(this);
+                $item.removeAttr("style")
+                    .removeAttr("aria-hidden")
+                    .removeClass("swiper-slide-active swiper-slide-duplicate swiper-slide-next swiper-slide-prev");
+
+                $item.find("a, button, input, select, textarea, [tabindex]").each(function () {
+                    $(this).removeAttr("tabindex")
+                        .removeAttr("aria-hidden")
+                        .removeAttr("data-swiper-focus-managed")
+                        .removeAttr("data-swiper-original-tabindex");
+                });
+            });
         }
 
         return {
@@ -995,11 +1134,46 @@ $(function () {
 
             isAnimating = false;
 
-            if (isKeyboardAction && $focusTarget.length && $.contains(document, $focusTarget[0])) {
-                $focusTarget.trigger("focus");
+            if (isKeyboardAction) {
+                const $newActiveItem = getRealItems().eq(0);
+                const $targetLink = $newActiveItem.find(".main-insight__item-link, a[href], button:not([tabindex='-1'])").filter(":visible").first();
+                if ($targetLink.length) {
+                    try {
+                        $targetLink[0].focus({ preventScroll: true });
+                    } catch (e) {
+                        $targetLink[0].focus();
+                    }
+                }
             }
 
             clearKeyboardState();
+        }
+
+        function updateFocusability() {
+            const $realItems = getRealItems();
+            const $clones = getCloneItems();
+
+            $realItems.each(function (index) {
+                const $item = $(this);
+                const isActive = index === 0;
+
+                if (isActive) {
+                    $item.removeAttr("aria-hidden");
+                    $item.find("a, button, input, select, textarea, [tabindex]").each(function () {
+                        const $f = $(this);
+                        if ($f.hasClass("main-insight__button")) {
+                            $f.attr("tabindex", "-1");
+                        } else {
+                            $f.removeAttr("tabindex").removeAttr("aria-hidden");
+                        }
+                    });
+                } else {
+                    $item.attr("aria-hidden", "true");
+                    $item.find("a, button, input, select, textarea, [tabindex]").attr("tabindex", "-1").attr("aria-hidden", "true");
+                }
+            });
+
+            $clones.attr("aria-hidden", "true").find("a, button, input, select, textarea, [tabindex]").attr("tabindex", "-1");
         }
 
         function applyNormalState(animate) {
@@ -1021,6 +1195,7 @@ $(function () {
 
             updateDescriptionByItem($realItems.eq(0));
             updatePaginationByItem($realItems.eq(0));
+            updateFocusability();
         }
 
         function applyNormalStateWithClones(step, animate) {
@@ -1050,6 +1225,7 @@ $(function () {
             });
 
             $realItems.eq(0).addClass(ACTIVE_CLASS);
+            updateFocusability();
         }
 
         function applyTargetState(step, animate) {
@@ -1095,6 +1271,7 @@ $(function () {
 
             updateDescriptionByItem($realItems.eq(step));
             updatePaginationByItem($realItems.eq(step));
+            updateFocusability();
         }
 
         function updateDescriptionByItem($item) {
@@ -1228,7 +1405,28 @@ $(function () {
                 restoreOriginalOrder();
 
                 resetTransform(false);
-                applyNormalState(false);
+
+                $list.removeAttr("style");
+                const $all = getAllItems();
+                $all.each(function () {
+                    const $item = $(this);
+                    $item.removeAttr("style")
+                        .removeAttr("aria-hidden")
+                        .removeClass(ACTIVE_CLASS)
+                        .removeClass(PASSING_CLASS);
+
+                    for (let i = 0; i < WIDTH_RATIOS.length; i++) {
+                        $item.removeClass(`${POS_PREFIX}${i}`);
+                    }
+
+                    $item.find("a, button, input, select, textarea, [tabindex]").each(function () {
+                        const $f = $(this);
+                        $f.removeAttr("tabindex")
+                            .removeAttr("aria-hidden")
+                            .removeAttr("data-swiper-focus-managed")
+                            .removeAttr("data-swiper-original-tabindex");
+                    });
+                });
             }
         }
 
@@ -2194,14 +2392,14 @@ $(function () {
         onUnder: function () {
             // 1024 이하
             MainInsight.reset();
-            setTimeout(() => {
-                MainInsightSwiper.init();
-            }, 600);
+            MainInsightSwiper.destroy();
+            MainInsightSwiper.init();
         },
 
         onOver: function () {
             // 1024 초과
             MainInsightSwiper.destroy();
+            MainInsight.reset();
             MainInsight.init();
         },
     });
