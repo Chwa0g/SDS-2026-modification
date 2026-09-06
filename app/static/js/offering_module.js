@@ -1,18 +1,227 @@
 /**
- * @file offering.js
- * @description 오퍼링 페이지의 FAQ 아코디언, 내비게이션, 스크롤 애니메이션, Swiper 슬라이더 및 웹 접근성 강화를 제어하는 스크립트입니다.
+ * @file offering_module.js
+ * @description 오퍼링(Offering) 페이지 전용 3단계 블록 모듈형 스크립트
+ * 
+ * [모듈 아키텍처 목차]
+ * ==========================================================================
+ * PART 1: [BASE] 완전 공통 베이스 모듈 (Global Base)
+ *   1-1. 웹 접근성(WAI-ARIA) 자동 강화 (initAccessibility)
+ *   1-2. 스크롤 반응형 라이즈업 인터랙션 (initRiseEffects)
+ *   1-3. 페이지 리소스 로드 상태 관리 (initPageLoadState)
+ * 
+ * PART 2: [SHARED SECTIONS] 공통 섹션 인터랙션 모듈 (Shared Section Modules)
+ *   2-1. [SHARED-SEC: FAQ] FAQ 아코디언 모듈 (initFaq)
+ *   2-2. [SHARED-SEC: STICKY NAV] 상단 탭 네비게이션 & 스크롤스파이 (initOfferingNav)
+ *   2-3. [SHARED-SEC: INSIGHT] 인사이트 & 리스트 더보기 버튼 (initViewMoreButtons)
+ *   2-4. [SHARED-SEC: SWIPER] 슬라이더 키보드 접근성 & 리모트 컨트롤 (initSwipers)
+ *   2-5. [SHARED-SEC: VIDEO] 비디오 플레이어 재생/일시정지 제어 (initVideoControls)
+ * 
+ * PART 3: [PAGE-SPECIFIC SECTIONS] 페이지별 전용 섹션 모듈 (Page Sections)
+ *   3-1. [PAGE: AI FULLSTACK] AI 풀스택 (initAIFullstackModule)
+ *   3-2. [PAGE: PUBLIC SECTOR AX] 공공 AX 컨설팅 (initPublicSectorModule)
+ *   3-3. [PAGE: FABRIX] 패브릭스 (initFabrixModule)
+ *   3-4. [PAGE: SCP] 삼성 클라우드 플랫폼 (initScpModule)
+ *   3-5. [PAGE: BRITY AUTOMATION] 브리티 오토메이션 (initBrityAutoModule)
+ *   3-6. [PAGE: BRITY WORKS] 브리티 웍스 (initBrityWorksModule)
+ *   3-7. [PAGE: BRITY WORKS GOV] 브리티 웍스 공공 (initBrityGovModule)
+ *   3-8. [PAGE: GUIDE] 오퍼링 가이드 (initOfferingGuideModule)
+ * 
+ * PART 4: [ORCHESTRATOR & API] 통합 실행기 및 개발자 확장 API
+ *   4-1. 페이지 자동 감지 및 등록된 모듈 실행 (init)
+ *   4-2. 신규 페이지/섹션 플러그인 확장 등록 (OfferingModule.registerPage)
+ * ==========================================================================
  */
 
-(function () {
+(function (window, document) {
   'use strict';
 
+  /* ==========================================================================
+     PART 1: [BASE] 완전 공통 베이스 모듈 (Global Base)
+     ========================================================================== */
+
   /**
-   * FAQ 아코디언 기능 초기화 함수
-   * 페이지 내의 모든 FAQ 목록(`.contact-us-faq__list`)을 찾아 각 아코디언 아이템에 대해
-   * 클릭/키보드 이벤트 핸들러 및 웹 접근성(WAI-ARIA) 속성을 독립적으로 부여합니다.
-   *
-   * @function initFaq
-   * @returns {void}
+   * 1-1. 웹 접근성(A11y) 자동 보완 모듈
+   */
+  function initAccessibility() {
+    // 1) 자세히 보기 링크 맥락 보완
+    const viewMoreLinks = document.querySelectorAll('a');
+    viewMoreLinks.forEach(function (link) {
+      const text = link.textContent.trim();
+      if (text === '자세히 보기' || text === '더 알아보기' || text === '더 보기') {
+        const container = link.closest('div, section, li');
+        if (container) {
+          const titleEl = container.querySelector('h1, h2, h3, h4, h5, h6, [class*="title"], [class*="heading"]');
+          if (titleEl) {
+            const titleText = titleEl.textContent.trim();
+            if (titleText && !link.hasAttribute('aria-label')) {
+              link.setAttribute('aria-label', `${titleText} ${text}`);
+            }
+          }
+        }
+      }
+
+      // 2) 새 창 열림 링크 안내 및 보안 rel 속성
+      if (link.getAttribute('target') === '_blank') {
+        if (!link.hasAttribute('title')) {
+          link.setAttribute('title', '새 창 열림');
+        }
+        if (!link.hasAttribute('rel')) {
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      }
+    });
+
+    // 3) alt 속성 누락 및 장식용 이미지 aria-hidden 처리
+    const images = document.querySelectorAll('img');
+    images.forEach(function (img) {
+      if (img.hasAttribute('alt') && img.getAttribute('alt').trim() === '') {
+        img.setAttribute('aria-hidden', 'true');
+        img.setAttribute('role', 'presentation');
+      }
+    });
+
+    // 4) 텍스트가 없는 아이콘 요소 aria-hidden 처리
+    const icons = document.querySelectorAll('i, span[class*="icon"]');
+    icons.forEach(function (icon) {
+      const style = window.getComputedStyle(icon);
+      const hasBgImage = style.backgroundImage && style.backgroundImage !== 'none';
+      const hasNoText = !icon.textContent.trim();
+
+      if ((hasBgImage || icon.classList.contains('icon')) && hasNoText) {
+        if (!icon.hasAttribute('aria-hidden')) {
+          icon.setAttribute('aria-hidden', 'true');
+        }
+      }
+    });
+  }
+
+  /**
+   * 1-2. 스크롤 반응형 라이즈업 인터랙션 모듈
+   */
+  function initRiseEffects() {
+    const riseTargets = Array.from(document.querySelectorAll('[data-rise]'));
+    if (riseTargets.length === 0) return;
+
+    const triggerRiseCurrent = function (target) {
+      if (!target || target.dataset.riseTriggered) return;
+      target.dataset.riseTriggered = 'true';
+      target.classList.add('riseup');
+    };
+
+    const triggerRiseStep = function (target) {
+      if (!target || target.dataset.riseTriggered) return;
+      target.dataset.riseTriggered = 'true';
+      target.classList.add('riseup');
+
+      const stepItems = Array.from(target.querySelectorAll('[data-rise-step]'))
+        .sort(function (a, b) {
+          return parseFloat(a.dataset.riseStep || '0') - parseFloat(b.dataset.riseStep || '0');
+        });
+
+      stepItems.forEach(function (item, index) {
+        setTimeout(function () {
+          item.classList.add('riseup');
+        }, index * 200);
+      });
+    };
+
+    const runRiseForTarget = function (target) {
+      const riseType = target.dataset.rise;
+      if (riseType === 'step') {
+        triggerRiseStep(target);
+      } else {
+        triggerRiseCurrent(target);
+      }
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            runRiseForTarget(target);
+            observer.unobserve(target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.1
+      });
+
+      riseTargets.forEach(function (target) {
+        if (!target.dataset.riseTriggered) {
+          observer.observe(target);
+        }
+      });
+    } else {
+      const isElementInView = function (element) {
+        if (!element) return false;
+        const rect = element.getBoundingClientRect();
+        return rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
+      };
+
+      const checkRiseTargets = function () {
+        riseTargets.forEach(function (target) {
+          if (!target.dataset.riseTriggered && isElementInView(target)) {
+            runRiseForTarget(target);
+          }
+        });
+      };
+
+      checkRiseTargets();
+      window.addEventListener('scroll', checkRiseTargets, { passive: true });
+      window.addEventListener('resize', checkRiseTargets);
+    }
+  }
+
+  /**
+   * 1-3. 페이지 로딩 상태 관리 모듈
+   */
+  function markLoaded() {
+    const offeringMain = document.querySelector('.offering-main');
+    if (offeringMain) {
+      offeringMain.classList.add('loaded');
+    }
+  }
+
+  function initPageLoadState() {
+    if (document.readyState === 'complete') {
+      markLoaded();
+    } else {
+      window.addEventListener('load', markLoaded, { once: true });
+    }
+  }
+
+  /**
+   * 1-4. 아키텍처 다이어그램 트랜지션 완료 감지 모듈
+   */
+  function initArchTransitionEnd() {
+    const archEls = Array.from(document.querySelectorAll('.stack-content__arch'));
+    if (archEls.length === 0) return;
+
+    archEls.forEach(function (el) {
+      const handler = function (ev) {
+        if (ev && ev.propertyName && ev.propertyName !== 'transform') return;
+
+        const container = el.closest('.stack-content') || el.parentElement;
+        if (container) container.classList.add('transition-end');
+
+        el.removeEventListener('transitionend', handler);
+      };
+
+      el.addEventListener('transitionend', handler);
+    });
+  }
+
+
+
+  /* ==========================================================================
+     PART 2: [SHARED SECTIONS] 공통 섹션 인터랙션 모듈 (Shared Section Modules)
+     ========================================================================== */
+
+  /**
+   * 2-1. [SHARED-SEC: FAQ] 공통 FAQ 아코디언 모듈
    */
   function initFaq() {
     const faqLists = document.querySelectorAll('.contact-us-faq__list');
@@ -22,7 +231,6 @@
       const faqButtons = faqList.querySelectorAll('.contact-us-faq__button');
       if (faqButtons.length === 0) return;
 
-      // WAI-ARIA 접근성 설정
       faqList.setAttribute('role', 'list');
       if (!faqList.hasAttribute('aria-label')) {
         faqList.setAttribute('aria-label', 'FAQ 목록');
@@ -36,7 +244,6 @@
         const item = button.closest('.contact-us-faq__item');
         const uniqueIdSuffix = `${listIndex + 1}-${buttonIndex + 1}`;
 
-        // 버튼 고유 ID 부여
         if (!button.id) {
           button.id = 'faqButton-' + uniqueIdSuffix;
         }
@@ -44,13 +251,11 @@
         let panelId = button.getAttribute('aria-controls');
         let panel = panelId ? document.getElementById(panelId) : null;
 
-        // 연결된 패널 엘리먼트가 없는 경우 하위 요소에서 탐색
         if (!panel && item) {
           panel = item.querySelector('.contact-us-faq__answer');
         }
 
         if (panel) {
-          // 패널 고유 ID 부여 및 ARIA 연결
           if (!panel.id) {
             panel.id = 'faqPanel-' + uniqueIdSuffix;
           }
@@ -72,7 +277,6 @@
           button.setAttribute('aria-expanded', 'false');
         }
 
-        // 클릭 이벤트 핸들러 (네이티브 <button>이므로 마우스 클릭 및 Enter/Space 키보드 조작 모두 자동 대응)
         button.addEventListener('click', function () {
           const currentPanelId = button.getAttribute('aria-controls');
           const currentPanel = currentPanelId ? document.getElementById(currentPanelId) : null;
@@ -90,17 +294,15 @@
             return;
           }
 
-          // 동일 FAQ 리스트 내 다른 활성화된 아이템들 비활성화
+          // 동일 FAQ 리스트 내 다른 활성화 아이템 닫기
           faqList.querySelectorAll('.contact-us-faq__item').forEach(function (faqItem) {
             faqItem.classList.remove('is-active');
 
             const otherButton = faqItem.querySelector('.contact-us-faq__button');
             if (otherButton) {
               otherButton.setAttribute('aria-expanded', 'false');
-
               const otherPanelId = otherButton.getAttribute('aria-controls');
               const otherPanel = otherPanelId ? document.getElementById(otherPanelId) : null;
-
               if (otherPanel) {
                 otherPanel.hidden = true;
                 otherPanel.setAttribute('inert', '');
@@ -108,7 +310,7 @@
             }
           });
 
-          // 선택된 아이템 활성화
+          // 현재 선택 아이템 열기
           if (item) item.classList.add('is-active');
           button.setAttribute('aria-expanded', 'true');
 
@@ -117,20 +319,16 @@
             currentPanel.removeAttribute('inert');
           }
 
-          // W3C WAI-ARIA Accordion APG 표준 준수:
-          // 패널 열림 시 본문으로 초점을 강제 탈취하지 않고 활성화한 버튼에 초점을 유지하여
-          // 사용자가 즉시 닫거나 다음 질문으로 원활히 이동할 수 있도록 함
           button.focus();
         });
 
-        // W3C WAI-ARIA Accordion 키보드 네비게이션 지원 (ArrowUp, ArrowDown, Home, End)
+        // W3C WAI-ARIA 키보드 조작 지원 (ArrowUp, ArrowDown, Home, End)
         button.addEventListener('keydown', function (e) {
           const allButtons = Array.from(faqList.querySelectorAll('.contact-us-faq__button'));
           const currentIndex = allButtons.indexOf(button);
           if (currentIndex === -1) return;
 
           let targetButton = null;
-
           if (e.key === 'ArrowDown') {
             e.preventDefault();
             targetButton = allButtons[(currentIndex + 1) % allButtons.length];
@@ -154,12 +352,7 @@
   }
 
   /**
-   * Offering 페이지 탭 내비게이션 기능 초기화 함수
-   * 메인 콘텐츠 내의 `[data-label]` 속성이 정의된 섹션들을 분석하여 상단 탭 메뉴를 자동 구성하고,
-   * 스크롤 시 해당 섹션의 활성화 표시 및 부드러운 스크롤 이동 기능을 지원합니다.
-   *
-   * @function initOfferingNav
-   * @returns {void}
+   * 2-2. [SHARED-SEC: STICKY NAV] 공통 탭 내비게이션 & 스크롤스파이 모듈
    */
   function initOfferingNav() {
     const offeringNavList = document.querySelector('.offering-nav__list');
@@ -168,14 +361,9 @@
 
     if (!offeringNavList || offeringSections.length === 0) return;
 
-    /**
-     * 섹션 리스트를 바탕으로 탭 링크 목록 동적 생성
-     * @private
-     */
     function generateNavLinks() {
       offeringNavList.innerHTML = '';
       offeringSections.forEach(function (section, i) {
-        // ID가 누락된 경우 동적 할당
         if (!section.id) {
           section.id = 'offeringSection-' + (i + 1);
         }
@@ -197,10 +385,6 @@
       });
     }
 
-    /**
-     * 생성된 내비게이션 링크들에 웹 접근성 태그 및 엔터 키보드 이벤트 부여
-     * @private
-     */
     function enhanceNavAccessibility() {
       offeringNavList.setAttribute('role', 'tablist');
       if (!offeringNavList.hasAttribute('aria-label')) {
@@ -219,10 +403,6 @@
       });
     }
 
-    /**
-     * 내비게이션 링크 클릭 시 부드러운 스크롤 이동 이벤트 핸들러 바인딩
-     * @private
-     */
     function bindSmoothScroll() {
       offeringNavList.addEventListener('click', function (e) {
         const targetLink = e.target.closest('a');
@@ -244,7 +424,6 @@
               behavior: 'smooth'
             });
 
-            // 포커스 세팅을 통한 키보드 접근성 유지
             targetSection.setAttribute('tabindex', '-1');
             targetSection.focus({ preventScroll: true });
           }
@@ -254,23 +433,17 @@
       });
     }
 
-    /**
-     * 현재 스크롤 위치를 감지하여 해당하는 메뉴 탭 링크를 활성화 상태로 변경
-     * @private
-     */
     function updateActiveNavLink() {
       const scrollPos = window.scrollY !== undefined ? window.scrollY : window.pageYOffset;
       const docHeight = document.documentElement.scrollHeight;
       const winHeight = window.innerHeight;
 
-      // 스크롤이 바닥에 닿았는지 체크 (오차범위 10px)
       const isAtBottom = scrollPos + winHeight >= docHeight - 10;
       let currentSectionId = '';
 
       if (isAtBottom && offeringSections.length > 0) {
         currentSectionId = offeringSections[offeringSections.length - 1].id;
       } else {
-        // 각 섹션의 활성화 가능 범위를 탐색 (상단 100px 오프셋 반영)
         for (let i = 0; i < offeringSections.length; i++) {
           const section = offeringSections[i];
           const sectionTop = section.getBoundingClientRect().top + scrollPos;
@@ -296,118 +469,12 @@
     bindSmoothScroll();
     updateActiveNavLink();
 
-    // 스크롤 및 윈도우 리사이즈 시 내비게이션 활성화 위치 갱신
     window.addEventListener('scroll', updateActiveNavLink, { passive: true });
     window.addEventListener('resize', updateActiveNavLink);
   }
 
   /**
-   * 스크롤 반응형 페이드인/라이즈 효과 기능 초기화 함수
-   * IntersectionObserver API를 우선 활용하여 요소가 화면에 진입하는 시점에 `riseup` 클래스를 추가하며,
-   * 미지원 구형 브라우저 환경에서는 스크롤 위치 체크 방식으로 대체 동작합니다.
-   *
-   * @function initRiseEffects
-   * @returns {void}
-   */
-  function initRiseEffects() {
-    const riseTargets = Array.from(document.querySelectorAll('[data-rise]'));
-    if (riseTargets.length === 0) return;
-
-    /**
-     * 단일 요소의 라이즈 효과 시작
-     * @private
-     * @param {HTMLElement} target - 라이즈 효과를 적용할 타겟 엘리먼트
-     */
-    const triggerRiseCurrent = function (target) {
-      if (!target || target.dataset.riseTriggered) return;
-      target.dataset.riseTriggered = 'true';
-      target.classList.add('riseup');
-    };
-
-    /**
-     * 하위 계층형 아이템들에 대해 시간차 순차 라이즈 효과 시작
-     * @private
-     * @param {HTMLElement} target - 라이즈 효과를 시작할 부모 타겟 엘리먼트
-     */
-    const triggerRiseStep = function (target) {
-      if (!target || target.dataset.riseTriggered) return;
-      target.dataset.riseTriggered = 'true';
-      target.classList.add('riseup');
-
-      const stepItems = Array.from(target.querySelectorAll('[data-rise-step]'))
-        .sort(function (a, b) {
-          return parseFloat(a.dataset.riseStep || '0') - parseFloat(b.dataset.riseStep || '0');
-        });
-
-      stepItems.forEach(function (item, index) {
-        setTimeout(function () {
-          item.classList.add('riseup');
-        }, index * 200);
-      });
-    };
-
-    /**
-     * 타겟 속성에 맞춰 단일 또는 순차 시간차 효과 호출
-     * @private
-     * @param {HTMLElement} target - 라이즈 대상 엘리먼트
-     */
-    const runRiseForTarget = function (target) {
-      const riseType = target.dataset.rise;
-      if (riseType === 'step') {
-        triggerRiseStep(target);
-      } else {
-        triggerRiseCurrent(target);
-      }
-    };
-
-    // 최신 브라우저의 IntersectionObserver 활용 (성능 향상)
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-            runRiseForTarget(target);
-            observer.unobserve(target);
-          }
-        });
-      }, {
-        root: null, // 뷰포트 기준
-        rootMargin: '0px 0px -10% 0px', // 뷰포트 하단 10% 영역 내에서 트리거
-        threshold: 0.1
-      });
-
-      riseTargets.forEach(function (target) {
-        if (!target.dataset.riseTriggered) {
-          observer.observe(target);
-        }
-      });
-    } else {
-      // IntersectionObserver 미지원 환경 (구형 브라우저 대체 폴백)
-      const isElementInView = function (element) {
-        if (!element) return false;
-        const rect = element.getBoundingClientRect();
-        return rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
-      };
-
-      const checkRiseTargets = function () {
-        riseTargets.forEach(function (target) {
-          if (!target.dataset.riseTriggered && isElementInView(target)) {
-            runRiseForTarget(target);
-          }
-        });
-      };
-
-      checkRiseTargets();
-      window.addEventListener('scroll', checkRiseTargets, { passive: true });
-      window.addEventListener('resize', checkRiseTargets);
-    }
-  }
-
-  /**
-   * view-more 버튼 초기화
-   * data-view 속성으로 타겟 ID를 지정하고 data-show 만큼 항목을 차례로 노출합니다.
-   * @function initViewMoreButtons
-   * @returns {void}
+   * 2-3. [SHARED-SEC: INSIGHT] 공통 인사이트 및 리스트 더보기 버튼 모듈
    */
   function initViewMoreButtons() {
     const buttons = Array.from(document.querySelectorAll('[data-view][data-show]'));
@@ -421,7 +488,7 @@
       const targetEl = document.getElementById(targetId);
       if (!targetEl) return;
 
-      const items = Array.from(targetEl.querySelectorAll('.offering-grid__item'));
+      const items = Array.from(targetEl.querySelectorAll('.offering-grid__item, .thumbnail-list__item, .border-row-list__item'));
       if (items.length === 0) return;
 
       const initialText = button.textContent.trim();
@@ -469,7 +536,7 @@
           setTimeout(() => {
             button.focus();
             button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-          }, 50)
+          }, 50);
         } else {
           visibleCount = Math.min(visibleCount + currentIncrement, items.length);
         }
@@ -490,14 +557,7 @@
   }
 
   /**
-   * Swiper 슬라이드 중 비활성화(화면에 보이지 않는) 슬라이드의 초점(Focus)을 차단하여
-   * Tab 키 탐색 시 비활성화 슬라이드로 접근하는 현상을 막고, 활성화된 슬라이드만 Tab으로 탐색 가능하게 합니다.
-   * 방향키로 슬라이드 이동 시 해당 슬라이드의 첫 번째 포커싱 요소로 자동 이동합니다.
-   *
-   * @function updateSlideFocusability
-   * @param {Object} swiper - Swiper 인스턴스
-   * @param {boolean} [shouldFocus=false] - 활성화된 슬라이드의 첫 번째 요소로 포커스를 강제 이동할지 여부
-   * @returns {void}
+   * 2-4. [SHARED-SEC: SWIPER] 슬라이더 초점 제어 및 리모트 바인딩 모듈
    */
   function updateSlideFocusability(swiper, shouldFocus) {
     if (!swiper || !swiper.slides || swiper.slides.length === 0) return;
@@ -507,7 +567,6 @@
       let activeSlideEl = null;
 
       slides.forEach(function (slide) {
-        // 활성화(화면에 노출된) 슬라이드 여부 판단
         const isVisible = slide.classList.contains('swiper-slide-visible') ||
           slide.classList.contains('swiper-slide-active');
 
@@ -546,7 +605,6 @@
         }
       });
 
-      // 방향키 조작 시 새로 활성화된 슬라이드의 첫 번째 포커스 가능 요소로 이동
       const autoFocusNeeded = !!shouldFocus;
       if (autoFocusNeeded && activeSlideEl) {
         const firstFocusable = activeSlideEl.querySelector('a:not([tabindex="-1"]), button:not([tabindex="-1"]), input:not([tabindex="-1"]), select:not([tabindex="-1"]), textarea:not([tabindex="-1"]), [tabindex="0"]');
@@ -556,39 +614,21 @@
           } catch (e) {
             firstFocusable.focus();
           }
-        } else {
-          if (!activeSlideEl.hasAttribute('tabindex')) {
-            activeSlideEl.setAttribute('tabindex', '-1');
-          }
-          try {
-            activeSlideEl.focus({ preventScroll: true });
-          } catch (e) {
-            activeSlideEl.focus();
-          }
         }
       }
     }, 0);
   }
 
-  /**
-   * Swiper 슬라이더 플러그인 초기화 및 웹 접근성 설정 함수
-   * 페이지에 위치한 Swiper 슬라이더들을 전역 Swiper 생성자를 이용하여 커스텀 네비게이션 옵션으로 활성화합니다.
-   *
-   * @function initSwipers
-   * @returns {void}
-   */
   function initSwipers() {
     if (typeof window.Swiper !== 'function') return;
 
     document.querySelectorAll('.offering-swiper').forEach(function (swiperEl) {
-      // 중복 초기화 방지
       if (swiperEl.swiper) return;
 
       const isExpandSwiper = swiperEl.classList.contains('offering-swiper--expand');
       const desktopSlidesPerView = parseFloat(swiperEl.dataset.desktopSlidesPerView) || 1;
       const desktopSpaceBetween = parseInt(swiperEl.dataset.desktopSpaceBetween, 10) || 20;
       const loopCloneCount = Math.max(1, Math.ceil(desktopSlidesPerView));
-      const offsetAfter = swiperEl.clientWidth / desktopSlidesPerView * (desktopSlidesPerView - 1);
 
       const swiperOptions = {
         loop: false,
@@ -620,68 +660,10 @@
         },
         on: {
           init: function () {
-            const swiper = this;
-            updateSlideFocusability(swiper);
-            const slides = Array.from(swiper.slides || []);
-            const activeSlide = slides[swiper.activeIndex];
-            if (activeSlide) {
-              const activeVideo = activeSlide.querySelector('video');
-              if (activeVideo) {
-                activeVideo.currentTime = 0;
-                activeVideo.play().catch(function () { });
-              }
-            }
+            updateSlideFocusability(this);
           },
           slideChange: function () {
-            const swiper = this;
-            updateSlideFocusability(swiper, false);
-            const slides = Array.from(swiper.slides || []);
-            const activeSlide = slides[swiper.activeIndex];
-            if (!activeSlide) return;
-
-            // 활성화된 슬라이드의 비디오 재생 및 제어 버튼 상태 갱신
-            const activeVideo = activeSlide.querySelector('video');
-            if (activeVideo) {
-              activeVideo.currentTime = 0;
-              activeVideo.play().catch(function (e) {
-                console.warn('Video play interrupted:', e);
-              });
-
-              const controls = activeSlide.querySelector('[data-control="video"]');
-              if (controls) {
-                const buttons = controls.querySelectorAll('button');
-                buttons.forEach(function (btn) {
-                  if (btn.getAttribute('data-button') === 'play') {
-                    btn.classList.add('is-active');
-                  } else {
-                    btn.classList.remove('is-active');
-                  }
-                });
-              }
-            }
-
-            // 비활성화된 모든 슬라이드의 비디오 일시정지 및 리셋
-            slides.forEach(function (slide, idx) {
-              if (idx !== swiper.activeIndex) {
-                const inactiveVideo = slide.querySelector('video');
-                if (inactiveVideo) {
-                  inactiveVideo.pause();
-                  inactiveVideo.currentTime = 0;
-
-                  const controls = slide.querySelector('[data-control="video"]');
-                  if (controls) {
-                    const buttons = controls.querySelectorAll('button');
-                    buttons.forEach(function (btn) {
-                      if (btn.getAttribute('data-button') === 'pause') {
-                        btn.classList.add('is-active');
-                      } else {
-                        btn.classList.remove('is-active');
-                      }
-                    });
-                  }
-                }
-              }
-            });
+            updateSlideFocusability(this, false);
           },
           slideChangeTransitionEnd: function () {
             updateSlideFocusability(this, false);
@@ -689,7 +671,7 @@
           resize: function () {
             updateSlideFocusability(this);
           }
-        },
+        }
       };
 
       if (isExpandSwiper) {
@@ -701,14 +683,8 @@
           loopAdditionalSlides: 2,
           loopedSlides: 2,
           breakpoints: {
-            0: {
-              slidesPerView: 1,
-              slidesOffsetAfter: 464,
-            },
-            768: {
-              slidesPerView: 1,
-              slidesOffsetAfter: 0,
-            }
+            0: { slidesPerView: 1, slidesOffsetAfter: 464 },
+            768: { slidesPerView: 1, slidesOffsetAfter: 0 }
           }
         });
       } else {
@@ -719,28 +695,19 @@
           loop: true,
           loopAdditionalSlides: loopCloneCount,
           loopedSlides: loopCloneCount,
-          // slidesOffsetAfter: offsetAfter,
           breakpoints: {
-            0: {
-              slidesPerView: 1,
-              // slidesOffsetAfter: offsetAfter,
-            },
-            768: {
-              slidesPerView: 1,
-              slidesOffsetAfter: 0,
-            }
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 1, slidesOffsetAfter: 0 }
           }
         });
       }
 
       let swiperInstance = null;
-
       try {
         swiperInstance = new window.Swiper(swiperEl, swiperOptions);
         if (swiperInstance) {
           updateSlideFocusability(swiperInstance);
 
-          // 해당 Swiper 슬라이더 내부 요소에 포커스가 있는 상태에서 방향키(Left/Right) 조작 감지 및 해당 슬라이더만 이동
           swiperEl.addEventListener('keydown', function (e) {
             if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
               const activeEl = document.activeElement;
@@ -749,13 +716,9 @@
                 e.stopPropagation();
 
                 if (e.key === 'ArrowLeft' || e.keyCode === 37) {
-                  if (typeof swiperInstance.slidePrev === 'function') {
-                    swiperInstance.slidePrev();
-                  }
+                  if (typeof swiperInstance.slidePrev === 'function') swiperInstance.slidePrev();
                 } else if (e.key === 'ArrowRight' || e.keyCode === 39) {
-                  if (typeof swiperInstance.slideNext === 'function') {
-                    swiperInstance.slideNext();
-                  }
+                  if (typeof swiperInstance.slideNext === 'function') swiperInstance.slideNext();
                 }
                 updateSlideFocusability(swiperInstance, true);
               }
@@ -766,6 +729,7 @@
         console.error('Swiper 초기화 에러:', swiperEl, e);
       }
 
+      // 리모트 컨트롤러 바인딩
       if (swiperInstance && swiperEl.id) {
         const remoteWrapper = document.querySelector(`[data-swiper-remote="${swiperEl.id}"]`);
         if (remoteWrapper) {
@@ -800,27 +764,6 @@
             });
           });
 
-          remoteWrapper.addEventListener('keydown', function (e) {
-            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.keyCode === 37 || e.keyCode === 39) {
-              const activeEl = document.activeElement;
-              if (activeEl && remoteWrapper.contains(activeEl)) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                if (e.key === 'ArrowLeft' || e.keyCode === 37) {
-                  if (typeof swiperInstance.slidePrev === 'function') {
-                    swiperInstance.slidePrev();
-                  }
-                } else if (e.key === 'ArrowRight' || e.keyCode === 39) {
-                  if (typeof swiperInstance.slideNext === 'function') {
-                    swiperInstance.slideNext();
-                  }
-                }
-                updateSlideFocusability(swiperInstance, true);
-              }
-            }
-          });
-
           swiperInstance.on('slideChange', function () {
             updateRemoteState(getRemoteActiveIndex(this));
           });
@@ -828,40 +771,11 @@
           updateRemoteState(getRemoteActiveIndex(swiperInstance));
         }
       }
-
-      // 키보드 사용자를 위한 Swiper 컴포넌트 접근성 속성 보완 설정 (AccessibilityI18n 다국어 연동)
-      if (typeof window.AccessibilityI18n === 'object' && typeof window.AccessibilityI18n.applyToContainer === 'function') {
-        window.AccessibilityI18n.applyToContainer(swiperEl);
-      } else {
-        const prev = swiperEl.querySelector('.offering-swiper-button-prev');
-        const next = swiperEl.querySelector('.offering-swiper-button-next');
-        const pagination = swiperEl.querySelector('.offering-swiper-pagination');
-
-        if (prev && !prev.getAttribute('aria-label')) {
-          prev.setAttribute('aria-label', '이전 슬라이드');
-        }
-        if (next && !next.getAttribute('aria-label')) {
-          next.setAttribute('aria-label', '다음 슬라이드');
-        }
-        if (pagination) {
-          pagination.setAttribute('role', 'navigation');
-        }
-      }
-      swiperEl.setAttribute('role', 'region');
-      if (!swiperEl.getAttribute('aria-label')) {
-        const label = typeof window.AccessibilityI18n === 'object' ? window.AccessibilityI18n.getLabel('paginationRole') : '슬라이드 목록';
-        swiperEl.setAttribute('aria-label', label);
-      }
     });
   }
 
   /**
-   * 비디오 재생/일시정지 제어 기능 초기화 함수
-   * `[data-video="wrapper"]` 엘리먼트 하위의 `[data-control="video"]` 엘리먼트 내 버튼들을 클릭할 때
-   * 상위 wrapper 내의 video 요소를 찾아 재생하거나 일시정지합니다.
-   *
-   * @function initVideoControls
-   * @returns {void}
+   * 2-5. [SHARED-SEC: VIDEO] 공통 비디오 플레이어 제어 모듈
    */
   function initVideoControls() {
     const wrappers = document.querySelectorAll('[data-video="wrapper"]');
@@ -873,170 +787,220 @@
       if (!video || !controls) return;
 
       const buttons = controls.querySelectorAll('button');
-
       buttons.forEach(function (button) {
         button.addEventListener('click', function () {
           const action = button.getAttribute('data-button');
-
           if (action === 'play') {
             video.play();
-            buttons.forEach(function (btn) {
-              if (btn.getAttribute('data-button') === 'play') {
-                btn.classList.add('is-active');
-              } else {
-                btn.classList.remove('is-active');
-              }
-            });
+            buttons.forEach(btn => btn.classList.toggle('is-active', btn.getAttribute('data-button') === 'play'));
           } else if (action === 'pause') {
             video.pause();
-            buttons.forEach(function (btn) {
-              if (btn.getAttribute('data-button') === 'pause') {
-                btn.classList.add('is-active');
-              } else {
-                btn.classList.remove('is-active');
-              }
-            });
+            buttons.forEach(btn => btn.classList.toggle('is-active', btn.getAttribute('data-button') === 'pause'));
           }
         });
       });
     });
   }
 
-  /**
-   * 전체적인 웹 접근성(A11y) 강화 초기화 함수
-   * HTML 수정을 최소화하기 위해 동적으로 접근성 관련 속성(aria-label, alt, title 등)을 보완합니다.
-   *
-   * @function initAccessibility
-   * @returns {void}
-   */
-  function initAccessibility() {
-    // 링크 텍스트(자세히 보기)에 맥락 제공
-    const viewMoreLinks = document.querySelectorAll('a');
-    viewMoreLinks.forEach(function (link) {
-      const text = link.textContent.trim();
-      if (text === '자세히 보기' || text === '더 알아보기' || text === '더 보기') {
-        // 부모 컨테이너 내의 제목(H1-H6 또는 특정 클래스)을 찾아 aria-label 생성
-        const container = link.closest('div, section, li');
-        if (container) {
-          const titleEl = container.querySelector('h1, h2, h3, h4, h5, h6, [class*="title"], [class*="heading"]');
-          if (titleEl) {
-            const titleText = titleEl.textContent.trim();
-            if (titleText && !link.hasAttribute('aria-label')) {
-              link.setAttribute('aria-label', `${titleText} ${text}`);
-            }
-          }
-        }
-      }
 
-      // 새 창 열림 링크에 안내 추가
-      if (link.getAttribute('target') === '_blank') {
-        if (!link.hasAttribute('title')) {
-          link.setAttribute('title', '새 창 열림');
-        }
-        // rel 보안 속성 자동 보완
-        if (!link.hasAttribute('rel')) {
-          link.setAttribute('rel', 'noopener noreferrer');
-        }
-      }
-    });
-
-    // 장식용 이미지 처리 (alt가 비어있는 경우 aria-hidden 부여)
-    const images = document.querySelectorAll('img');
-    images.forEach(function (img) {
-      if (img.hasAttribute('alt') && img.getAttribute('alt').trim() === '') {
-        // alt="" 인 경우 명시적으로 장식용임을 선언
-        img.setAttribute('aria-hidden', 'true');
-        img.setAttribute('role', 'presentation');
-      }
-    });
-
-    // 아이콘 요소(<i>, <span> 등 배경 이미지를 사용하는 경우) 처리
-    const icons = document.querySelectorAll('i, span[class*="icon"]');
-    icons.forEach(function (icon) {
-      const style = window.getComputedStyle(icon);
-      const hasBgImage = style.backgroundImage && style.backgroundImage !== 'none';
-      const hasNoText = !icon.textContent.trim();
-
-      if ((hasBgImage || icon.classList.contains('icon')) && hasNoText) {
-        if (!icon.hasAttribute('aria-hidden')) {
-          icon.setAttribute('aria-hidden', 'true');
-        }
-      }
-    });
-  }
+  /* ==========================================================================
+     PART 3: [PAGE-SPECIFIC SECTIONS] 페이지별 전용 섹션 모듈
+     ========================================================================== */
 
   /**
-   * 전체 리소스 로드 완료 후 `.offering-main`에 `loaded` 클래스를 추가합니다.
-   * @function markLoaded
-   * @returns {void}
+   * 3-1. [PAGE: AI FULLSTACK] AI 풀스택 섹션 모듈
    */
-  function markLoaded() {
-    const offeringMain = document.querySelector('.offering-main');
-    if (offeringMain) {
-      offeringMain.classList.add('loaded');
+  function initAIFullstackModule(root) {
+    const mainEl = root || document.querySelector('.ai-fullstack');
+    if (!mainEl) return;
+
+    // 히어로 섹션 배경 활성화
+    const heroBg = mainEl.querySelector('.stack-hero__bg');
+    if (heroBg) {
+      setTimeout(function () {
+        heroBg.classList.add('is-active');
+      }, 1000);
     }
-  }
 
-  /**
-   * 전체 리소스가 로드된 후 페이지 상태를 처리합니다.
-   * @function initPageLoadState
-   * @returns {void}
-   */
-  function initPageLoadState() {
-    if (document.readyState === 'complete') {
-      markLoaded();
-    } else {
-      window.addEventListener('load', markLoaded, { once: true });
-    }
-  }
-
-  /**
-   * `.stack-content__arch` 요소에 대해 CSS `transitionend` 이벤트를 듣고
-   * 종료 시 `transition-end` 클래스를 추가합니다.
-   * @function initArchTransitionEnd
-   * @returns {void}
-   */
-  function initArchTransitionEnd() {
-    const archEls = Array.from(document.querySelectorAll('.stack-content__arch'));
-    if (archEls.length === 0) return;
-
+    // 아키텍처 다이어그램 트랜지션 완료 감지
+    const archEls = Array.from(mainEl.querySelectorAll('.stack-content__arch'));
     archEls.forEach(function (el) {
       const handler = function (ev) {
         if (ev && ev.propertyName && ev.propertyName !== 'transform') return;
-
-        // SCSS는 .transition-end가 .stack-content 내부에 적용되어
-        // .stack-content 요소에 클래스를 추가하면 스타일이 적용됩니다.
         const container = el.closest('.stack-content') || el.parentElement;
         if (container) container.classList.add('transition-end');
-
         el.removeEventListener('transitionend', handler);
       };
-
       el.addEventListener('transitionend', handler);
+    });
+
+    // 섹션 바로가기 이동 버튼 ([data-move-to])
+    const moveToButtons = mainEl.querySelectorAll('[data-move-to]');
+    moveToButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetSelector = button.dataset.moveTo;
+        if (!targetSelector) return;
+        const targetEl = document.querySelector(targetSelector);
+        if (!targetEl) return;
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   }
 
   /**
-   * 오퍼링 관련 모듈들을 총괄하여 한 번에 초기화하는 메인 실행기 함수
-   * @function init
-   * @returns {void}
+   * 3-2. [PAGE: PUBLIC SECTOR AX] 공공 AX 컨설팅 섹션 모듈
    */
-  function init() {
-    initAccessibility(); // 접근성 강화를 최우선 실행
-    initFaq();
-    initOfferingNav();
-    initRiseEffects();
-    initArchTransitionEnd();
-    initSwipers();
-    initVideoControls();
-    initViewMoreButtons();
-    initPageLoadState();
+  function initPublicSectorModule(root) {
+    const mainEl = root || document.querySelector('.public-ax');
+    if (!mainEl) return;
+
+    const heroContent = mainEl.querySelector('.public-ax-hero__content');
+    if (heroContent) {
+      setTimeout(function () {
+        heroContent.classList.add('is-active');
+      }, 500);
+    }
   }
 
-  // DOM 로드 완료 상태 감지 및 이벤트 연결
+  /**
+   * 3-3. [PAGE: FABRIX] 패브릭스 모듈
+   */
+  function initFabrixModule(root) {
+    const mainEl = root || document.querySelector('.fabrix');
+    if (!mainEl) return;
+  }
+
+  /**
+   * 3-4. [PAGE: SCP] 삼성 클라우드 플랫폼 모듈
+   */
+  function initScpModule(root) {
+    const mainEl = root || document.querySelector('.scp');
+    if (!mainEl) return;
+  }
+
+  /**
+   * 3-5. [PAGE: BRITY AUTOMATION] 브리티 오토메이션 모듈
+   */
+  function initBrityAutoModule(root) {
+    const mainEl = root || document.querySelector('.brity-auto');
+    if (!mainEl) return;
+  }
+
+  /**
+   * 3-6. [PAGE: BRITY WORKS] 브리티 웍스 모듈
+   */
+  function initBrityWorksModule(root) {
+    const mainEl = root || document.querySelector('.brity-works');
+    if (!mainEl) return;
+  }
+
+  /**
+   * 3-7. [PAGE: BRITY WORKS GOV] 브리티 웍스 공공 모듈
+   */
+  function initBrityGovModule(root) {
+    const mainEl = root || document.querySelector('.brity-gov');
+    if (!mainEl) return;
+  }
+
+  /**
+   * 3-8. [PAGE: GUIDE] 오퍼링 가이드 모듈
+   */
+  function initOfferingGuideModule(root) {
+    const mainEl = root || document.querySelector('.offering-guide');
+    if (!mainEl) return;
+  }
+
+
+  /* ==========================================================================
+     PART 4: [ORCHESTRATOR & API] 통합 실행기 및 개발자 확장 API
+     ========================================================================== */
+
+  // 사용자 정의 페이지 모듈 레지스트리 (신규 페이지 추가용)
+  const customPageRegistry = {};
+
+  /**
+   * 신규 오퍼링 페이지 스크립트 모듈 등록 API
+   * 
+   * @param {string} pageSelector - 페이지 식별 셀렉터 (예: '.my-new-page' 또는 '#myPage')
+   * @param {Function} initFn - 해당 페이지 초기화 함수 (pageElement를 인자로 전달받음)
+   */
+  function registerPage(pageSelector, initFn) {
+    if (typeof pageSelector === 'string' && typeof initFn === 'function') {
+      customPageRegistry[pageSelector] = initFn;
+    }
+  }
+
+  /**
+   * 전체 오퍼링 모듈 통합 초기화 함수
+   */
+  function init() {
+    // 1. PART 1 Base 모듈 실행
+    initAccessibility();
+    initRiseEffects();
+    initPageLoadState();
+    initArchTransitionEnd();
+
+    // 2. PART 2 Shared Section 모듈 실행 (FAQ, 탭, 더보기, 슬라이더, 비디오)
+    initFaq();
+    initOfferingNav();
+    initViewMoreButtons();
+    initSwipers();
+    initVideoControls();
+
+    // 3. PART 3 기본 제공 페이지별 모듈 실행
+    initAIFullstackModule();
+    initPublicSectorModule();
+    initFabrixModule();
+    initScpModule();
+    initBrityAutoModule();
+    initBrityWorksModule();
+    initBrityGovModule();
+    initOfferingGuideModule();
+
+    // 4. PART 4 개발자가 등록한 신규 페이지 모듈 실행
+    Object.keys(customPageRegistry).forEach(function (selector) {
+      const el = document.querySelector(selector);
+      if (el) {
+        try {
+          customPageRegistry[selector](el);
+        } catch (err) {
+          console.error(`[OfferingModule] 커스텀 페이지 모듈 (${selector}) 실행 실패:`, err);
+        }
+      }
+    });
+  }
+
+  // DOMContentLoaded 이벤트 감지 후 자동 실행
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });
   } else {
     init();
   }
-})();
+
+  // 글로벌 API 노출
+  window.OfferingModule = {
+    init: init,
+    registerPage: registerPage,
+    // Base
+    initAccessibility: initAccessibility,
+    initRiseEffects: initRiseEffects,
+    initArchTransitionEnd: initArchTransitionEnd,
+    // Shared Sections
+    initFaq: initFaq,
+    initOfferingNav: initOfferingNav,
+    initViewMoreButtons: initViewMoreButtons,
+    initSwipers: initSwipers,
+    initVideoControls: initVideoControls,
+    // Page Sections
+    initAIFullstackModule: initAIFullstackModule,
+    initPublicSectorModule: initPublicSectorModule,
+    initFabrixModule: initFabrixModule,
+    initScpModule: initScpModule,
+    initBrityAutoModule: initBrityAutoModule,
+    initBrityWorksModule: initBrityWorksModule,
+    initBrityGovModule: initBrityGovModule,
+    initOfferingGuideModule: initOfferingGuideModule,
+  };
+
+})(window, document);

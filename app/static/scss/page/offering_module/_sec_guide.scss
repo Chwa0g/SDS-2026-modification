@@ -1,0 +1,31 @@
+/* ==========================================================================
+   [PAGE: GUIDE] 오퍼링 가이드 섹션 블록
+   - 가이드 모듈 타이틀 배너(.module-title) 및 프리뷰 마진
+   ========================================================================== */
+
+/* ==========================================================================
+   [PAGE: GUIDE] 오퍼링 가이드 전용 타이틀 배너
+   ========================================================================== */
+.module-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    background: #2189FF;
+    font-size: 32px;
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+    z-index: 10;
+}
+
+.offering-main .offering-guide {
+    .offering-content { padding: 40px 0; }
+    .mt-20 { margin-top: 20px !important; }
+    .mt-60 { margin-top: 60px !important; }
+    .pt-60 { padding-top: 60px !important; }
+    .mb-0 { margin-bottom: 0 !important; }
+    .offering-grid__item.span-2 .offering-grid__inner { width: 100%; }
+    .offering-contents > .module-title:not(:first-child) { margin-top: 80px; }
+}

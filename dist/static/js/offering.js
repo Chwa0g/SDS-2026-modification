@@ -64,17 +64,15 @@
           if (isOpen) {
             panel.hidden = false;
             panel.removeAttribute('inert');
-            panel.setAttribute('tabindex', '-1');
           } else {
             panel.hidden = true;
             panel.setAttribute('inert', '');
-            panel.removeAttribute('tabindex');
           }
         } else {
           button.setAttribute('aria-expanded', 'false');
         }
 
-        // 마우스 클릭 및 엔터 키다운 이벤트 바인딩
+        // 클릭 이벤트 핸들러 (네이티브 <button>이므로 마우스 클릭 및 Enter/Space 키보드 조작 모두 자동 대응)
         button.addEventListener('click', function () {
           const currentPanelId = button.getAttribute('aria-controls');
           const currentPanel = currentPanelId ? document.getElementById(currentPanelId) : null;
@@ -86,7 +84,6 @@
 
             if (currentPanel) {
               currentPanel.hidden = true;
-              currentPanel.removeAttribute('tabindex');
               currentPanel.setAttribute('inert', '');
             }
             button.focus();
@@ -106,7 +103,6 @@
 
               if (otherPanel) {
                 otherPanel.hidden = true;
-                otherPanel.removeAttribute('tabindex');
                 otherPanel.setAttribute('inert', '');
               }
             }
@@ -118,21 +114,39 @@
 
           if (currentPanel) {
             currentPanel.hidden = false;
-            currentPanel.setAttribute('tabindex', '-1');
             currentPanel.removeAttribute('inert');
-
-            try {
-              currentPanel.focus({ preventScroll: true });
-            } catch (e) {
-              currentPanel.focus();
-            }
           }
+
+          // W3C WAI-ARIA Accordion APG 표준 준수:
+          // 패널 열림 시 본문으로 초점을 강제 탈취하지 않고 활성화한 버튼에 초점을 유지하여
+          // 사용자가 즉시 닫거나 다음 질문으로 원활히 이동할 수 있도록 함
+          button.focus();
         });
 
+        // W3C WAI-ARIA Accordion 키보드 네비게이션 지원 (ArrowUp, ArrowDown, Home, End)
         button.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
+          const allButtons = Array.from(faqList.querySelectorAll('.contact-us-faq__button'));
+          const currentIndex = allButtons.indexOf(button);
+          if (currentIndex === -1) return;
+
+          let targetButton = null;
+
+          if (e.key === 'ArrowDown') {
             e.preventDefault();
-            button.click();
+            targetButton = allButtons[(currentIndex + 1) % allButtons.length];
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            targetButton = allButtons[(currentIndex - 1 + allButtons.length) % allButtons.length];
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            targetButton = allButtons[0];
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            targetButton = allButtons[allButtons.length - 1];
+          }
+
+          if (targetButton) {
+            targetButton.focus();
           }
         });
       });

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   [PAGE: BRITY WORKS GOV] 브리티 웍스 공공 섹션 블록
+   - 공공 히어로 배경, 인증 특화
+   ========================================================================== */
+
+/* ==========================================================================
+   [PAGE: BRITY WORKS GOV] 공공 테마 변수
+   ========================================================================== */
+.offering-main {
+    .brity-gov {
+        --hero-background: linear-gradient(105.73deg, #0a0d6e 6.2%, #0442b6 97.02%);
+        --main-font-color: #fff;
+        --sub-font-color: #fff;
+        --primary-button-bg: #fff;
+        --primary-button-color: #3566d8;
+        --primary-button-border: #ccc;
+        --secondary-button-bg: #1778ea;
+        --secondary-button-color: #fff;
+        // --secondary-button-border:#1778EA;
+        // .breadcrumb__link{
+        //   color: #000;
+        //   & + .breadcrumb__item::before{
+        //     color: #000;
+        //   }
+        // }
+    }
+
+}

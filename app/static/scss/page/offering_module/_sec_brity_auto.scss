@@ -1,0 +1,36 @@
+/* ==========================================================================
+   [PAGE: BRITY AUTOMATION] 브리티 오토메이션 섹션 블록
+   - 브리티 오토메이션 테마 변수
+   ========================================================================== */
+
+/* ==========================================================================
+   [PAGE: BRITY AUTOMATION] 테마 변수 및 히어로 커스텀
+   ========================================================================== */
+.offering-main {
+    .brity-auto {
+        --hero-background: #080E39;
+        --main-font-color: #fff;
+        --sub-font-color: #fff;
+        --primary-button-bg: #1778ea;
+        --primary-button-color: #fff;
+        --primary-button-border: #1778ea;
+        --secondary-button-bg: #fff;
+        --secondary-button-color: #333;
+        --secondary-button-border: #ccc;
+
+        //260811
+        .offering-content__header-link {
+            position: static;
+            margin-top: 28px;
+            color: #2189ff;
+
+            &::after {
+                background-color: #2189ff;
+            }
+        }
+    }
+
+    .brity-auto .offering-hero__bg {
+        height: auto;
+    }
+}

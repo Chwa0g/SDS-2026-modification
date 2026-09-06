@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+//fn, mxgul
+@import "./sub/_function.scss";
+@import "./sub/_mixin.scss";
+@import "./sub/_swiper.scss";
+
+/* ==========================================================================
+   PART 1: [BASE] 완전 공통 베이스 스타일 (Global Base)
+   - 리셋, 키프레임 애니메이션, .offering-main 기본 래퍼, 반응형 유틸리티
+   ========================================================================== */
+@import "./page/offering_module/_base.scss";
+
+/* ==========================================================================
+   PART 2: [SHARED SECTIONS] 공통 섹션 블록 모음 (Shared Section Modules)
+   - 여러 페이지 간 동일하게 재사용되는 완성형 섹션 블록들
+   - 브레드크럼, 스티키 내비게이션, FAQ, 인사이트, 관련사이트, 문의배너, 요금제
+   ========================================================================== */
+@import "./page/offering_module/_shared_sections.scss";
+
+/* ==========================================================================
+   PART 3: [PAGE-SPECIFIC SECTIONS] 각 페이지별 개별 섹션 블록 (Page Sections)
+   - 각 페이지 고유의 특화 섹션 모듈들
+   ========================================================================== */
+/* --- [페이지 1: AI 풀스택 (AI Fullstack)] --- */
+@import "./page/offering_module/_sec_ai_fullstack.scss";
+
+/* --- [페이지 2: 삼성 클라우드 플랫폼 SCP] --- */
+@import "./page/offering_module/_sec_scp.scss";
+
+/* --- [페이지 3: 패브릭스 Fabrix] --- */
+@import "./page/offering_module/_sec_fabrix.scss";
+
+/* --- [페이지 4: 브리티 오토메이션 Brity Automation] --- */
+@import "./page/offering_module/_sec_brity_auto.scss";
+
+/* --- [페이지 5: 브리티 웍스 Brity Works] --- */
+@import "./page/offering_module/_sec_brity_works.scss";
+
+/* --- [페이지 6: 브리티 웍스 공공 Brity Works Gov] --- */
+@import "./page/offering_module/_sec_brity_works_gov.scss";
+
+/* --- [페이지 7: 공공 AX 컨설팅 Public Sector AX] --- */
+@import "./page/offering_module/_sec_public_sector.scss";
+
+/* --- [페이지 8: 오퍼링 가이드 Guide (base.html)] --- */
+@import "./page/offering_module/_sec_guide.scss";

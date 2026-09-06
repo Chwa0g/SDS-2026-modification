@@ -1,0 +1,26 @@
+/* ==========================================================================
+   [PAGE: BRITY WORKS] 브리티 웍스 섹션 블록
+   - 브리티 웍스 테마 변수
+   ========================================================================== */
+
+/* ==========================================================================
+   [PAGE: BRITY WORKS] 테마 변수 및 히어로 커스텀
+   ========================================================================== */
+.offering-main {
+    .brity-works {
+        --hero-background: #F7F9FE;
+        --main-font-color: #000;
+        --sub-font-color: #666;
+        --primary-button-bg: #3566d8;
+        --primary-button-color: #fff;
+        --primary-button-border: #1778ea;
+        --secondary-button-bg: #fff;
+        --secondary-button-color: #333;
+        --secondary-button-border: #ccc;
+    }
+
+    .brity-works .offering-hero__bg img {
+        animation: changeScale 20s linear infinite;
+    }
+
+}

@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!--#include file="/inc/meta.inc" -->
+    <title>SAMSUNG SDS</title>
+    <!--#include file="/inc/css.inc" -->
+    <link rel="stylesheet" href="/static/css/asis/reset.css">
+    <link rel="stylesheet" href="/static/css/asis/common.css">
+    <link rel="stylesheet" href="/static/css/asis/common_module.css">
+    <link rel="stylesheet" href="/static/css/asis/content.css">
+    <link rel="stylesheet" href="/static/css/asis/content2.css">
+    <link rel="stylesheet" href="/static/css/asis/content3.css">
+    <link rel="stylesheet" href="/static/css/asis/libs.css">
+    <link rel="stylesheet" href="/static/css/asis/library.css">
+    <link rel="stylesheet" href="/static/css/asis/layout.css">
+    <link rel="stylesheet" href="/static/css/asis/module.css">
+    <link rel="stylesheet" href="/static/css/asis/popup.css">
+    <link rel="stylesheet" href="/static/css/asis/blog.css">
+    <!-- !필수: 오퍼링 css  -->
+    <link rel="stylesheet" type="text/css" href="/static/css/offering_module.css" />
+    <!-- // !필수: 오퍼링 css  -->
+    <!--#include file="/inc/script.inc" -->
+    <style>
+      .module-title{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 56px;
+        padding: 0 20px;
+        background: #2189FF;
+        font-size: 32px;
+        color: #fff;
+        font-weight: 700;
+        position: relative;
+        z-index: 10;
+      }
+      .offering-main .offering-content{
+        padding: 40px 0;
+      }
+      .mt-20{
+        margin-top: 20px !important;
+      }
+      .mt-60{
+        margin-top: 60px !important;
+      }
+      .pt-60{
+        padding-top: 60px !important;
+      }
+      .mb-0{
+        margin-bottom: 0 !important;
+      }
+      .offering-main .offering-grid__item.span-2 .offering-grid__inner{
+        width: 100%;
+      }
+      /* 가이드 페이지 전용 여백 조정 */
+      .offering-contents > .module-title:not(:first-child) {
+        margin-top: 80px;
+      }
+      .offering-main .check-icon-list__item .dotted-list{
+        padding: 12px;
+      }
+      .offering-main .check-icon-list{
+        gap: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+  <div id="wrap" class="wrap">
+      <div id="container" class="offering-main">
+        <main class="offering-guide" id="mainContent">
+
+          <div class="offering-wrapper">
+            <nav class="offering-nav" id="contentNav">
+              <h2 class="offering-nav__title">오퍼링 모듈<br>가이드</h2>
+              <ul class="offering-nav__list"></ul>
+            </nav>
+
+            <div class="offering-contents" id="offeringContent">
+              <div class="module-title">헤더 (Headers)</div>
+              <section class="offering-content bg-light-blue" id="headerModule" data-label="헤더">
+                <!-- 중앙 정렬 헤더 -->
+                <div class="offering-content__header">
+                  <span class="offering-content__label">Default Label</span>
+                  <h3 class="offering-content__title">중앙 정렬 타이틀 (Default)</h3>
+                  <p class="offering-content__description">가장 기본적으로 사용되는 헤더 스타일 중앙에 배치되며 레이블과 설명이 포함될 수 있습니다.</p>
+                </div>
+                <!-- 중앙 정렬 라운드 레이블 -->
+                <div class="offering-content__header mt-60">
+                  <span class="offering-content__label rounded">Rounded Label</span>
+                  <h3 class="offering-content__title">라운드 레이블 헤더</h3>
+                  <p class="offering-content__description">레이블의 모서리가 둥근 형태(`.rounded`)로 주로 강조 섹션에서 사용</p>
+                </div>
+                <!-- 좌측 정렬 헤더 -->
+                <div class="offering-content__header align-left mt-60">
+                  <span class="offering-content__label">Align Left</span>
+                  <h3 class="offering-content__title">좌측 정렬 헤더</h3>
+                  <p class="offering-content__description">`.align-left` 클래스를 사용하여 좌측으로 정렬한 형태</p>
+                </div>
+                <!-- 작은 좌측 정렬 헤더 -->
+                <div class="offering-content__header align-left header-sm mt-60">
+                  <h3 class="offering-content__title">작은 헤더 스타일 (header-sm)</h3>
+                  <p class="offering-content__description">서브 섹션 내에서 제목을 표현할 때 사용하는 작은 헤더</p>
+                </div>
+                <!-- 대형 타이틀 헤더 -->
+                <div class="offering-content__header align-left collapse-header--lg-title mt-60">
+                  <span class="offering-content__label">Large Title</span>
+                  <h3 class="offering-content__title">대형 타이틀 헤더 (.collapse-header--lg-title)</h3>
+                  <p class="offering-content__description">48px 크기의 대형 헤더 폰트를 제공하는 스타일로 주요 강조 섹션의 메인 헤더로 적합합니다.</p>
+                </div>
+                <!-- 링크 포함 헤더 -->
+                <div class="offering-content__header align-left mt-60">
+                  <span class="offering-content__label uppercase">Upper Case Label</span>
+                  <h3 class="offering-content__title">헤더 링크 포함 형태</h3>
+                  <a href="#" class="offering-content__header-link">더 알아보기</a>
+                </div>
+                <!-- 하단 옵션 버튼/텍스트 세트 -->
+                <div class="offering-content__optional mt-60">
+                  <div class="offering-content__optional-title">도입 문의나 상세 정보가 필요하신가요?</div>
+                  <div class="offering-content__optional-buttons">
+                    <button type="button" class="offering-button primary">상담 신청하기</button>
+                    <button type="button" class="offering-button secondary">
+                      PDF 브로셔 다운로드
+                      <i class="icon-download"></i>
+                    </button>
+                  </div>
+                  <p class="offering-content__optional-sub-text">
+                    상기 내용은 환경에 따라 변경될 수 있습니다.
+                  </p>
+                </div>
+              </section>
+
+              <div class="module-title">그리드 레이아웃 (Grids)</div>
+              <section class="offering-content" id="gridModule" data-label="그리드">
+                <div class="offering-grid grid-2">
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">2단 그리드 (grid-2)</h4>
+                    </div>
+                  </div>
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">2단 그리드 (grid-2)</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="offering-grid grid-3 mt-20">
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">3단 그리드 (grid-3)</h4>
+                    </div>
+                  </div>
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">3단 그리드 (grid-3)</h4>
+                    </div>
+                  </div>
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">3단 그리드 (grid-3)</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="offering-grid grid-4 mt-20">
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">4단 그리드 (grid-4)</h4>
+                    </div>
+                  </div>
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">4단 그리드</h4>
+                    </div>
+                  </div>
+                  <div class="offering-grid__item span-2">
+                    <div class="offering-grid__inner border-box sm-box">
+                      <h4 class="border-box__header">2열 차지 그리드 (span-2)</h4>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="module-title">카드 컴포넌트 (Cards)</div>
+              <section class="offering-content" id="cardModule" data-label="카드">
+                <div class="offering-grid grid-3">
+                  <!-- offering-card (Icon + Title + Desc + Image) -->
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner offering-card">
+                      <div class="offering-card__content">
+                        <i class="offering-card__icon" style="background-image: url(/static/images/offering/icon_offering_card03.png)"></i>
+                        <h4 class="offering-card__title">offering-card</h4>
+                        <p class="offering-card__description">상단 아이콘과 하단 이미지가 결합된 풀세트 카드</p>
+                        <a href="#" class="offering-card__link">자세히 보기</a>
+                      </div>
+                      <div class="offering-card__image">
+                        <img src="/static/images/offering/img_offering_card03.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- offering-card (Bottom Icon / SCP Variant) -->
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner offering-card bottom-icon">
+                      <div class="offering-card__text">
+                        <h4 class="offering-card__title">offering-card (bottom-icon)</h4>
+                        <p class="offering-card__description">아이콘이 텍스트 아래에 배치되는 변형 스타일</p>
+                      </div>
+                      <div class="offering-card__image">
+                        <img src="/static/images/offering/icon_scp_info01.png" alt="">
+                      </div>
+                      <a href="#" class="offering-card__link">버튼명</a>
+                    </div>
+                  </div>
+                  <!-- simple-card (Background Fill) -->
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner simple-card bg-blue">
+                      <h4 class="simple-card__title">simple-card</h4>
+                      <p class="simple-card__description">`.bg-blue` 등으로 배경색을 채운 심플한 카드 형태</p>
+                      <i class="simple-card__icon" style="background-image: url(/static/images/offering/icon_offering_grid01.png)"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="offering-grid grid-3 mt-20">
+                  <!-- image-card (Image focused + Data) -->
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner image-card">
+                      <div class="image-card__image">
+                        <img src="/static/images/offering/img_automation_case01.png" alt="">
+                      </div>
+                      <div class="image-card__content">
+                        <span class="image-card__label">image-card</span>
+                        <h4 class="image-card__title">고객 사례 타이틀</h4>
+                        <div class="image-card__case time-save">
+                          <strong class="time-save__time">34,253h</strong>
+                          <span class="time-save__save">연간 절감</span>
+                        </div>
+                        <p class="image-card__description">수치 데이터 강조에 적합한 카드</p>
+                        <div class="image-card__link-list">
+                          <a href="#" class="image-card__link">링크 1</a>
+                          <a href="#" class="image-card__link">링크 2</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- border-card (List focused) -->
+                  <div class="offering-grid__item span-2">
+                    <div class="offering-grid__inner border-card bg-white">
+                      <div class="border-card__header">
+                        <h4 class="border-card__title">border-card (With List)</h4>
+                        <h5 class="border-card__title-sub">특장점 및 체크리스트 강조용</h5>
+                        <p class="border-card__description">긴 설명문과 함께 하단에 불렛 리스트를 배치할 수 있습니다.</p>
+                      </div>
+                      <ul class="check-icon-list">
+                        <li class="check-icon-list__item">체크 아이콘 리스트 아이템 1</li>
+                        <li class="check-icon-list__item">체크 아이콘 리스트 아이템 2</li>
+                        <li class="check-icon-list__item">체크 아이콘 리스트 아이템 3</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="offering-grid grid-3 mt-20">
+                  <!-- board-grid (Post / Award) -->
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner bg-white board-grid">
+                      <span class="board-grid__label">board-grid</span>
+                      <span class="board-grid__category">Category Name</span>
+                      <a href="#" class="board-grid__link">게시글 또는 수상 내역 형태의 링크 모듈</a>
+                      <span class="board-grid__date">2026.04</span>
+                    </div>
+                  </div>
+                  <!-- border-box (Resource / Link) -->
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner bg-white border-box">
+                      <h4 class="border-box__header">border-box</h4>
+                      <p class="border-box__description">우측 하단 아이콘이 포함된 링크 박스</p>
+                      <a href="#" class="border-box__link">자세히 보기</a>
+                      <i class="border-box__icon" style="background-image: url(/static/images/offering/icon_offering_related01.png);"></i>
+                    </div>
+                  </div>
+                  <!-- border-box (sm-box variant) -->
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner bg-white border-box sm-box">
+                      <h4 class="border-box__header">border-box (sm-box)</h4>
+                      <p class="border-box__description">간결한 제목과 짧은 설명을 담는 작은 박스</p>
+                      <a href="#" class="border-box__link">자세히 보기</a>
+                      <i class="border-box__icon" style="background-image: url(/static/images/offering/icon_fabrix_resource03.png);"></i>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="module-title">미디어 & 텍스트 (Media & Text)</div>
+              <section class="offering-content" id="mediaModule" data-label="미디어">
+                <!-- Large Media Card -->
+                <div class="offering-media-card">
+                  <div class="offering-media-card__image">
+                    <img src="/static/images/offering/img_offering_proposition.png" alt="">
+                  </div>
+                  <div class="offering-content__header align-left mt-20">
+                    <h3 class="offering-content__title">offering-media-card (Default)</h3>
+                    <p class="offering-content__description">상단에는 큰 이미지, 하단에는 해당 이미지에 대한 헤더와 그리드/텍스트를 배치하는 대형 섹션 모듈</p>
+                  </div>
+                </div>
+
+                <!-- Media List (Small Media Cards) -->
+                <div class="media-list media-list--box mt-60">
+                  <div class="offering-media-card offering-media-card--sm mt-20">
+                    <div class="offering-media-card__image">
+                      <img src="/static/images/offering/img_scp_usp02.png" alt="">
+                    </div>
+                    <div class="offering-media-card__content">
+                      <h4 class="offering-media-card__title">offering-media-card--sm (Default)</h4>
+                      <p class="offering-media-card__description">이미지가 왼쪽에 위치하는 기본 소형 미디어 카드</p>
+                    </div>
+                  </div>
+
+                  <div class="offering-media-card offering-media-card--sm row-reverse">
+                    <div class="offering-media-card__image">
+                      <img src="/static/images/offering/img_scp_usp01.png" alt="">
+                    </div>
+                    <div class="offering-media-card__content">
+                      <h4 class="offering-media-card__title">offering-media-card--sm (row-reverse)</h4>
+                      <p class="offering-media-card__description">작은 이미지와 텍스트가 가로로 배치된 리스트 형태 `.row-reverse`로 이미지 위치를 바꿀 수 있습니다.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Shadow Box (Detailed Capability) -->
+                <div class="shadow-box mt-60">
+                  <div class="shadow-box__item">
+                    <h4 class="shadow-box__title"><span class="num" aria-hidden="true">01</span> shadow-box (Detailed Section)</h4>
+                    <div class="shadow-box__content">
+                      <div class="shadow-box__image">
+                        <img src="/static/images/offering/img_fabrix_capabilities01.png" alt="">
+                      </div>
+                      <div class="shadow-box__description">
+                        <p class="shadow-box__text">박스 전체에 섀도우가 들어간 상세 설명 영역 넘버링 아이콘과 본문 텍스트가 조합</p>
+                        <p class="shadow-box__text mt-20">여러 단락의 텍스트를 배치하여 기능을 상세하게 설명할 때 주로 사용</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Horizontal Media Card with Label List & Tags -->
+                <div class="offering-content__header align-left header-sm mt-60">
+                  <h3 class="offering-content__title">가로형 미디어 카드 및 라벨 리스트 (.offering-media-card--horizontal)</h3>
+                  <p class="offering-content__description">가로형 이미지 레이아웃 내에 상세 설명 라벨 리스트(.label-list)와 하단 태그들(.offering-media-card__tags)을 매핑하는 형태 주로 제품의 주요 기능 소개에 사용됩니다.</p>
+                </div>
+
+                <div class="offering-media-card offering-media-card--horizontal mt-20">
+                  <div class="offering-media-card__image">
+                    <img src="/static/images/offering/@dummy.png" alt="">
+                  </div>
+                  <div class="offering-media-card__content align-top">
+                    <span class="offering-media-card__label rounded">Category</span>
+                    <h4 class="offering-media-card__title">카드 본문 타이틀 (.align-top)</h4>
+
+                    <ul class="label-list">
+                      <li class="label-list__item">
+                        <span class="label-list__label">기능</span>
+                        <span class="label-list__text">라벨 리스트 아이템 기능 설명 텍스트</span>
+                      </li>
+                      <li class="label-list__item">
+                        <span class="label-list__label">가치</span>
+                        <span class="label-list__text">라벨 리스트 아이템 가치 설명 텍스트</span>
+                      </li>
+                    </ul>
+
+                    <div class="offering-media-card__tags">
+                      <span class="offering-media-card__tag">태그 1</span>
+                      <span class="offering-media-card__tag">태그 2</span>
+                      <span class="offering-media-card__tag">태그 3</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="module-title">특수 모듈 (Special Modules)</div>
+              <section class="offering-content" id="specialModule" data-label="특수 모듈">
+                <!-- FabriX Flow / Badge List -->
+                <div class="febrix-flow">
+                  <div class="badge-list">
+                    <div class="badge-list__item">
+                      <span class="badge-list__badge" style="color: #707CF1; ">Badge 01</span>
+                      <span class="badge-list__text">텍스트 설명</span>
+                    </div>
+                    <div class="badge-list__item">
+                      <span class="badge-list__badge" style="color: #64A8FA;">Badge 02</span>
+                      <span class="badge-list__text">텍스트 설명</span>
+                    </div>
+                  </div>
+                  <div class="febrix-flow__image image-bottom mt-20">
+                    <img src="/static/images/offering/img_fabrix_ai02.png" alt="">
+                  </div>
+                </div>
+
+                <!-- Title List & Rounded Box (Certs / Awards) -->
+                <div class="title-list mt-60">
+                  <div class="title-list__item">
+                    <h4 class="title-list__title">title-list & rounded-box</h4>
+                    <div class="title-list__content rounded-box text-center">
+                      <div class="rounded-box__item">
+                        <div class="rounded-box__image">
+                          <img src="/static/images/offering/img_offering_cert01.png" alt="">
+                        </div>
+                        <strong class="rounded-box__title">Certification</strong>
+                        <p class="rounded-box__description">Description of award or cert.</p>
+                      </div>
+                      <div class="rounded-box__item">
+                        <div class="rounded-box__image">
+                          <img src="/static/images/offering/img_offering_cert02.png" alt="">
+                        </div>
+                        <strong class="rounded-box__title">Award Name</strong>
+                        <p class="rounded-box__description">Description text.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Table -->
+                <div class="offering-table mt-60">
+                  <table class="offering-table__table">
+                    <caption>비교 테이블 가이드 - 구분, 항목, 스탠다드, 프리미엄</caption>
+                    <thead class="offering-table__thead">
+                      <tr class="offering-table__tr">
+                        <th scope="col" class="offering-table__th">구분</th>
+                        <th scope="col" class="offering-table__th">항목</th>
+                        <th scope="col" class="offering-table__th bg-blue">Standard</th>
+                        <th scope="col" class="offering-table__th bg-black">Premium</th>
+                      </tr>
+                    </thead>
+                    <tbody class="offering-table__tbody">
+                      <tr class="offering-table__tr">
+                        <td class="offering-table__td">분류</td>
+                        <td class="offering-table__td">상세 내용</td>
+                        <td class="offering-table__td">○</td>
+                        <td class="offering-table__td">○</td>
+                      </tr>
+                      <tr class="offering-table__tr">
+                        <td class="offering-table__td">분류</td>
+                        <td class="offering-table__td">기능 유무</td>
+                        <td class="offering-table__td">-</td>
+                        <td class="offering-table__td">○</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <div class="module-title">요금제 (Pricing)</div>
+              <section class="offering-content" id="pricingModule" data-label="요금제">
+                <div class="offering-grid grid-4 overflow-visible">
+                  <!-- Pricing Card (Standard) -->
+                  <div class="offering-grid__item bg-white pricing-list">
+                    <div class="pricing-list__inner">
+                      <div class="pricing-list__header">
+                        <div class="pricing-list__name">기본 요금제</div>
+                      </div>
+                      <div class="pricing-list__body">
+                        <div class="pricing-list__price price">
+                          <div class="price__text"><strong class="color-blue">9,000</strong>원</div>
+                          <div class="price__period">ID 기준/월</div>
+                        </div>
+                        <p class="pricing-list__detail">서비스 기본 구성을 제공</p>
+                      </div>
+                      <div class="pricing-list__footer">
+                        <ul class="dotted-list">
+                          <li class="dotted-list__item">주요 기능 1 포함</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Pricing Card (Recommend) -->
+                  <div class="offering-grid__item bg-white pricing-list recommend-plan">
+                    <div class="pricing-list__inner">
+                      <div class="pricing-list__header">
+                        <div class="pricing-list__name">추천 요금제</div>
+                      </div>
+                      <div class="pricing-list__body">
+                        <div class="pricing-list__price price">
+                          <div class="price__text"><strong class="color-blue">16,000</strong>원</div>
+                          <div class="price__period">ID 기준/월</div>
+                        </div>
+                        <p class="pricing-list__detail">가장 인기 있는 옵션</p>
+                      </div>
+                      <div class="pricing-list__footer">
+                        <ul class="dotted-list">
+                          <li class="dotted-list__item">전체 기능 무제한</li>
+                        </ul>
+                      </div>
+                      <div class="pricing-list__tooltip">추천</div>
+                    </div>
+                  </div>
+                  <!-- Pricing Card (Option Included) -->
+                  <div class="offering-grid__item bg-white pricing-list">
+                    <div class="pricing-list__inner">
+                      <div class="pricing-list__header line-2">
+                        <div class="pricing-list__name">복합 요금제</div>
+                        <span class="plus"><span class="blind">+</span></span>
+                        <div class="pricing-list__copilot"><span class="blind">AI Option</span></div>
+                      </div>
+                      <div class="pricing-list__body">
+                        <div class="pricing-list__price price">
+                          <div class="price__text"><strong class="color-blue">29,000</strong>원</div>
+                        </div>
+                      </div>
+                      <div class="pricing-list__footer">
+                        <ul class="dotted-list">
+                          <li class="dotted-list__item">AI 옵션이 포함된 패키지</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Pricing Card (Split Header) -->
+                  <div class="offering-grid__item bg-white pricing-list split-header span-2">
+                    <div class="pricing-list__inner">
+                      <div class="pricing-list__header">
+                        <div class="pricing-list__name">분할 요금제 (split-header)</div>
+                        <div class="pricing-list__split">
+                          <div class="pricing-list__split-item"><div class="pricing-list__name">A 타입</div></div>
+                          <div class="pricing-list__split-item"><div class="pricing-list__name">B 타입</div></div>
+                        </div>
+                      </div>
+                      <div class="pricing-list__split">
+                        <div class="pricing-list__split-item">
+                          <div class="pricing-list__body">
+                            <div class="pricing-list__price price">
+                              <div class="price__text"><strong class="color-blue">18,000</strong>원</div>
+                            </div>
+                          </div>
+                          <div class="pricing-list__footer">
+                            <ul class="dotted-list">
+                              <li class="dotted-list__item">A 타입 상세 사양</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="pricing-list__split-item">
+                          <div class="pricing-list__body">
+                            <div class="pricing-list__price price">
+                              <div class="price__text"><strong class="color-blue">30,000</strong>원</div>
+                            </div>
+                          </div>
+                          <div class="pricing-list__footer">
+                            <ul class="dotted-list">
+                              <li class="dotted-list__item">B 타입 상세 사양</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="module-title">인사이트 (Insight List)</div>
+              <section class="offering-content" id="insightModule" data-label="인사이트">
+                <div class="thumbnail-list">
+                  <div class="thumbnail-list__item">
+                    <div class="thumbnail-list__image">
+                      <img src="/static/images/offering/img_offering_thumbnail01.png" alt="">
+                    </div>
+                    <div class="thumbnail-list__content">
+                      <h4 class="thumbnail-list__title">thumbnail-list 리스트 아이템 타이틀</h4>
+                      <p class="thumbnail-list__text">설명 텍스트 가로형 레이아웃이며 왼쪽 이미지는 정해진 비율로 표시 텍스트가 길어지면 자동으로 말줄임 처리<br>다양한 인사이트 및 블로그 포스트를 목록화할 때 사용</p>
+                      <a href="#" class="thumbnail-list__link">자세히 보기</a>
+                    </div>
+                  </div>
+                  <div class="thumbnail-list__item mt-20">
+                    <div class="thumbnail-list__image">
+                      <img src="/static/images/offering/img_offering_thumbnail02.png" alt="">
+                    </div>
+                    <div class="thumbnail-list__content">
+                      <h4 class="thumbnail-list__title">리스트 아이템 02리스트 아이템 02리스트 아이템 02리스트 아이템 02리스트 아이템 02리스트 아이템 02</h4>
+                      <p class="thumbnail-list__text">설명 텍스트 가로형 레이아웃이며 왼쪽 이미지는 정해진 비율로 표시 텍스트가 길어지면 자동으로 말줄임 처리설명 텍스트 가로형 레이아웃이며 왼쪽 이미지는 정해진 비율로 표시 텍스트가 길어지면 자동으로 말줄임 처리설명 텍스트 가로형 레이아웃이며 왼쪽 이미지는 정해진 비율로 표시 텍스트가 길어지면 자동으로 말줄임 처리설명 텍스트 가로형 레이아웃이며 왼쪽 이미지는 정해진 비율로 표시 텍스트가 길어지면 자동으로 말줄임 처리 </p>
+                      <a href="#" class="thumbnail-list__link">자세히 보기</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="module-title">캐러셀 (Swiper Carousels)</div>
+              <section class="offering-content collapse-header overflow-hidden" id="carouselModule" data-label="캐러셀">
+                <!-- Swiper Style 1: Media Card Horizontal -->
+                <div class="offering-swiper swiper-container" data-desktop-slides-per-view="1">
+                  <div class="swiper-wrapper">
+                    <div class="offering-media-card offering-media-card--horizontal swiper-slide">
+                      <div class="offering-media-card__image">
+                        <img src="/static/images/offering/img_offering_img_text01.png" alt="">
+                      </div>
+                      <div class="offering-media-card__content">
+                        <span class="offering-media-card__label">Slide 01</span>
+                        <h4 class="offering-media-card__title">캐러셀 슬라이드 타이틀</h4>
+                        <p class="offering-media-card__description">슬라이드 내부에 이미지와 상세 텍스트 리스트를 포함할 수 있는 가로형 캐러셀</p>
+                        <ul class="offering-media-card__list">
+                          <li class="offering-media-card__list-item">슬라이드 리스트 아이템 1</li>
+                          <li class="offering-media-card__list-item">슬라이드 리스트 아이템 2</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-control">
+                    <div class="offering-swiper-pagination swiper-pagination"></div>
+                    <div class="swiper-control__buttons">
+                      <button class="offering-swiper-button-prev swiper-control__button swiper-control__button--prev" type="button"></button>
+                      <button class="offering-swiper-button-next swiper-control__button swiper-control__button--next" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Swiper Style 2: Pop Card Grid -->
+                <div class="offering-swiper swiper-container pt-60" data-desktop-slides-per-view="2" data-desktop-space-between="26">
+                  <div class="swiper-wrapper">
+                    <div class="pop-card img-text swiper-slide">
+                      <div class="pop-card__image">
+                        <img src="/static/images/offering/img_scp_card01.png" alt="">
+                      </div>
+                      <div class="pop-card__content">
+                        <i class="pop-card__number" aria-hidden="true">01</i>
+                        <h4 class="pop-card__title">pop-card Slide</h4>
+                        <p class="pop-card__description">이미지와 숫자 아이콘이 포함된 카드 형태의 슬라이드</p>
+                        <a href="#" class="pop-card__link">자세히 보기</a>
+                      </div>
+                    </div>
+                    <div class="pop-card img-text swiper-slide">
+                      <div class="pop-card__image">
+                        <img src="/static/images/offering/img_scp_card02.png" alt="">
+                      </div>
+                      <div class="pop-card__content">
+                        <i class="pop-card__number" aria-hidden="true">02</i>
+                        <h4 class="pop-card__title">카드 슬라이드 02</h4>
+                        <p class="pop-card__description">여러 장의 카드를 가로로 넘겨볼 수 있는 슬라이드 구성</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-control">
+                    <div class="offering-swiper-pagination swiper-pagination"></div>
+                    <div class="swiper-control__buttons">
+                      <button class="offering-swiper-button-prev swiper-control__button swiper-control__button--prev" type="button"></button>
+                      <button class="offering-swiper-button-next swiper-control__button swiper-control__button--next" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Swiper Style 3: Board Grid -->
+                <div class="offering-swiper swiper-container pt-60" data-desktop-slides-per-view="2" data-desktop-space-between="26" style="margin-top: 120px;">
+                  <div class="swiper-wrapper">
+                    <div class="board-grid swiper-slide bg-white">
+                      <span class="board-grid__label">board-grid Slide 01</span>
+                      <span class="board-grid__category">Category Name</span>
+                      <a href="#" class="board-grid__link">캐러셀 내부에 배치되는 수상 내역이나 게시글 형태의 슬라이드</a>
+                      <span class="board-grid__date">2026.04</span>
+                    </div>
+                    <div class="board-grid swiper-slide bg-white">
+                      <span class="board-grid__label">board-grid Slide 02</span>
+                      <span class="board-grid__category">Category Name</span>
+                      <a href="#" class="board-grid__link">두 번째 게시글 슬라이드 텍스트 예시</a>
+                      <span class="board-grid__date">2026.04</span>
+                    </div>
+                  </div>
+                  <div class="swiper-control">
+                    <div class="offering-swiper-pagination swiper-pagination"></div>
+                    <div class="swiper-control__buttons">
+                      <button class="offering-swiper-button-prev swiper-control__button swiper-control__button--prev" type="button"></button>
+                      <button class="offering-swiper-button-next swiper-control__button swiper-control__button--next" type="button"></button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="module-title">비디오 클립 (Video Clips)</div>
+              <section class="offering-content" id="videoModule" data-label="비디오">
+                <!-- Single Video Clip -->
+                <div class="offering-content__header align-left header-sm">
+                  <h3 class="offering-content__title">링크 형태 - 단일 비디오 클립 (.offering-video-clip)</h3>
+                  <p class="offering-content__description">가운데 재생 아이콘이 오버레이된 비디오 링크 카드</p>
+                </div>
+                <div class="offering-video-clip mt-20">
+                  <a href="#" class="offering-video-clip__link" target="_blank" aria-label="데모 동영상 재생">
+                    <img src="/static/images/offering/@video_thumbnail.png" alt="">
+                    <i class="icon-play icon"></i>
+                  </a>
+                </div>
+
+                <!-- Grid Video Clips -->
+                <div class="offering-content__header align-left header-sm mt-60">
+                  <h3 class="offering-content__title">링크 형태 - 그리드형 비디오 클립 (.grid-video-clip)</h3>
+                  <p class="offering-content__description">그리드 레이아웃 내에서 제목 및 링크와 조합된 비디오 카드 형태</p>
+                </div>
+                <div class="offering-grid grid-2 mt-20">
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner grid-video-clip">
+                      <a href="#" class="grid-video-clip__video" target="_blank" aria-label="동영상 보기" title="새 창 열림" rel="noopener noreferrer">
+                        <img src="/static/images/offering/@video_thumbnail.png" alt="" aria-hidden="true" role="presentation">
+                        <i class="icon-play icon" aria-hidden="true"></i>
+                      </a>
+                      <div class="grid-video-clip__content">
+                        <h4 class="grid-video-clip__text text-bold">첫 번째 비디오 타이틀 텍스트</h4>
+                      </div>
+                      <a href="#" class="grid-video-clip__link" aria-label="동영상 보기">동영상 보기</a>
+                    </div>
+                  </div>
+                  <div class="offering-grid__item">
+                    <div class="offering-grid__inner grid-video-clip">
+                      <a href="#" class="grid-video-clip__video" target="_blank" aria-label="동영상 보기" title="새 창 열림" rel="noopener noreferrer">
+                        <img src="/static/images/offering/@video_thumbnail.png" alt="" aria-hidden="true" role="presentation">
+                        <i class="icon-play icon" aria-hidden="true"></i>
+                      </a>
+                      <div class="grid-video-clip__content">
+                        <h4 class="grid-video-clip__text text-bold">두 번째 비디오 타이틀 텍스트</h4>
+                      </div>
+                      <a href="#" class="grid-video-clip__link" aria-label="동영상 보기">동영상 보기</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Grid Video Clips -->
+                <div class="offering-content__header align-left header-sm mt-60">
+                  <h3 class="offering-content__title">임베디드 형태 - 비디오 클립 ([data-video="wrapper"])</h3>
+                  <p class="offering-content__description">영상이 video 태그로 화면 내에 포함되어 있는 경우 - 자동재생</p>
+                </div>
+                <div class="offering-media-card offering-media-card--horizontal mt-20" data-video="wrapper">
+                  <div class="offering-media-card__video">
+                    <video
+                      class="video-clip"
+                      src="https://image.samsungsds.com/kr/ai-automation/demo-new/__icsFiles/afieldfile/2024/07/16/5.AI로자동화_확대-A_ Agent로_자동화_프로세스_손쉽게_수행.mp4?queryString=20260710105019"
+                      muted autoplay loop playsinline tabindex="-1"></video>
+                  </div>
+                  <div class="offering-media-card__content">
+                    <h4 class="offering-media-card__title">비디오 타이틀</h4>
+                    <p class="offering-media-card__text">[data-video="wrapper"] 내부에 video 태그가 있는 경우</p>
+                    <p class="offering-media-card__text">[data-control="video"] 하위의 [data-button="pause | play"] 버튼으로 비디오 컨트롤</p>
+                    <p class="offering-media-card__text">swiper 내에 있을 경우 slide 가 이동될떄 초기화 후 재생</p>
+
+                    <div class="offering-media-card__control" data-control="video">
+                      <button class="offering-media-card__pause" type="button" data-button="pause">
+                        <span class="blind">일시정지</span>
+                      </button>
+                      <button class="offering-media-card__play is-active" type="button" data-button="play">
+                        <span class="blind">재생</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="module-title">스크립트 가이드</div>
+              <section class="offering-content" id="scriptGuide" data-label="스크립트">
+                <div class="offering-content__header align-left header-sm mb-0">
+                  <h3 class="offering-content__title">접근성(A11y)</h3>
+                </div>
+                <ul class="check-icon-list">
+                  <li class="check-icon-list__item">HTML 수정을 최소화하기 위해 동적으로 접근성 관련 속성(aria-label, alt, title 등)을 보완</li>
+                  <li class="check-icon-list__item">링크 텍스트 자동 수정
+                    <ul class="dotted-list">
+                      <li class="dotted-list__item">컨테이너 내의 제목(H1-H6 또는 특정 클래스)을 찾아 aria-label 자동 생성(aria-label="XXX 더 보기")</li>
+                      <li class="dotted-list__item">새창 열림 링크(`target="_blank"`)에 title 자동 추가</li>
+                      <li class="dotted-list__item">새창 열림 링크(`target="_blank"`)에 rel 자동 추가(보안/SEO)</li>
+                    </ul>
+                  </li>
+                  <li class="check-icon-list__item">장식용 이미지 / 아이콘 처리
+                    <ul class="dotted-list">
+                      <li class="dotted-list__item">`alt=""` 와 같이 비어있는 경우 aria-hidden / role 자동 추가</li>
+                      <li class="dotted-list__item">아이콘요소(`i, span.icon-*`) 의 경우 `aria-hidden` 추가</li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="offering-content__header align-left header-sm mt-20 ml-0">
+                  <h3 class="offering-content__title">좌측 네비게이션 자동화</h3>
+                </div>
+                <ul class="check-icon-list">
+                  <li class="check-icon-list__item">`#mainContent` 내부의 `[data-label]` 속성을 가진 섹션들을 기반으로 메뉴가 자동 생성</li>
+                  <li class="check-icon-list__item">`id`는 필수이며, 해당 ID로 스크롤 이동 기능이 매핑</li>
+                </ul>
+                <div class="offering-content__header align-left header-sm mt-20 mb-0">
+                  <h3 class="offering-content__title">공통 애니메이션: riseup</h3>
+                </div>
+                <ul class="check-icon-list">
+                  <li class="check-icon-list__item">`data-rise="step"`: 섹션 진입 시 하위 `data-rise-step` 요소들을 200ms 간격으로 순차 실행</li>
+                  <li class="check-icon-list__item">`data-rise="current"`: 섹션 진입 시 해당 요소에 즉시 애니메이션을 적용</li>
+                </ul>
+              </section>
+            </div>
+          </div>
+
+          <!-- 문의 배너 (공통) -->
+          
+          <!-- ========================================== -->
+          <!-- [공통 모듈: 문의하기 배너 (Contact Banner)] -->
+          <section class="contact-banner section" id="ContactUs" data-label="문의하기">
+            <div class="section__inner contact-banner__inner">
+              <div class="section__head">
+                <div class="section__heading">
+                  <div class="contact-banner__eyebrow">CONTACT US</div>
+                  <h2 class="contact-banner__title">무엇이든 물어보세요.</h2>
+                  <p class="contact-banner__description">AI 도입부터 최적화까지, 맞춤형 솔루션을 제안해 드립니다.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </main>
+      </div>
+
+      <!--#include file="/inc/footer.inc" -->
+    </div>
+
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/offering_module.js"></script>
+  </body>
+</html>

@@ -1,0 +1,394 @@
+/* ==========================================================================
+   [PART 1: BASE] 완전 공통 베이스 스타일
+   - 리셋, 키프레임 애니메이션, .offering-main 기본 래퍼, 반응형 유틸리티
+   ========================================================================== */
+
+// offering 초기화
+#wrap:before,
+#wrap:after {
+    content: none;
+}
+
+html,
+body {
+    height: auto;
+}
+
+// 공통 기본 링크 스타일
+%offering-link {
+    display: inline-flex;
+    gap: 11px;
+    align-items: center;
+    padding-right: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2189ff;
+
+    &::after {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: 2px;
+        width: 7.5px;
+        height: 13.3px;
+        mask: url(../images/offering/icon_offering_arrow_link.svg) 50% 50% no-repeat;
+        mask-size: auto 100%;
+        background: #2189ff;
+        transition: transform 0.2s ease;
+    }
+
+    &:focus,
+    &:hover {
+        &::after {
+            transform: translateX(4px);
+        }
+    }
+}
+
+// keyframes
+@keyframes logo-enter {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0) scale(0.93);
+    }
+
+    18% {
+        opacity: 0.18;
+    }
+
+    70% {
+        opacity: 1;
+        transform: translate3d(0, 2px, 0) scale(1.012);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes shadow-enter {
+    0% {
+        opacity: 0;
+        transform: translate3d(-5px, -8px, 0) scale(0.68);
+    }
+
+    58% {
+        opacity: 0.46;
+    }
+
+    82% {
+        opacity: 0.78;
+        transform: translate3d(1px, 1px, 0) scale(1.025);
+    }
+
+    100% {
+        opacity: 0.72;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes logo-float {
+    0% {
+        transform: translate3d(0, 1px, 0) rotate(-0.18deg);
+    }
+
+    48% {
+        transform: translate3d(0, -7px, 0) rotate(0.18deg);
+    }
+
+    100% {
+        transform: translate3d(0, -10px, 0) rotate(0.32deg);
+    }
+}
+
+@keyframes shadow-breathe {
+    0% {
+        opacity: 0.76;
+        transform: translate3d(0, 0, 0) scale(0.97);
+    }
+
+    48% {
+        opacity: 0.64;
+        transform: translate3d(1px, 4px, 0) scale(1.02);
+    }
+
+    100% {
+        opacity: 0.56;
+        transform: translate3d(2px, 6px, 0) scale(1.045);
+    }
+}
+
+@keyframes radiance-enter {
+    from {
+        opacity: 0;
+        transform: scale(0.76);
+    }
+
+    to {
+        opacity: 0.54;
+        transform: scale(1);
+    }
+}
+
+@keyframes radiance-breathe {
+    from {
+        opacity: 0.38;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 0.72;
+        transform: scale(1.055);
+    }
+}
+
+@keyframes shine-visibility {
+
+    0%,
+    9%,
+    54%,
+    100% {
+        opacity: 0;
+    }
+
+    15%,
+    38% {
+        opacity: 0.64;
+    }
+}
+
+@keyframes logo-shine {
+
+    0%,
+    9% {
+        clip-path: polygon(-28% 0, -7% 0, -22% 100%, -43% 100%);
+    }
+
+    42% {
+        clip-path: polygon(122% 0, 143% 0, 128% 100%, 107% 100%);
+    }
+
+    100% {
+        clip-path: polygon(122% 0, 143% 0, 128% 100%, 107% 100%);
+    }
+}
+
+@keyframes spark-rhythm {
+
+    0%,
+    5%,
+    25%,
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    9% {
+        opacity: 0.92;
+        transform: translate(-50%, -50%) scale(1.14);
+    }
+
+    13% {
+        opacity: 0.28;
+        transform: translate(-50%, -50%) scale(0.76);
+    }
+
+    18% {
+        opacity: 0.78;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    24% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.34);
+    }
+}
+
+@keyframes signal-flow {
+
+    0%,
+    8% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+
+    16% {
+        opacity: 0.92;
+    }
+
+    78% {
+        opacity: 0.68;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(44vw, 0, 0);
+    }
+}
+
+@keyframes emerge {
+    0% {
+        transform: translate(-50%, -50%) translateY(12%) scale(.965);
+        opacity: 0
+    }
+
+    55% {
+        opacity: 1
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translateY(0) scale(1);
+        opacity: 1
+    }
+}
+
+@keyframes floaty {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-6%)
+    }
+}
+
+@keyframes sfade {
+    to {
+        opacity: .9
+    }
+}
+
+@keyframes sfloat {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .9
+    }
+
+    50% {
+        transform: scale(1.14);
+        opacity: .62
+    }
+}
+
+@keyframes sweep {
+    0% {
+        transform: translateX(-160%) skewX(-16deg)
+    }
+
+    9% {
+        transform: translateX(320%) skewX(-16deg)
+    }
+
+    9.01%,
+    100% {
+        transform: translateX(-160%) skewX(-16deg)
+    }
+}
+
+
+.offering-main {
+    line-height: 1.6;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    &#container {
+        overflow: visible;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+    .color-blue {
+        color: #0069ff;
+    }
+
+    .color-black {
+        color: #000;
+    }
+
+    .mt-80 {
+        margin-top: 80px;
+    }
+
+    .fw-500 {
+        font-weight: 500;
+    }
+
+    .height-auto {
+        height: auto;
+    }
+
+    .mh-auto {
+        min-height: auto;
+    }
+
+    .line-2 {
+        min-height: 64px;
+    }
+
+    .mb-0 {
+        margin-bottom: 0;
+    }
+
+    .bg-white {
+        background: #fff;
+    }
+
+    .mo-only {
+        display: none;
+    }
+
+    .media-swiper-remote {
+        display: none;
+    }
+
+    // opening
+    // &.loaded {
+    //   // .fabrix .offering-hero__bg::after{
+    //   //   opacity: 1;
+    //   //   transform: scale(1);
+    //   // }
+    //   .offering-hero__bg img {
+    //     opacity: 1;
+    //     animation: change 20s linear infinite;
+    //   }
+    // }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .logo-enter,
+    .shadow-enter {
+        opacity: 1;
+        transform: none;
+    }
+
+    .logo-float,
+    .shadow-breathe,
+    .logo-radiance,
+    .logo-shine-mask,
+    .logo-shine-image,
+    .spark,
+    .flow-signal {
+        animation: none !important;
+    }
+
+    .logo-radiance {
+        opacity: 0.42;
+        transform: none;
+    }
+
+    .motion-controls {
+        display: none;
+    }
+}
